@@ -1,0 +1,581 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		893AC25C2A3B42AA00D621FE /* TreinRadarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893AC25B2A3B42AA00D621FE /* TreinRadarApp.swift */; };
+		893AC25E2A3B42AA00D621FE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893AC25D2A3B42AA00D621FE /* ContentView.swift */; };
+		893AC2602A3B42AB00D621FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 893AC25F2A3B42AB00D621FE /* Assets.xcassets */; };
+		893AC2632A3B42AB00D621FE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 893AC2622A3B42AB00D621FE /* Preview Assets.xcassets */; };
+		893AC26D2A3B42E300D621FE /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893AC26C2A3B42E300D621FE /* API.swift */; };
+		893AC2702A3B436F00D621FE /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 893AC26F2A3B436F00D621FE /* Alamofire */; };
+		893AC2722A3B470F00D621FE /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893AC2712A3B470F00D621FE /* MapView.swift */; };
+		893AC2742A3B489300D621FE /* CurrentVehicles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893AC2732A3B489300D621FE /* CurrentVehicles.swift */; };
+		893AC2772A3B493500D621FE /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893AC2762A3B493500D621FE /* APIError.swift */; };
+		893AC2792A3B4A9E00D621FE /* StationsSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893AC2782A3B4A9E00D621FE /* StationsSearchView.swift */; };
+		893AC27B2A3B4B1100D621FE /* StationsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893AC27A2A3B4B1100D621FE /* StationsResponse.swift */; };
+		893AC27D2A3B505000D621FE /* DeparturesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893AC27C2A3B504F00D621FE /* DeparturesView.swift */; };
+		893AC27F2A3B507300D621FE /* DeparturesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893AC27E2A3B507300D621FE /* DeparturesResponse.swift */; };
+		893C4CCC2A45B29C002E3540 /* JourneyGeojson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893C4CCB2A45B29C002E3540 /* JourneyGeojson.swift */; };
+		893C4CCF2A460CC8002E3540 /* JourneyMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893C4CCE2A460CC7002E3540 /* JourneyMapView.swift */; };
+		893C4CD12A460D68002E3540 /* JourneyMapViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893C4CD02A460D68002E3540 /* JourneyMapViewCoordinator.swift */; };
+		895A30FF2A44219500E305D8 /* JourneyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895A30FE2A44219500E305D8 /* JourneyViewModel.swift */; };
+		895A31022A4421FC00E305D8 /* Date+Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895A31012A4421FC00E305D8 /* Date+Formatter.swift */; };
+		89ACF2F12A470F4A00A4AC57 /* Stops+Geojson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89ACF2F02A470F4A00A4AC57 /* Stops+Geojson.swift */; };
+		89ACF2F32A4714FA00A4AC57 /* StationAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89ACF2F22A4714FA00A4AC57 /* StationAnnotation.swift */; };
+		89ACF2F52A47161700A4AC57 /* TrainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89ACF2F42A47161700A4AC57 /* TrainManager.swift */; };
+		89ACF2F72A47172400A4AC57 /* StationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89ACF2F62A47172400A4AC57 /* StationsManager.swift */; };
+		89ACF2F92A471CB500A4AC57 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89ACF2F82A471CB500A4AC57 /* LocationManager.swift */; };
+		89CEFD8A2A3CF68300383555 /* Journey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CEFD892A3CF68300383555 /* Journey.swift */; };
+		89CEFD8D2A3CF95600383555 /* DeparturesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CEFD8C2A3CF95600383555 /* DeparturesViewModel.swift */; };
+		89CEFD902A3CFEBE00383555 /* FavouritesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CEFD8F2A3CFEBE00383555 /* FavouritesController.swift */; };
+		89CEFD932A3CFF4000383555 /* Defaults in Frameworks */ = {isa = PBXBuildFile; productRef = 89CEFD922A3CFF4000383555 /* Defaults */; };
+		89CEFD952A3CFF5100383555 /* SavedStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CEFD942A3CFF5100383555 /* SavedStation.swift */; };
+		89CEFD972A3D004B00383555 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CEFD962A3D004B00383555 /* Defaults.swift */; };
+		89CEFD992A3D02B100383555 /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CEFD982A3D02B100383555 /* Station.swift */; };
+		89CEFD9C2A3D062900383555 /* JourneyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CEFD9B2A3D062900383555 /* JourneyView.swift */; };
+		89CEFD9E2A3D065000383555 /* JourneyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CEFD9D2A3D064F00383555 /* JourneyResponse.swift */; };
+		89CEFDA02A3D07ED00383555 /* Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CEFD9F2A3D07ED00383555 /* Shared.swift */; };
+		89CEFDA22A3D0BBB00383555 /* PlannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CEFDA12A3D0BBB00383555 /* PlannerView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		893AC2582A3B42AA00D621FE /* TreinRadar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TreinRadar.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		893AC25B2A3B42AA00D621FE /* TreinRadarApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreinRadarApp.swift; sourceTree = "<group>"; };
+		893AC25D2A3B42AA00D621FE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		893AC25F2A3B42AB00D621FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		893AC2622A3B42AB00D621FE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		893AC26C2A3B42E300D621FE /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		893AC2712A3B470F00D621FE /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		893AC2732A3B489300D621FE /* CurrentVehicles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentVehicles.swift; sourceTree = "<group>"; };
+		893AC2762A3B493500D621FE /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		893AC2782A3B4A9E00D621FE /* StationsSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationsSearchView.swift; sourceTree = "<group>"; };
+		893AC27A2A3B4B1100D621FE /* StationsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationsResponse.swift; sourceTree = "<group>"; };
+		893AC27C2A3B504F00D621FE /* DeparturesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeparturesView.swift; sourceTree = "<group>"; };
+		893AC27E2A3B507300D621FE /* DeparturesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeparturesResponse.swift; sourceTree = "<group>"; };
+		893C4CCB2A45B29C002E3540 /* JourneyGeojson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyGeojson.swift; sourceTree = "<group>"; };
+		893C4CCE2A460CC7002E3540 /* JourneyMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyMapView.swift; sourceTree = "<group>"; };
+		893C4CD02A460D68002E3540 /* JourneyMapViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyMapViewCoordinator.swift; sourceTree = "<group>"; };
+		895A30FE2A44219500E305D8 /* JourneyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyViewModel.swift; sourceTree = "<group>"; };
+		895A31012A4421FC00E305D8 /* Date+Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Formatter.swift"; sourceTree = "<group>"; };
+		89ACF2F02A470F4A00A4AC57 /* Stops+Geojson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Stops+Geojson.swift"; sourceTree = "<group>"; };
+		89ACF2F22A4714FA00A4AC57 /* StationAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationAnnotation.swift; sourceTree = "<group>"; };
+		89ACF2F42A47161700A4AC57 /* TrainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainManager.swift; sourceTree = "<group>"; };
+		89ACF2F62A47172400A4AC57 /* StationsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationsManager.swift; sourceTree = "<group>"; };
+		89ACF2F82A471CB500A4AC57 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		89CEFD892A3CF68300383555 /* Journey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Journey.swift; sourceTree = "<group>"; };
+		89CEFD8C2A3CF95600383555 /* DeparturesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeparturesViewModel.swift; sourceTree = "<group>"; };
+		89CEFD8F2A3CFEBE00383555 /* FavouritesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesController.swift; sourceTree = "<group>"; };
+		89CEFD942A3CFF5100383555 /* SavedStation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedStation.swift; sourceTree = "<group>"; };
+		89CEFD962A3D004B00383555 /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
+		89CEFD982A3D02B100383555 /* Station.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
+		89CEFD9B2A3D062900383555 /* JourneyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyView.swift; sourceTree = "<group>"; };
+		89CEFD9D2A3D064F00383555 /* JourneyResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyResponse.swift; sourceTree = "<group>"; };
+		89CEFD9F2A3D07ED00383555 /* Shared.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shared.swift; sourceTree = "<group>"; };
+		89CEFDA12A3D0BBB00383555 /* PlannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlannerView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		893AC2552A3B42AA00D621FE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				89CEFD932A3CFF4000383555 /* Defaults in Frameworks */,
+				893AC2702A3B436F00D621FE /* Alamofire in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		893AC24F2A3B42AA00D621FE = {
+			isa = PBXGroup;
+			children = (
+				893AC25A2A3B42AA00D621FE /* TreinRadar */,
+				893AC2592A3B42AA00D621FE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		893AC2592A3B42AA00D621FE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				893AC2582A3B42AA00D621FE /* TreinRadar.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		893AC25A2A3B42AA00D621FE /* TreinRadar */ = {
+			isa = PBXGroup;
+			children = (
+				89CEFD8E2A3CFEB100383555 /* Managers */,
+				893AC26B2A3B42D700D621FE /* API */,
+				893AC26A2A3B42D000D621FE /* Structs */,
+				895A31002A4421EF00E305D8 /* Extensions */,
+				893AC2692A3B42C000D621FE /* Views */,
+				893AC25B2A3B42AA00D621FE /* TreinRadarApp.swift */,
+				893AC25D2A3B42AA00D621FE /* ContentView.swift */,
+				893AC25F2A3B42AB00D621FE /* Assets.xcassets */,
+				893AC2612A3B42AB00D621FE /* Preview Content */,
+			);
+			path = TreinRadar;
+			sourceTree = "<group>";
+		};
+		893AC2612A3B42AB00D621FE /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				893AC2622A3B42AB00D621FE /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		893AC2692A3B42C000D621FE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				89CEFDA12A3D0BBB00383555 /* PlannerView.swift */,
+				893AC2712A3B470F00D621FE /* MapView.swift */,
+				893AC2782A3B4A9E00D621FE /* StationsSearchView.swift */,
+				89CEFD8B2A3CF94400383555 /* Departures */,
+				89CEFD9A2A3D061E00383555 /* Journey */,
+				893C4CCD2A460CB6002E3540 /* JourneyMapView */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		893AC26A2A3B42D000D621FE /* Structs */ = {
+			isa = PBXGroup;
+			children = (
+				893AC2752A3B489800D621FE /* NS */,
+				89CEFD942A3CFF5100383555 /* SavedStation.swift */,
+				89CEFD982A3D02B100383555 /* Station.swift */,
+				89CEFD892A3CF68300383555 /* Journey.swift */,
+				89ACF2F02A470F4A00A4AC57 /* Stops+Geojson.swift */,
+				89ACF2F22A4714FA00A4AC57 /* StationAnnotation.swift */,
+			);
+			path = Structs;
+			sourceTree = "<group>";
+		};
+		893AC26B2A3B42D700D621FE /* API */ = {
+			isa = PBXGroup;
+			children = (
+				893AC26C2A3B42E300D621FE /* API.swift */,
+				893AC2762A3B493500D621FE /* APIError.swift */,
+				89CEFD962A3D004B00383555 /* Defaults.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		893AC2752A3B489800D621FE /* NS */ = {
+			isa = PBXGroup;
+			children = (
+				893AC2732A3B489300D621FE /* CurrentVehicles.swift */,
+				893AC27A2A3B4B1100D621FE /* StationsResponse.swift */,
+				893AC27E2A3B507300D621FE /* DeparturesResponse.swift */,
+				89CEFD9D2A3D064F00383555 /* JourneyResponse.swift */,
+				893C4CCB2A45B29C002E3540 /* JourneyGeojson.swift */,
+				89CEFD9F2A3D07ED00383555 /* Shared.swift */,
+			);
+			path = NS;
+			sourceTree = "<group>";
+		};
+		893C4CCD2A460CB6002E3540 /* JourneyMapView */ = {
+			isa = PBXGroup;
+			children = (
+				893C4CCE2A460CC7002E3540 /* JourneyMapView.swift */,
+				893C4CD02A460D68002E3540 /* JourneyMapViewCoordinator.swift */,
+			);
+			path = JourneyMapView;
+			sourceTree = "<group>";
+		};
+		895A31002A4421EF00E305D8 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				895A31012A4421FC00E305D8 /* Date+Formatter.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		89CEFD8B2A3CF94400383555 /* Departures */ = {
+			isa = PBXGroup;
+			children = (
+				89CEFD8C2A3CF95600383555 /* DeparturesViewModel.swift */,
+				893AC27C2A3B504F00D621FE /* DeparturesView.swift */,
+			);
+			path = Departures;
+			sourceTree = "<group>";
+		};
+		89CEFD8E2A3CFEB100383555 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				89CEFD8F2A3CFEBE00383555 /* FavouritesController.swift */,
+				89ACF2F42A47161700A4AC57 /* TrainManager.swift */,
+				89ACF2F62A47172400A4AC57 /* StationsManager.swift */,
+				89ACF2F82A471CB500A4AC57 /* LocationManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		89CEFD9A2A3D061E00383555 /* Journey */ = {
+			isa = PBXGroup;
+			children = (
+				89CEFD9B2A3D062900383555 /* JourneyView.swift */,
+				895A30FE2A44219500E305D8 /* JourneyViewModel.swift */,
+			);
+			path = Journey;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		893AC2572A3B42AA00D621FE /* TreinRadar */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 893AC2662A3B42AB00D621FE /* Build configuration list for PBXNativeTarget "TreinRadar" */;
+			buildPhases = (
+				893AC2542A3B42AA00D621FE /* Sources */,
+				893AC2552A3B42AA00D621FE /* Frameworks */,
+				893AC2562A3B42AA00D621FE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TreinRadar;
+			packageProductDependencies = (
+				893AC26F2A3B436F00D621FE /* Alamofire */,
+				89CEFD922A3CFF4000383555 /* Defaults */,
+			);
+			productName = TreinRadar;
+			productReference = 893AC2582A3B42AA00D621FE /* TreinRadar.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		893AC2502A3B42AA00D621FE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					893AC2572A3B42AA00D621FE = {
+						CreatedOnToolsVersion = 15.0;
+					};
+				};
+			};
+			buildConfigurationList = 893AC2532A3B42AA00D621FE /* Build configuration list for PBXProject "TreinRadar" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = nl;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				nl,
+			);
+			mainGroup = 893AC24F2A3B42AA00D621FE;
+			packageReferences = (
+				893AC26E2A3B436F00D621FE /* XCRemoteSwiftPackageReference "Alamofire" */,
+				89CEFD912A3CFF4000383555 /* XCRemoteSwiftPackageReference "Defaults" */,
+			);
+			productRefGroup = 893AC2592A3B42AA00D621FE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				893AC2572A3B42AA00D621FE /* TreinRadar */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		893AC2562A3B42AA00D621FE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				893AC2632A3B42AB00D621FE /* Preview Assets.xcassets in Resources */,
+				893AC2602A3B42AB00D621FE /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		893AC2542A3B42AA00D621FE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				893C4CCC2A45B29C002E3540 /* JourneyGeojson.swift in Sources */,
+				893AC25E2A3B42AA00D621FE /* ContentView.swift in Sources */,
+				89ACF2F92A471CB500A4AC57 /* LocationManager.swift in Sources */,
+				895A30FF2A44219500E305D8 /* JourneyViewModel.swift in Sources */,
+				89CEFD9E2A3D065000383555 /* JourneyResponse.swift in Sources */,
+				893C4CCF2A460CC8002E3540 /* JourneyMapView.swift in Sources */,
+				89CEFD8A2A3CF68300383555 /* Journey.swift in Sources */,
+				893AC2722A3B470F00D621FE /* MapView.swift in Sources */,
+				893AC2742A3B489300D621FE /* CurrentVehicles.swift in Sources */,
+				89CEFDA02A3D07ED00383555 /* Shared.swift in Sources */,
+				89CEFD952A3CFF5100383555 /* SavedStation.swift in Sources */,
+				893AC2792A3B4A9E00D621FE /* StationsSearchView.swift in Sources */,
+				893AC27D2A3B505000D621FE /* DeparturesView.swift in Sources */,
+				893AC26D2A3B42E300D621FE /* API.swift in Sources */,
+				893AC27B2A3B4B1100D621FE /* StationsResponse.swift in Sources */,
+				89ACF2F52A47161700A4AC57 /* TrainManager.swift in Sources */,
+				893C4CD12A460D68002E3540 /* JourneyMapViewCoordinator.swift in Sources */,
+				895A31022A4421FC00E305D8 /* Date+Formatter.swift in Sources */,
+				89CEFDA22A3D0BBB00383555 /* PlannerView.swift in Sources */,
+				893AC25C2A3B42AA00D621FE /* TreinRadarApp.swift in Sources */,
+				89CEFD992A3D02B100383555 /* Station.swift in Sources */,
+				89ACF2F72A47172400A4AC57 /* StationsManager.swift in Sources */,
+				893AC2772A3B493500D621FE /* APIError.swift in Sources */,
+				89CEFD9C2A3D062900383555 /* JourneyView.swift in Sources */,
+				89ACF2F12A470F4A00A4AC57 /* Stops+Geojson.swift in Sources */,
+				893AC27F2A3B507300D621FE /* DeparturesResponse.swift in Sources */,
+				89CEFD972A3D004B00383555 /* Defaults.swift in Sources */,
+				89CEFD8D2A3CF95600383555 /* DeparturesViewModel.swift in Sources */,
+				89ACF2F32A4714FA00A4AC57 /* StationAnnotation.swift in Sources */,
+				89CEFD902A3CFEBE00383555 /* FavouritesController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		893AC2642A3B42AB00D621FE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		893AC2652A3B42AB00D621FE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		893AC2672A3B42AB00D621FE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"TreinRadar/Preview Content\"";
+				DEVELOPMENT_TEAM = C4HKS39B24;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Nodig om dingen in jouw buurt te kunnen bepalen";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = nl.wissehes.TreinRadar;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		893AC2682A3B42AB00D621FE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"TreinRadar/Preview Content\"";
+				DEVELOPMENT_TEAM = C4HKS39B24;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Nodig om dingen in jouw buurt te kunnen bepalen";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = nl.wissehes.TreinRadar;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		893AC2532A3B42AA00D621FE /* Build configuration list for PBXProject "TreinRadar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				893AC2642A3B42AB00D621FE /* Debug */,
+				893AC2652A3B42AB00D621FE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		893AC2662A3B42AB00D621FE /* Build configuration list for PBXNativeTarget "TreinRadar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				893AC2672A3B42AB00D621FE /* Debug */,
+				893AC2682A3B42AB00D621FE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		893AC26E2A3B436F00D621FE /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+		89CEFD912A3CFF4000383555 /* XCRemoteSwiftPackageReference "Defaults" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sindresorhus/Defaults";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		893AC26F2A3B436F00D621FE /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 893AC26E2A3B436F00D621FE /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		89CEFD922A3CFF4000383555 /* Defaults */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 89CEFD912A3CFF4000383555 /* XCRemoteSwiftPackageReference "Defaults" */;
+			productName = Defaults;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 893AC2502A3B42AA00D621FE /* Project object */;
+}
