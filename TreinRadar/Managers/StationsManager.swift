@@ -11,11 +11,11 @@ final class StationsManager: ObservableObject {
     
     static let shared = StationsManager()
 
-    @Published var stations: [FullStation] = []
+    @Published var stations: [FullStation]?
     
-    init() {
-        Task { await self.getData() }
-    }
+//    init() {
+//        Task { await self.getData() }
+//    }
     
     func getData() async {
         do {
@@ -25,6 +25,6 @@ final class StationsManager: ObservableObject {
     }
     
     func getStation(code: String) -> FullStation? {
-        self.stations.first { $0.code.lowercased() == code.lowercased() }
+        self.stations?.first { $0.code.lowercased() == code.lowercased() }
     }
 }

@@ -22,10 +22,25 @@ final class LocationManager: NSObject, ObservableObject, CLLocationManagerDelega
     }
     
     func requestLocation() {
-        manager.requestLocation()
+        if permissionStatus == .notDetermined {
+            manager.requestWhenInUseAuthorization()
+        }
+        
+        if permissionStatus == .authorizedAlways || permissionStatus == .authorizedWhenInUse {
+            manager.requestLocation()
+        }
+    }
+    
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        self.permissionStatus = manager.authorizationStatus
+        self.requestLocation()
     }
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         location = locations.first?.coordinate
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print(error)
     }
 }

@@ -21,7 +21,7 @@ struct JourneyMapView: UIViewRepresentable {
     
     func makeUIView(context: Context) -> MKMapView {
         let mapView = MKMapView()
-        mapView.showsUserLocation = true
+        mapView.showsUserLocation = false
         mapView.delegate = context.coordinator
         mapView.isZoomEnabled = !inline
         mapView.isScrollEnabled = !inline

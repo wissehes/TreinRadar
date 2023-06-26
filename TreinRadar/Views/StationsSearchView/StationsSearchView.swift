@@ -10,12 +10,14 @@ import Defaults
 
 struct StationsSearchView: View {
     
+    @EnvironmentObject var stationsManager: StationsManager
+    @StateObject var vm = StationsSearchViewModel()
     @State private var stations: [FullStation]?
     @State private var searchQuery = "";
     @Default(.favouriteStations) var favStations
     
     var filtered: [FullStation]? {
-        guard let stations = stations else { return nil };
+        guard let stations = stationsManager.stations else { return nil };
         
         if searchQuery.isEmpty {
             return stations.filter { $0.land == .nl }
@@ -61,6 +63,20 @@ struct StationsSearchView: View {
                     }
                 }
                 
+                if let nearbyStations = vm.nearbyStations {
+                    Section("In de buurt") {
+                        ForEach(nearbyStations, id: \.code) { station in
+                            NavigationLink(value: station) {
+                                VStack(alignment: .leading) {
+                                    Text(station.name)
+                                    Text("\(station.fDistance()) meter")
+                                        .font(.subheadline)
+                                }
+                            }
+                        }
+                    }
+                }
+                
                 Section("Stations") {
                     ForEach(filtered ?? [], id: \.code) {station in
                         NavigationLink(value: station) {
@@ -78,17 +94,15 @@ struct StationsSearchView: View {
                     
                 }
             }.navigationTitle("Stations")
-                .task {
-                    do {
-                        let data = try await API.shared.getStations()
-                        DispatchQueue.main.async { self.stations = data }
-                    } catch { print(error) }
-                }
+                .task { await stationsManager.getData() }
                 .searchable(text: $searchQuery)
                 .navigationDestination(for: FullStation.self) { station in
                     DeparturesView(station: station)
                 }
                 .navigationDestination(for: SavedStation.self) { station in
+                    DeparturesView(station: station)
+                }
+                .navigationDestination(for: StationWithDistance.self) { station in
                     DeparturesView(station: station)
                 }
         }
@@ -98,6 +112,7 @@ struct StationsSearchView: View {
 struct StationsSearchView_Previews: PreviewProvider {
     static var previews: some View {
         StationsSearchView()
+            .environmentObject(StationsManager.shared)
     }
 }
 

@@ -83,22 +83,26 @@ struct DeparturesView: View {
                 
                 Spacer()
                 
-                VStack(alignment: .center) {
-                    Text("Spoor")
-                        .font(.subheadline)
-                    Text(item.actualTrack ?? "?")
-                        .bold()
+                if let track = item.actualTrack {
+                    
+                    VStack(alignment: .center) {
+                        Text("Spoor")
+                            .font(.subheadline)
+                        Text(track)
+                            .bold()
+                    }
                 }
             }
             
-            if(!item.messages.isEmpty) {
+            if !item.messages.isEmpty {
                 messages(item.messages)
             }
         }
     }
     
     func messages(_ messages: [Message]) -> some View {
-        ForEach(messages.filter({ $0.style != .info }), id: \.message) { msg in
+//        ForEach(messages.filter({ $0.style != .info }), id: \.message) { msg in
+        ForEach(messages, id: \.message) { msg in
             Text(msg.message)
                 .font(.subheadline)
                 .italic()

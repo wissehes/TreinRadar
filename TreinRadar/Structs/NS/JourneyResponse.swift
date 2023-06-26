@@ -57,7 +57,7 @@ struct Stop: Codable {
 
 // MARK: - Stock
 struct Stock: Codable {
-    let trainType: String
+    let trainType: String?
     let numberOfSeats, numberOfParts: Int?
     let trainParts: [TrainPart]
     let hasSignificantChange: Bool

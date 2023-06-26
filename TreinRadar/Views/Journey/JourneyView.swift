@@ -35,11 +35,30 @@ struct JourneyView: View {
         List {
             Section {
                 Text("\(vm.category) richting **\(vm.destination?.name ?? "?")**")
-                trainParts
+                if vm.firstRealStop?.actualStock?.trainParts != nil {
+                    trainParts
+                }
                 
-                Text("Lengte: \(vm.firstRealStop?.actualStock?.numberOfParts ?? 0) delen")
-                Text("Zitplaatsen: \(vm.firstRealStop?.actualStock?.numberOfSeats ?? 0)")
-                Text("Materieel: \(vm.stockNumbers)")
+                if let length = vm.firstRealStop?.actualStock?.numberOfParts {
+                    Text("Lengte: \(length) delen")
+                }
+                if let seats = vm.firstRealStop?.actualStock?.numberOfSeats {
+                    Text("Zitplaatsen: \(seats)")
+                }
+                if vm.stockNumbers != "0" {
+                    Text("Materieel: \(vm.stockNumbers)")
+                }
+            }
+            
+            if !journey.notes.isEmpty {
+                Section("Waarschuwingen") {
+                    ForEach(journey.notes, id: \.text) { note in
+                        VStack(alignment: .leading) {
+                            Text(note.noteType)
+                            Text(note.text)
+                        }
+                    }
+                }
             }
             
             if let geojson = vm.geojson {
@@ -86,7 +105,7 @@ struct JourneyView: View {
                             image.resizable().scaledToFit()
                         } placeholder: {
                             ProgressView()
-                        }.frame(maxHeight: 60)
+                        }.frame(height: 60)
                     }
                 }
             }
