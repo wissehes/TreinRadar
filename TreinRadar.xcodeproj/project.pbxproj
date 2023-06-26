@@ -42,7 +42,7 @@
 		89CEFD9C2A3D062900383555 /* JourneyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CEFD9B2A3D062900383555 /* JourneyView.swift */; };
 		89CEFD9E2A3D065000383555 /* JourneyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CEFD9D2A3D064F00383555 /* JourneyResponse.swift */; };
 		89CEFDA02A3D07ED00383555 /* Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CEFD9F2A3D07ED00383555 /* Shared.swift */; };
-		89CEFDA22A3D0BBB00383555 /* PlannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CEFDA12A3D0BBB00383555 /* PlannerView.swift */; };
+		89CEFDA22A3D0BBB00383555 /* TravelInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CEFDA12A3D0BBB00383555 /* TravelInfoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,7 +80,7 @@
 		89CEFD9B2A3D062900383555 /* JourneyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyView.swift; sourceTree = "<group>"; };
 		89CEFD9D2A3D064F00383555 /* JourneyResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyResponse.swift; sourceTree = "<group>"; };
 		89CEFD9F2A3D07ED00383555 /* Shared.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shared.swift; sourceTree = "<group>"; };
-		89CEFDA12A3D0BBB00383555 /* PlannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlannerView.swift; sourceTree = "<group>"; };
+		89CEFDA12A3D0BBB00383555 /* TravelInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelInfoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,7 +139,7 @@
 		893AC2692A3B42C000D621FE /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				89CEFDA12A3D0BBB00383555 /* PlannerView.swift */,
+				89CEFDA12A3D0BBB00383555 /* TravelInfoView.swift */,
 				893AC2712A3B470F00D621FE /* MapView.swift */,
 				89ACF2FA2A485BBB00A4AC57 /* StationsSearchView */,
 				89CEFD8B2A3CF94400383555 /* Departures */,
@@ -339,7 +339,7 @@
 				893C4CD12A460D68002E3540 /* JourneyMapViewCoordinator.swift in Sources */,
 				89ACF2FC2A485BD100A4AC57 /* StationsSearchViewModel.swift in Sources */,
 				895A31022A4421FC00E305D8 /* Date+Formatter.swift in Sources */,
-				89CEFDA22A3D0BBB00383555 /* PlannerView.swift in Sources */,
+				89CEFDA22A3D0BBB00383555 /* TravelInfoView.swift in Sources */,
 				893AC25C2A3B42AA00D621FE /* TreinRadarApp.swift in Sources */,
 				89CEFD992A3D02B100383555 /* Station.swift in Sources */,
 				89ACF2F72A47172400A4AC57 /* StationsManager.swift in Sources */,
