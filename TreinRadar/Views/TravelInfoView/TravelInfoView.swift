@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct TravelInfoView: View {
+    @StateObject var vm = TravelInfoViewModel()
+    
     var body: some View {
         List {
             Text("TODO!")
