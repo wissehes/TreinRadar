@@ -8,6 +8,8 @@
 import Foundation
 import Alamofire
 
+typealias JourneyId = String
+
 final class Endpoints {
     static let currentVehicles = "\(API.baseURL)/virtual-train-api/api/vehicle";
     static let trainsInfo = "\(API.baseURL)/virtual-train-api/api/v1/trein"
@@ -17,6 +19,7 @@ final class Endpoints {
     
     static let journey = "\(API.baseURL)/reisinformatie-api/api/v2/journey"
     static let journeyGeojson = "\(API.baseURL)/Spoorkaart-API/api/v1/traject.json"
+    static let journeyFromStock = "\(API.baseURL)/virtual-train-api/api/v1/ritnummer"
 }
 
 final class API {
@@ -92,5 +95,14 @@ final class API {
             coordinates: feature.geometry.coordinates
         )
         return stopsAndGeometry
+    }
+    
+    func getJourneyFromStock(_ stockNumber: String) async throws -> JourneyId {
+        let journeyId = try await client
+            .request("\(Endpoints.journeyFromStock)/\(stockNumber)")
+            .serializingString()
+            .value
+        
+        return journeyId
     }
 }
