@@ -114,8 +114,8 @@ struct JourneyView: View {
     
     func depOrArrTimes(_ item: Stop) -> some View {
         VStack(alignment: .leading) {
-            Text("A: \(item.arrival?.plannedTime.timeFormat() ?? "--:--")")
-            Text("V: \(item.departure?.plannedTime.timeFormat() ?? "--:--")")
+            Text("A: \(item.arrival?.plannedTime?.timeFormat() ?? "--:--")")
+            Text("V: \(item.departure?.plannedTime?.timeFormat() ?? "--:--")")
         }.frame(width: 60, alignment: .center).font(.subheadline)
     }
 }

@@ -87,12 +87,13 @@ struct TrainImage: Codable, Hashable {
 // MARK: - ArrivalOrDeparture
 struct ArrivalOrDeparture: Codable {
     let product: Product
-    let origin, destination: StopInfo
-    let plannedTime, actualTime: Date
-    let delayInSeconds: Int
-    let plannedTrack, actualTrack: String
+    let origin: StopInfo
+    let destination: StopInfo?
+    let plannedTime, actualTime: Date?
+    let delayInSeconds: Int?
+    let plannedTrack, actualTrack: String?
     let cancelled: Bool
-    let crowdForecast: CrowdForecast
+    let crowdForecast: CrowdForecast?
     let stockIdentifiers: [String]?
     let punctuality: Double?
 }
