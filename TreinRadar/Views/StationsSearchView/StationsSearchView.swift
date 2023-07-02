@@ -12,8 +12,10 @@ struct StationsSearchView: View {
     
     @EnvironmentObject var stationsManager: StationsManager
     @StateObject var vm = StationsSearchViewModel()
+    
     @State private var stations: [FullStation]?
     @State private var searchQuery = "";
+    
     @Default(.favouriteStations) var favStations
     
     var filtered: [FullStation]? {
@@ -45,7 +47,7 @@ struct StationsSearchView: View {
         NavigationStack {
             List {
                 
-                if !favStations.isEmpty {
+                if !favStations.isEmpty && searchQuery.isEmpty {
                     Section("Favorieten") {
                         ForEach(favStations, id: \.code) { station in
                             NavigationLink(value: station) {
@@ -63,7 +65,7 @@ struct StationsSearchView: View {
                     }
                 }
                 
-                if let nearbyStations = vm.nearbyStations {
+                if let nearbyStations = vm.nearbyStations, searchQuery.isEmpty {
                     Section("In de buurt") {
                         ForEach(nearbyStations, id: \.code) { station in
                             NavigationLink(value: station) {
