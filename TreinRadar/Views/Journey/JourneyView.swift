@@ -34,7 +34,7 @@ struct JourneyView: View {
     func listView(_ journey: JourneyPayload) -> some View {
         List {
             Section {
-//                Text("\(journey.category) richting **\(journey.destination?.name ?? "?")**")
+                Text("\(journey.category) richting **\(journey.destination?.name ?? "?")**")
 //                Text("\(journey.category) richting \(journey)")
                 if journey.firstRealStop?.actualStock?.trainParts != nil {
                     trainParts
@@ -47,45 +47,19 @@ struct JourneyView: View {
                     Text("Zitplaatsen: \(seats)")
                 }
                 if journey.stockNumbers != "0" {
-                    Text("Materieel: \(vm.stockNumbers)")
+                    Text("Materieel: \(journey.stockNumbers)")
                 }
             }
             
             if !journey.notes.isEmpty {
-                Section("Waarschuwingen") {
-                    ForEach(journey.notes, id: \.text) { note in
-                        VStack(alignment: .leading) {
-                            Text(note.noteType)
-                            Text(note.text)
-                        }
-                    }
-                }
+                notes(journey.notes)
             }
             
-            if let geojson = vm.geojson {
-                Section("Kaart") {
-                    JourneyMapView(geometry: geojson, inline: true)
-                        .frame(height: 400)
-                        .listRowInsets(EdgeInsets())
-                        .overlay {
-                            NavigationLink(value: geojson) {
-                                EmptyView()
-                            }.opacity(0)
-                        }
-                }
+            if let stops = vm.geojson {
+                map(stops)
             }
             
-            Section("Stops") {
-                ForEach(vm.actualStops ?? [], id: \.id) { stop in
-                    HStack(alignment: .center, spacing: 10) {
-                        depOrArrTimes(stop)
-                        
-                        Text(stop.stop.name)
-                            .italic(stop.status == .passing)
-                            .foregroundStyle(stop.status == .passing ? .secondary : .primary)
-                    }
-                }
-            }
+            stops
         }.navigationTitle(journey.category)
             .toolbar {
                 Menu {
@@ -95,6 +69,44 @@ struct JourneyView: View {
                 }
                 
             }
+    }
+    
+    func notes(_ notes: [JourneyNote]) -> some View {
+            Section("Waarschuwingen") {
+                ForEach(notes, id: \.text) { note in
+                    VStack(alignment: .leading) {
+                        Text(note.noteType)
+                        Text(note.text)
+                    }
+                }
+            }
+    }
+    
+    func map(_ stopsAndGeometry: StopsAndGeometry) -> some View {
+        Section("Kaart") {
+            JourneyMapView(geometry: stopsAndGeometry, inline: true)
+                .frame(height: 400)
+                .listRowInsets(EdgeInsets())
+                .overlay {
+                    NavigationLink(value: stopsAndGeometry) {
+                        EmptyView()
+                    }.opacity(0)
+                }
+        }
+    }
+    
+    var stops: some View {
+        Section("Stops") {
+            ForEach(vm.stops ?? [], id: \.id) { stop in
+                HStack(alignment: .center, spacing: 10) {
+                    depOrArrTimes(stop)
+                    
+                    Text(stop.stop.name)
+                        .italic(stop.status == .passing)
+                        .foregroundStyle(stop.status == .passing ? .secondary : .primary)
+                }
+            }
+        }
     }
     
     var trainParts: some View {
