@@ -34,18 +34,19 @@ struct JourneyView: View {
     func listView(_ journey: JourneyPayload) -> some View {
         List {
             Section {
-                Text("\(vm.category) richting **\(vm.destination?.name ?? "?")**")
-                if vm.firstRealStop?.actualStock?.trainParts != nil {
+//                Text("\(journey.category) richting **\(journey.destination?.name ?? "?")**")
+//                Text("\(journey.category) richting \(journey)")
+                if journey.firstRealStop?.actualStock?.trainParts != nil {
                     trainParts
                 }
                 
-                if let length = vm.firstRealStop?.actualStock?.numberOfParts {
+                if let length = journey.firstRealStop?.actualStock?.numberOfParts {
                     Text("Lengte: \(length) delen")
                 }
-                if let seats = vm.firstRealStop?.actualStock?.numberOfSeats {
+                if let seats = journey.firstRealStop?.actualStock?.numberOfSeats {
                     Text("Zitplaatsen: \(seats)")
                 }
-                if vm.stockNumbers != "0" {
+                if journey.stockNumbers != "0" {
                     Text("Materieel: \(vm.stockNumbers)")
                 }
             }
@@ -85,7 +86,7 @@ struct JourneyView: View {
                     }
                 }
             }
-        }.navigationTitle(vm.category)
+        }.navigationTitle(journey.category)
             .toolbar {
                 Menu {
                     Toggle("Laat alle stops zien", isOn: $vm.showAllStops)
@@ -100,7 +101,7 @@ struct JourneyView: View {
         VStack(alignment: .leading) {
             ScrollView(.horizontal) {
                 HStack(alignment: .center, spacing: 2.5) {
-                    ForEach(vm.firstRealStop?.actualStock?.trainParts ?? [], id: \.stockIdentifier) { part in
+                    ForEach(vm.journey?.firstRealStop?.actualStock?.trainParts ?? [], id: \.stockIdentifier) { part in
                         AsyncImage(url: URL(string: part.image?.uri ?? "")) { image in
                             image.resizable().scaledToFit()
                         } placeholder: {

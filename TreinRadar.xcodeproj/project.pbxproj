@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		891AEE9C2A534A6D005A49F5 /* Journey+Computed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891AEE9B2A534A6D005A49F5 /* Journey+Computed.swift */; };
 		893AC25C2A3B42AA00D621FE /* TreinRadarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893AC25B2A3B42AA00D621FE /* TreinRadarApp.swift */; };
 		893AC25E2A3B42AA00D621FE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893AC25D2A3B42AA00D621FE /* ContentView.swift */; };
 		893AC2602A3B42AB00D621FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 893AC25F2A3B42AB00D621FE /* Assets.xcassets */; };
@@ -47,6 +48,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		891AEE9B2A534A6D005A49F5 /* Journey+Computed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Journey+Computed.swift"; sourceTree = "<group>"; };
 		893AC2582A3B42AA00D621FE /* TreinRadar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TreinRadar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		893AC25B2A3B42AA00D621FE /* TreinRadarApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreinRadarApp.swift; sourceTree = "<group>"; };
 		893AC25D2A3B42AA00D621FE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 			children = (
 				895A31012A4421FC00E305D8 /* Date+Formatter.swift */,
 				89ACF2FD2A48608600A4AC57 /* Location+Equatable.swift */,
+				891AEE9B2A534A6D005A49F5 /* Journey+Computed.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -353,6 +356,7 @@
 				895A31022A4421FC00E305D8 /* Date+Formatter.swift in Sources */,
 				89CEFDA22A3D0BBB00383555 /* TravelInfoView.swift in Sources */,
 				893AC25C2A3B42AA00D621FE /* TreinRadarApp.swift in Sources */,
+				891AEE9C2A534A6D005A49F5 /* Journey+Computed.swift in Sources */,
 				89CEFD992A3D02B100383555 /* Station.swift in Sources */,
 				89ACF2F72A47172400A4AC57 /* StationsManager.swift in Sources */,
 				893AC2772A3B493500D621FE /* APIError.swift in Sources */,
