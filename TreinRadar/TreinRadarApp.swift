@@ -10,11 +10,13 @@ import SwiftUI
 @main
 struct TreinRadarApp: App {
     @StateObject var stationsManager = StationsManager.shared
+    @StateObject var locationManager = LocationManager.shared
     
     var body: some Scene {
         WindowGroup {
             ContentView()
                 .environmentObject(stationsManager)
+                .environmentObject(locationManager)
         }
     }
 }

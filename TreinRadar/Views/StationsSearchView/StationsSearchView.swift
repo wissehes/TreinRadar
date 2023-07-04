@@ -11,6 +11,7 @@ import Defaults
 struct StationsSearchView: View {
     
     @EnvironmentObject var stationsManager: StationsManager
+    @EnvironmentObject var locationManager: LocationManager
     @StateObject var vm = StationsSearchViewModel()
     
     @State private var stations: [FullStation]?
@@ -71,7 +72,7 @@ struct StationsSearchView: View {
                             NavigationLink(value: station) {
                                 VStack(alignment: .leading) {
                                     Text(station.name)
-                                    Text("\(station.fDistance()) meter")
+                                    Text(station.fDistance())
                                         .font(.subheadline)
                                 }
                             }
@@ -106,6 +107,9 @@ struct StationsSearchView: View {
                 }
                 .navigationDestination(for: StationWithDistance.self) { station in
                     DeparturesView(station: station)
+                }
+                .onChange(of: locationManager.location) { location in
+                    vm.getNearbyStations()
                 }
         }
     }
