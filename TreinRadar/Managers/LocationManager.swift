@@ -13,7 +13,7 @@ final class LocationManager: NSObject, ObservableObject, CLLocationManagerDelega
     static let shared = LocationManager()
     
     let manager = CLLocationManager()
-    @Published var location: CLLocationCoordinate2D?
+    @Published var location: CLLocation?
     @Published var permissionStatus: CLAuthorizationStatus = .notDetermined
     
     override init() {
@@ -37,7 +37,7 @@ final class LocationManager: NSObject, ObservableObject, CLLocationManagerDelega
     }
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        location = locations.first?.coordinate
+        location = locations.first
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
