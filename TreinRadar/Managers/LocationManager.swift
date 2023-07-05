@@ -22,11 +22,14 @@ final class LocationManager: NSObject, ObservableObject, CLLocationManagerDelega
     }
     
     func requestLocation() {
+        print("Requesting location...")
         if permissionStatus == .notDetermined {
+            print("Permission status was undetermined")
             manager.requestWhenInUseAuthorization()
         }
         
         if permissionStatus == .authorizedAlways || permissionStatus == .authorizedWhenInUse {
+            print("Permission authorized")
             manager.requestLocation()
         }
     }
@@ -38,6 +41,7 @@ final class LocationManager: NSObject, ObservableObject, CLLocationManagerDelega
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         location = locations.first
+        print("Got location!")
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
