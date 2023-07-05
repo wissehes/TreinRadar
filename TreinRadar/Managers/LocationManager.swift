@@ -42,6 +42,9 @@ final class LocationManager: NSObject, ObservableObject, CLLocationManagerDelega
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         location = locations.first
         print("Got location!")
+
+        guard let location = locations.first else { return }
+        StationsManager.shared.getNearbyStations(location: location)
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {

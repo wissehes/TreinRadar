@@ -12,7 +12,6 @@ struct StationsSearchView: View {
     
     @EnvironmentObject var stationsManager: StationsManager
     @EnvironmentObject var locationManager: LocationManager
-    @StateObject var vm = StationsSearchViewModel()
     
     @State private var stations: [FullStation]?
     @State private var searchQuery = "";
@@ -66,7 +65,7 @@ struct StationsSearchView: View {
                     }
                 }
                 
-                if let nearbyStations = vm.nearbyStations, searchQuery.isEmpty {
+                if let nearbyStations = stationsManager.nearbyStations, searchQuery.isEmpty {
                     Section("In de buurt") {
                         ForEach(nearbyStations, id: \.code) { station in
                             NavigationLink(value: station) {
@@ -108,9 +107,9 @@ struct StationsSearchView: View {
                 .navigationDestination(for: StationWithDistance.self) { station in
                     DeparturesView(station: station)
                 }
-                .onChange(of: locationManager.location) { location in
-                    vm.getNearbyStations()
-                }
+//                .onChange(of: locationManager.location) { location in
+//                    stationsManager.getNearbyStations()
+//                }
         }
     }
 }
