@@ -37,18 +37,6 @@ struct Stop: Codable {
     let arrivals, departures: [ArrivalOrDeparture]
     let actualStock, plannedStock: Stock?
 //    let platformFeatures, coachCrowdForecast: [JSONAny]?
-    
-    var arrival: ArrivalOrDeparture? {
-        self.arrivals.first
-    }
-    
-    var departure: ArrivalOrDeparture? {
-        self.departures.first
-    }
-    
-    var track: String? {
-        return arrival?.actualTrack ?? departure?.actualTrack
-    }
 
     enum CodingKeys: String, CodingKey {
         case id, stop
