@@ -12,18 +12,20 @@ enum ChosenSpoor: Hashable {
     case specific(Spoor)
 }
 
+enum ChosenMessageStyle: Hashable {
+    case all
+    case specific(MessageStyle)
+}
+
 final class DeparturesViewModel: ObservableObject {
     
     @Published var departures: [Departure]?
+    
     @Published var chosenSpoor: ChosenSpoor = .all
+    @Published var chosenMessageStyle: ChosenMessageStyle = .all
+    @Published var showCancelledTrains: Bool = true
     
     @Published var isLoading = true
-    
-//    var formatter: DateFormatter = {
-//        let df = DateFormatter()
-//        df.doesRelativeDateFormatting = true
-//        return df
-//    }()
     
     var relativeFormatter = RelativeDateTimeFormatter()
     

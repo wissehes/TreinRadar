@@ -28,22 +28,31 @@ struct DeparturesView: View {
     }
     
     var filteredDepartures: [Departure]? {
-        guard let departures = vm.departures else { return nil }
+        guard var departures = vm.departures else { return nil }
         
         switch vm.chosenSpoor {
         case .all:
-            return departures
+            break;
         case .specific(let spoor):
-            return departures.filter { $0.actualTrack == spoor.spoorNummer }
+            departures = departures.filter { $0.actualTrack == spoor.spoorNummer }
         }
+        
+        if !vm.showCancelledTrains {
+            departures = departures.filter { !$0.cancelled }
+        }
+        
+        return departures
     }
     
     var body: some View {
-        List(filteredDepartures ?? [], id: \.name) { item in
-            NavigationLink(value: item.product.number) {
-                depItem(departure: item)
+        ZStack {
+            if filteredDepartures != nil {
+                listView
+            } else {
+                ProgressView()
             }
-        }.navigationTitle(naam)
+        }
+        .navigationTitle(naam)
             .task { await vm.getData(stationCode) }
             .refreshable { await vm.getData(stationCode) }
             .navigationDestination(for: String.self, destination: { id in
@@ -51,70 +60,64 @@ struct DeparturesView: View {
             })
             .toolbar {
                 ToolbarItem(placement: .primaryAction) {
-                    Picker(selection: $vm.chosenSpoor) {
-                        Text("Alles")
-                            .tag(ChosenSpoor.all)
-                        
-                        ForEach(self.sporen, id: \.spoorNummer) { spoor in
-                            Text("Spoor \(spoor.spoorNummer)")
-                                .tag(ChosenSpoor.specific(spoor))
-                        }
+                    Menu {
+                        spoorPicker
+                        meldingenPicker
+                        cancelledTrainsPicker
                     } label: {
-                        Label("Spoor", systemImage: "line.3.horizontal.decrease.circle")
+                        Label("Filters", systemImage: "line.3.horizontal.decrease.circle")
                     }
                 }
             }
     }
     
-    func depItem(departure item: Departure) -> some View {
-        VStack(alignment: .leading) {
-            HStack {
-                VStack(alignment: .leading) {
-                    HStack(alignment: .center) {
-                        Text(item.product.longCategoryName)
-                            .font(.callout)
-                        Text(item.product.number)
-                            .font(.caption)
-                    }
-                    Text(item.direction)
-                        .bold()
-                    Text(vm.formatDepartureDate(item))
-                }
-                
-                Spacer()
-                
-                if let track = item.actualTrack {
-                    
-                    VStack(alignment: .center) {
-                        Text("Spoor")
-                            .font(.subheadline)
-                        Text(track)
-                            .bold()
-                    }
-                }
+    var listView: some View {
+        List(filteredDepartures ?? [], id: \.name) { item in
+            NavigationLink(value: item.product.number) {
+                DepartureItemView(departure: item, chosenMessageStyle: vm.chosenMessageStyle)
             }
+        }
+    }
+    
+    var spoorPicker: some View {
+        Picker(selection: $vm.chosenSpoor) {
+            Text("Alles")
+                .tag(ChosenSpoor.all)
             
-            if !item.messages.isEmpty {
-                messages(item.messages)
+            ForEach(self.sporen, id: \.spoorNummer) { spoor in
+                Text("Spoor \(spoor.spoorNummer)")
+                    .tag(ChosenSpoor.specific(spoor))
             }
-        }
+        } label: {
+            Label("Spoor", systemImage: "road.lanes")
+        }.pickerStyle(.menu)
     }
     
-    func messages(_ messages: [Message]) -> some View {
-//        ForEach(messages.filter({ $0.style != .info }), id: \.message) { msg in
-        ForEach(messages, id: \.message) { msg in
-            Text(msg.message)
-                .font(.subheadline)
-                .italic()
-        }
+    var meldingenPicker: some View {
+        Picker(selection: $vm.chosenMessageStyle) {
+            Text("Alles")
+                .tag(ChosenMessageStyle.all)
+            
+            ForEach(MessageStyle.allCases, id: \.rawValue) { style in
+                Text(style.readable)
+                    .tag(ChosenMessageStyle.specific(style))
+            }
+        } label: {
+            Label("Meldingen", systemImage: "exclamationmark.bubble")
+        }.pickerStyle(.menu)
     }
     
+    var cancelledTrainsPicker: some View {
+        Toggle(isOn: $vm.showCancelledTrains) {
+            Label("Laat geannuleerde treinen zien", systemImage: "exclamationmark.triangle")
+        }
+    }
 }
 
 struct Departures_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            DeparturesView(stationCode: "UT", sporen: [1, 4], naam: "Vleuten")
+            DeparturesView(stationCode: "UT", sporen: [1, 4], naam: "Utrecht C")
         }
     }
 }
