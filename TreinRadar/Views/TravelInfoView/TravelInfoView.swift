@@ -9,26 +9,46 @@ import SwiftUI
 
 struct TravelInfoView: View {
     @StateObject var vm = TravelInfoViewModel()
-        
+    @EnvironmentObject var locationManager: LocationManager
+    
     var body: some View {
         NavigationStack(path: $vm.presentedJourneys) {
             List {
-                Section("Trein opzoeken") {
-                    TextField("Treinstelnummer", text: $vm.stockNumber)
-                        .disabled(vm.isLoading)
-                        .textInputAutocapitalization(.never)
-                        .disableAutocorrection(true)
-                    
-                    Button("Zoek op") {
-                        Task { await vm.getJourneyId() }
-                    }
+                searchTrains
+                if let currentJourney = vm.currentJourney {
+                    trainDetection(currentJourney)
                 }
-                
-                Section("Treindetectie") {
-                    
+            }.navigationTitle("Reisinformatie")
+                .navigationDestination(for: JourneyId.self) { id in
+                    JourneyView(journeyId: id)
                 }
-            }.navigationDestination(for: JourneyId.self) { id in
-                JourneyView(journeyId: id)
+                .onChange(of: locationManager.location) { _ in
+                    Task { await vm.getCurrentJourney() }
+                }
+        }
+    }
+    
+    var searchTrains: some View {
+        Section("Trein opzoeken") {
+            TextField("Treinstelnummer", text: $vm.stockNumber)
+                .disabled(vm.isLoading)
+                .textInputAutocapitalization(.never)
+                .disableAutocorrection(true)
+            
+            Button("Zoek op") {
+                Task { await vm.getJourneyId() }
+            }
+        }
+    }
+    
+    func trainDetection(_ journey: JourneyPayload) -> some View {
+        Section("Treindetectie") {
+            NavigationLink(value: journey.productNumbers.first) {
+                VStack {
+                    Text(journey.product?.longCategoryName ?? "?")
+                    Text("Naar \(journey.destination?.name ?? "?")")
+                    Text("\(vm.currentTrain?.distance.description ?? "?") meter")
+                }
             }
         }
     }
