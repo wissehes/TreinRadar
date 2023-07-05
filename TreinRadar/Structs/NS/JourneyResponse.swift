@@ -45,6 +45,10 @@ struct Stop: Codable {
     var departure: ArrivalOrDeparture? {
         self.departures.first
     }
+    
+    var track: String {
+        return arrival?.actualTrack ?? departure?.actualTrack
+    }
 
     enum CodingKeys: String, CodingKey {
         case id, stop
