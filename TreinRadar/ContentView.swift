@@ -12,9 +12,12 @@ struct ContentView: View {
         TabView {
             TravelInfoView()
                 .tabItem { Label("Planner", systemImage: "clock.badge.checkmark") }
-
-            MapView()
-                .tabItem { Label("Radar", systemImage: "map") }
+            
+            if #available(iOS 17.0, *) {
+                MapView()
+                    .tabItem { Label("Radar", systemImage: "map") }
+            }
+            
             
             StationsSearchView()
                 .tabItem { Label("Vertrektijden", systemImage: "clock.badge") }
