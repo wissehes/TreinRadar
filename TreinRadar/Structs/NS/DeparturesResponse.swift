@@ -60,10 +60,10 @@ enum DepartureStatus: String, Codable {
 // MARK: - Message
 struct Message: Codable {
     let message: String
-    let style: Style
+    let style: MessageStyle
 }
 
-enum Style: String, Codable {
+enum MessageStyle: String, Codable, CaseIterable {
     case info = "INFO"
     case warning = "WARNING"
 }
