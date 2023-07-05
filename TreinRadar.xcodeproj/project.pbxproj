@@ -27,6 +27,10 @@
 		895A30FF2A44219500E305D8 /* JourneyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895A30FE2A44219500E305D8 /* JourneyViewModel.swift */; };
 		895A31022A4421FC00E305D8 /* Date+Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895A31012A4421FC00E305D8 /* Date+Formatter.swift */; };
 		896F6A932A49664F00A3CA5B /* TravelInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896F6A922A49664F00A3CA5B /* TravelInfoViewModel.swift */; };
+		89A48EC62A5573A0006F7A4E /* MessageStyle+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A48EC52A5573A0006F7A4E /* MessageStyle+String.swift */; };
+		89A48EC82A557497006F7A4E /* DepartureItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A48EC72A557497006F7A4E /* DepartureItemView.swift */; };
+		89A48ECB2A557533006F7A4E /* departures.json in Resources */ = {isa = PBXBuildFile; fileRef = 89A48ECA2A557533006F7A4E /* departures.json */; };
+		89A48ECD2A557562006F7A4E /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A48ECC2A557562006F7A4E /* MockData.swift */; };
 		89ACF2F12A470F4A00A4AC57 /* Stops+Geojson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89ACF2F02A470F4A00A4AC57 /* Stops+Geojson.swift */; };
 		89ACF2F32A4714FA00A4AC57 /* StationAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89ACF2F22A4714FA00A4AC57 /* StationAnnotation.swift */; };
 		89ACF2F52A47161700A4AC57 /* TrainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89ACF2F42A47161700A4AC57 /* TrainManager.swift */; };
@@ -68,6 +72,10 @@
 		895A30FE2A44219500E305D8 /* JourneyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyViewModel.swift; sourceTree = "<group>"; };
 		895A31012A4421FC00E305D8 /* Date+Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Formatter.swift"; sourceTree = "<group>"; };
 		896F6A922A49664F00A3CA5B /* TravelInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelInfoViewModel.swift; sourceTree = "<group>"; };
+		89A48EC52A5573A0006F7A4E /* MessageStyle+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MessageStyle+String.swift"; sourceTree = "<group>"; };
+		89A48EC72A557497006F7A4E /* DepartureItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureItemView.swift; sourceTree = "<group>"; };
+		89A48ECA2A557533006F7A4E /* departures.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = departures.json; sourceTree = "<group>"; };
+		89A48ECC2A557562006F7A4E /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 		89ACF2F02A470F4A00A4AC57 /* Stops+Geojson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Stops+Geojson.swift"; sourceTree = "<group>"; };
 		89ACF2F22A4714FA00A4AC57 /* StationAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationAnnotation.swift; sourceTree = "<group>"; };
 		89ACF2F42A47161700A4AC57 /* TrainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainManager.swift; sourceTree = "<group>"; };
@@ -119,6 +127,7 @@
 		893AC25A2A3B42AA00D621FE /* TreinRadar */ = {
 			isa = PBXGroup;
 			children = (
+				89A48EC92A557521006F7A4E /* MockData */,
 				89CEFD8E2A3CFEB100383555 /* Managers */,
 				893AC26B2A3B42D700D621FE /* API */,
 				893AC26A2A3B42D000D621FE /* Structs */,
@@ -204,6 +213,7 @@
 				895A31012A4421FC00E305D8 /* Date+Formatter.swift */,
 				89ACF2FD2A48608600A4AC57 /* Location+Equatable.swift */,
 				891AEE9B2A534A6D005A49F5 /* Journey+Computed.swift */,
+				89A48EC52A5573A0006F7A4E /* MessageStyle+String.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -215,6 +225,15 @@
 				896F6A922A49664F00A3CA5B /* TravelInfoViewModel.swift */,
 			);
 			path = TravelInfoView;
+			sourceTree = "<group>";
+		};
+		89A48EC92A557521006F7A4E /* MockData */ = {
+			isa = PBXGroup;
+			children = (
+				89A48ECA2A557533006F7A4E /* departures.json */,
+				89A48ECC2A557562006F7A4E /* MockData.swift */,
+			);
+			path = MockData;
 			sourceTree = "<group>";
 		};
 		89ACF2FA2A485BBB00A4AC57 /* StationsSearchView */ = {
@@ -231,6 +250,7 @@
 			children = (
 				89CEFD8C2A3CF95600383555 /* DeparturesViewModel.swift */,
 				893AC27C2A3B504F00D621FE /* DeparturesView.swift */,
+				89A48EC72A557497006F7A4E /* DepartureItemView.swift */,
 			);
 			path = Departures;
 			sourceTree = "<group>";
@@ -322,6 +342,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				893AC2632A3B42AB00D621FE /* Preview Assets.xcassets in Resources */,
+				89A48ECB2A557533006F7A4E /* departures.json in Resources */,
 				893AC2602A3B42AB00D621FE /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -352,10 +373,12 @@
 				893AC27B2A3B4B1100D621FE /* StationsResponse.swift in Sources */,
 				89ACF2F52A47161700A4AC57 /* TrainManager.swift in Sources */,
 				893C4CD12A460D68002E3540 /* JourneyMapViewCoordinator.swift in Sources */,
+				89A48EC62A5573A0006F7A4E /* MessageStyle+String.swift in Sources */,
 				89ACF2FC2A485BD100A4AC57 /* StationsSearchViewModel.swift in Sources */,
 				895A31022A4421FC00E305D8 /* Date+Formatter.swift in Sources */,
 				89CEFDA22A3D0BBB00383555 /* TravelInfoView.swift in Sources */,
 				893AC25C2A3B42AA00D621FE /* TreinRadarApp.swift in Sources */,
+				89A48EC82A557497006F7A4E /* DepartureItemView.swift in Sources */,
 				891AEE9C2A534A6D005A49F5 /* Journey+Computed.swift in Sources */,
 				89CEFD992A3D02B100383555 /* Station.swift in Sources */,
 				89ACF2F72A47172400A4AC57 /* StationsManager.swift in Sources */,
@@ -365,6 +388,7 @@
 				893AC27F2A3B507300D621FE /* DeparturesResponse.swift in Sources */,
 				89CEFD972A3D004B00383555 /* Defaults.swift in Sources */,
 				89CEFD8D2A3CF95600383555 /* DeparturesViewModel.swift in Sources */,
+				89A48ECD2A557562006F7A4E /* MockData.swift in Sources */,
 				89ACF2F32A4714FA00A4AC57 /* StationAnnotation.swift in Sources */,
 				89CEFD902A3CFEBE00383555 /* FavouritesController.swift in Sources */,
 			);
