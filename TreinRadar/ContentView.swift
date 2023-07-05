@@ -8,19 +8,25 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State private var selectedTab = 3
+    
     var body: some View {
-        TabView {
+        TabView(selection: $selectedTab) {
             TravelInfoView()
                 .tabItem { Label("Planner", systemImage: "clock.badge.checkmark") }
+                .tag(1)
             
             if #available(iOS 17.0, *) {
                 MapView()
                     .tabItem { Label("Radar", systemImage: "map") }
+                    .tag(2)
             }
             
             
             StationsSearchView()
                 .tabItem { Label("Vertrektijden", systemImage: "clock.badge") }
+                .tag(3)
         }
     }
 }
