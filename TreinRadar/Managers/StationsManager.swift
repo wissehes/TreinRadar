@@ -52,6 +52,8 @@ final class StationsManager: ObservableObject {
         
         let sorted = mapped.sorted { $0.distance < $1.distance }
         
-        self.nearbyStations = Array(sorted.prefix(5))
+        DispatchQueue.main.async {
+            self.nearbyStations = Array(sorted.prefix(5))
+        }
     }
 }
