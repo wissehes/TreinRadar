@@ -47,62 +47,64 @@ struct DepartureItemView: View {
     }
     
     var body: some View {
-        VStack(alignment: .leading) {
-            HStack {
-                VStack(alignment: .leading) {
-                    HStack(alignment: .center) {
-                        Text(departure.product.longCategoryName)
-                            .font(.callout)
-                        Text(departure.product.number)
-                            .font(.caption)
-                    }
-                    Text(departure.direction)
-                        .bold()
-                        .foregroundStyle(departure.cancelled ? .red : .accentColor)
+        HStack {
+            VStack(alignment: .leading) {
+                HStack(alignment: .center) {
+                    Text(departure.product.longCategoryName)
+                        .font(.callout)
+                    Text(departure.product.number)
+                        .font(.caption)
+                }
+                Text(departure.direction)
+                    .bold()
+                    .foregroundStyle(departure.cancelled ? .red : .accentColor)
+                
+                HStack(alignment: .center, spacing: 5) {
+                    Text(departureTime)
                     
-                    HStack(alignment: .center, spacing: 5) {
-                        Text(departureTime)
-                        
-                        if delayTime != 0 {
-                            Text("(+\(delayTime))")
-                                .foregroundStyle(.red)
-                        }
+                    if delayTime != 0 {
+                        Text("(+\(delayTime))")
+                            .foregroundStyle(.red)
                     }
                 }
                 
-                Spacer()
-                
-                if let track = departure.actualTrack, !departure.cancelled {
-                    VStack(alignment: .center) {
-                        Text("Spoor")
-                            .font(.subheadline)
-                        Text(track)
-                            .bold()
-                    }
-                    
-                }
-                
-                if departure.cancelled {
-                    Image(systemName: "exclamationmark.circle.fill")
-                        .symbolRenderingMode(.multicolor)
-                        .foregroundStyle(.red)
-                        .font(.system(size: 25))
-                        .frame(width: 40, height: 40)
+                if !departure.messages.isEmpty {
+                    messages
                 }
             }
             
-            if !departure.messages.isEmpty {
-                messages
+            Spacer()
+            
+            if let track = departure.actualTrack, !departure.cancelled {
+                VStack(alignment: .center) {
+                    Text("Spoor")
+                        .font(.subheadline)
+                    Text(track)
+                        .bold()
+                }
+                
+            }
+            
+            if departure.cancelled {
+                Image(systemName: "exclamationmark.circle.fill")
+                    .symbolRenderingMode(.multicolor)
+                    .foregroundStyle(.red)
+                    .font(.system(size: 25))
+                    .frame(width: 40, height: 40)
             }
         }
     }
     
     var messages: some View {
-        ForEach(filteredMessages, id: \.message) { msg in
-            Text(msg.message)
-                .font(.subheadline)
-                .italic()
-        }
+        VStack(alignment: .leading) {
+            ForEach(filteredMessages, id: \.message) { msg in
+                Text(msg.message)
+                    .font(.subheadline)
+                    .italic()
+                    .multilineTextAlignment(.leading)
+                    .padding([.top, .bottom], 0.5)
+            }
+        }.padding(.top, 0.5)
     }
 }
 
