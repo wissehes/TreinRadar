@@ -101,22 +101,27 @@ struct JourneyView: View {
                 HStack(alignment: .center, spacing: 10) {
                     depOrArrTimes(stop)
                     
+                    Spacer()
+                    
                     Text(stop.stop.name)
                         .italic(stop.status == .passing)
                         .foregroundStyle(stop.status == .passing ? .secondary : .primary)
+                        .multilineTextAlignment(.trailing)
                     
-                    Spacer()
+//                    Spacer()
                     
                     if let track = stop.track {
                         RoundedRectangle(cornerRadius: 10)
                             .stroke(Color.accentColor, lineWidth: 2.5)
-//                            .background(RoundedRectangle(cornerRadius: 10).fill(.white))
                             .overlay(
                                 Text(track)
                                     .font(.system(size: 18, weight: .bold, design: .rounded))
                             )
                             .frame(width: 35, height: 35, alignment: .center)
                             .padding(2.5)
+                    } else {
+                        EmptyView()
+                            .frame(width: 35)
                     }
                 }
             }
@@ -141,16 +146,30 @@ struct JourneyView: View {
     
     func depOrArrTimes(_ item: Stop) -> some View {
         VStack(alignment: .leading) {
-            Text("A: \(item.arrival?.actualTime?.timeFormat() ?? "--:--")")
-            Text("V: \(item.departure?.actualTime?.timeFormat() ?? "--:--")")
-        }.frame(width: 60, alignment: .center).font(.subheadline)
+            HStack(alignment: .center, spacing: 2.5) {
+                Text("A: \(item.arrivalTime ?? "--:--")")
+                if item.arrivalDelay != 0 {
+                    Text("+\(item.arrivalDelay)")
+                        .font(.caption)
+                        .foregroundStyle(.red)
+                }
+            }
+            HStack(alignment: .center, spacing: 2.5) {
+                Text("V: \(item.departureTime ?? "--:--")")
+                if item.departureDelay != 0 {
+                    Text("+\(item.departureDelay)")
+                        .font(.caption)
+                        .foregroundStyle(.red)
+                }
+            }
+        }.frame(minWidth: 70, alignment: .center).font(.subheadline)
     }
 }
 
 struct JourneyView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            JourneyView(journeyId: "3078")
+            JourneyView(journeyId: "6948")
         }
         
         ContentView()
