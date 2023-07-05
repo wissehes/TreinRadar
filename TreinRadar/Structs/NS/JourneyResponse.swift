@@ -46,7 +46,7 @@ struct Stop: Codable {
         self.departures.first
     }
     
-    var track: String {
+    var track: String? {
         return arrival?.actualTrack ?? departure?.actualTrack
     }
 
