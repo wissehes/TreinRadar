@@ -108,8 +108,6 @@ struct JourneyView: View {
                         .foregroundStyle(stop.status == .passing ? .secondary : .primary)
                         .multilineTextAlignment(.trailing)
                     
-//                    Spacer()
-                    
                     if let track = stop.track {
                         RoundedRectangle(cornerRadius: 10)
                             .stroke(Color.accentColor, lineWidth: 2.5)

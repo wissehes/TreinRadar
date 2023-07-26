@@ -44,11 +44,7 @@ struct TravelInfoView: View {
     func trainDetection(_ journey: JourneyPayload) -> some View {
         Section("Treindetectie") {
             NavigationLink(value: journey.productNumbers.first) {
-                VStack {
-                    Text(journey.product?.longCategoryName ?? "?")
-                    Text("Naar \(journey.destination?.name ?? "?")")
-                    Text("\(vm.currentTrain?.distance.description ?? "?") meter")
-                }
+                CurrentTrainView(journey: journey)
             }
         }
     }
@@ -56,5 +52,7 @@ struct TravelInfoView: View {
 struct TravelInfoView_Previews: PreviewProvider {
     static var previews: some View {
         TravelInfoView()
+            .environmentObject(LocationManager.shared)
+            .environmentObject(StationsManager.shared)
     }
 }
