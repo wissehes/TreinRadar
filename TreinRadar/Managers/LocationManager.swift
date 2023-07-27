@@ -44,7 +44,10 @@ final class LocationManager: NSObject, ObservableObject, CLLocationManagerDelega
         print("Got location!")
 
         guard let location = locations.first else { return }
-        StationsManager.shared.getNearbyStations(location: location)
+        Task {
+            await StationsManager.shared.getNearbyStations(location: location)
+            await TrainManager.shared.getCurrentJourney(location: location)
+        }
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {

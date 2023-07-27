@@ -10,9 +10,10 @@ import SwiftUI
 struct CurrentTrainView: View {
     
     var journey: JourneyPayload
-//    var distance: Double?
+    var distance: Double?
     
     let timeFormatter = RelativeDateTimeFormatter()
+    var measurementFormatter = MeasurementFormatter.myFormatter
     
     var nextStop: Stop? {
         let stops = journey.stops.filter({ $0.status != .passing })
@@ -31,10 +32,22 @@ struct CurrentTrainView: View {
         return timeFormatter.string(for: nextArrival)?.capitalizingFirstLetter()
     }
     
+    var formattedDistance: String? {
+        guard let distance = distance else { return nil }
+        let measurement = Measurement(value: distance, unit: UnitLength.meters)
+        return measurementFormatter.string(from: measurement)
+    }
+    
     var body: some View {
         VStack(alignment: .leading) {
             Text("**\(journey.category)** naar \(journey.destination?.name ?? "?")")
                 .font(.headline)
+            if let distance = formattedDistance {
+                Text("Afstand: \(distance)")
+            }
+            
+            Divider()
+            
             Text("Volgend station: **\(nextStop?.stop.name ?? "?")**")
             
             if let time = timeTillNextStop {
@@ -49,7 +62,7 @@ struct CurrentTrainView_Previews: PreviewProvider {
     
     static var previews: some View {
         List {
-            CurrentTrainView(journey: data)
+            CurrentTrainView(journey: data, distance: 1000)
         }
     }
 }

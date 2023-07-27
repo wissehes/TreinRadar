@@ -10,20 +10,25 @@ import SwiftUI
 struct TravelInfoView: View {
     @StateObject var vm = TravelInfoViewModel()
     @EnvironmentObject var locationManager: LocationManager
+    @EnvironmentObject var trainManager: TrainManager
     
     var body: some View {
         NavigationStack(path: $vm.presentedJourneys) {
             List {
                 searchTrains
-                if let currentJourney = vm.currentJourney {
+                if let currentJourney = trainManager.currentJourney {
                     trainDetection(currentJourney)
                 }
             }.navigationTitle("Reisinformatie")
                 .navigationDestination(for: JourneyId.self) { id in
                     JourneyView(journeyId: id)
                 }
-                .onChange(of: locationManager.location) { _ in
-                    Task { await vm.getCurrentJourney() }
+//                .onChange(of: locationManager.location) { _ in
+//                    Task { await vm.getCurrentJourney() }
+//                }
+                .refreshable {
+                    locationManager.requestLocation()
+                    try? await Task.sleep(for: .seconds(1))
                 }
         }
     }
@@ -44,7 +49,7 @@ struct TravelInfoView: View {
     func trainDetection(_ journey: JourneyPayload) -> some View {
         Section("Treindetectie") {
             NavigationLink(value: journey.productNumbers.first) {
-                CurrentTrainView(journey: journey)
+                CurrentTrainView(journey: journey, distance: trainManager.currentTrain?.distance)
             }
         }
     }

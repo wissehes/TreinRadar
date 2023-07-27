@@ -107,9 +107,6 @@ struct StationsSearchView: View {
                 .navigationDestination(for: StationWithDistance.self) { station in
                     DeparturesView(station: station)
                 }
-//                .onChange(of: locationManager.location) { location in
-//                    stationsManager.getNearbyStations()
-//                }
         }
     }
 }

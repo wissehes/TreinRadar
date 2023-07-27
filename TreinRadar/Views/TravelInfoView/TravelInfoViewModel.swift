@@ -38,9 +38,6 @@ final class TravelInfoViewModel: ObservableObject {
     @Published var currentTrain: TrainWithDistance?
     @Published var currentJourney: JourneyPayload?
     
-    init() {
-        LocationManager.shared.requestLocation()
-    }
     
     func getJourneyId() async {
         if stockNumber.isEmpty { return }
@@ -55,29 +52,6 @@ final class TravelInfoViewModel: ObservableObject {
                 }
             }
         } catch { print(error) }
-    }
-    
-    func getCurrentJourney() async {
-        await TrainManager.shared.getData()
-        guard !TrainManager.shared.trains.isEmpty else { return }
-        guard let myLocation = LocationManager.shared.location else { return }
-        let trains = TrainManager.shared.trains
-        
-        let mapped: [TrainWithDistance] = trains.map { train in
-            let location = CLLocation(latitude: train.lat, longitude: train.lng)
-            let distance = myLocation.distance(from: location)
-            return .init(train, location: location, distance: distance)
-        }
-        
-        let sorted = mapped.sorted { $0.distance < $1.distance }
-        
-        guard let currentTrain = sorted.first else { return }
-        guard let currentJourney = try? await API.shared.getJourney(journeyId: currentTrain.train.ritID) else { return }
-        
-        DispatchQueue.main.async {
-            self.currentTrain = currentTrain
-            self.currentJourney = currentJourney
-        }
     }
     
 }
