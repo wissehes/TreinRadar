@@ -30,6 +30,7 @@
 		895A30FF2A44219500E305D8 /* JourneyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895A30FE2A44219500E305D8 /* JourneyViewModel.swift */; };
 		895A31022A4421FC00E305D8 /* Date+Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895A31012A4421FC00E305D8 /* Date+Formatter.swift */; };
 		896AF0F32A55A582001936AD /* Stop+Computed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896AF0F22A55A582001936AD /* Stop+Computed.swift */; };
+		896EB28F2A76D76D0084980A /* SavedItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896EB28E2A76D76D0084980A /* SavedItemsView.swift */; };
 		896F6A932A49664F00A3CA5B /* TravelInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896F6A922A49664F00A3CA5B /* TravelInfoViewModel.swift */; };
 		89A48EC62A5573A0006F7A4E /* MessageStyle+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A48EC52A5573A0006F7A4E /* MessageStyle+String.swift */; };
 		89A48EC82A557497006F7A4E /* DepartureItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A48EC72A557497006F7A4E /* DepartureItemView.swift */; };
@@ -80,6 +81,7 @@
 		895A30FE2A44219500E305D8 /* JourneyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyViewModel.swift; sourceTree = "<group>"; };
 		895A31012A4421FC00E305D8 /* Date+Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Formatter.swift"; sourceTree = "<group>"; };
 		896AF0F22A55A582001936AD /* Stop+Computed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Stop+Computed.swift"; sourceTree = "<group>"; };
+		896EB28E2A76D76D0084980A /* SavedItemsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavedItemsView.swift; sourceTree = "<group>"; };
 		896F6A922A49664F00A3CA5B /* TravelInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelInfoViewModel.swift; sourceTree = "<group>"; };
 		89A48EC52A5573A0006F7A4E /* MessageStyle+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MessageStyle+String.swift"; sourceTree = "<group>"; };
 		89A48EC72A557497006F7A4E /* DepartureItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureItemView.swift; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 		893AC2692A3B42C000D621FE /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8941D99C2A76B79E00041311 /* SavedItemsView */,
 				89E42B8A2A7300DA0093CEC5 /* Map */,
 				896F6A912A49664200A3CA5B /* TravelInfoView */,
 				89ACF2FA2A485BBB00A4AC57 /* StationsSearchView */,
@@ -216,6 +219,14 @@
 				893C4CD02A460D68002E3540 /* JourneyMapViewCoordinator.swift */,
 			);
 			path = JourneyMapView;
+			sourceTree = "<group>";
+		};
+		8941D99C2A76B79E00041311 /* SavedItemsView */ = {
+			isa = PBXGroup;
+			children = (
+				896EB28E2A76D76D0084980A /* SavedItemsView.swift */,
+			);
+			path = SavedItemsView;
 			sourceTree = "<group>";
 		};
 		895A31002A4421EF00E305D8 /* Extensions */ = {
@@ -292,7 +303,6 @@
 		89E42B8A2A7300DA0093CEC5 /* Map */ = {
 			isa = PBXGroup;
 			children = (
-				89E42B8E2A7304900093CEC5 /* TrainMap */,
 				89E42B8B2A7300EE0093CEC5 /* StationMap */,
 				893AC2712A3B470F00D621FE /* MapView.swift */,
 			);
@@ -305,13 +315,6 @@
 				89E42B8C2A7301010093CEC5 /* StationAnnotations.swift */,
 			);
 			path = StationMap;
-			sourceTree = "<group>";
-		};
-		89E42B8E2A7304900093CEC5 /* TrainMap */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = TrainMap;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -401,6 +404,7 @@
 				895A30FF2A44219500E305D8 /* JourneyViewModel.swift in Sources */,
 				89CEFD9E2A3D065000383555 /* JourneyResponse.swift in Sources */,
 				893C4CCF2A460CC8002E3540 /* JourneyMapView.swift in Sources */,
+				896EB28F2A76D76D0084980A /* SavedItemsView.swift in Sources */,
 				89CEFD8A2A3CF68300383555 /* Journey.swift in Sources */,
 				893AC2722A3B470F00D621FE /* MapView.swift in Sources */,
 				893AC2742A3B489300D621FE /* CurrentVehicles.swift in Sources */,
