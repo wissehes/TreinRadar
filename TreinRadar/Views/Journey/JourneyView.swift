@@ -6,12 +6,17 @@
 //
 
 import SwiftUI
+import Defaults
 
 struct JourneyView: View {
     
     var journeyId: String
     
     @StateObject var vm = JourneyViewModel()
+    @Default(.savedJourneys) var savedJourneys
+    
+    /// Whether this journey is already saved
+    var isSaved: Bool { savedJourneys.first(where: { $0.code == journeyId }) != nil }
     
     var body: some View {
         ZStack {
@@ -62,6 +67,15 @@ struct JourneyView: View {
             stops
         }.navigationTitle(journey.category)
             .toolbar {
+                
+                Button {
+                    vm.toggleSave()
+                } label: {
+                    Label(isSaved ? "Verwijder uit opgeslagen reizen" : "Sla op", systemImage: "star")
+                        .symbolVariant(isSaved ? .fill : .none)
+                        .labelStyle(.iconOnly)
+                }
+                
                 Menu {
                     Toggle("Laat alle stops zien", isOn: $vm.showAllStops)
                 } label: {

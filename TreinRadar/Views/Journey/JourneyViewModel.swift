@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Defaults
 
 final class JourneyViewModel: ObservableObject {
     @Published var journey: JourneyPayload?
@@ -37,6 +38,25 @@ final class JourneyViewModel: ObservableObject {
     /// Stops visible on screen
     var showingStops: [Stop]? {
         return showingPreviousStops ? stops : currentStops
+    }
+    
+    /// Toggle whether the journey is saved
+    func toggleSave() {
+        guard let journey = self.journey else { return }
+        guard let code = journey.productNumbers.first else { return }
+        
+        if Defaults[.savedJourneys].first(where: { $0.code == code }) != nil {
+            Defaults[.savedJourneys].removeAll(where: { $0.code == code })
+        } else {
+            
+            do {
+                let save = try SavedJourney(journey: journey)
+                Defaults[.savedJourneys].append(save)
+            } catch {
+                print(error)
+            }
+            
+        }
     }
     
     func getData(_ journeyId: String) async {
