@@ -26,7 +26,7 @@ enum SavedJourneyError: LocalizedError {
 }
 
 
-struct SavedJourney: Codable, Identifiable, Defaults.Serializable, Journey {
+struct SavedJourney: Codable, Identifiable, Defaults.Serializable, Journey, Hashable {
     var id: String {
         self.code
     }
