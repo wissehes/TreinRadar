@@ -11,9 +11,32 @@ final class JourneyViewModel: ObservableObject {
     @Published var journey: JourneyPayload?
     @Published var geojson: StopsAndGeometry?
     @Published var showAllStops: Bool = false
+    @Published var showingPreviousStops: Bool = false
     
     var stops: [Stop]? {
         return showAllStops ? journey?.stops : journey?.actualStops
+    }
+    
+    /// All stops except the stations the train has already passed
+    var currentStops: [Stop]? {
+        guard let stops = self.stops else { return nil }
+
+        let nextStopIndex = stops.firstIndex(where: {
+            if let date = $0.arrival?.actualTime {
+                return date > Date.now
+            } else {
+                return false
+            }
+        })
+        
+        guard let index = nextStopIndex else { return stops }
+        
+        return Array(stops.suffix(from: index.toNative()))
+    }
+    
+    /// Stops visible on screen
+    var showingStops: [Stop]? {
+        return showingPreviousStops ? stops : currentStops
     }
     
     func getData(_ journeyId: String) async {

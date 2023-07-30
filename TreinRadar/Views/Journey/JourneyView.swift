@@ -97,7 +97,16 @@ struct JourneyView: View {
     
     var stops: some View {
         Section("Stops") {
-            ForEach(vm.stops ?? [], id: \.id) { stop in
+            
+            if !vm.showingPreviousStops && vm.currentStops != nil  {
+                Button("Laat vorige stations zien") {
+                    withAnimation {
+                        vm.showingPreviousStops = true
+                    }
+                }
+            }
+            
+            ForEach(vm.showingStops ?? [], id: \.id) { stop in
                 HStack(alignment: .center, spacing: 10) {
                     depOrArrTimes(stop)
                     
