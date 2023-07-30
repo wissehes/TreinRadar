@@ -10,5 +10,5 @@ import Defaults
 
 extension Defaults.Keys {
     static let favouriteStations = Key<[SavedStation]>("favourite-stations", default: [])
-    static let savedJourneys = Key<[String]>("saved-journeys", default: [])
+    static let savedJourneys = Key<[SavedJourney]>("saved-journeys", default: [])
 }
