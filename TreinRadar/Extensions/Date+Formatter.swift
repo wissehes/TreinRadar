@@ -11,4 +11,8 @@ extension Date {
     func timeFormat() -> String {
         return self.formatted(date: .omitted, time: .shortened)
     }
+    
+    func relative() -> String {
+        return self.formatted(.relative(presentation: .numeric))
+    }
 }
