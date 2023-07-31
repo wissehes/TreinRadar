@@ -23,10 +23,13 @@ struct ContentView: View {
                     .tag(2)
             }
             
-            
             StationsSearchView()
                 .tabItem { Label("Vertrektijden", systemImage: "clock.badge") }
                 .tag(3)
+            
+            SavedItemsView()
+                .tabItem { Label("Opgeslagen", systemImage: "bookmark.fill") }
+                .tag(4)
         }
     }
 }
