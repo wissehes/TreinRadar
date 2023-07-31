@@ -28,13 +28,23 @@ enum SavedJourneyError: LocalizedError {
 
 struct SavedJourney: Codable, Identifiable, Defaults.Serializable, Journey, Hashable {
     var id: String {
-        self.code
+        var id = self.code
+        
+        if let startDate = startDate {
+            id.append("-\(startDate.ISO8601Format())")
+        }
+        if let endDate = endDate {
+            id.append("-\(endDate.ISO8601Format())")
+        }
+        
+        return id
     }
     var journeyId: String {
         self.code
     }
     
     let code: String
+    let saved: Date
     
     /// Start of journey
     let start: StopInfo
@@ -44,17 +54,23 @@ struct SavedJourney: Codable, Identifiable, Defaults.Serializable, Journey, Hash
     let end: StopInfo
     let endDate: Date?
     
-    init(code: String, start: StopInfo, startDate: Date?, end: StopInfo, endDate: Date?) {
+    /// Product info
+    let product: Product?
+    
+    init(code: String, created: Date, start: StopInfo, startDate: Date?, end: StopInfo, endDate: Date?, product: Product?) {
         self.code = code
+        self.saved = created
         self.start = start
         self.startDate = startDate
         self.end = end
         self.endDate = endDate
+        self.product = product
     }
     
     init(journey: JourneyPayload) throws {
         guard let code = journey.productNumbers.first else { throw SavedJourneyError.noJourneyCode }
         self.code = code
+        self.saved = .now
         
         guard let start = journey.stops.first?.stop else { throw SavedJourneyError.noStartInfo }
         self.start = start
@@ -63,6 +79,8 @@ struct SavedJourney: Codable, Identifiable, Defaults.Serializable, Journey, Hash
         guard let end = journey.stops.last?.stop else { throw SavedJourneyError.noEndInfo }
         self.end = end
         self.endDate = journey.stops.last?.arrival?.plannedTime
+        
+        self.product = journey.product
     }
     
 }
