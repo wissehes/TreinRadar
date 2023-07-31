@@ -10,6 +10,7 @@ import Foundation
 final class MockData {
     
     let decoder: JSONDecoder
+    let encoder: JSONEncoder
     
     enum MockDataError: Error {
         case resourceError
@@ -22,6 +23,10 @@ final class MockData {
         let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .iso8601
         self.decoder = decoder
+        
+        let encoder = JSONEncoder()
+        encoder.dateEncodingStrategy = .iso8601
+        self.encoder = encoder
     }
     
     func getData<T>(resource: String, type: T.Type) throws -> T where T : Decodable {

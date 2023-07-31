@@ -1,0 +1,146 @@
+[
+  {
+    "endDate": "2023-07-31T19:17:00Z",
+    "end": {
+      "lng": 4.32499980926514,
+      "lat": 52.0802764892578,
+      "countryCode": "NL",
+      "uicCode": "8400282",
+      "name": "Den Haag Centraal"
+    },
+    "startDate": "2023-07-31T17:23:00Z",
+    "start": {
+      "countryCode": "NL",
+      "uicCode": "8400596",
+      "lng": 5.42222213745117,
+      "name": "Tiel",
+      "lat": 51.8894462585449
+    },
+    "product": {
+      "shortCategoryName": "Sprinter",
+      "type": "TRAIN",
+      "operatorName": "NS",
+      "number": "6968",
+      "operatorCode": "ns",
+      "longCategoryName": "Sprinter",
+      "categoryCode": "SPR"
+    },
+    "code": "6968",
+    "saved": "2023-07-31T18:11:13Z"
+  },
+  {
+    "end": {
+      "uicCode": "8400133",
+      "lng": 4.9906,
+      "countryCode": "NL",
+      "lat": 52.17149,
+      "name": "Breukelen"
+    },
+    "code": "7370",
+    "startDate": "2023-07-31T18:08:00Z",
+    "start": {
+      "lat": 51.958610534668,
+      "lng": 5.57833337783814,
+      "countryCode": "NL",
+      "name": "Rhenen",
+      "uicCode": "8400517"
+    },
+    "product": {
+      "operatorCode": "ns",
+      "shortCategoryName": "Sprinter",
+      "number": "7370",
+      "categoryCode": "SPR",
+      "operatorName": "NS",
+      "type": "TRAIN",
+      "longCategoryName": "Sprinter"
+    },
+    "endDate": "2023-07-31T18:59:00Z",
+    "saved": "2023-07-31T18:11:19Z"
+  },
+  {
+    "code": "122",
+    "saved": "2023-07-31T18:11:23Z",
+    "start": {
+      "lat": 50.1071222,
+      "name": "Frankfurt (M) Hbf",
+      "countryCode": "D",
+      "uicCode": "8011068",
+      "lng": 8.6638338
+    },
+    "endDate": "2023-07-31T18:28:00Z",
+    "end": {
+      "lng": 4.90027761459351,
+      "uicCode": "8400058",
+      "lat": 52.3788871765137,
+      "name": "Amsterdam Centraal",
+      "countryCode": "NL"
+    },
+    "product": {
+      "longCategoryName": "ICE International",
+      "operatorCode": "ns int",
+      "categoryCode": "ICE",
+      "shortCategoryName": "ICE International",
+      "number": "122",
+      "type": "TRAIN",
+      "operatorName": "NS Int"
+    }
+  },
+  {
+    "startDate": "2023-07-31T16:33:00Z",
+    "saved": "2023-07-31T18:11:29Z",
+    "endDate": "2023-07-31T18:41:00Z",
+    "product": {
+      "operatorCode": "ns",
+      "longCategoryName": "Intercity",
+      "categoryCode": "IC",
+      "type": "TRAIN",
+      "shortCategoryName": "Intercity",
+      "operatorName": "NS",
+      "number": "3781"
+    },
+    "code": "3781",
+    "start": {
+      "lng": 6.17277765274048,
+      "uicCode": "8400644",
+      "lat": 51.3636093139648,
+      "countryCode": "NL",
+      "name": "Venlo"
+    },
+    "end": {
+      "lng": 4.76194429397583,
+      "countryCode": "NL",
+      "lat": 52.3094444274902,
+      "name": "Schiphol Airport",
+      "uicCode": "8400561"
+    }
+  },
+  {
+    "start": {
+      "uicCode": "8400071",
+      "lat": 51.9850006103516,
+      "countryCode": "NL",
+      "lng": 5.89916658401489,
+      "name": "Arnhem Centraal"
+    },
+    "product": {
+      "longCategoryName": "Stoptrein",
+      "operatorName": "Arriva",
+      "categoryCode": "ST",
+      "type": "TRAIN",
+      "number": "30969",
+      "shortCategoryName": "Stoptrein",
+      "operatorCode": "arriva"
+    },
+    "endDate": "2023-07-31T19:40:00Z",
+    "end": {
+      "countryCode": "NL",
+      "name": "Winterswijk",
+      "lat": 51.9677307,
+      "lng": 6.7155181,
+      "uicCode": "8400698"
+    },
+    "code": "30969",
+    "saved": "2023-07-31T18:11:42Z",
+    "startDate": "2023-07-31T18:31:00Z"
+  }
+]
