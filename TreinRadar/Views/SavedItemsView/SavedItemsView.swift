@@ -21,13 +21,40 @@ struct SavedItemsView: View {
                 }
             }.navigationTitle("Opgeslagen items")
                 .navigationDestination(for: SavedJourney.self, destination: { item in JourneyView(journeyId: item.code) })
+                .onAppear {
+                    #if targetEnvironment(simulator)
+                    let mock = MockData()
+                    guard let data = try? mock.getData(resource: "saved-journeys", type: [SavedJourney].self) else { return }
+                    self.savedJourneys = data
+                    #else
+                    guard let data = try? MockData().encoder.encode(savedJourneys) else { return }
+                    print(String(decoding: data, as: UTF8.self))
+                    #endif
+                }
         }
     }
     
     func journeyItem(_ item: SavedJourney) -> some View {
         VStack(alignment: .leading) {
-            Text(item.start.name)
-            Text(item.end.name)
+            if let product = item.product {
+                Text("\(product.operatorName) \(product.longCategoryName)")
+                    .bold()
+            }
+            HStack(alignment: .center) {
+                Text(item.start.name)
+                Label("Naar", systemImage: "arrow.right")
+                    .labelStyle(.iconOnly)
+                Text(item.end.name)
+            }.lineLimit(1)
+            
+            Text("\(item.saved.relative()) opgeslagen")
+                .font(.subheadline)
+        }.swipeActions {
+            Button(role: .destructive) {
+                savedJourneys.removeAll { $0.id == item.id }
+            } label: {
+                Label("Uit opgeslagen verwijderen", systemImage: "bookmark.slash")
+            }
         }
     }
 }
