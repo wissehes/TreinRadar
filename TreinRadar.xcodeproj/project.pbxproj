@@ -109,6 +109,7 @@
 		89CEFDA12A3D0BBB00383555 /* TravelInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelInfoView.swift; sourceTree = "<group>"; };
 		89E42B8C2A7301010093CEC5 /* StationAnnotations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationAnnotations.swift; sourceTree = "<group>"; };
 		89FA153B2A782D8F00489E5B /* saved-journeys.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "saved-journeys.json"; sourceTree = "<group>"; };
+		89FA153D2A78374200489E5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +144,7 @@
 		893AC25A2A3B42AA00D621FE /* TreinRadar */ = {
 			isa = PBXGroup;
 			children = (
+				89FA153D2A78374200489E5B /* Info.plist */,
 				89A48EC92A557521006F7A4E /* MockData */,
 				89CEFD8E2A3CFEB100383555 /* Managers */,
 				893AC26B2A3B42D700D621FE /* API */,
@@ -583,6 +585,8 @@
 				DEVELOPMENT_TEAM = U3CH3X8GK4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TreinRadar/Info.plist;
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Nodig om dingen in jouw buurt te kunnen bepalen";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -614,6 +618,8 @@
 				DEVELOPMENT_TEAM = U3CH3X8GK4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TreinRadar/Info.plist;
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Nodig om dingen in jouw buurt te kunnen bepalen";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

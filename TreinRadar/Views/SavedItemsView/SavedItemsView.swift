@@ -28,8 +28,13 @@ struct SavedItemsView: View {
                     self.savedJourneys = data
                     #else
                     guard let data = try? MockData().encoder.encode(savedJourneys) else { return }
+                    if let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
+                        do {
+                            try data.write(to: url.appendingPathComponent("saved-items.json"))
+                        } catch { print(error) }
+                    }
                     print(String(decoding: data, as: UTF8.self))
-                    #endif
+                    #endif 
                 }
         }
     }
