@@ -18,6 +18,7 @@ final class LocationManager: NSObject, ObservableObject, CLLocationManagerDelega
     
     override init() {
         super.init()
+        manager.startMonitoringSignificantLocationChanges()
         manager.delegate = self
     }
     
