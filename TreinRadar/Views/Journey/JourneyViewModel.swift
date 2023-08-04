@@ -23,7 +23,7 @@ final class JourneyViewModel: ObservableObject {
         guard let stops = self.stops else { return nil }
 
         let nextStopIndex = stops.firstIndex(where: {
-            if let date = $0.arrival?.actualTime {
+            if let date = $0.departure?.actualTime ?? $0.arrival?.actualTime {
                 return date > Date.now
             } else {
                 return false
