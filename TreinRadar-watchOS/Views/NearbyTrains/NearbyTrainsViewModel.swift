@@ -16,6 +16,7 @@ final class NearbyTrainsViewModel: ObservableObject {
     @Published var authorizationStatus: CLAuthorizationStatus = .notDetermined
     @Published var trains: [NearbyTrain]?
     
+    @Published var isLoading = true
     @Published var error: String?
     
     func getLocation() async throws -> CLLocation? {
@@ -23,9 +24,10 @@ final class NearbyTrainsViewModel: ObservableObject {
             return location
         }
         
+        print("Requesting authorization...")
         let authorization = await locationManager.requestPermission(with: .whenInUsage)
         DispatchQueue.main.async { self.authorizationStatus = authorization }
-        
+        print(authorization)
         if authorization != .authorizedWhenInUse {
             self.error = "Location not authorized"
             return nil;
@@ -45,8 +47,14 @@ final class NearbyTrainsViewModel: ObservableObject {
     }
     
     func getNearbyTrains() async {
+        defer {
+            DispatchQueue.main.async { self.isLoading = false }
+        }
+        
         do {
+            print("Getting location...")
             guard let location = try await self.getLocation() else { return }
+            print("Getting trains...")
             let trains = try await API.shared.getNearbyTrains(location: location)
             
             DispatchQueue.main.async { self.trains = trains }

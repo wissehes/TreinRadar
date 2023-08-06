@@ -8,15 +8,23 @@
 import SwiftUI
 
 struct NearbyTrainsView: View {
-    @State private var isLoading = true
+    @StateObject var vm = NearbyTrainsViewModel()
     
     var body: some View {
-        if isLoading {
-            ProgressView("Loading...")
-        } else {
-            List {
-                Text("item")
+        ZStack {
+            if vm.isLoading {
+                ProgressView("Loading...")
+            } else if let trains = vm.trains {
+                List(trains) { train in
+                    Text(train.ritID)
+                }
+            } else {
+                Text(vm.error ?? "Something went wrong.")
+                    .padding()
             }
+        }
+        .task {
+            await vm.getNearbyTrains()
         }
     }
 }
