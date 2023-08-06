@@ -7,6 +7,7 @@
 
 import Foundation
 import Alamofire
+import CoreLocation
 
 typealias JourneyId = String
 
@@ -22,6 +23,7 @@ final class Endpoints {
     static let journeyFromStock = "\(API.baseURL)/virtual-train-api/api/v1/ritnummer"
     
     static let myBackend = "https://trein.wissehes.nl/api"
+    static let nearbyTrains = "https://trein.wissehes.nl/api/trains/nearby"
 }
 
 final class API {
@@ -116,6 +118,21 @@ final class API {
             .value
         
         return journeyId
+    }
+    
+    func getNearbyTrains(location: CLLocation) async throws -> [NearbyTrain] {
+        let params: Parameters = [
+            "latitude": location.coordinate.latitude,
+            "longitude": location.coordinate.longitude,
+            "radius": 10000
+        ]
+        
+        let data = try await client
+            .request(Endpoints.nearbyTrains, parameters: params)
+            .serializingDecodable([NearbyTrain].self)
+            .value
+        
+        return data
     }
     
 }
