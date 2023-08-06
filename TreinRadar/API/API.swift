@@ -20,6 +20,8 @@ final class Endpoints {
     static let journey = "\(API.baseURL)/reisinformatie-api/api/v2/journey"
     static let journeyGeojson = "\(API.baseURL)/Spoorkaart-API/api/v1/traject.json"
     static let journeyFromStock = "\(API.baseURL)/virtual-train-api/api/v1/ritnummer"
+    
+    static let myBackend = "https://trein.wissehes.nl/api"
 }
 
 final class API {
@@ -41,9 +43,19 @@ final class API {
         return Session(configuration: configuration);
     }()
     
+    /// Get all live trains
     func getLiveTrains() async throws -> [Train] {
         let data = try await client.request(Endpoints.currentVehicles).serializingDecodable(CurrentVehicles.self).value
         return data.payload.treinen
+    }
+    
+    /// Get a single live train
+    func getLiveTrainData(journeyId: String) async throws -> Train {
+        let data = try await client.request("\(Endpoints.myBackend)/trains/\(journeyId)/live")
+            .serializingDecodable(Train.self)
+            .value
+        
+        return data
     }
     
     func getStations() async throws -> [FullStation] {
@@ -105,4 +117,5 @@ final class API {
         
         return journeyId
     }
+    
 }
