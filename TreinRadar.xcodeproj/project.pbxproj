@@ -40,6 +40,8 @@
 		89A8A7C82A7FCBC80085D127 /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A8A7C62A7FCBC80085D127 /* Formatters.swift */; };
 		89A8A7CB2A7FCBE60085D127 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 89A8A7CA2A7FCBE60085D127 /* Alamofire */; };
 		89A8A7CD2A7FCBE60085D127 /* Defaults in Frameworks */ = {isa = PBXBuildFile; productRef = 89A8A7CC2A7FCBE60085D127 /* Defaults */; };
+		89A8A7D02A7FCE210085D127 /* AsyncLocationKit in Frameworks */ = {isa = PBXBuildFile; productRef = 89A8A7CF2A7FCE210085D127 /* AsyncLocationKit */; };
+		89A8A7D22A7FCE2E0085D127 /* AsyncLocationKit in Frameworks */ = {isa = PBXBuildFile; productRef = 89A8A7D12A7FCE2E0085D127 /* AsyncLocationKit */; };
 		89ACF2F12A470F4A00A4AC57 /* Stops+Geojson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89ACF2F02A470F4A00A4AC57 /* Stops+Geojson.swift */; };
 		89ACF2F32A4714FA00A4AC57 /* StationAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89ACF2F22A4714FA00A4AC57 /* StationAnnotation.swift */; };
 		89ACF2F52A47161700A4AC57 /* TrainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89ACF2F42A47161700A4AC57 /* TrainManager.swift */; };
@@ -182,6 +184,7 @@
 			files = (
 				89CEFD932A3CFF4000383555 /* Defaults in Frameworks */,
 				893AC2702A3B436F00D621FE /* Alamofire in Frameworks */,
+				89A8A7D22A7FCE2E0085D127 /* AsyncLocationKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -191,6 +194,7 @@
 			files = (
 				89A8A7CD2A7FCBE60085D127 /* Defaults in Frameworks */,
 				89A8A7CB2A7FCBE60085D127 /* Alamofire in Frameworks */,
+				89A8A7D02A7FCE210085D127 /* AsyncLocationKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -465,6 +469,7 @@
 			packageProductDependencies = (
 				893AC26F2A3B436F00D621FE /* Alamofire */,
 				89CEFD922A3CFF4000383555 /* Defaults */,
+				89A8A7D12A7FCE2E0085D127 /* AsyncLocationKit */,
 			);
 			productName = TreinRadar;
 			productReference = 893AC2582A3B42AA00D621FE /* TreinRadar-iOS.app */;
@@ -486,6 +491,7 @@
 			packageProductDependencies = (
 				89A8A7CA2A7FCBE60085D127 /* Alamofire */,
 				89A8A7CC2A7FCBE60085D127 /* Defaults */,
+				89A8A7CF2A7FCE210085D127 /* AsyncLocationKit */,
 			);
 			productName = "TreinRadar-watchOS Watch App";
 			productReference = 89EDD6F52A7FBDBE0035C238 /* TreinRadar.app */;
@@ -521,6 +527,7 @@
 			packageReferences = (
 				893AC26E2A3B436F00D621FE /* XCRemoteSwiftPackageReference "Alamofire" */,
 				89CEFD912A3CFF4000383555 /* XCRemoteSwiftPackageReference "Defaults" */,
+				89A8A7CE2A7FCE210085D127 /* XCRemoteSwiftPackageReference "AsyncLocationKit" */,
 			);
 			productRefGroup = 893AC2592A3B42AA00D621FE /* Products */;
 			projectDirPath = "";
@@ -944,6 +951,14 @@
 				minimumVersion = 5.7.1;
 			};
 		};
+		89A8A7CE2A7FCE210085D127 /* XCRemoteSwiftPackageReference "AsyncLocationKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AsyncSwift/AsyncLocationKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.6.4;
+			};
+		};
 		89CEFD912A3CFF4000383555 /* XCRemoteSwiftPackageReference "Defaults" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/sindresorhus/Defaults";
@@ -969,6 +984,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 89CEFD912A3CFF4000383555 /* XCRemoteSwiftPackageReference "Defaults" */;
 			productName = Defaults;
+		};
+		89A8A7CF2A7FCE210085D127 /* AsyncLocationKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 89A8A7CE2A7FCE210085D127 /* XCRemoteSwiftPackageReference "AsyncLocationKit" */;
+			productName = AsyncLocationKit;
+		};
+		89A8A7D12A7FCE2E0085D127 /* AsyncLocationKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 89A8A7CE2A7FCE210085D127 /* XCRemoteSwiftPackageReference "AsyncLocationKit" */;
+			productName = AsyncLocationKit;
 		};
 		89CEFD922A3CFF4000383555 /* Defaults */ = {
 			isa = XCSwiftPackageProductDependency;
