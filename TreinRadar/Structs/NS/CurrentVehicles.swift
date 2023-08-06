@@ -21,7 +21,8 @@ struct CurrentVehiclesPayload: Codable {
 struct Train: Codable {
     let treinNummer: Int
     let ritID: String
-    let lat, lng, snelheid, richting: Double
+    let lat, lng, richting: Double
+    let snelheid: Int
     let horizontaleNauwkeurigheid: Double
     let type: TrainType
     let bron: String
