@@ -7,7 +7,9 @@
 
 import Foundation
 
-struct NearbyTrain: Codable {
+struct NearbyTrain: Codable, Identifiable {
+    var id: String { self.ritID }
+    
     let treinNummer: Int
     let ritID: String
     let lat, lng, richting: Double
