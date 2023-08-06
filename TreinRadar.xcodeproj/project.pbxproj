@@ -56,12 +56,41 @@
 		89CEFDA02A3D07ED00383555 /* Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CEFD9F2A3D07ED00383555 /* Shared.swift */; };
 		89CEFDA22A3D0BBB00383555 /* TravelInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CEFDA12A3D0BBB00383555 /* TravelInfoView.swift */; };
 		89E42B8D2A7301010093CEC5 /* StationAnnotations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E42B8C2A7301010093CEC5 /* StationAnnotations.swift */; };
+		89EDD6F82A7FBDBE0035C238 /* TreinRadar_watchOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EDD6F72A7FBDBE0035C238 /* TreinRadar_watchOSApp.swift */; };
+		89EDD6FA2A7FBDBE0035C238 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EDD6F92A7FBDBE0035C238 /* ContentView.swift */; };
+		89EDD6FC2A7FBDC20035C238 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89EDD6FB2A7FBDC20035C238 /* Assets.xcassets */; };
+		89EDD6FF2A7FBDC20035C238 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89EDD6FE2A7FBDC20035C238 /* Preview Assets.xcassets */; };
+		89EDD7022A7FBDC20035C238 /* TreinRadar.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 89EDD6F52A7FBDBE0035C238 /* TreinRadar.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		89FA153C2A782D8F00489E5B /* saved-journeys.json in Resources */ = {isa = PBXBuildFile; fileRef = 89FA153B2A782D8F00489E5B /* saved-journeys.json */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		89EDD7002A7FBDC20035C238 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 893AC2502A3B42AA00D621FE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 89EDD6F42A7FBDBE0035C238;
+			remoteInfo = "TreinRadar-watchOS Watch App";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		89EDD7062A7FBDC20035C238 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				89EDD7022A7FBDC20035C238 /* TreinRadar.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		891AEE9B2A534A6D005A49F5 /* Journey+Computed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Journey+Computed.swift"; sourceTree = "<group>"; };
-		893AC2582A3B42AA00D621FE /* TreinRadar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TreinRadar.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		893AC2582A3B42AA00D621FE /* TreinRadar-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TreinRadar-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		893AC25B2A3B42AA00D621FE /* TreinRadarApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreinRadarApp.swift; sourceTree = "<group>"; };
 		893AC25D2A3B42AA00D621FE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		893AC25F2A3B42AB00D621FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -108,6 +137,11 @@
 		89CEFD9F2A3D07ED00383555 /* Shared.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shared.swift; sourceTree = "<group>"; };
 		89CEFDA12A3D0BBB00383555 /* TravelInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelInfoView.swift; sourceTree = "<group>"; };
 		89E42B8C2A7301010093CEC5 /* StationAnnotations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationAnnotations.swift; sourceTree = "<group>"; };
+		89EDD6F52A7FBDBE0035C238 /* TreinRadar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TreinRadar.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		89EDD6F72A7FBDBE0035C238 /* TreinRadar_watchOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreinRadar_watchOSApp.swift; sourceTree = "<group>"; };
+		89EDD6F92A7FBDBE0035C238 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		89EDD6FB2A7FBDC20035C238 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		89EDD6FE2A7FBDC20035C238 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		89FA153B2A782D8F00489E5B /* saved-journeys.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "saved-journeys.json"; sourceTree = "<group>"; };
 		89FA153D2A78374200489E5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -122,6 +156,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		89EDD6F22A7FBDBE0035C238 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -129,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				893AC25A2A3B42AA00D621FE /* TreinRadar */,
+				89EDD6F62A7FBDBE0035C238 /* TreinRadar-watchOS Watch App */,
 				893AC2592A3B42AA00D621FE /* Products */,
 			);
 			sourceTree = "<group>";
@@ -136,7 +178,8 @@
 		893AC2592A3B42AA00D621FE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				893AC2582A3B42AA00D621FE /* TreinRadar.app */,
+				893AC2582A3B42AA00D621FE /* TreinRadar-iOS.app */,
+				89EDD6F52A7FBDBE0035C238 /* TreinRadar.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -325,28 +368,66 @@
 			path = StationMap;
 			sourceTree = "<group>";
 		};
+		89EDD6F62A7FBDBE0035C238 /* TreinRadar-watchOS Watch App */ = {
+			isa = PBXGroup;
+			children = (
+				89EDD6F72A7FBDBE0035C238 /* TreinRadar_watchOSApp.swift */,
+				89EDD6F92A7FBDBE0035C238 /* ContentView.swift */,
+				89EDD6FB2A7FBDC20035C238 /* Assets.xcassets */,
+				89EDD6FD2A7FBDC20035C238 /* Preview Content */,
+			);
+			path = "TreinRadar-watchOS Watch App";
+			sourceTree = "<group>";
+		};
+		89EDD6FD2A7FBDC20035C238 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				89EDD6FE2A7FBDC20035C238 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		893AC2572A3B42AA00D621FE /* TreinRadar */ = {
+		893AC2572A3B42AA00D621FE /* TreinRadar-iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 893AC2662A3B42AB00D621FE /* Build configuration list for PBXNativeTarget "TreinRadar" */;
+			buildConfigurationList = 893AC2662A3B42AB00D621FE /* Build configuration list for PBXNativeTarget "TreinRadar-iOS" */;
 			buildPhases = (
 				893AC2542A3B42AA00D621FE /* Sources */,
 				893AC2552A3B42AA00D621FE /* Frameworks */,
 				893AC2562A3B42AA00D621FE /* Resources */,
+				89EDD7062A7FBDC20035C238 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				89EDD7012A7FBDC20035C238 /* PBXTargetDependency */,
 			);
-			name = TreinRadar;
+			name = "TreinRadar-iOS";
 			packageProductDependencies = (
 				893AC26F2A3B436F00D621FE /* Alamofire */,
 				89CEFD922A3CFF4000383555 /* Defaults */,
 			);
 			productName = TreinRadar;
-			productReference = 893AC2582A3B42AA00D621FE /* TreinRadar.app */;
+			productReference = 893AC2582A3B42AA00D621FE /* TreinRadar-iOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+		89EDD6F42A7FBDBE0035C238 /* TreinRadar-watchOS Watch App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 89EDD7032A7FBDC20035C238 /* Build configuration list for PBXNativeTarget "TreinRadar-watchOS Watch App" */;
+			buildPhases = (
+				89EDD6F12A7FBDBE0035C238 /* Sources */,
+				89EDD6F22A7FBDBE0035C238 /* Frameworks */,
+				89EDD6F32A7FBDBE0035C238 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "TreinRadar-watchOS Watch App";
+			productName = "TreinRadar-watchOS Watch App";
+			productReference = 89EDD6F52A7FBDBE0035C238 /* TreinRadar.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -360,6 +441,9 @@
 				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					893AC2572A3B42AA00D621FE = {
+						CreatedOnToolsVersion = 15.0;
+					};
+					89EDD6F42A7FBDBE0035C238 = {
 						CreatedOnToolsVersion = 15.0;
 					};
 				};
@@ -381,7 +465,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				893AC2572A3B42AA00D621FE /* TreinRadar */,
+				893AC2572A3B42AA00D621FE /* TreinRadar-iOS */,
+				89EDD6F42A7FBDBE0035C238 /* TreinRadar-watchOS Watch App */,
 			);
 		};
 /* End PBXProject section */
@@ -396,6 +481,15 @@
 				893AC2632A3B42AB00D621FE /* Preview Assets.xcassets in Resources */,
 				89A48ECB2A557533006F7A4E /* departures.json in Resources */,
 				893AC2602A3B42AB00D621FE /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		89EDD6F32A7FBDBE0035C238 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				89EDD6FF2A7FBDC20035C238 /* Preview Assets.xcassets in Resources */,
+				89EDD6FC2A7FBDC20035C238 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -452,7 +546,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		89EDD6F12A7FBDBE0035C238 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				89EDD6FA2A7FBDBE0035C238 /* ContentView.swift in Sources */,
+				89EDD6F82A7FBDBE0035C238 /* TreinRadar_watchOSApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		89EDD7012A7FBDC20035C238 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 89EDD6F42A7FBDBE0035C238 /* TreinRadar-watchOS Watch App */;
+			targetProxy = 89EDD7002A7FBDC20035C238 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		893AC2642A3B42AB00D621FE /* Debug */ = {
@@ -515,6 +626,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				WATCHOS_DEPLOYMENT_TARGET = 9.5;
 			};
 			name = Debug;
 		};
@@ -571,12 +683,14 @@
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 9.5;
 			};
 			name = Release;
 		};
 		893AC2672A3B42AB00D621FE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -586,6 +700,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TreinRadar/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = TreinRadar;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Nodig om dingen in jouw buurt te kunnen bepalen";
@@ -611,6 +726,7 @@
 		893AC2682A3B42AB00D621FE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -620,6 +736,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TreinRadar/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = TreinRadar;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Nodig om dingen in jouw buurt te kunnen bepalen";
@@ -642,6 +759,64 @@
 			};
 			name = Release;
 		};
+		89EDD7042A7FBDC20035C238 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"TreinRadar-watchOS Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = C4HKS39B24;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = nl.wissehes.TreinRadar;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = nl.wissehes.TreinRadar.watchapp;
+				PRODUCT_NAME = TreinRadar;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 9.5;
+			};
+			name = Debug;
+		};
+		89EDD7052A7FBDC20035C238 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"TreinRadar-watchOS Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = C4HKS39B24;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = nl.wissehes.TreinRadar;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = nl.wissehes.TreinRadar.watchapp;
+				PRODUCT_NAME = TreinRadar;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 9.5;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -654,11 +829,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		893AC2662A3B42AB00D621FE /* Build configuration list for PBXNativeTarget "TreinRadar" */ = {
+		893AC2662A3B42AB00D621FE /* Build configuration list for PBXNativeTarget "TreinRadar-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				893AC2672A3B42AB00D621FE /* Debug */,
 				893AC2682A3B42AB00D621FE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		89EDD7032A7FBDC20035C238 /* Build configuration list for PBXNativeTarget "TreinRadar-watchOS Watch App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				89EDD7042A7FBDC20035C238 /* Debug */,
+				89EDD7052A7FBDC20035C238 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
