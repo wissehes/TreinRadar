@@ -169,8 +169,8 @@
 		893AC24F2A3B42AA00D621FE = {
 			isa = PBXGroup;
 			children = (
-				893AC25A2A3B42AA00D621FE /* TreinRadar */,
-				89EDD6F62A7FBDBE0035C238 /* TreinRadar-watchOS Watch App */,
+				893AC25A2A3B42AA00D621FE /* TreinRadar-iOS */,
+				89EDD6F62A7FBDBE0035C238 /* TreinRadar-watchOS */,
 				893AC2592A3B42AA00D621FE /* Products */,
 			);
 			sourceTree = "<group>";
@@ -184,7 +184,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		893AC25A2A3B42AA00D621FE /* TreinRadar */ = {
+		893AC25A2A3B42AA00D621FE /* TreinRadar-iOS */ = {
 			isa = PBXGroup;
 			children = (
 				89FA153D2A78374200489E5B /* Info.plist */,
@@ -199,7 +199,7 @@
 				893AC25F2A3B42AB00D621FE /* Assets.xcassets */,
 				893AC2612A3B42AB00D621FE /* Preview Content */,
 			);
-			path = TreinRadar;
+			path = "TreinRadar-iOS";
 			sourceTree = "<group>";
 		};
 		893AC2612A3B42AB00D621FE /* Preview Content */ = {
@@ -368,7 +368,7 @@
 			path = StationMap;
 			sourceTree = "<group>";
 		};
-		89EDD6F62A7FBDBE0035C238 /* TreinRadar-watchOS Watch App */ = {
+		89EDD6F62A7FBDBE0035C238 /* TreinRadar-watchOS */ = {
 			isa = PBXGroup;
 			children = (
 				89EDD6F72A7FBDBE0035C238 /* TreinRadar_watchOSApp.swift */,
@@ -376,7 +376,7 @@
 				89EDD6FB2A7FBDC20035C238 /* Assets.xcassets */,
 				89EDD6FD2A7FBDC20035C238 /* Preview Content */,
 			);
-			path = "TreinRadar-watchOS Watch App";
+			path = "TreinRadar-watchOS";
 			sourceTree = "<group>";
 		};
 		89EDD6FD2A7FBDC20035C238 /* Preview Content */ = {
