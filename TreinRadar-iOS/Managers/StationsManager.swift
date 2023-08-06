@@ -8,16 +8,6 @@
 import Foundation
 import CoreLocation
 
-extension MeasurementFormatter {
-    static var myFormatter: MeasurementFormatter {
-        let formatter = self.init()
-        formatter.unitOptions = [.providedUnit, .naturalScale]
-        formatter.unitStyle = .long
-        formatter.numberFormatter.maximumFractionDigits = 0
-        return formatter
-    }
-}
-
 final class StationsManager: ObservableObject {
     
     static let shared = StationsManager()
