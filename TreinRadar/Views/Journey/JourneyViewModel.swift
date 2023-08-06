@@ -7,12 +7,15 @@
 
 import Foundation
 import Defaults
+import SwiftUI
 
 final class JourneyViewModel: ObservableObject {
     @Published var journey: JourneyPayload?
     @Published var geojson: StopsAndGeometry?
     @Published var showAllStops: Bool = false
     @Published var showingPreviousStops: Bool = false
+    
+    @Published var live: Train?
     
     var stops: [Stop]? {
         return showAllStops ? journey?.stops : journey?.actualStops
@@ -71,6 +74,15 @@ final class JourneyViewModel: ObservableObject {
         do {
             let data = try await API.shared.getJourneyGeoJson(stops: stops, journeyId: journeyId)
             DispatchQueue.main.async { self.geojson = data }
+        } catch { print(error) }
+    }
+    
+    func getLiveData(_ journeyId: String) async {
+        do {
+            let data = try await API.shared.getLiveTrainData(journeyId: journeyId)
+            DispatchQueue.main.async {
+                withAnimation { self.live = data }
+            }
         } catch { print(error) }
     }
 }

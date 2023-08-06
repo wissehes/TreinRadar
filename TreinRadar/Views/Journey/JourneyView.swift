@@ -15,6 +15,8 @@ struct JourneyView: View {
     @StateObject var vm = JourneyViewModel()
     @Default(.savedJourneys) var savedJourneys
     
+    let timer = Timer.publish(every: 5, on: .main, in: .common).autoconnect()
+    
     /// Whether this journey is already saved
     var isSaved: Bool { savedJourneys.first(where: { $0.code == journeyId }) != nil }
     
@@ -28,6 +30,10 @@ struct JourneyView: View {
         }
         .task {
             await vm.getData(journeyId)
+            await vm.getLiveData(journeyId)
+        }
+        .onReceive(timer) { _ in
+            Task { await vm.getLiveData(journeyId) }
         }
         .navigationDestination(for: StopsAndGeometry.self) { item in
             JourneyMapView(geometry: item, inline: false)
@@ -40,7 +46,6 @@ struct JourneyView: View {
         List {
             Section {
                 Text("\(journey.category) richting **\(journey.destination?.name ?? "?")**")
-//                Text("\(journey.category) richting \(journey)")
                 if journey.firstRealStop?.actualStock?.trainParts != nil {
                     trainParts
                 }
@@ -53,6 +58,19 @@ struct JourneyView: View {
                 }
                 if journey.stockNumbers != "0" {
                     Text("Materieel: \(journey.stockNumbers)")
+                }
+            }
+            
+            if let live = vm.live {
+                Section("Info") {
+                    Text("Snelheid: \(live.snelheid) km/h")
+                    HStack(alignment: .center) {
+                        Text("Richting:")
+                        Spacer()
+                        
+                        Text("⬆️")
+                            .rotationEffect(Angle(degrees: live.richting), anchor: .center)
+                    }
                 }
             }
             
