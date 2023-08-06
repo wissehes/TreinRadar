@@ -169,6 +169,7 @@
 		893AC24F2A3B42AA00D621FE = {
 			isa = PBXGroup;
 			children = (
+				89EDD7072A7FBE140035C238 /* Shared */,
 				893AC25A2A3B42AA00D621FE /* TreinRadar-iOS */,
 				89EDD6F62A7FBDBE0035C238 /* TreinRadar-watchOS */,
 				893AC2592A3B42AA00D621FE /* Products */,
@@ -387,6 +388,13 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		89EDD7072A7FBE140035C238 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -413,9 +421,9 @@
 			productReference = 893AC2582A3B42AA00D621FE /* TreinRadar-iOS.app */;
 			productType = "com.apple.product-type.application";
 		};
-		89EDD6F42A7FBDBE0035C238 /* TreinRadar-watchOS Watch App */ = {
+		89EDD6F42A7FBDBE0035C238 /* TreinRadar-watchOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 89EDD7032A7FBDC20035C238 /* Build configuration list for PBXNativeTarget "TreinRadar-watchOS Watch App" */;
+			buildConfigurationList = 89EDD7032A7FBDC20035C238 /* Build configuration list for PBXNativeTarget "TreinRadar-watchOS" */;
 			buildPhases = (
 				89EDD6F12A7FBDBE0035C238 /* Sources */,
 				89EDD6F22A7FBDBE0035C238 /* Frameworks */,
@@ -425,7 +433,7 @@
 			);
 			dependencies = (
 			);
-			name = "TreinRadar-watchOS Watch App";
+			name = "TreinRadar-watchOS";
 			productName = "TreinRadar-watchOS Watch App";
 			productReference = 89EDD6F52A7FBDBE0035C238 /* TreinRadar.app */;
 			productType = "com.apple.product-type.application";
@@ -466,7 +474,7 @@
 			projectRoot = "";
 			targets = (
 				893AC2572A3B42AA00D621FE /* TreinRadar-iOS */,
-				89EDD6F42A7FBDBE0035C238 /* TreinRadar-watchOS Watch App */,
+				89EDD6F42A7FBDBE0035C238 /* TreinRadar-watchOS */,
 			);
 		};
 /* End PBXProject section */
@@ -560,7 +568,7 @@
 /* Begin PBXTargetDependency section */
 		89EDD7012A7FBDC20035C238 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 89EDD6F42A7FBDBE0035C238 /* TreinRadar-watchOS Watch App */;
+			target = 89EDD6F42A7FBDBE0035C238 /* TreinRadar-watchOS */;
 			targetProxy = 89EDD7002A7FBDC20035C238 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -695,11 +703,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"TreinRadar/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"TreinRadar-iOS/Preview Content\"";
 				DEVELOPMENT_TEAM = C4HKS39B24;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = TreinRadar/Info.plist;
+				INFOPLIST_FILE = "TreinRadar-iOS/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = TreinRadar;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
@@ -731,11 +739,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"TreinRadar/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"TreinRadar-iOS/Preview Content\"";
 				DEVELOPMENT_TEAM = C4HKS39B24;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = TreinRadar/Info.plist;
+				INFOPLIST_FILE = "TreinRadar-iOS/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = TreinRadar;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
@@ -766,7 +774,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"TreinRadar-watchOS Watch App/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"TreinRadar-watchOS/Preview Content\"";
 				DEVELOPMENT_TEAM = C4HKS39B24;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -795,7 +803,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"TreinRadar-watchOS Watch App/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"TreinRadar-watchOS/Preview Content\"";
 				DEVELOPMENT_TEAM = C4HKS39B24;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -838,7 +846,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		89EDD7032A7FBDC20035C238 /* Build configuration list for PBXNativeTarget "TreinRadar-watchOS Watch App" */ = {
+		89EDD7032A7FBDC20035C238 /* Build configuration list for PBXNativeTarget "TreinRadar-watchOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				89EDD7042A7FBDC20035C238 /* Debug */,
