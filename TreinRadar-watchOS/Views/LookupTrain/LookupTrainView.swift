@@ -6,13 +6,32 @@
 //
 
 import SwiftUI
+import SwiftUI_Apple_Watch_Decimal_Pad
 
 struct LookupTrainView: View {
+    @State private var train = ""
+    @State private var isLoading = false
+    
+    var formatter: NumberFormatter {
+        return NumberFormatter()
+    }
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack {
+            VStack {
+                DigiTextView(placeholder: "Treinstel", text: $train, presentingModal: false, alignment: .leading, style: .numbers)
+                
+//                Button("Look up") { }.disabled(isLoading)
+                NavigationLink("Zoek op") {
+                    JourneyView(stockNumber: train)
+                }
+            }
+        }
     }
 }
 
 #Preview {
-    LookupTrainView()
+    NavigationStack {
+        LookupTrainView()
+    }
 }
