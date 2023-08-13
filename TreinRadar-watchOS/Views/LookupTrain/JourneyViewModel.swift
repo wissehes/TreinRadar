@@ -13,6 +13,8 @@ final class JourneyViewModel: ObservableObject {
     @Published var isLoading = true
     @Published var error: String?
     
+    @Published var showingPreviousStops = false
+    
     func setData(data: JourneyPayload) async {
         DispatchQueue.main.async {
             withAnimation {
@@ -49,7 +51,30 @@ final class JourneyViewModel: ObservableObject {
         journey?.firstRealStop?.actualStock?.numberOfSeats
     }
     
-    var stops: [Stop] {
+    /// All stops except the stations the train has already passed
+    var nextStops: [Stop] {
+        guard let stops = self.journey?.stops else { return [] }
+
+        let nextStopIndex = stops.firstIndex(where: {
+            if let date = $0.departure?.actualTime ?? $0.arrival?.actualTime {
+                return date > Date.now
+            } else {
+                return false
+            }
+        })
+        
+        guard let index = nextStopIndex else { return stops }
+        
+        return Array(stops.suffix(from: index.toNative()))
+    }
+    
+    /// All stops this train calls at
+    var allStops: [Stop] {
         journey?.stops.filter { $0.status != .passing } ?? []
+    }
+    
+    /// Stops visible on screen
+    var stops: [Stop] {
+        showingPreviousStops ? allStops : nextStops
     }
 }

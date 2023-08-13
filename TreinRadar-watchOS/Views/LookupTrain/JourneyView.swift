@@ -33,23 +33,32 @@ struct JourneyView: View {
     func list(journey: JourneyPayload) -> some View {
         List {
             Section {
-                HStack(alignment: .center, spacing: 5) {
-                    arrowImg
-                    Text(journey.destination?.name ?? "?")
-                }
-                
-                if let length = vm.trainLength {
-                    Text("\(length) delen")
-                }
-                
-                if let numberOfSeats = vm.numberOfSeats {
-                    Text("\(numberOfSeats) zitplaatsen")
+                VStack(alignment: .leading, spacing: 2.5) {
+                    HStack(alignment: .center, spacing: 5) {
+                        arrowImg
+                        Text(journey.destination?.name ?? "?")
+                    }.bold()
+                    
+                    if let length = vm.trainLength {
+                        Text("\(length) delen")
+                    }
+                    
+                    if let numberOfSeats = vm.numberOfSeats {
+                        Text("\(numberOfSeats) zitplaatsen")
+                    }
                 }
             }
             
             Section("Stops") {
+                
+                if !vm.showingPreviousStops {
+                    Button("Laat vorige zien") {
+                        withAnimation { vm.showingPreviousStops.toggle() }
+                    }.foregroundStyle(.blue)
+                }
+                
                 ForEach(vm.stops, id: \.id) { item in
-                    Text(item.stop.name)
+                    JourneyStopItem(item: item)
                 }
             }
         }
