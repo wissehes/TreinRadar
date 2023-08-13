@@ -16,7 +16,11 @@ struct NearbyTrainsView: View {
                 ProgressView("Loading...")
             } else if let trains = vm.trains {
                 List(trains) { train in
-                    Text(train.ritID)
+                    VStack(alignment: .leading) {
+                        Text(train.journey.category ?? "trein")
+                            .font(.subheadline)
+                        Text(train.journey.destination ?? "unknown")
+                    }
                 }
             } else {
                 Text(vm.error ?? "Something went wrong.")

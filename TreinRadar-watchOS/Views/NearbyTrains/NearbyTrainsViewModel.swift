@@ -8,6 +8,7 @@
 import Foundation
 import AsyncLocationKit
 import CoreLocation
+import SwiftUI
 
 final class NearbyTrainsViewModel: ObservableObject {
     let locationManager = AsyncLocationManager(desiredAccuracy: .nearestTenMetersAccuracy)
@@ -24,10 +25,9 @@ final class NearbyTrainsViewModel: ObservableObject {
             return location
         }
         
-        print("Requesting authorization...")
         let authorization = await locationManager.requestPermission(with: .whenInUsage)
         DispatchQueue.main.async { self.authorizationStatus = authorization }
-        print(authorization)
+
         if authorization != .authorizedWhenInUse {
             self.error = "Location not authorized"
             return nil;
@@ -48,16 +48,17 @@ final class NearbyTrainsViewModel: ObservableObject {
     
     func getNearbyTrains() async {
         defer {
-            DispatchQueue.main.async { self.isLoading = false }
+            DispatchQueue.main.async { withAnimation { self.isLoading = false } }
         }
         
         do {
-            print("Getting location...")
             guard let location = try await self.getLocation() else { return }
-            print("Getting trains...")
             let trains = try await API.shared.getNearbyTrains(location: location)
             
-            DispatchQueue.main.async { self.trains = trains }
-        } catch { print(error) }
+            DispatchQueue.main.async { withAnimation { self.trains = trains } }
+        } catch {
+            DispatchQueue.main.async { self.error = error.localizedDescription }
+            print(error)
+        }
     }
 }
