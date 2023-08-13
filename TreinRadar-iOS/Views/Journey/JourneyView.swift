@@ -63,13 +63,13 @@ struct JourneyView: View {
             
             if let live = vm.live {
                 Section("Info") {
-                    Text("Snelheid: \(live.snelheid) km/h")
+                    Text("Snelheid: \(live.speed) km/h")
                     HStack(alignment: .center) {
                         Text("Richting:")
                         Spacer()
                         
                         Text("⬆️")
-                            .rotationEffect(Angle(degrees: live.richting), anchor: .center)
+                            .rotationEffect(Angle(degrees: live.direction), anchor: .center)
                     }
                 }
             }

@@ -12,6 +12,8 @@ import CoreLocation
 typealias JourneyId = String
 
 final class Endpoints {
+    static let myBaseURL = "https://treinradar.wisse.gay"
+    
     static let currentVehicles = "\(API.baseURL)/virtual-train-api/api/vehicle";
     static let trainsInfo = "\(API.baseURL)/virtual-train-api/api/v1/trein"
     
@@ -21,9 +23,9 @@ final class Endpoints {
     static let journey = "\(API.baseURL)/reisinformatie-api/api/v2/journey"
     static let journeyGeojson = "\(API.baseURL)/Spoorkaart-API/api/v1/traject.json"
     static let journeyFromStock = "\(API.baseURL)/virtual-train-api/api/v1/ritnummer"
-    
-    static let myBackend = "https://trein.wissehes.nl/api"
-    static let nearbyTrains = "https://trein.wissehes.nl/api/trains/nearby"
+        
+    static let nearbyTrains = "\(myBaseURL)/api/watchos/nearby"
+    static let liveTrains = "\(myBaseURL)/api/trains/live"
 }
 
 final class API {
@@ -52,9 +54,11 @@ final class API {
     }
     
     /// Get a single live train
-    func getLiveTrainData(journeyId: String) async throws -> Train {
-        let data = try await client.request("\(Endpoints.myBackend)/trains/\(journeyId)/live")
-            .serializingDecodable(Train.self)
+    func getLiveTrainData(journeyId: String) async throws -> LiveTrain {
+        let params: Parameters = [ "id": journeyId ]
+        
+        let data = try await client.request(Endpoints.liveTrains, parameters: params)
+            .serializingDecodable(LiveTrain.self)
             .value
         
         return data
@@ -124,14 +128,12 @@ final class API {
         let params: Parameters = [
             "latitude": location.coordinate.latitude,
             "longitude": location.coordinate.longitude,
-            "radius": 10000
         ]
-        
+                
         let data = try await client
             .request(Endpoints.nearbyTrains, parameters: params)
             .serializingDecodable([NearbyTrain].self)
             .value
-        
         return data
     }
     
