@@ -10,6 +10,26 @@ import AsyncLocationKit
 import CoreLocation
 import SwiftUI
 
+enum LoadingState {
+    case notDetermined
+    case location
+    case fetching
+    case done
+    
+    var localizedText: String {
+        switch self {
+        case .notDetermined:
+            return "Laden..."
+        case .location:
+            return "Locatie ophalen..."
+        case .fetching:
+            return "Treinen ophalen..."
+        case .done:
+            return "Klaar!"
+        }
+    }
+}
+
 final class NearbyTrainsViewModel: ObservableObject {
     let locationManager = AsyncLocationManager(desiredAccuracy: .nearestTenMetersAccuracy)
     
@@ -17,10 +37,11 @@ final class NearbyTrainsViewModel: ObservableObject {
     @Published var authorizationStatus: CLAuthorizationStatus = .notDetermined
     @Published var trains: [NearbyTrain]?
     
-    @Published var isLoading = true
+    @Published var loading: LoadingState = .notDetermined
     @Published var error: String?
     
     func getLocation() async throws -> CLLocation? {
+        
         if let location = self.location, location.timestamp < Date(timeIntervalSinceNow: 10) {
             return location
         }
@@ -48,17 +69,30 @@ final class NearbyTrainsViewModel: ObservableObject {
     
     func getNearbyTrains() async {
         defer {
-            DispatchQueue.main.async { withAnimation { self.isLoading = false } }
+            self.updateLoading(state: .done)
         }
         
         do {
+            self.updateLoading(state: .location)
+
             guard let location = try await self.getLocation() else { return }
+            
+            self.updateLoading(state: .fetching)
+            
             let trains = try await API.shared.getNearbyTrains(location: location)
             
             DispatchQueue.main.async { withAnimation { self.trains = trains } }
         } catch {
             DispatchQueue.main.async { self.error = error.localizedDescription }
             print(error)
+        }
+    }
+    
+    private func updateLoading(state: LoadingState) {
+        DispatchQueue.main.async {
+            withAnimation {
+                self.loading = state
+            }
         }
     }
 }

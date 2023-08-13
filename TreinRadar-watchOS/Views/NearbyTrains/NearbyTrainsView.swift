@@ -12,15 +12,11 @@ struct NearbyTrainsView: View {
     
     var body: some View {
         ZStack {
-            if vm.isLoading {
-                ProgressView("Loading...")
+            if vm.loading != .done {
+                ProgressView(vm.loading.localizedText)
             } else if let trains = vm.trains {
                 List(trains) { train in
-                    VStack(alignment: .leading) {
-                        Text(train.journey.category ?? "trein")
-                            .font(.subheadline)
-                        Text(train.journey.destination ?? "unknown")
-                    }
+                    NearbyTrainItem(train: train)
                 }
             } else {
                 Text(vm.error ?? "Something went wrong.")
