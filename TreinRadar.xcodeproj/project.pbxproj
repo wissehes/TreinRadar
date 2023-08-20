@@ -34,6 +34,8 @@
 		896AF0F32A55A582001936AD /* Stop+Computed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896AF0F22A55A582001936AD /* Stop+Computed.swift */; };
 		896EB28F2A76D76D0084980A /* SavedItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896EB28E2A76D76D0084980A /* SavedItemsView.swift */; };
 		896F6A932A49664F00A3CA5B /* TravelInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896F6A922A49664F00A3CA5B /* TravelInfoViewModel.swift */; };
+		8973B7E32A921CDC00BBDC9A /* saved-journeys.json in Resources */ = {isa = PBXBuildFile; fileRef = 89FA153B2A782D8F00489E5B /* saved-journeys.json */; };
+		8973B7E42A921CDC00BBDC9A /* departures.json in Resources */ = {isa = PBXBuildFile; fileRef = 89A48ECA2A557533006F7A4E /* departures.json */; };
 		89A48EC62A5573A0006F7A4E /* MessageStyle+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A48EC52A5573A0006F7A4E /* MessageStyle+String.swift */; };
 		89A48EC82A557497006F7A4E /* DepartureItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A48EC72A557497006F7A4E /* DepartureItemView.swift */; };
 		89A48ECB2A557533006F7A4E /* departures.json in Resources */ = {isa = PBXBuildFile; fileRef = 89A48ECA2A557533006F7A4E /* departures.json */; };
@@ -250,7 +252,6 @@
 			isa = PBXGroup;
 			children = (
 				89FA153D2A78374200489E5B /* Info.plist */,
-				89A48EC92A557521006F7A4E /* MockData */,
 				89CEFD8E2A3CFEB100383555 /* Managers */,
 				893AC2692A3B42C000D621FE /* Views */,
 				893AC25B2A3B42AA00D621FE /* TreinRadarApp.swift */,
@@ -482,6 +483,7 @@
 		89EDD7072A7FBE140035C238 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				89A48EC92A557521006F7A4E /* MockData */,
 				893AC26A2A3B42D000D621FE /* Structs */,
 				895A31002A4421EF00E305D8 /* Extensions */,
 				893AC26B2A3B42D700D621FE /* API */,
@@ -609,6 +611,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8973B7E42A921CDC00BBDC9A /* departures.json in Resources */,
+				8973B7E32A921CDC00BBDC9A /* saved-journeys.json in Resources */,
 				89C3DFCD2A896A35007732FC /* journey.json in Resources */,
 				89EDD6FF2A7FBDC20035C238 /* Preview Assets.xcassets in Resources */,
 				89C3DFCA2A896180007732FC /* nearby-train.json in Resources */,
