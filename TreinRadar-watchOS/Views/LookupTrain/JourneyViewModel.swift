@@ -53,7 +53,7 @@ final class JourneyViewModel: ObservableObject {
     
     /// All stops except the stations the train has already passed
     var nextStops: [Stop] {
-        guard let stops = self.journey?.stops else { return [] }
+        guard let stops = self.journey?.actualStops else { return [] }
 
         let nextStopIndex = stops.firstIndex(where: {
             if let date = $0.departure?.actualTime ?? $0.arrival?.actualTime {
@@ -70,7 +70,7 @@ final class JourneyViewModel: ObservableObject {
     
     /// All stops this train calls at
     var allStops: [Stop] {
-        journey?.stops.filter { $0.status != .passing } ?? []
+        journey?.actualStops ?? []
     }
     
     /// Stops visible on screen
