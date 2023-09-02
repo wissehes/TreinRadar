@@ -6,13 +6,82 @@
 //
 
 import SwiftUI
+import MapKit
 
-struct TrainAnnotations: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+@available(iOS 17.0, *)
+struct TrainAnnotations: MapContent {
+    @EnvironmentObject var trainManager: TrainManager
+    
+    var body: some MapContent {
+        ForEach(trainManager.trains, content: trainAnnotation)
+    }
+    
+    func trainAnnotation(_ train: Train) -> some MapContent {
+        Annotation("Rit \(train.ritID)", coordinate: train.coordinate, anchor: .center) {
+            Circle()
+                .fill(train.annotationColor)
+                .overlay(train.annotationIcon.foregroundStyle(.white))
+                .frame(width: 25, height: 25, alignment: .center)
+                .overlay(
+                    Image(systemName: "chevron.up")
+                        .fontWeight(.medium)
+                        .padding([.bottom], 34)
+                        .rotationEffect(Angle(degrees: train.richting), anchor: .center)
+                )
+                .shadow(radius: 2.5)
+        }.annotationTitles(.hidden)
+    }
+}
+
+struct TrainAnnotationIcons {
+    var train: Train
+    
+    var textIcon: some View {
+        Text(train.type.rawValue)
+            .lineLimit(1)
+            .minimumScaleFactor(0.005)
+            .font(.system(.subheadline, design: .rounded, weight: .bold))
+            .scaledToFit()
+            .padding(2.5)
+    }
+    
+    var trainIcon: some View {
+        Image(systemName: "train.side.front.car")
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+            .padding(2.5)
+    }
+}
+
+fileprivate extension Train {    
+    var annotationColor: Color {
+        switch self.type {
+        case .ic:
+            return .blue
+        case .spr:
+            return .cyan
+        case .arr:
+            return .red
+        }
+    }
+    
+    var annotationIcon: some View {
+        let icons = TrainAnnotationIcons(train: self)
+        switch self.type {
+        case .ic, .spr:
+            return AnyView(icons.textIcon)
+        case .arr:
+            return AnyView(icons.trainIcon)
+        }
     }
 }
 
 #Preview {
-    TrainAnnotations()
+    if #available(iOS 17.0, *) {
+        Map {
+            TrainAnnotations()
+        }.environmentObject(TrainManager())
+    } else {
+        EmptyView()
+    }
 }
