@@ -43,8 +43,9 @@ final class API {
     let client: Session = {
         let configuration = URLSessionConfiguration.af.default
         configuration.httpAdditionalHeaders = [ "Ocp-Apim-Subscription-Key": API_KEY ];
+        let networkLogger = APINetworkLogger()
 
-        return Session(configuration: configuration);
+        return Session(configuration: configuration, eventMonitors: [networkLogger]);
     }()
     
     /// Get all live trains
