@@ -35,6 +35,10 @@ struct JourneyView: View {
         .onReceive(timer) { _ in
             Task { await vm.getLiveData(journeyId) }
         }
+        .onDisappear {
+            // Clean up timer
+            timer.upstream.connect().cancel()
+        }
         .navigationDestination(for: StopsAndGeometry.self) { item in
             JourneyMapView(geometry: item, inline: false)
                 .navigationTitle("Kaart")
