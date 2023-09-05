@@ -35,6 +35,10 @@ struct JourneyView: View {
         .onReceive(timer) { _ in
             Task { await vm.getLiveData(journeyId) }
         }
+        .onDisappear {
+            // Clean up timer
+            timer.upstream.connect().cancel()
+        }
         .navigationDestination(for: StopsAndGeometry.self) { item in
             JourneyMapView(geometry: item, inline: false)
                 .navigationTitle("Kaart")
@@ -63,13 +67,13 @@ struct JourneyView: View {
             
             if let live = vm.live {
                 Section("Info") {
-                    Text("Snelheid: \(live.snelheid) km/h")
+                    Text("Snelheid: \(live.speed) km/h")
                     HStack(alignment: .center) {
                         Text("Richting:")
                         Spacer()
                         
                         Text("⬆️")
-                            .rotationEffect(Angle(degrees: live.richting), anchor: .center)
+                            .rotationEffect(Angle(degrees: live.direction), anchor: .center)
                     }
                 }
             }

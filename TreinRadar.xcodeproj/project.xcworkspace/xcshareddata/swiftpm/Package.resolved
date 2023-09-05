@@ -10,12 +10,30 @@
       }
     },
     {
+      "identity" : "asynclocationkit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/AsyncSwift/AsyncLocationKit.git",
+      "state" : {
+        "revision" : "3a9f81e99ba3497a438d882676fb1c3ceb4f177c",
+        "version" : "1.6.4"
+      }
+    },
+    {
       "identity" : "defaults",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/sindresorhus/Defaults",
       "state" : {
         "branch" : "main",
         "revision" : "bd14dae265091c5fb1ba1123a52861ae9f2ede84"
+      }
+    },
+    {
+      "identity" : "swiftui-apple-watch-decimal-pad",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/ApplebaumIan/SwiftUI-Apple-Watch-Decimal-Pad.git",
+      "state" : {
+        "revision" : "9053d7c278be988e51ec4fbcfd4aa32cc24bf309",
+        "version" : "1.0.4"
       }
     }
   ],

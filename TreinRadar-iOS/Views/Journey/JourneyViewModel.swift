@@ -15,7 +15,7 @@ final class JourneyViewModel: ObservableObject {
     @Published var showAllStops: Bool = false
     @Published var showingPreviousStops: Bool = false
     
-    @Published var live: Train?
+    @Published var live: LiveTrain?
     
     var stops: [Stop]? {
         return showAllStops ? journey?.stops : journey?.actualStops

@@ -7,10 +7,13 @@
 
 import Foundation
 import Alamofire
+import CoreLocation
 
 typealias JourneyId = String
 
 final class Endpoints {
+    static let myBaseURL = "https://treinradar.wisse.gay"
+    
     static let currentVehicles = "\(API.baseURL)/virtual-train-api/api/vehicle";
     static let trainsInfo = "\(API.baseURL)/virtual-train-api/api/v1/trein"
     
@@ -21,7 +24,10 @@ final class Endpoints {
     static let journeyGeojson = "\(API.baseURL)/Spoorkaart-API/api/v1/traject.json"
     static let journeyFromStock = "\(API.baseURL)/virtual-train-api/api/v1/ritnummer"
     
-    static let myBackend = "https://trein.wissehes.nl/api"
+    static let railMapGeoJson = "\(myBaseURL)/api/spoorkaart/geojson"
+        
+    static let nearbyTrains = "\(myBaseURL)/api/watchos/nearby"
+    static let liveTrains = "\(myBaseURL)/api/trains/live"
 }
 
 final class API {
@@ -39,8 +45,9 @@ final class API {
     let client: Session = {
         let configuration = URLSessionConfiguration.af.default
         configuration.httpAdditionalHeaders = [ "Ocp-Apim-Subscription-Key": API_KEY ];
-
-        return Session(configuration: configuration);
+        let networkLogger = APINetworkLogger()
+        
+        return Session(configuration: configuration, eventMonitors: [networkLogger]);
     }()
     
     /// Get all live trains
@@ -50,9 +57,11 @@ final class API {
     }
     
     /// Get a single live train
-    func getLiveTrainData(journeyId: String) async throws -> Train {
-        let data = try await client.request("\(Endpoints.myBackend)/trains/\(journeyId)/live")
-            .serializingDecodable(Train.self)
+    func getLiveTrainData(journeyId: String) async throws -> LiveTrain {
+        let params: Parameters = [ "id": journeyId ]
+        
+        let data = try await client.request(Endpoints.liveTrains, parameters: params)
+            .serializingDecodable(LiveTrain.self)
             .value
         
         return data
@@ -118,4 +127,28 @@ final class API {
         return journeyId
     }
     
+    func getNearbyTrains(location: CLLocation) async throws -> [NearbyTrain] {
+        let params: Parameters = [
+            "latitude": location.coordinate.latitude,
+            "longitude": location.coordinate.longitude,
+        ]
+        
+        let data = try await client
+            .request(Endpoints.nearbyTrains, parameters: params)
+            .serializingDecodable([NearbyTrain].self)
+            .value
+        return data
+    }
+    
+    /**
+     Get the GeoJSON for the rail map.
+     */
+    func getMapGeoJson() async throws -> Data {
+        let data = try await client
+            .request(Endpoints.railMapGeoJson)
+            .serializingData()
+            .value
+        
+        return data
+    }
 }

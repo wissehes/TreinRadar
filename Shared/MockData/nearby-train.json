@@ -1,0 +1,82 @@
+[
+  {
+    "journeyId": "6072",
+    "distance": 2.63,
+    "speed": 133.2,
+    "direction": 276.9,
+    "image": [
+      "https://vt.ns-mlab.nl/v1/images/slt_6.png"
+    ],
+    "journey": {
+      "destination": "Leiden Centraal",
+      "origin": "'s-Hertogenbosch",
+      "category": "Sprinter",
+      "operator": "NS",
+      "notes": ["Deze notitie is een test!"]
+    }
+  },
+  {
+    "journeyId": "7377",
+    "distance": 3.58,
+    "speed": 10.35,
+    "direction": 132.93,
+    "image": [
+      "https://vt.ns-mlab.nl/v1/images/sng_3.png"
+    ],
+    "journey": {
+      "destination": "Rhenen",
+      "origin": "Breukelen",
+      "category": "Sprinter",
+      "operator": "NS",
+      "notes": []
+    }
+  },
+  {
+    "journeyId": "8877",
+    "distance": 4.12,
+    "speed": 75.6,
+    "direction": 96.7,
+    "image": [
+      "https://vt.ns-mlab.nl/v1/images/slt_6.png"
+    ],
+    "journey": {
+      "destination": "'s-Hertogenbosch",
+      "origin": "Leiden Centraal",
+      "category": "Sprinter",
+      "operator": "NS",
+      "notes": []
+    }
+  },
+  {
+    "journeyId": "11772",
+    "distance": 4.45,
+    "speed": 118.59,
+    "direction": 277.19,
+    "image": [
+      "https://vt.ns-mlab.nl/v1/images/icm_3.png"
+    ],
+    "journey": {
+      "destination": "Den Haag Centraal",
+      "origin": "Amersfoort Schothorst",
+      "category": "Intercity",
+      "operator": "NS",
+      "notes": []
+    }
+  },
+  {
+    "journeyId": "872",
+    "distance": 5.46,
+    "speed": 88,
+    "direction": 313.07,
+    "image": [
+      "https://vt.ns-mlab.nl/v1/images/virmm1_6.png"
+    ],
+    "journey": {
+      "destination": "Amsterdam Centraal",
+      "origin": "Maastricht",
+      "category": "Intercity",
+      "operator": "NS",
+      "notes": []
+    }
+  }
+]
