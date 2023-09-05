@@ -23,6 +23,8 @@ final class Endpoints {
     static let journey = "\(API.baseURL)/reisinformatie-api/api/v2/journey"
     static let journeyGeojson = "\(API.baseURL)/Spoorkaart-API/api/v1/traject.json"
     static let journeyFromStock = "\(API.baseURL)/virtual-train-api/api/v1/ritnummer"
+    
+    static let railMapGeoJson = "\(myBaseURL)/api/spoorkaart/geojson"
         
     static let nearbyTrains = "\(myBaseURL)/api/watchos/nearby"
     static let liveTrains = "\(myBaseURL)/api/trains/live"
@@ -44,7 +46,7 @@ final class API {
         let configuration = URLSessionConfiguration.af.default
         configuration.httpAdditionalHeaders = [ "Ocp-Apim-Subscription-Key": API_KEY ];
         let networkLogger = APINetworkLogger()
-
+        
         return Session(configuration: configuration, eventMonitors: [networkLogger]);
     }()
     
@@ -130,7 +132,7 @@ final class API {
             "latitude": location.coordinate.latitude,
             "longitude": location.coordinate.longitude,
         ]
-                
+        
         let data = try await client
             .request(Endpoints.nearbyTrains, parameters: params)
             .serializingDecodable([NearbyTrain].self)
@@ -138,4 +140,15 @@ final class API {
         return data
     }
     
+    /**
+     Get the GeoJSON for the rail map.
+     */
+    func getMapGeoJson() async throws -> Data {
+        let data = try await client
+            .request(Endpoints.railMapGeoJson)
+            .serializingData()
+            .value
+        
+        return data
+    }
 }
