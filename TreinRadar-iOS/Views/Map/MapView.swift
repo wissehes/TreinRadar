@@ -26,7 +26,8 @@ fileprivate enum ChosenMapType: CaseIterable {
 struct MapView: View {
     
     @State private var selectedMap: ChosenMapType = .stations
-
+    @State private var railwayTracks: [MKPolyline] = []
+    
     private var initialPosition: MapCameraPosition {
         return .region(
             MKCoordinateRegion(
@@ -45,12 +46,24 @@ struct MapView: View {
     var body: some View {
         NavigationStack {
             Map(initialPosition: initialPosition) {
+                //                TrainTrack(trackLines: railwayTracks)
+                
                 switch selectedMap {
                 case .stations:
                     StationAnnotations()
                 case .trains:
                     TrainAnnotations()
                 }
+                
+                ForEach(railwayTracks, id: \.title) { polyline in
+                    MapPolyline(polyline)
+                        .foregroundStyle(.blue)
+                        .stroke(lineWidth: 2)
+                }
+            }
+            .mapControls {
+                MapUserLocationButton()
+                MapCompass()
             }
             .navigationTitle("Map")
             .navigationBarTitleDisplayMode(.inline)
@@ -67,7 +80,33 @@ struct MapView: View {
                     }.pickerStyle(.segmented)
                 }
             }
+            .task {
+                await loadTrainTrackData()
+            }
         }
+    }
+    
+    func loadTrainTrackData() async {
+        do {
+            let data = try await API.shared.getMapGeoJson()
+            let decoded = try MKGeoJSONDecoder().decode(data)
+            
+            var lines: [MKPolyline] = []
+            
+            for object in decoded {
+                if let feature = object as? MKGeoJSONFeature {
+                    for geometry in feature.geometry {
+                        if let line = geometry as? MKPolyline {
+                            lines.append(line)
+                        }
+                    }
+                }
+            }
+            
+            print("Decoded lines: \(lines.count)")
+            
+            self.railwayTracks = lines
+        } catch { print(error) }
     }
 }
 

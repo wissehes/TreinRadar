@@ -39,6 +39,7 @@
 		8973B7E32A921CDC00BBDC9A /* saved-journeys.json in Resources */ = {isa = PBXBuildFile; fileRef = 89FA153B2A782D8F00489E5B /* saved-journeys.json */; };
 		8973B7E42A921CDC00BBDC9A /* departures.json in Resources */ = {isa = PBXBuildFile; fileRef = 89A48ECA2A557533006F7A4E /* departures.json */; };
 		898DC9AA2AA37F36006C9715 /* TrainAnnotations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898DC9A92AA37F36006C9715 /* TrainAnnotations.swift */; };
+		898DC9AD2AA38990006C9715 /* TrainTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898DC9AC2AA38990006C9715 /* TrainTrack.swift */; };
 		89A48EC62A5573A0006F7A4E /* MessageStyle+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A48EC52A5573A0006F7A4E /* MessageStyle+String.swift */; };
 		89A48EC82A557497006F7A4E /* DepartureItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A48EC72A557497006F7A4E /* DepartureItemView.swift */; };
 		89A48ECB2A557533006F7A4E /* departures.json in Resources */ = {isa = PBXBuildFile; fileRef = 89A48ECA2A557533006F7A4E /* departures.json */; };
@@ -166,6 +167,7 @@
 		896EB28E2A76D76D0084980A /* SavedItemsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavedItemsView.swift; sourceTree = "<group>"; };
 		896F6A922A49664F00A3CA5B /* TravelInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelInfoViewModel.swift; sourceTree = "<group>"; };
 		898DC9A92AA37F36006C9715 /* TrainAnnotations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainAnnotations.swift; sourceTree = "<group>"; };
+		898DC9AC2AA38990006C9715 /* TrainTrack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainTrack.swift; sourceTree = "<group>"; };
 		89A48EC52A5573A0006F7A4E /* MessageStyle+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MessageStyle+String.swift"; sourceTree = "<group>"; };
 		89A48EC72A557497006F7A4E /* DepartureItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureItemView.swift; sourceTree = "<group>"; };
 		89A48ECA2A557533006F7A4E /* departures.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = departures.json; sourceTree = "<group>"; };
@@ -462,6 +464,7 @@
 			children = (
 				892F50DB2AA37C2100427D8C /* TrainMap */,
 				89E42B8B2A7300EE0093CEC5 /* StationMap */,
+				898DC9AC2AA38990006C9715 /* TrainTrack.swift */,
 				893AC2712A3B470F00D621FE /* MapView.swift */,
 			);
 			path = Map;
@@ -643,6 +646,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				893C4CCC2A45B29C002E3540 /* JourneyGeojson.swift in Sources */,
+				898DC9AD2AA38990006C9715 /* TrainTrack.swift in Sources */,
 				896F6A932A49664F00A3CA5B /* TravelInfoViewModel.swift in Sources */,
 				89A8A7C72A7FCBC80085D127 /* Formatters.swift in Sources */,
 				893AC25E2A3B42AA00D621FE /* ContentView.swift in Sources */,

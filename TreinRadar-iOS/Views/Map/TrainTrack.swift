@@ -6,13 +6,33 @@
 //
 
 import SwiftUI
+import MapKit
 
-struct TrainTrack: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+/**
+ Renders the train tracks on the map
+ */
+@available(iOS 17.0, *)
+struct TrainTrack: MapContent {
+    
+    var trackLines: [MKPolyline]
+    
+    var body: some MapContent {
+        ForEach(trackLines, id: \.title) { polyline in
+            MapPolyline(polyline)
+                .foregroundStyle(.blue)
+                .stroke(lineWidth: 2)
+        }
+        
+//        MapPolyline
     }
 }
 
-#Preview {
-    TrainTrack()
-}
+//#Preview {
+//    if #available(iOS 17.0, *) {
+//        Map {
+//            TrainTrack()
+//        }
+//    } else {
+//        EmptyView()
+//    }
+//}
