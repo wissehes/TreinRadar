@@ -11,13 +11,14 @@ import MapKit
 @available(iOS 17.0, *)
 struct TrainAnnotations: MapContent {
     @EnvironmentObject var trainManager: TrainManager
+    @Binding var train: Train?
     
     var body: some MapContent {
         ForEach(trainManager.trains, content: trainAnnotation)
     }
     
     func trainAnnotation(_ train: Train) -> some MapContent {
-        Annotation("Rit \(train.ritID)", coordinate: train.coordinate, anchor: .center) {
+        Annotation("\(train.snelheid) km", coordinate: train.coordinate, anchor: .center) {
             Circle()
                 .fill(train.annotationColor)
                 .overlay(train.annotationIcon.foregroundStyle(.white))
@@ -29,6 +30,9 @@ struct TrainAnnotations: MapContent {
                         .rotationEffect(Angle(degrees: train.richting), anchor: .center)
                 )
                 .shadow(radius: 2.5)
+                .onTapGesture {
+                    self.train = train
+                }
         }.annotationTitles(.hidden)
     }
 }
@@ -79,7 +83,7 @@ fileprivate extension Train {
 #Preview {
     if #available(iOS 17.0, *) {
         Map {
-            TrainAnnotations()
+            TrainAnnotations(train: .constant(nil))
         }.environmentObject(TrainManager())
     } else {
         EmptyView()

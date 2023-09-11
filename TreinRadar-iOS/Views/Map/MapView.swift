@@ -9,11 +9,14 @@ import SwiftUI
 import MapKit
 
 fileprivate enum ChosenMapType: CaseIterable {
+    case empty
     case stations
     case trains
     
     var localized: String {
         switch self {
+        case .empty:
+            return "Leeg"
         case .stations:
             return "Stations"
         case .trains:
@@ -26,7 +29,9 @@ fileprivate enum ChosenMapType: CaseIterable {
 struct MapView: View {
     
     @State private var selectedMap: ChosenMapType = .stations
-    @State private var railwayTracks: [MKPolyline] = []
+    @State private var railwayTracks: [GeojsonGeometry] = []
+    
+    @State private var selectedTrain: Train?
     
     private var initialPosition: MapCameraPosition {
         return .region(
@@ -46,17 +51,19 @@ struct MapView: View {
     var body: some View {
         NavigationStack {
             Map(initialPosition: initialPosition) {
-                //                TrainTrack(trackLines: railwayTracks)
                 
                 switch selectedMap {
                 case .stations:
                     StationAnnotations()
                 case .trains:
-                    TrainAnnotations()
+                    TrainAnnotations(train: $selectedTrain)
+                    
+                default:
+                    EmptyMapContent()
                 }
                 
-                ForEach(railwayTracks, id: \.title) { polyline in
-                    MapPolyline(polyline)
+                ForEach(railwayTracks, id: \.id) { track in
+                    MapPolyline(coordinates: track.actualCoordinates, contourStyle: .geodesic)
                         .foregroundStyle(.blue)
                         .stroke(lineWidth: 2)
                 }
@@ -65,6 +72,11 @@ struct MapView: View {
                 MapUserLocationButton()
                 MapCompass()
             }
+            .sheet(item: $selectedTrain, content: { item in
+                NavigationStack {
+                    JourneyView(journeyId: item.ritID)
+                }
+            })
             .navigationTitle("Map")
             .navigationBarTitleDisplayMode(.inline)
             .navigationDestination(for: FullStation.self, destination: { item in
@@ -89,23 +101,23 @@ struct MapView: View {
     func loadTrainTrackData() async {
         do {
             let data = try await API.shared.getMapGeoJson()
-            let decoded = try MKGeoJSONDecoder().decode(data)
+            let decoded = try JSONDecoder().decode(GeojsonPayload.self, from: data)
             
-            var lines: [MKPolyline] = []
+//            var lines: [JourneyFeature] = []
+//            
+//            for object in decoded {
+//                if let feature = object as? MKGeoJSONFeature {
+//                    for geometry in feature.geometry {
+//                        if let line = geometry as? MKPolyline {
+//                            lines.append(line)
+//                        }
+//                    }
+//                }
+//            }
+//            
+//            print("Decoded lines: \(lines.count)")
             
-            for object in decoded {
-                if let feature = object as? MKGeoJSONFeature {
-                    for geometry in feature.geometry {
-                        if let line = geometry as? MKPolyline {
-                            lines.append(line)
-                        }
-                    }
-                }
-            }
-            
-            print("Decoded lines: \(lines.count)")
-            
-            self.railwayTracks = lines
+            self.railwayTracks = decoded.features.map { $0.geometry }
         } catch { print(error) }
     }
 }

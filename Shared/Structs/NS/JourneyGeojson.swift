@@ -27,12 +27,14 @@ struct JourneyFeature: Codable {
 }
 
 // MARK: - GeojsonGeometry
-struct GeojsonGeometry: Codable, Hashable {
+struct GeojsonGeometry: Codable, Hashable, Identifiable {
     let type: String
     let coordinates: [[Double]]
     
+    var id = UUID()
+    
     var actualCoordinates: [CLLocationCoordinate2D] {
-        return self.coordinates.map {
+        return self.coordinates.filter({ $0.first != nil && $0.last != nil }).map {
             CLLocationCoordinate2D(latitude: $0.last!, longitude: $0.first!)
         }
     }
@@ -40,5 +42,5 @@ struct GeojsonGeometry: Codable, Hashable {
 
 // MARK: - GeojsonProperties
 struct GeojsonProperties: Codable {
-    let stations: [String]
+    let stations: [String]?
 }
