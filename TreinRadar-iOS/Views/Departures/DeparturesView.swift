@@ -27,6 +27,13 @@ struct DeparturesView: View {
         self.naam = station.name
     }
     
+    init(uicCode: String) {
+        let station = StationsManager.shared.getStation(code: .uicCode(uicCode))
+        guard let station = station else { fatalError("Could not find station by uic code: \(uicCode)") }
+        
+        self.init(station: station)
+    }
+    
     var filteredDepartures: [Departure]? {
         guard var departures = vm.departures else { return nil }
         

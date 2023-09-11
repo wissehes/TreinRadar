@@ -44,6 +44,9 @@ struct JourneyView: View {
                 .navigationTitle("Kaart")
                 .navigationBarTitleDisplayMode(.inline)
         }
+        .navigationDestination(for: StopInfo.self) { stop in
+            DeparturesView(uicCode: stop.uicCode)
+        }
     }
     
     func listView(_ journey: JourneyPayload) -> some View {
@@ -143,29 +146,16 @@ struct JourneyView: View {
             }
             
             ForEach(vm.showingStops ?? [], id: \.id) { stop in
-                HStack(alignment: .center, spacing: 10) {
-                    depOrArrTimes(stop)
-                    
-                    Spacer()
-                    
-                    Text(stop.stop.name)
-                        .italic(stop.status == .passing)
-                        .foregroundStyle(stop.status == .passing ? .secondary : .primary)
-                        .multilineTextAlignment(.trailing)
-                    
-                    if let track = stop.track {
-                        RoundedRectangle(cornerRadius: 10)
-                            .stroke(Color.accentColor, lineWidth: 2.5)
-                            .overlay(
-                                Text(track)
-                                    .font(.system(size: 18, weight: .bold, design: .rounded))
-                            )
-                            .frame(width: 35, height: 35, alignment: .center)
-                            .padding(2.5)
-                    } else {
-                        EmptyView()
-                            .frame(width: 35)
+            stopItem(stop)
+                .contextMenu {
+                    VStack {
+                        Text("Drukte: \(stop.crowdForecast?.rawValue ?? "?")")
                     }
+                    
+                    NavigationLink(value: stop.stop) {
+                        Label("Vertrektijden", systemImage: "clock")
+                    }
+
                 }
             }
         }
@@ -183,6 +173,33 @@ struct JourneyView: View {
                         }.frame(height: 60)
                     }
                 }
+            }
+        }
+    }
+    
+    func stopItem(_ stop: Stop) -> some View {
+        HStack(alignment: .center, spacing: 10) {
+            depOrArrTimes(stop)
+            
+            Spacer()
+            
+            Text(stop.stop.name)
+                .italic(stop.status == .passing)
+                .foregroundStyle(stop.status == .passing ? .secondary : .primary)
+                .multilineTextAlignment(.trailing)
+            
+            if let track = stop.track {
+                RoundedRectangle(cornerRadius: 10)
+                    .stroke(Color.accentColor, lineWidth: 2.5)
+                    .overlay(
+                        Text(track)
+                            .font(.system(size: 18, weight: .bold, design: .rounded))
+                    )
+                    .frame(width: 35, height: 35, alignment: .center)
+                    .padding(2.5)
+            } else {
+                EmptyView()
+                    .frame(width: 35)
             }
         }
     }

@@ -8,6 +8,11 @@
 import Foundation
 import CoreLocation
 
+enum StationCode {
+    case code(String)
+    case uicCode(String)
+}
+
 final class StationsManager: ObservableObject {
     
     static let shared = StationsManager()
@@ -25,8 +30,13 @@ final class StationsManager: ObservableObject {
         } catch { print(error) }
     }
     
-    func getStation(code: String) -> FullStation? {
-        self.stations?.first { $0.code.lowercased() == code.lowercased() }
+    func getStation(code: StationCode) -> FullStation? {
+        switch code {
+        case .code(let code):
+            return self.stations?.first { $0.code.lowercased() == code.lowercased() }
+        case .uicCode(let code):
+            return self.stations?.first { $0.uicCode.lowercased() == code.lowercased() }
+        }
     }
     
     private func getStations() async -> [FullStation]? {

@@ -71,4 +71,9 @@ extension Stop {
         guard let minutes = components.minute, diff > 30 else { return 0 }
         return minutes
     }
+    
+    /// Crowd forecast
+    var crowdForecast: CrowdForecast? {
+        self.departure?.crowdForecast ?? self.arrival?.crowdForecast
+    }
 }
