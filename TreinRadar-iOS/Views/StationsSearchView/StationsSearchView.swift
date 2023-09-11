@@ -16,6 +16,8 @@ struct StationsSearchView: View {
     @State private var stations: [FullStation]?
     @State private var searchQuery = "";
     
+    @State private var path = NavigationPath()
+    
     @Default(.favouriteStations) var favStations
     
     var filtered: [FullStation]? {
@@ -44,7 +46,7 @@ struct StationsSearchView: View {
     }
     
     var body: some View {
-        NavigationStack {
+        NavigationStack(path: $path) {
             List {
                 
                 if !favStations.isEmpty && searchQuery.isEmpty {
