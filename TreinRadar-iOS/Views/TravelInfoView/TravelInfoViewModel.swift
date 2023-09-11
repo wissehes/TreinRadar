@@ -33,7 +33,7 @@ final class TravelInfoViewModel: ObservableObject {
     
     @Published var stockNumber = ""
     @Published var isLoading = false
-    @Published var presentedJourneys: [JourneyId] = []
+    @Published var presentedJourneys = NavigationPath()
     
     @Published var currentTrain: TrainWithDistance?
     @Published var currentJourney: JourneyPayload?
