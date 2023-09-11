@@ -27,11 +27,11 @@ struct JourneyFeature: Codable {
 }
 
 // MARK: - GeojsonGeometry
-struct GeojsonGeometry: Codable, Hashable, Identifiable {
+struct GeojsonGeometry: Codable, Hashable {
     let type: String
     let coordinates: [[Double]]
     
-    var id = UUID()
+//    var id = UUID()
     
     var actualCoordinates: [CLLocationCoordinate2D] {
         return self.coordinates.filter({ $0.first != nil && $0.last != nil }).map {

@@ -62,7 +62,7 @@ struct MapView: View {
                     EmptyMapContent()
                 }
                 
-                ForEach(railwayTracks, id: \.id) { track in
+                ForEach(railwayTracks, id: \.hashValue) { track in
                     MapPolyline(coordinates: track.actualCoordinates, contourStyle: .geodesic)
                         .foregroundStyle(.blue)
                         .stroke(lineWidth: 2)
