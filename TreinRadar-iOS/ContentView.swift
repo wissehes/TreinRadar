@@ -7,29 +7,37 @@
 
 import SwiftUI
 
+fileprivate enum SelectedTab {
+    case travelInfo
+    @available(iOS 17.0 , *)
+    case mapView
+    case stations
+    case saved
+}
+
 struct ContentView: View {
     
-    @State private var selectedTab = 3
+    @State private var selectedTab: SelectedTab = .travelInfo
     
     var body: some View {
         TabView(selection: $selectedTab) {
             TravelInfoView()
                 .tabItem { Label("Planner", systemImage: "clock.badge.checkmark") }
-                .tag(1)
+                .tag(SelectedTab.travelInfo)
             
             if #available(iOS 17.0, *) {
                 MapView()
                     .tabItem { Label("Radar", systemImage: "map") }
-                    .tag(2)
+                    .tag(SelectedTab.mapView)
             }
             
             StationsSearchView()
                 .tabItem { Label("Vertrektijden", systemImage: "clock.badge") }
-                .tag(3)
+                .tag(SelectedTab.stations)
             
             SavedItemsView()
                 .tabItem { Label("Opgeslagen", systemImage: "bookmark.fill") }
-                .tag(4)
+                .tag(SelectedTab.saved)
         }
     }
 }
