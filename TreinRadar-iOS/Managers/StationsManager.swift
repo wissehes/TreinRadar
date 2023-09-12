@@ -21,12 +21,13 @@ final class StationsManager: ObservableObject {
     @Published var nearbyStations: [StationWithDistance]?
     
     func getData() async {
+        /// Make sure there are no stations yet. We don't want to re fetch the stations
+        /// when it's not really needed, since this list doesn't change.
+        guard self.stations == nil else { return }
+        
         do {
             let data = try await API.shared.getStations()
             DispatchQueue.main.async { self.stations = data }
-//            if let location = LocationManager.shared.location {
-//                await self.getNearbyStations(location: location)
-//            }
         } catch { print(error) }
     }
     
