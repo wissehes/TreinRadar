@@ -8,6 +8,17 @@
 import SwiftUI
 import MapKit
 
+fileprivate let initialPosition = MKCoordinateRegion(
+    center: CLLocationCoordinate2D(
+        latitude: 52.1,
+        longitude: 4.9
+    ),
+    span: MKCoordinateSpan(
+        latitudeDelta: 2.5,
+        longitudeDelta: 2.5
+    )
+)
+
 fileprivate enum ChosenMapType: CaseIterable {
     case empty
     case stations
@@ -28,29 +39,16 @@ fileprivate enum ChosenMapType: CaseIterable {
 @available(iOS 17.0, *)
 struct MapView: View {
     
-    @State private var selectedMap: ChosenMapType = .stations
-    @State private var railwayTracks: [GeojsonGeometry] = []
+    @State private var selectedMap: ChosenMapType = .empty
+    @State private var railwayTracks: [MKPolyline] = []
     
     @State private var selectedTrain: Train?
     
-    private var initialPosition: MapCameraPosition {
-        return .region(
-            MKCoordinateRegion(
-                center: CLLocationCoordinate2D(
-                    latitude: 52.1,
-                    longitude: 4.9
-                ),
-                span: MKCoordinateSpan(
-                    latitudeDelta: 2.5,
-                    longitudeDelta: 2.5
-                )
-            )
-        )
-    }
+    @State private var position: MapCameraPosition = .region(initialPosition)
     
     var body: some View {
         NavigationStack {
-            Map(initialPosition: initialPosition) {
+            Map(position: $position) {
                 
                 switch selectedMap {
                 case .stations:
@@ -62,12 +60,15 @@ struct MapView: View {
                     EmptyMapContent()
                 }
                 
+                // Railway polylines
                 ForEach(railwayTracks, id: \.hashValue) { track in
-                    MapPolyline(coordinates: track.actualCoordinates, contourStyle: .geodesic)
-                        .foregroundStyle(.blue)
-                        .stroke(lineWidth: 2)
+                    MapPolyline(track)
+                        .stroke(.blue, lineWidth: 2)
                 }
+                
+//                Marker
             }
+            .mapStyle(.standard(pointsOfInterest: [.publicTransport, .airport]))
             .mapControls {
                 MapUserLocationButton()
                 MapCompass()
@@ -101,23 +102,22 @@ struct MapView: View {
     func loadTrainTrackData() async {
         do {
             let data = try await API.shared.getMapGeoJson()
-            let decoded = try JSONDecoder().decode(GeojsonPayload.self, from: data)
             
-//            var lines: [JourneyFeature] = []
-//            
-//            for object in decoded {
-//                if let feature = object as? MKGeoJSONFeature {
-//                    for geometry in feature.geometry {
-//                        if let line = geometry as? MKPolyline {
-//                            lines.append(line)
-//                        }
-//                    }
-//                }
-//            }
-//            
-//            print("Decoded lines: \(lines.count)")
+            let decoded = try MKGeoJSONDecoder().decode(data)
             
-            self.railwayTracks = decoded.features.map { $0.geometry }
+            var lines: [MKPolyline] = []
+            
+            for object in decoded {
+                if let feature = object as? MKGeoJSONFeature {
+                    for geometry in feature.geometry {
+                        if let line = geometry as? MKPolyline {
+                            lines.append(line)
+                        }
+                    }
+                }
+            }
+            
+            self.railwayTracks = lines
         } catch { print(error) }
     }
 }
@@ -127,8 +127,10 @@ struct MapView_Previews: PreviewProvider {
         NavigationStack {
             if #available(iOS 17.0, *) {
                 MapView()
-                    .environmentObject(StationsManager())
-                    .environmentObject(TrainManager())
+                    .environmentObject(StationsManager.shared)
+                    .environmentObject(TrainManager.shared)
+                    .task { await StationsManager.shared.getData() }
+                    .task { await TrainManager.shared.getData() }
             } else {
                 EmptyView()
             }
