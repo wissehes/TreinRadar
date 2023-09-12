@@ -46,6 +46,8 @@ struct MapView: View {
     
     @State private var position: MapCameraPosition = .region(initialPosition)
     
+    @EnvironmentObject var trainManager: TrainManager
+    
     var body: some View {
         NavigationStack {
             Map(position: $position) {
@@ -66,7 +68,6 @@ struct MapView: View {
                         .stroke(.blue, lineWidth: 2)
                 }
                 
-//                Marker
             }
             .mapStyle(.standard(pointsOfInterest: [.publicTransport, .airport]))
             .mapControls {
@@ -76,7 +77,15 @@ struct MapView: View {
             .sheet(item: $selectedTrain, content: { item in
                 NavigationStack {
                     JourneyView(journeyId: item.ritID)
+                        .navigationBarTitleDisplayMode(.large)
+                        .toolbar {
+                            ToolbarItem(placement: .cancellationAction) {
+                                Button("Sluiten") { selectedTrain = nil }
+                            }
+                        }
                 }
+                .presentationDetents([.fraction(0.3), .medium, .large])
+                .presentationBackgroundInteraction(.enabled(upThrough: .fraction(0.3)))
             })
             .navigationTitle("Map")
             .navigationBarTitleDisplayMode(.inline)
@@ -91,6 +100,15 @@ struct MapView: View {
                                 .tag(item)
                         }
                     }.pickerStyle(.segmented)
+                }
+                
+                ToolbarItem(placement: .primaryAction) {
+                    Button {
+                        Task { await trainManager.getData() }
+                    } label: {
+                        Label("Ververs", systemImage: "arrow.clockwise")
+                            .labelStyle(.iconOnly)
+                    }.disabled(selectedMap != .trains)
                 }
             }
             .task {
