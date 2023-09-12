@@ -23,10 +23,8 @@ struct TravelInfoView: View {
                 .navigationDestination(for: JourneyId.self) { id in
                     JourneyView(journeyId: id)
                 }
-//                .onChange(of: locationManager.location) { _ in
-//                    Task { await vm.getCurrentJourney() }
-//                }
                 .refreshable {
+                    await trainManager.getData()
                     locationManager.requestLocation()
                     try? await Task.sleep(for: .seconds(1))
                 }
