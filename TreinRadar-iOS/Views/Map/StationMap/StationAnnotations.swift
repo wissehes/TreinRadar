@@ -8,6 +8,21 @@
 import SwiftUI
 import MapKit
 
+extension StationType {
+    var annotationColor: Color {
+        switch self {
+        case .megaStation:
+            return .purple
+        case .intercityStation, .knooppuntIntercityStation:
+            return .cyan
+        case .knooppuntStoptreinStation:
+            return .indigo
+        default:
+            return .blue
+        }
+    }
+}
+
 @available(iOS 17.0, *)
 struct StationAnnotations: MapContent {
 //    typealias Body = Self.Body÷
@@ -22,7 +37,7 @@ struct StationAnnotations: MapContent {
         Annotation(station.name, coordinate: station.coordinate, anchor: .center) {
             NavigationLink(value: station) {
                 Circle()
-                    .fill(station.stationType == .megaStation ? .purple : .blue)
+                    .fill(station.stationType.annotationColor)
                     .overlay(Image(systemName: "building.columns.circle").foregroundStyle(.white))
                     .frame(width: 25, height: 25, alignment: .center)
             }
