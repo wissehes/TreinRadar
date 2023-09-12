@@ -7,6 +7,7 @@
 
 import Foundation
 import CoreLocation
+import SwiftUI
 
 final class TrainManager: ObservableObject {
     
@@ -17,17 +18,15 @@ final class TrainManager: ObservableObject {
     @Published var currentTrain: TrainWithDistance?
     @Published var currentJourney: JourneyPayload?
     
-    init() {
-        Task { await self.getData() }
-    }
-    
+    // TODO: Rename this to `updateData` as that would be more clear
     func getData() async {
         do {
             let data = try await API.shared.getLiveTrains()
-            DispatchQueue.main.async { self.trains = data }
+            DispatchQueue.main.async { withAnimation { self.trains = data } }
         } catch { print(error) }
     }
     
+    /// Get a specific train by journey ID
     func getTrain(_ journeyId: String) -> Train? {
         return trains.first { $0.ritID == journeyId }
     }
