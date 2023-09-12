@@ -16,6 +16,7 @@ final class JourneyViewModel: ObservableObject {
     @Published var showingPreviousStops: Bool = false
     
     @Published var live: LiveTrain?
+    @Published var liveIsLoading: Bool = true
     
     var stops: [Stop]? {
         return showAllStops ? journey?.stops : journey?.actualStops
@@ -78,6 +79,10 @@ final class JourneyViewModel: ObservableObject {
     }
     
     func getLiveData(_ journeyId: String) async {
+        defer { DispatchQueue.main.async { withAnimation { self.liveIsLoading = false } } }
+        
+        DispatchQueue.main.async { withAnimation { self.liveIsLoading = true } }
+        
         do {
             let data = try await API.shared.getLiveTrainData(journeyId: journeyId)
             DispatchQueue.main.async {

@@ -69,7 +69,7 @@ struct JourneyView: View {
             }
             
             if let live = vm.live {
-                Section("Info") {
+                Section {
                     Text("Snelheid: \(live.speed) km/h")
                     HStack(alignment: .center) {
                         Text("Richting:")
@@ -77,6 +77,16 @@ struct JourneyView: View {
                         
                         Text("⬆️")
                             .rotationEffect(Angle(degrees: live.direction), anchor: .center)
+                    }
+                } header: {
+                    HStack {
+                        Text("Info")
+                        
+                        Spacer()
+                        
+                        Button { Task { await vm.getLiveData(journeyId) } } label: {
+                            Label("Ververs", systemImage: "arrow.clockwise.circle").labelStyle(.iconOnly)
+                        }.disabled(vm.liveIsLoading)
                     }
                 }
             }
@@ -229,7 +239,7 @@ struct JourneyView: View {
 struct JourneyView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            JourneyView(journeyId: "6948")
+            JourneyView(journeyId: "6983")
         }
         
         ContentView()
