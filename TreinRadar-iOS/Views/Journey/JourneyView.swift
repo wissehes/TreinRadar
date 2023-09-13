@@ -199,14 +199,7 @@ struct JourneyView: View {
                 .multilineTextAlignment(.trailing)
             
             if let track = stop.track {
-                RoundedRectangle(cornerRadius: 10)
-                    .stroke(Color.accentColor, lineWidth: 2.5)
-                    .overlay(
-                        Text(track)
-                            .font(.system(size: 18, weight: .bold, design: .rounded))
-                    )
-                    .frame(width: 35, height: 35, alignment: .center)
-                    .padding(2.5)
+                PlatformIcon(platform: track)
             } else {
                 EmptyView()
                     .frame(width: 35)

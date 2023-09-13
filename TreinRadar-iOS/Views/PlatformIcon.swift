@@ -8,11 +8,27 @@
 import SwiftUI
 
 struct PlatformIcon: View {
+    
+    var platform: String
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        RoundedRectangle(cornerRadius: 10)
+            .stroke(Color.accentColor, lineWidth: 2.5)
+            .overlay(
+                Text(platform)
+                    .font(.system(size: 18, weight: .bold, design: .rounded))
+            )
+            .frame(width: 35, height: 35, alignment: .center)
+            .padding(2.5)
     }
 }
 
 #Preview {
-    PlatformIcon()
+    List {
+        HStack {
+            Text("Station XXX")
+            Spacer()
+            PlatformIcon(platform: "1a")
+        }
+    }
 }
