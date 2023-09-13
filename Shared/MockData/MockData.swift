@@ -9,8 +9,8 @@ import Foundation
 
 final class MockData {
     
-    let decoder: JSONDecoder
-    let encoder: JSONEncoder
+    private let decoder: JSONDecoder
+    private let encoder: JSONEncoder
     
     enum MockDataError: Error {
         case resourceError

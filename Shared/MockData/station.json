@@ -1,0 +1,79 @@
+
+{
+    "UICCode": "8400621",
+    "stationType": "MEGA_STATION",
+    "EVACode": "8400621",
+    "code": "UT",
+    "sporen": [
+        {
+            "spoorNummer": "1"
+        },
+        {
+            "spoorNummer": "2"
+        },
+        {
+            "spoorNummer": "3"
+        },
+        {
+            "spoorNummer": "4"
+        },
+        {
+            "spoorNummer": "5"
+        },
+        {
+            "spoorNummer": "7"
+        },
+        {
+            "spoorNummer": "8"
+        },
+        {
+            "spoorNummer": "9"
+        },
+        {
+            "spoorNummer": "11"
+        },
+        {
+            "spoorNummer": "12"
+        },
+        {
+            "spoorNummer": "14"
+        },
+        {
+            "spoorNummer": "15"
+        },
+        {
+            "spoorNummer": "18"
+        },
+        {
+            "spoorNummer": "19"
+        },
+        {
+            "spoorNummer": "20"
+        },
+        {
+            "spoorNummer": "21"
+        }
+    ],
+    "synoniemen": [
+        "Utrecht CS",
+        "Utrecht"
+    ],
+    "heeftFaciliteiten": true,
+    "heeftVertrektijden": true,
+    "heeftReisassistentie": true,
+    "namen": {
+        "lang": "Utrecht Centraal",
+        "middel": "Utrecht C.",
+        "kort": "Utrecht C"
+    },
+    "land": "NL",
+    "lat": 52.0888900756836,
+    "lng": 5.11027765274048,
+    "radius": 525,
+    "naderenRadius": 1550,
+    "ingangsDatum": "2022-01-06",
+    "nearbyMeLocationId": {
+        "value": "UT",
+        "type": "stationV2"
+    }
+}
