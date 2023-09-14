@@ -36,7 +36,11 @@ struct DeparturesPayload: Codable {
 }
 
 // MARK: Departure
-struct Departure: Codable {
+struct Departure: Codable, Hashable {
+    static func == (lhs: Departure, rhs: Departure) -> Bool {
+        lhs.name == rhs.name
+    }
+    
     let direction, name: String
     let plannedDateTime: Date
     let plannedTimeZoneOffset: Int
@@ -58,7 +62,7 @@ enum DepartureStatus: String, Codable {
 }
 
 // MARK: - Message
-struct Message: Codable {
+struct Message: Codable, Hashable {
     let message: String
     let style: MessageStyle
 }
@@ -69,6 +73,6 @@ enum MessageStyle: String, Codable, CaseIterable {
 }
 
 // MARK: - RouteStation
-struct RouteStation: Codable {
+struct RouteStation: Codable, Hashable {
     let uicCode, mediumName: String
 }
