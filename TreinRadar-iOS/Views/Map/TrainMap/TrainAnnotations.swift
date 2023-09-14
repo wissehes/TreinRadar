@@ -11,14 +11,22 @@ import MapKit
 @available(iOS 17.0, *)
 struct TrainAnnotations: MapContent {
     @EnvironmentObject var trainManager: TrainManager
-    @Binding var train: Train?
-    
+    @Binding var item: SelectedMapItem?
+
+    var currentTrainId: String? {
+        if case .train(let train) = item {
+            return train.ritID
+        } else {
+            return nil
+        }
+    }
+
     var body: some MapContent {
         ForEach(trainManager.trains, content: trainAnnotation)
     }
     
     func trainAnnotation(_ train: Train) -> some MapContent {
-        Annotation("\(train.snelheid) km", coordinate: train.coordinate, anchor: .center) {
+        Annotation("\(Int(train.snelheid)) km/u", coordinate: train.coordinate, anchor: .center) {
             Circle()
                 .fill(train.annotationColor)
                 .overlay(train.annotationIcon.foregroundStyle(.white))
@@ -31,9 +39,11 @@ struct TrainAnnotations: MapContent {
                 )
                 .shadow(radius: 2.5)
                 .onTapGesture {
-                    self.train = train
+                    withAnimation {
+                        self.item = .train(train)
+                    }
                 }
-        }.annotationTitles(.hidden)
+        }.annotationTitles(currentTrainId == train.ritID ? .visible : .hidden)
     }
 }
 
@@ -83,7 +93,7 @@ fileprivate extension Train {
 #Preview {
     if #available(iOS 17.0, *) {
         Map {
-            TrainAnnotations(train: .constant(nil))
+            TrainAnnotations(item: .constant(nil))
         }.environmentObject(TrainManager())
     } else {
         EmptyView()

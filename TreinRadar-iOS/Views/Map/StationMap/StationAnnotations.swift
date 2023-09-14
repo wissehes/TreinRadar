@@ -29,18 +29,21 @@ struct StationAnnotations: MapContent {
     
     @EnvironmentObject var stationManager: StationsManager
     
+    @Binding var item: SelectedMapItem?
+    
     var body: some MapContent {
         ForEach(stationManager.stations?.filter { $0.land == .nl } ?? [], content: stationAnnotation)
     }
     
     func stationAnnotation(_ station: FullStation) -> some MapContent {
         Annotation(station.name, coordinate: station.coordinate, anchor: .center) {
-            NavigationLink(value: station) {
-                Circle()
-                    .fill(station.stationType.annotationColor)
-                    .overlay(Image(systemName: "building.columns.circle").foregroundStyle(.white))
-                    .frame(width: 25, height: 25, alignment: .center)
-            }
+            Circle()
+                .fill(station.stationType.annotationColor)
+                .overlay(Image(systemName: "building.columns.circle").foregroundStyle(.white))
+                .frame(width: 25, height: 25, alignment: .center)
+                .onTapGesture {
+                    item = .station(station)
+                }
         }
     }
 }

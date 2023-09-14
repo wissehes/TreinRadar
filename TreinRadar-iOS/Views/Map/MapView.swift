@@ -36,13 +36,28 @@ fileprivate enum ChosenMapType: CaseIterable {
     }
 }
 
+enum SelectedMapItem: Identifiable {
+    case station(FullStation)
+    case train(Train)
+    
+    var id: String {
+        switch self {
+        case .station(let fullStation):
+            fullStation.id
+        case .train(let train):
+            train.ritID
+        }
+    }
+}
+
 @available(iOS 17.0, *)
 struct MapView: View {
     
     @State private var selectedMap: ChosenMapType = .empty
     @State private var railwayTracks: [MKPolyline] = []
     
-    @State private var selectedTrain: Train?
+    //    @State private var selectedTrain: Train?
+    @State private var selectedItem: SelectedMapItem?
     
     @State private var position: MapCameraPosition = .region(initialPosition)
     
@@ -54,9 +69,9 @@ struct MapView: View {
                 
                 switch selectedMap {
                 case .stations:
-                    StationAnnotations()
+                    StationAnnotations(item: $selectedItem)
                 case .trains:
-                    TrainAnnotations(train: $selectedTrain)
+                    TrainAnnotations(item: $selectedItem)
                     
                 default:
                     EmptyMapContent()
@@ -74,13 +89,19 @@ struct MapView: View {
                 MapUserLocationButton()
                 MapCompass()
             }
-            .sheet(item: $selectedTrain, content: { item in
+            .sheet(item: $selectedItem, content: { item in
                 NavigationStack {
-                    JourneyView(journeyId: item.ritID)
-                        .navigationBarTitleDisplayMode(.large)
+                    Group {
+                        switch item {
+                        case .train(let train):
+                            JourneyView(journeyId: train.ritID)
+                        case .station(let station):
+                            StationView(station: station)
+                        }
+                    }.navigationBarTitleDisplayMode(.inline)
                         .toolbar {
                             ToolbarItem(placement: .cancellationAction) {
-                                Button("Sluiten") { selectedTrain = nil }
+                                Button("Sluiten") { selectedItem = nil }
                             }
                         }
                 }
