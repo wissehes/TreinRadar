@@ -10,4 +10,6 @@ import Foundation
 enum APIError: Error {
     case noTrainsReturned
     case noGeoJsonData
+    case noImageURL
+    case imageFailed
 }

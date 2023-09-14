@@ -8,6 +8,7 @@
 import Foundation
 import Alamofire
 import CoreLocation
+import UIKit
 
 typealias JourneyId = String
 
@@ -150,5 +151,18 @@ final class API {
             .value
         
         return data
+    }
+    
+    func getStationHeaderImage(_ station: FullStation) async throws -> UIImage {
+        guard let imageUrl = station.imageUrl else { throw APIError.noImageURL }
+        let data = try await client
+            .request(imageUrl)
+            .validate()
+            .serializingData()
+            .value
+        
+        guard let image = UIImage(data: data) else { throw APIError.imageFailed }
+        
+        return image
     }
 }
