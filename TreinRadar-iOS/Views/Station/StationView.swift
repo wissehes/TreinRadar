@@ -19,65 +19,88 @@ struct StationView: View {
     @StateObject var vm = StationViewModel()
     
     var body: some View {
-        NavigationStack {
-            List {
-                Section("Vertrektijden") {
-                    if let departures = vm.departures {
-                        ForEach(departures, id: \.name, content: departureItem(item:))
-                        
-                        NavigationLink("Meer", value: station)
-                            .foregroundStyle(Color.accentColor)
-                    } else {
-                        HStack {
-                            Spacer()
-                            ProgressView()
-                            Spacer()
-                        }
-                    }
+        List {
+            
+            Section("Info") {
+                if let image = vm.imageData {
+                    StationHeaderImage(image: image)
                 }
                 
-                Section("Aankomsttijden") {
-                    Text("vertrek 1")
-                    Text("vertrek 2")
+                HStack {
+                    Text(station.stationType.rawValue)
                 }
-            }.navigationTitle(station.namen.lang)
-                .navigationDestination(for: FullStation.self, destination: { station in
-                    DeparturesView(station: station)
-                })
-                .headerProminence(.increased)
-                .task {
-                    await vm.fetchDepartures(station)
+                
+                ScrollView(.horizontal) {
+                    HStack {
+                        ForEach(station.sporen, id:\.spoorNummer) { item in
+                            PlatformIcon(platform: item.spoorNummer)
+                        }
+                    }.padding(.bottom, 5)
                 }
-                .refreshable {
-                    await vm.fetchDepartures(station)
+            }
+            
+            Section("Vertrektijden") {
+                if let departures = vm.departures {
+                    ForEach(departures, id: \.name, content: departureItem(item:))
+                    
+                    NavigationLink("Meer", value: station)
+                        .foregroundStyle(Color.accentColor)
+                } else {
+                    HStack {
+                        Spacer()
+                        ProgressView()
+                        Spacer()
+                    }
                 }
-        }
+            }
+            
+            Section("Aankomsttijden") {
+                Text("vertrek 1")
+                Text("vertrek 2")
+            }
+        }.navigationTitle(station.namen.lang)
+            .navigationDestination(for: FullStation.self, destination: { station in
+                DeparturesView(station: station)
+            })
+            .navigationDestination(for: Departure.self, destination: { departure in
+                JourneyView(journeyId: departure.product.number)
+            })
+            .headerProminence(.increased)
+            .task {
+                await vm.fetchDepartures(station)
+                await vm.fetchHeaderImage(station)
+            }
+        
     }
     
     func departureItem(item: Departure) -> some View {
-        HStack(alignment: .center) {
-            VStack(alignment: .leading) {
-                HStack(alignment: .center) {
+        NavigationLink(value: item) {
+            HStack(alignment: .center) {
+                VStack(alignment: .leading) {
+                    HStack(alignment: .center) {
+                        
+                        Text(item.actualDateTime, style: .time)
+                            .bold()
+                        
+                        Text(item.product.longCategoryName)
+                            .font(.subheadline)
+                        
+                    }
                     
-                    Text(item.actualDateTime, style: .time)
-                        .bold()
-                    
-                    Text(item.product.longCategoryName)
-                        .font(.subheadline)
-                    
+                    Text(item.direction)
                 }
                 
-                Text(item.direction)
-            }
-            
-            if let platform = item.actualTrack {
-                Spacer()
-                PlatformIcon(platform: platform)
+                if let platform = item.actualTrack {
+                    Spacer()
+                    PlatformIcon(platform: platform)
+                }
             }
         }
     }
 }
 
 #Preview {
-    StationView(station: try! MockData().getData(resource: "station", type: FullStation.self))
+    NavigationStack {
+        StationView(station: try! MockData().getData(resource: "station", type: FullStation.self))
+    }
 }
