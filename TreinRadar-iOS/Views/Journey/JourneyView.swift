@@ -124,7 +124,7 @@ struct JourneyView: View {
             Section("Waarschuwingen") {
                 ForEach(notes, id: \.text) { note in
                     VStack(alignment: .leading) {
-                        Text(note.noteType)
+                        Text(note.noteType.localized)
                         Text(note.text)
                     }
                 }

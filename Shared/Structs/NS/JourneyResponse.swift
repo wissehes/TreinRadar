@@ -24,7 +24,8 @@ struct JourneyPayload: Codable {
 
 // MARK: - JourneyNote
 struct JourneyNote: Codable {
-    let text, noteType, type: String
+    let text, type: String
+    let noteType: NoteType
 }
 
 // MARK: - Stop
@@ -114,4 +115,14 @@ enum StopStatus: String, Codable {
     case origin = "ORIGIN"
     case passing = "PASSING"
     case stop = "STOP"
+}
+
+// MARK: NoteType
+enum NoteType: String, Codable {
+    case unknown = "UNKNOWN"
+    case attribute = "ATTRIBUTE"
+    case infotext = "INFOTEXT"
+    case realtime = "REALTIME"
+    case ticket = "TICKET"
+    case hint = "HINT"
 }
