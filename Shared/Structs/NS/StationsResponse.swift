@@ -42,6 +42,10 @@ struct FullStation: Codable, Station, Hashable, Identifiable {
     var name: String {
         return self.namen.lang
     }
+    
+    var imageUrl: URL? {
+        URL(string: "https://assets.travelsupport-p.cla.ns.nl/stations/hero-images/\(self.code.lowercased())_small.jpg")
+    }
 
     enum CodingKeys: String, CodingKey {
         case uicCode = "UICCode"
