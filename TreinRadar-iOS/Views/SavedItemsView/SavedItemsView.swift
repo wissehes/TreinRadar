@@ -21,21 +21,6 @@ struct SavedItemsView: View {
                 }
             }.navigationTitle("Opgeslagen items")
                 .navigationDestination(for: SavedJourney.self, destination: { item in JourneyView(journeyId: item.code) })
-                .onAppear {
-                    #if targetEnvironment(simulator)
-                    let mock = MockData()
-                    guard let data = try? mock.getData(resource: "saved-journeys", type: [SavedJourney].self) else { return }
-                    self.savedJourneys = data
-                    #else
-                    guard let data = try? MockData().encoder.encode(savedJourneys) else { return }
-                    if let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
-                        do {
-                            try data.write(to: url.appendingPathComponent("saved-items.json"))
-                        } catch { print(error) }
-                    }
-                    print(String(decoding: data, as: UTF8.self))
-                    #endif 
-                }
         }
     }
     
