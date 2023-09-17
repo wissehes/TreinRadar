@@ -15,12 +15,44 @@ import SwiftUI
  */
 struct StationView: View {
     
-    var station: FullStation
-    @StateObject var vm = StationViewModel()
+    var station: any Station
+    @StateObject var vm: StationViewModel
+    
+    init(station: any Station) {
+        self.station = station
+        _vm = StateObject(wrappedValue: .init())
+    }
+    
+    init(station: FullStation) {
+        self.station = station
+        _vm = StateObject(wrappedValue: .init(station: station))
+    }
     
     var body: some View {
-        List {
+        ZStack {
             
+            if let station = vm.station {
+                listView(station)
+            } else {
+                ProgressView()
+            }
+            
+        }
+        .navigationDestination(for: FullStation.self, destination: { station in
+            DeparturesView(station: station)
+        })
+        .navigationDestination(for: Departure.self, destination: { departure in
+            JourneyView(journeyId: departure.product.number)
+        })
+        .headerProminence(.increased)
+        .task {
+            await vm.initialise(station: self.station)
+        }
+        
+    }
+    
+    func listView(_ station: FullStation) -> some View {
+        List {
             Section("Info") {
                 if let image = vm.imageData {
                     StationHeaderImage(image: image)
@@ -59,18 +91,6 @@ struct StationView: View {
                 Text("vertrek 2")
             }
         }.navigationTitle(station.namen.lang)
-            .navigationDestination(for: FullStation.self, destination: { station in
-                DeparturesView(station: station)
-            })
-            .navigationDestination(for: Departure.self, destination: { departure in
-                JourneyView(journeyId: departure.product.number)
-            })
-            .headerProminence(.increased)
-            .task {
-                await vm.fetchDepartures(station)
-                await vm.fetchHeaderImage(station)
-            }
-        
     }
     
     func departureItem(item: Departure) -> some View {

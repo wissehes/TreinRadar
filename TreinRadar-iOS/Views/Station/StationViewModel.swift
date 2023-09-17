@@ -10,23 +10,41 @@ import SwiftUI
 
 final class StationViewModel: ObservableObject {
     
+    @Published var station: FullStation?
+    
     @Published var departures: [Departure]?
 //    @Published var arrivals:
     
     @Published var imageData: UIImage?
     
-    func fetchDepartures(_ station: any Station) async {
-        do {
-            let departures = try await API.shared.getDepartures(stationCode: station.code)
-            let slice = Array(departures.prefix(3))
-            DispatchQueue.main.async {
-                withAnimation { self.departures = slice }
-            }
-        } catch { print(error) }
+    /**
+     If the StationView got a FullStation, set it as the value
+     */
+    init(station: FullStation? = nil) {
+        self.station = station
     }
     
     @MainActor
-    func fetchHeaderImage(_ station: FullStation) async {
+    func initialise(station: any Station) async {
+        if self.station == nil {
+            guard let foundStation = StationsManager.shared.getStation(code: .code(station.code)) else { return }
+            self.station = foundStation
+        }
+        
+        await self.fetchHeaderImage(station)        
+        await self.fetchDepartures(station)
+    }
+    
+    private func fetchDepartures(_ station: any Station) async {
+        do {
+            let departures = try await API.shared.getDepartures(stationCode: station.code)
+            let slice = Array(departures.prefix(3))
+            
+            withAnimation { self.departures = slice }
+        } catch { print(error) }
+    }
+    
+    private func fetchHeaderImage(_ station: any Station) async {
         do {
             let data = try await API.shared.getStationHeaderImage(station)
             withAnimation {
