@@ -62,17 +62,6 @@ struct Departure: Codable, Hashable {
     let departureStatus: DepartureStatus?
 }
 
-// MARK: - Message
-struct Message: Codable, Hashable {
-    let message: String
-    let style: MessageStyle
-}
-
-enum MessageStyle: String, Codable, CaseIterable {
-    case info = "INFO"
-    case warning = "WARNING"
-}
-
 // MARK: - RouteStation
 struct RouteStation: Codable, Hashable {
     let uicCode, mediumName: String

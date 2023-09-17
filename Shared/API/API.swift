@@ -20,6 +20,7 @@ final class Endpoints {
     
     static let stations = "\(API.baseURL)/reisinformatie-api/api/v2/stations"
     static let departures = "\(API.baseURL)/reisinformatie-api/api/v2/departures"
+    static let arrivals = "\(API.baseURL)/reisinformatie-api/api/v2/arrivals"
     
     static let journey = "\(API.baseURL)/reisinformatie-api/api/v2/journey"
     static let journeyGeojson = "\(API.baseURL)/Spoorkaart-API/api/v1/traject.json"
@@ -83,6 +84,19 @@ final class API {
             .serializingDecodable(DeparturesResponse.self, decoder: decoder)
             .value
         return data.payload.departures
+    }
+    
+    func getArrivals(stationCode: String) async throws -> [Arrival] {
+        let params: Parameters = [
+            "station": stationCode
+        ]
+        
+        let data = try await client
+            .request(Endpoints.arrivals, parameters: params)
+            .serializingDecodable(ArrivalsResponse.self, decoder: decoder)
+            .value
+        return data.payload.arrivals
+        
     }
     
     func getJourney(journeyId: String) async throws -> JourneyPayload {
