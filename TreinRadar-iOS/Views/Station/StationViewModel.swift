@@ -28,7 +28,9 @@ final class StationViewModel: ObservableObject {
     func initialise(station: any Station) async {
         if self.station == nil {
             guard let foundStation = StationsManager.shared.getStation(code: .code(station.code)) else { return }
-            self.station = foundStation
+            withAnimation {
+                self.station = foundStation
+            }
         }
         
         await self.fetchHeaderImage(station)        
