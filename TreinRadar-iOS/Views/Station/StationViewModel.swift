@@ -13,7 +13,7 @@ final class StationViewModel: ObservableObject {
     @Published var station: FullStation?
     
     @Published var departures: [Departure]?
-//    @Published var arrivals:
+    @Published var arrivals: [Arrival]?
     
     @Published var imageData: UIImage?
     
@@ -35,6 +35,7 @@ final class StationViewModel: ObservableObject {
         
         await self.fetchHeaderImage(station)        
         await self.fetchDepartures(station)
+        await self.fetchArrivals(station)
     }
     
     private func fetchDepartures(_ station: any Station) async {
@@ -43,6 +44,15 @@ final class StationViewModel: ObservableObject {
             let slice = Array(departures.prefix(3))
             
             withAnimation { self.departures = slice }
+        } catch { print(error) }
+    }
+    
+    private func fetchArrivals(_ station: any Station) async {
+        do {
+            let arrivals = try await API.shared.getArrivals(stationCode: station.code)
+            let slice = Array(arrivals.prefix(3))
+            
+            withAnimation { self.arrivals = slice }
         } catch { print(error) }
     }
     

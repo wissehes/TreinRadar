@@ -45,6 +45,9 @@ struct StationView: View {
         .navigationDestination(for: Departure.self, destination: { departure in
             JourneyView(journeyId: departure.product.number)
         })
+        .navigationDestination(for: Arrival.self, destination: { arrival in
+            JourneyView(journeyId: arrival.product.number)
+        })
         .headerProminence(.increased)
         .task {
             await vm.initialise(station: self.station)
@@ -88,8 +91,18 @@ struct StationView: View {
             }
             
             Section("Aankomsttijden") {
-                Text("vertrek 1")
-                Text("vertrek 2")
+                if let arrivals = vm.arrivals {
+                    ForEach(arrivals, id: \.name, content: arrivalItem(item:))
+                    
+                    NavigationLink("Meer", value: station)
+                        .foregroundStyle(Color.accentColor)
+                } else {
+                    HStack {
+                        Spacer()
+                        ProgressView()
+                        Spacer()
+                    }
+                }
             }
         }.navigationTitle(station.namen.lang)
     }
@@ -100,11 +113,11 @@ struct StationView: View {
                 VStack(alignment: .leading) {
                     HStack(alignment: .center) {
                         
-                        Text(item.actualDateTime, style: .time)
+                        Text(item.actualDateTime.timeFormat())
                             .bold()
                         
                         Text(item.product.longCategoryName)
-                            .font(.subheadline)
+                            .font(.callout)
                         
                     }
                     
@@ -113,7 +126,32 @@ struct StationView: View {
                 
                 if let platform = item.actualTrack {
                     Spacer()
-                    PlatformIcon(platform: platform)
+                    PlatformIcon(platform: platform, changed: item.plannedTrack != item.actualTrack)
+                }
+            }
+        }
+    }
+    
+    func arrivalItem(item: Arrival) -> some View {
+        NavigationLink(value: item) {
+            HStack(alignment: .center) {
+                VStack(alignment: .leading) {
+                    HStack(alignment: .center) {
+                        
+                        Text(item.actualDateTime.timeFormat())
+                            .bold()
+                        
+                        Text(item.product.longCategoryName)
+                            .font(.callout)
+                        
+                    }
+                    
+                    Text(item.origin)
+                }
+                
+                if let platform = item.actualTrack {
+                    Spacer()
+                    PlatformIcon(platform: platform, changed: item.plannedTrack != item.actualTrack)
                 }
             }
         }
@@ -124,4 +162,10 @@ struct StationView: View {
     NavigationStack {
         StationView(station: try! MockData().getData(resource: "station", type: FullStation.self))
     }
+}
+
+#Preview {
+    StationsSearchView()
+        .environmentObject(StationsManager.shared)
+        .environmentObject(LocationManager.shared)
 }
