@@ -41,6 +41,13 @@ struct Departure: Codable, Hashable {
         lhs.name == rhs.name
     }
     
+    enum DepartureStatus: String, Codable {
+        case onStation = "ON_STATION"
+        case incoming = "INCOMING"
+        case departed = "DEPARTED"
+        case unknown = "UNKNOWN"
+    }
+    
     let direction, name: String
     let plannedDateTime: Date
     let plannedTimeZoneOffset: Int
@@ -53,12 +60,6 @@ struct Departure: Codable, Hashable {
     let routeStations: [RouteStation]
     let messages: [Message]
     let departureStatus: DepartureStatus?
-}
-
-enum DepartureStatus: String, Codable {
-    case incoming = "INCOMING"
-    case onStation = "ON_STATION"
-    case unknown = "UNKNOWN"
 }
 
 // MARK: - Message
