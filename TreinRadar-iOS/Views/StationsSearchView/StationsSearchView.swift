@@ -101,13 +101,13 @@ struct StationsSearchView: View {
                 .task { await stationsManager.getData() }
                 .searchable(text: $searchQuery)
                 .navigationDestination(for: FullStation.self) { station in
-                    DeparturesView(station: station)
+                    StationView(station: station)
                 }
                 .navigationDestination(for: SavedStation.self) { station in
-                    DeparturesView(station: station)
+                    StationView(station: station)
                 }
                 .navigationDestination(for: StationWithDistance.self) { station in
-                    DeparturesView(station: station)
+                    StationView(station: station)
                 }
         }
     }
