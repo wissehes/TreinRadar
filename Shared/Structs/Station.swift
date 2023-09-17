@@ -12,3 +12,12 @@ protocol Station: Hashable {
     var sporen: [Spoor] { get }
     var name: String { get }
 }
+
+extension Station {
+    /**
+     URL to header image
+     */
+    var imageUrl: URL? {
+        URL(string: "https://assets.travelsupport-p.cla.ns.nl/stations/hero-images/\(self.code.lowercased())_small.jpg")
+    }
+}
