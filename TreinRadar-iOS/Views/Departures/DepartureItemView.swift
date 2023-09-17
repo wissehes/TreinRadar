@@ -68,7 +68,7 @@ struct DepartureItemView: View {
                     }
                 }
                 
-                if !departure.messages.isEmpty {
+                if !filteredMessages.isEmpty {
                     messages
                 }
             }
