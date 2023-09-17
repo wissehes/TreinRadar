@@ -153,7 +153,7 @@ final class API {
         return data
     }
     
-    func getStationHeaderImage(_ station: FullStation) async throws -> UIImage {
+    func getStationHeaderImage(_ station: any Station) async throws -> UIImage {
         guard let imageUrl = station.imageUrl else { throw APIError.noImageURL }
         let data = try await client
             .request(imageUrl)
