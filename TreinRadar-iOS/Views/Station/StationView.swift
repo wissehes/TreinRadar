@@ -10,6 +10,7 @@ import SwiftUI
 /**
  Station overview
  - Station details (tracks, station type, etc)
+ - Calamity's/disruptions list
  - Most recent departures
  - Most recent arrivals
  */
@@ -53,7 +54,7 @@ struct StationView: View {
     
     func listView(_ station: FullStation) -> some View {
         List {
-            Section("Info") {
+            Section {
                 if let image = vm.imageData {
                     StationHeaderImage(image: image)
                 }
