@@ -28,12 +28,19 @@ struct TravelInfoView: View {
                     locationManager.requestLocation()
                     try? await Task.sleep(for: .seconds(1))
                 }
+                .alert(isPresented: $vm.errorVisible, error: vm.error) { _ in
+                    Button("OK") {}
+                } message: { error in
+                    Text(error.responseCode?.description ?? error.localizedDescription)
+                }
+
         }
     }
     
     var searchTrains: some View {
         Section("Trein opzoeken") {
             TextField("Treinstelnummer", text: $vm.stockNumber)
+                .keyboardType(.numberPad)
                 .disabled(vm.isLoading)
                 .textInputAutocapitalization(.never)
                 .disableAutocorrection(true)

@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 import CoreLocation
+import Alamofire
 
 struct TrainWithDistance {
     let train: Train
@@ -38,20 +39,29 @@ final class TravelInfoViewModel: ObservableObject {
     @Published var currentTrain: TrainWithDistance?
     @Published var currentJourney: JourneyPayload?
     
+    @Published var errorVisible = false
+    @Published var error: AFError?
     
+    @MainActor
     func getJourneyId() async {
         if stockNumber.isEmpty { return }
         
-        DispatchQueue.main.async { self.isLoading = true }
+        defer { self.isLoading = false }
+        
+        self.isLoading = true
+        
         do {
             let id = try await API.shared.getJourneyFromStock(stockNumber)
-            DispatchQueue.main.async {
-                withAnimation {
-                    self.isLoading = false
-                    self.presentedJourneys.append(id)
-                }
+            withAnimation {
+                self.presentedJourneys.append(id)
             }
-        } catch { print(error) }
+        } catch let error as AFError {
+            self.error = error
+            self.errorVisible = true
+            print(error)
+        } catch {
+            print(error)
+        }
     }
     
 }
