@@ -56,7 +56,7 @@ struct DeparturesView: View {
             if filteredDepartures != nil {
                 listView
             } else {
-                ProgressView()
+                LoadingView()
             }
         }
         .navigationTitle(naam)

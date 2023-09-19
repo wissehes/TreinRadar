@@ -25,7 +25,7 @@ struct JourneyView: View {
             if let journey = vm.journey {
                 listView(journey)
             } else {
-                ProgressView()
+                LoadingView()
             }
         }
         .task {
