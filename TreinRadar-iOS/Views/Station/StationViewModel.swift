@@ -38,6 +38,7 @@ final class StationViewModel: ObservableObject {
         await self.fetchArrivals(station)
     }
     
+    @MainActor
     private func fetchDepartures(_ station: any Station) async {
         do {
             let departures = try await API.shared.getDepartures(stationCode: station.code)
@@ -47,6 +48,7 @@ final class StationViewModel: ObservableObject {
         } catch { print(error) }
     }
     
+    @MainActor
     private func fetchArrivals(_ station: any Station) async {
         do {
             let arrivals = try await API.shared.getArrivals(stationCode: station.code)
@@ -56,6 +58,7 @@ final class StationViewModel: ObservableObject {
         } catch { print(error) }
     }
     
+    @MainActor
     private func fetchHeaderImage(_ station: any Station) async {
         do {
             let data = try await API.shared.getStationHeaderImage(station)
