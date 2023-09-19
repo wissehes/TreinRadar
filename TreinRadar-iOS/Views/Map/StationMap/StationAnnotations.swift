@@ -39,7 +39,7 @@ struct StationAnnotations: MapContent {
         Annotation(station.name, coordinate: station.coordinate, anchor: .center) {
             Circle()
                 .fill(station.stationType.annotationColor)
-                .overlay(Image(systemName: "building.columns.circle").foregroundStyle(.white))
+                .overlay(Image(systemName: "tram.circle").foregroundStyle(.white))
                 .frame(width: 25, height: 25, alignment: .center)
                 .onTapGesture {
                     item = .station(station)
