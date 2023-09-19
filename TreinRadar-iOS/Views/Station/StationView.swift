@@ -35,7 +35,7 @@ struct StationView: View {
             if let station = vm.station {
                 listView(station)
             } else {
-                ProgressView()
+                LoadingView()
             }
             
         }
