@@ -51,6 +51,7 @@ struct StationsSearchView: View {
                 
                 if !favStations.isEmpty && searchQuery.isEmpty {
                     Section("Favorieten") {
+                        
                         ForEach(favStations, id: \.code) { station in
                             NavigationLink(value: station) {
                                 VStack(alignment: .leading) {
@@ -69,6 +70,7 @@ struct StationsSearchView: View {
                 
                 if let nearbyStations = stationsManager.nearbyStations, searchQuery.isEmpty {
                     Section("In de buurt") {
+                        
                         ForEach(nearbyStations, id: \.code) { station in
                             NavigationLink(value: station) {
                                 VStack(alignment: .leading) {
@@ -82,7 +84,8 @@ struct StationsSearchView: View {
                 }
                 
                 Section("Stations") {
-                    ForEach(filtered ?? [], id: \.code) {station in
+                    
+                    ForEach(filtered ?? [], id: \.code) { station in
                         NavigationLink(value: station) {
                             VStack(alignment: .leading) {
                                 Text(station.namen.lang)
@@ -95,11 +98,15 @@ struct StationsSearchView: View {
                             }
                         }
                     }
-                    
                 }
             }.navigationTitle("Stations")
                 .task { await stationsManager.getData() }
                 .searchable(text: $searchQuery)
+                .overlay {
+                    if (filtered?.isEmpty ?? true) && !searchQuery.isEmpty, #available(iOS 17.0, *) {
+                        ContentUnavailableView("Geen zoekresultaten", systemImage: "magnifyingglass")
+                    }
+                }
                 .navigationDestination(for: FullStation.self) { station in
                     StationView(station: station)
                 }
