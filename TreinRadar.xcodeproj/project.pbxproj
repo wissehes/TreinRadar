@@ -76,6 +76,7 @@
 		89C3DFCD2A896A35007732FC /* journey.json in Resources */ = {isa = PBXBuildFile; fileRef = 895998312A570B5300847B84 /* journey.json */; };
 		89C783AB2ABC928D001EBB70 /* FavouriteStationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C783AA2ABC928D001EBB70 /* FavouriteStationsView.swift */; };
 		89C783AD2ABC93CD001EBB70 /* NearbyStationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C783AC2ABC93CD001EBB70 /* NearbyStationsView.swift */; };
+		89C783B02ABCC48D001EBB70 /* StationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C783AF2ABCC48D001EBB70 /* StationsView.swift */; };
 		89CEFD8A2A3CF68300383555 /* Journey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CEFD892A3CF68300383555 /* Journey.swift */; };
 		89CEFD8D2A3CF95600383555 /* DeparturesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CEFD8C2A3CF95600383555 /* DeparturesViewModel.swift */; };
 		89CEFD902A3CFEBE00383555 /* FavouritesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CEFD8F2A3CFEBE00383555 /* FavouritesController.swift */; };
@@ -205,6 +206,9 @@
 		89C3DFCB2A896816007732FC /* JourneyStopItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyStopItem.swift; sourceTree = "<group>"; };
 		89C783AA2ABC928D001EBB70 /* FavouriteStationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteStationsView.swift; sourceTree = "<group>"; };
 		89C783AC2ABC93CD001EBB70 /* NearbyStationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyStationsView.swift; sourceTree = "<group>"; };
+		89C783AF2ABCC48D001EBB70 /* StationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationsView.swift; sourceTree = "<group>"; };
+		89C783B12ABCC5DE001EBB70 /* TreinRadar-iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "TreinRadar-iOS.entitlements"; sourceTree = "<group>"; };
+		89C783B22ABCC633001EBB70 /* TreinRadar-watchOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "TreinRadar-watchOS.entitlements"; sourceTree = "<group>"; };
 		89CEFD892A3CF68300383555 /* Journey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Journey.swift; sourceTree = "<group>"; };
 		89CEFD8C2A3CF95600383555 /* DeparturesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeparturesViewModel.swift; sourceTree = "<group>"; };
 		89CEFD8F2A3CFEBE00383555 /* FavouritesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesController.swift; sourceTree = "<group>"; };
@@ -288,6 +292,7 @@
 		893AC25A2A3B42AA00D621FE /* TreinRadar-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				89C783B12ABCC5DE001EBB70 /* TreinRadar-iOS.entitlements */,
 				89FA153D2A78374200489E5B /* Info.plist */,
 				89CEFD8E2A3CFEB100383555 /* Managers */,
 				893AC2692A3B42C000D621FE /* Views */,
@@ -469,6 +474,14 @@
 			path = StationsSearchView;
 			sourceTree = "<group>";
 		};
+		89C783AE2ABCC47C001EBB70 /* Stations */ = {
+			isa = PBXGroup;
+			children = (
+				89C783AF2ABCC48D001EBB70 /* StationsView.swift */,
+			);
+			path = Stations;
+			sourceTree = "<group>";
+		};
 		89CEFD8B2A3CF94400383555 /* Departures */ = {
 			isa = PBXGroup;
 			children = (
@@ -521,6 +534,7 @@
 		89EDD6F62A7FBDBE0035C238 /* TreinRadar-watchOS */ = {
 			isa = PBXGroup;
 			children = (
+				89C783B22ABCC633001EBB70 /* TreinRadar-watchOS.entitlements */,
 				89EDD71E2A7FCB0B0035C238 /* Views */,
 				89EDD6F72A7FBDBE0035C238 /* TreinRadar_watchOSApp.swift */,
 				89EDD6F92A7FBDBE0035C238 /* ContentView.swift */,
@@ -552,6 +566,7 @@
 		89EDD71E2A7FCB0B0035C238 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				89C783AE2ABCC47C001EBB70 /* Stations */,
 				8990DAE62A80161A000286BB /* LookupTrain */,
 				89A8A7D32A7FCE580085D127 /* NearbyTrains */,
 			);
@@ -783,6 +798,7 @@
 				89EDD7122A7FCAF40035C238 /* StationAnnotation.swift in Sources */,
 				89EDD70B2A7FCAE60035C238 /* MessageStyle+String.swift in Sources */,
 				89EDD71C2A7FCAF40035C238 /* Stops+Geojson.swift in Sources */,
+				89C783B02ABCC48D001EBB70 /* StationsView.swift in Sources */,
 				89D6948B2A7FCB6400579D30 /* NearbyTrainsView.swift in Sources */,
 				89EDD70A2A7FCAD20035C238 /* API.swift in Sources */,
 				892F50DA2AA377EE00427D8C /* APINetworkLogger.swift in Sources */,
@@ -930,6 +946,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "TreinRadar-iOS/TreinRadar-iOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TreinRadar-iOS/Preview Content\"";
@@ -966,6 +983,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "TreinRadar-iOS/TreinRadar-iOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TreinRadar-iOS/Preview Content\"";
@@ -1001,6 +1019,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "TreinRadar-watchOS/TreinRadar-watchOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TreinRadar-watchOS/Preview Content\"";
@@ -1032,6 +1051,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "TreinRadar-watchOS/TreinRadar-watchOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TreinRadar-watchOS/Preview Content\"";
