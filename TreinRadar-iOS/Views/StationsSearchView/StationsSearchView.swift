@@ -41,64 +41,26 @@ struct StationsSearchView: View {
         }
     }
     
-    func removeFavStation(_ station: some Station) {
-        favStations = favStations.filter { $0.code != station.code }
-    }
-    
     var body: some View {
         NavigationStack(path: $path) {
             List {
                 
                 if !favStations.isEmpty && searchQuery.isEmpty {
                     Section("Favorieten") {
-                        
-                        ForEach(favStations, id: \.code) { station in
-                            NavigationLink(value: station) {
-                                VStack(alignment: .leading) {
-                                    Text(station.name)
-                                }.swipeActions {
-                                    Button(role: .destructive) {
-                                        removeFavStation(station)
-                                    } label: {
-                                        Label("Uit favorieten verwijderen", systemImage: "star.slash")
-                                    }
-                                }
-                            }
-                        }
+                        FavouriteStationsView()
                     }
                 }
                 
-                if let nearbyStations = stationsManager.nearbyStations, searchQuery.isEmpty {
+                if stationsManager.nearbyStations != nil, searchQuery.isEmpty {
                     Section("In de buurt") {
-                        
-                        ForEach(nearbyStations, id: \.code) { station in
-                            NavigationLink(value: station) {
-                                VStack(alignment: .leading) {
-                                    Text(station.name)
-                                    Text(station.fDistance())
-                                        .font(.subheadline)
-                                }
-                            }
-                        }
+                        NearbyStationsView()
                     }
                 }
                 
                 Section("Stations") {
-                    
-                    ForEach(filtered ?? [], id: \.code) { station in
-                        NavigationLink(value: station) {
-                            VStack(alignment: .leading) {
-                                Text(station.namen.lang)
-                            }.swipeActions {
-                                Button {
-                                    addFavStation(station)
-                                } label: {
-                                    Label("Aan favorieten toevoegen", systemImage: "star")
-                                }.tint(.yellow)
-                            }
-                        }
-                    }
+                    ForEach(filtered ?? [], id: \.code, content: stationItem(station:))
                 }
+                
             }.navigationTitle("Stations")
                 .task { await stationsManager.getData() }
                 .searchable(text: $searchQuery)
@@ -116,6 +78,20 @@ struct StationsSearchView: View {
                 .navigationDestination(for: StationWithDistance.self) { station in
                     StationView(station: station)
                 }
+        }
+    }
+    
+    func stationItem(station: FullStation) -> some View {
+        NavigationLink(value: station) {
+            VStack(alignment: .leading) {
+                Text(station.namen.lang)
+            }.swipeActions {
+                Button {
+                    addFavStation(station)
+                } label: {
+                    Label("Aan favorieten toevoegen", systemImage: "star")
+                }.tint(.yellow)
+            }
         }
     }
 }
