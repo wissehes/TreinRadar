@@ -39,9 +39,6 @@ struct StationView: View {
             }
             
         }
-        .navigationDestination(for: FullStation.self, destination: { station in
-            DeparturesView(station: station)
-        })
         .navigationDestination(for: Departure.self, destination: { departure in
             JourneyView(journeyId: departure.product.number)
         })
@@ -79,7 +76,7 @@ struct StationView: View {
                 if let departures = vm.departures {
                     ForEach(departures, id: \.name, content: departureItem(item:))
                     
-                    NavigationLink("Meer", value: station)
+                    NavigationLink("Meer", value: StationViewType.departures(station))
                         .foregroundStyle(Color.accentColor)
                 } else {
                     HStack {
@@ -94,7 +91,7 @@ struct StationView: View {
                 if let arrivals = vm.arrivals {
                     ForEach(arrivals, id: \.name, content: arrivalItem(item:))
                     
-                    NavigationLink("Meer", value: station)
+                    NavigationLink("Meer", value: StationViewType.arrivals(station))
                         .foregroundStyle(Color.accentColor)
                 } else {
                     HStack {
