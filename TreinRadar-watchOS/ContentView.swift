@@ -11,6 +11,7 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             List {
+                NavigationLink("Vertrektijden", destination: StationsView())
                 NavigationLink("Nearby trains", destination: NearbyTrainsView())
                 NavigationLink("Look up train", destination: LookupTrainView())
             }

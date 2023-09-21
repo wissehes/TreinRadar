@@ -9,7 +9,7 @@ import Foundation
 import Defaults
 
 extension Defaults.Keys {
-    private static let suite = UserDefaults(suiteName: "nl.wissehes.TreinRadar")!
+    static let suite = UserDefaults(suiteName: "group.nl.wissehes.TreinRadar")!
     
     static let favouriteStations = Key<[SavedStation]>("favourite-stations", default: [], suite: suite)
     static let savedJourneys = Key<[SavedJourney]>("saved-journeys", default: [], suite: suite)
