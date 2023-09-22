@@ -46,12 +46,16 @@ struct CurrentTrainView: View {
                 Text("Afstand: \(distance)")
             }
             
-            Divider()
-            
-            Text("Volgend station: **\(nextStop?.stop.name ?? "?")**")
-            
-            if let time = timeTillNextStop {
-                Text(time)
+            // Only show the next stop when available
+            if let nextStop = nextStop {
+                
+                Divider()
+                
+                Text("Volgend station: **\(nextStop.stop.name)**")
+                
+                if let time = timeTillNextStop {
+                    Text(time)
+                }
             }
         }
     }
