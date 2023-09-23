@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		891799E92ABDDC150010DC9F /* WCSessionDelegator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891799E82ABDDC150010DC9F /* WCSessionDelegator.swift */; };
+		891799EA2ABDDC150010DC9F /* WCSessionDelegator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891799E82ABDDC150010DC9F /* WCSessionDelegator.swift */; };
 		891AEE9C2A534A6D005A49F5 /* Journey+Computed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891AEE9B2A534A6D005A49F5 /* Journey+Computed.swift */; };
 		891DC9D62A7FD3CF00B68579 /* NearbyTrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891DC9D52A7FD3CF00B68579 /* NearbyTrain.swift */; };
 		891DC9D72A7FD3CF00B68579 /* NearbyTrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891DC9D52A7FD3CF00B68579 /* NearbyTrain.swift */; };
@@ -60,6 +62,8 @@
 		89ACF2F72A47172400A4AC57 /* StationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89ACF2F62A47172400A4AC57 /* StationsManager.swift */; };
 		89ACF2F92A471CB500A4AC57 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89ACF2F82A471CB500A4AC57 /* LocationManager.swift */; };
 		89ACF2FE2A48608600A4AC57 /* Location+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89ACF2FD2A48608600A4AC57 /* Location+Equatable.swift */; };
+		89B0E81B2ABF299400FE6E0B /* WatchConnectManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B0E81A2ABF299400FE6E0B /* WatchConnectManager.swift */; };
+		89B0E81C2ABF2B5B00FE6E0B /* WatchConnectManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B0E81A2ABF299400FE6E0B /* WatchConnectManager.swift */; };
 		89B8FCD22A801668001A84E3 /* LookupTrainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B8FCD12A801668001A84E3 /* LookupTrainView.swift */; };
 		89BAA7A12A76D8D300CDA640 /* SavedJourney.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BAA7A02A76D8D300CDA640 /* SavedJourney.swift */; };
 		89BE5F832A55B0A000E395CC /* StationWithDistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BE5F822A55B0A000E395CC /* StationWithDistance.swift */; };
@@ -152,6 +156,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		891799E82ABDDC150010DC9F /* WCSessionDelegator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCSessionDelegator.swift; sourceTree = "<group>"; };
 		891AEE9B2A534A6D005A49F5 /* Journey+Computed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Journey+Computed.swift"; sourceTree = "<group>"; };
 		891DC9D52A7FD3CF00B68579 /* NearbyTrain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearbyTrain.swift; sourceTree = "<group>"; };
 		892F50D82AA377EE00427D8C /* APINetworkLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APINetworkLogger.swift; sourceTree = "<group>"; };
@@ -195,6 +200,7 @@
 		89ACF2F62A47172400A4AC57 /* StationsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationsManager.swift; sourceTree = "<group>"; };
 		89ACF2F82A471CB500A4AC57 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		89ACF2FD2A48608600A4AC57 /* Location+Equatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location+Equatable.swift"; sourceTree = "<group>"; };
+		89B0E81A2ABF299400FE6E0B /* WatchConnectManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchConnectManager.swift; sourceTree = "<group>"; };
 		89B8FCD12A801668001A84E3 /* LookupTrainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LookupTrainView.swift; sourceTree = "<group>"; };
 		89BAA7A02A76D8D300CDA640 /* SavedJourney.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavedJourney.swift; sourceTree = "<group>"; };
 		89BE5F822A55B0A000E395CC /* StationWithDistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationWithDistance.swift; sourceTree = "<group>"; };
@@ -559,6 +565,8 @@
 				893AC26A2A3B42D000D621FE /* Structs */,
 				895A31002A4421EF00E305D8 /* Extensions */,
 				893AC26B2A3B42D700D621FE /* API */,
+				891799E82ABDDC150010DC9F /* WCSessionDelegator.swift */,
+				89B0E81A2ABF299400FE6E0B /* WatchConnectManager.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -719,6 +727,7 @@
 				89C3DFBB2A893122007732FC /* LiveTrain.swift in Sources */,
 				89DD61312AB2489D00722EF4 /* StationViewModel.swift in Sources */,
 				893AC2722A3B470F00D621FE /* MapView.swift in Sources */,
+				891799E92ABDDC150010DC9F /* WCSessionDelegator.swift in Sources */,
 				893AC2742A3B489300D621FE /* CurrentVehicles.swift in Sources */,
 				898DC9AA2AA37F36006C9715 /* TrainAnnotations.swift in Sources */,
 				89CEFDA02A3D07ED00383555 /* Shared.swift in Sources */,
@@ -733,6 +742,7 @@
 				893AC26D2A3B42E300D621FE /* API.swift in Sources */,
 				891DC9D62A7FD3CF00B68579 /* NearbyTrain.swift in Sources */,
 				89DD61332AB24FBE00722EF4 /* PlatformIcon.swift in Sources */,
+				89B0E81B2ABF299400FE6E0B /* WatchConnectManager.swift in Sources */,
 				893AC27B2A3B4B1100D621FE /* StationsResponse.swift in Sources */,
 				89ACF2F52A47161700A4AC57 /* TrainManager.swift in Sources */,
 				893C4CD12A460D68002E3540 /* JourneyMapViewCoordinator.swift in Sources */,
@@ -772,6 +782,7 @@
 				89EDD7152A7FCAF40035C238 /* SavedStation.swift in Sources */,
 				89C3DFC92A896021007732FC /* MockData.swift in Sources */,
 				89EDD7112A7FCAF40035C238 /* DeparturesResponse.swift in Sources */,
+				891799EA2ABDDC150010DC9F /* WCSessionDelegator.swift in Sources */,
 				89EDD71D2A7FCAF40035C238 /* SavedJourney.swift in Sources */,
 				89EDD71A2A7FCAF40035C238 /* CurrentVehicles.swift in Sources */,
 				89C3DFC52A895F8E007732FC /* NearbyTrainItem.swift in Sources */,
@@ -798,6 +809,7 @@
 				89EDD7122A7FCAF40035C238 /* StationAnnotation.swift in Sources */,
 				89EDD70B2A7FCAE60035C238 /* MessageStyle+String.swift in Sources */,
 				89EDD71C2A7FCAF40035C238 /* Stops+Geojson.swift in Sources */,
+				89B0E81C2ABF2B5B00FE6E0B /* WatchConnectManager.swift in Sources */,
 				89C783B02ABCC48D001EBB70 /* StationsView.swift in Sources */,
 				89D6948B2A7FCB6400579D30 /* NearbyTrainsView.swift in Sources */,
 				89EDD70A2A7FCAD20035C238 /* API.swift in Sources */,

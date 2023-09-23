@@ -6,12 +6,14 @@
 //
 
 import SwiftUI
+import Defaults
 
 @main
 struct TreinRadarApp: App {
     @StateObject var stationsManager = StationsManager.shared
     @StateObject var locationManager = LocationManager.shared
     @StateObject var trainManager = TrainManager.shared
+    @StateObject var watchManager = WatchConnectManager()
     
     var body: some Scene {
         WindowGroup {
@@ -19,7 +21,15 @@ struct TreinRadarApp: App {
                 .environmentObject(stationsManager)
                 .environmentObject(locationManager)
                 .environmentObject(trainManager)
+                .environmentObject(watchManager)
                 .onAppear { locationManager.requestLocation() }
+                .task {
+                    // Watch for changes of the favourite stations and send
+                    // them to the watchOS app
+                    for await value in Defaults.updates(.favouriteStations) {
+                        watchManager.updateStations(value)
+                    }
+                }
         }
     }
 }

@@ -6,12 +6,20 @@
 //
 
 import SwiftUI
+import Defaults
 
 @main
 struct TreinRadar_watchOS_Watch_AppApp: App {
+    @StateObject var watchManager = WatchConnectManager()
+    @Default(.favouriteStations) var favouriteStations
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .onReceive(watchManager.subject) { stations in
+                    // Update favouriteStations when the iOS app sends a new array
+                    favouriteStations = stations
+                }
         }
     }
 }
