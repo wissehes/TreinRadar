@@ -1,0 +1,467 @@
+{
+  "sourceLanguage" : "nl",
+  "strings" : {
+    "(+%lld)" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ""
+          }
+        }
+      }
+    },
+    "**%@** naar %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**%1$@** to %2$@"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "**%1$@** naar %2$@"
+          }
+        }
+      }
+    },
+    "%@ %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ""
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@ %2$@"
+          }
+        }
+      }
+    },
+    "%@ opgeslagen" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Saved %@"
+          }
+        }
+      }
+    },
+    "%@ richting **%@**" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ towards **%2$@**"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@ richting **%2$@**"
+          }
+        }
+      }
+    },
+    "%lld delen" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld parts"
+          }
+        }
+      }
+    },
+    "%lld zitplaatsen" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld seats"
+          }
+        }
+      }
+    },
+    "+%lld" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ""
+          }
+        }
+      }
+    },
+    "⬆️" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ""
+          }
+        }
+      }
+    },
+    "A: %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A: %@"
+          }
+        }
+      }
+    },
+    "Aan favorieten toevoegen" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add to favourites"
+          }
+        }
+      }
+    },
+    "Aankomst: %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Arrival: %@"
+          }
+        }
+      }
+    },
+    "Aankomsttijden" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Arrivals"
+          }
+        }
+      }
+    },
+    "Aankomsttijden zijn nog niet beschikbaar" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Arrivals are not yet available"
+          }
+        }
+      }
+    },
+    "Afstand: %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Distance: %@"
+          }
+        }
+      }
+    },
+    "Alles" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "All"
+          }
+        }
+      }
+    },
+    "Drukte: %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Crowd: %@"
+          }
+        }
+      }
+    },
+    "Favorieten" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Favourites"
+          }
+        }
+      }
+    },
+    "Filters" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Filters"
+          }
+        }
+      }
+    },
+    "Geen zoekresultaten" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No search results"
+          }
+        }
+      }
+    },
+    "In de buurt" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nearby"
+          }
+        }
+      }
+    },
+    "Info" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Info"
+          }
+        }
+      }
+    },
+    "Kaart" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Map"
+          }
+        }
+      }
+    },
+    "Kaarttype" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Map type"
+          }
+        }
+      }
+    },
+    "Laat alle stops zien" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Show all stops"
+          }
+        }
+      }
+    },
+    "Laat geannuleerde treinen zien" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Show cancelled trains"
+          }
+        }
+      }
+    },
+    "Laat vorige stations zien" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Show previous stops"
+          }
+        }
+      }
+    },
+    "Laat vorige zien" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Show previous"
+          }
+        }
+      }
+    },
+    "Laden..." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Loading..."
+          }
+        }
+      }
+    },
+    "Lengte: %lld delen" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Length: %lld parts"
+          }
+        }
+      }
+    },
+    "Look up train" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Look up train"
+          }
+        }
+      }
+    },
+    "Map" : {
+
+    },
+    "Materieel: %@" : {
+
+    },
+    "Meer" : {
+
+    },
+    "Meer..." : {
+
+    },
+    "Meldingen" : {
+
+    },
+    "Naar" : {
+
+    },
+    "Nearby trains" : {
+
+    },
+    "OK" : {
+
+    },
+    "Opgeslagen" : {
+
+    },
+    "Opgeslagen items" : {
+
+    },
+    "Planner" : {
+
+    },
+    "Radar" : {
+
+    },
+    "Reisinformatie" : {
+
+    },
+    "Reizen" : {
+
+    },
+    "Richting:" : {
+
+    },
+    "Sla op" : {
+
+    },
+    "Sluiten" : {
+
+    },
+    "Snelheid: %lf km/h" : {
+
+    },
+    "Spoor" : {
+
+    },
+    "Spoor %@" : {
+
+    },
+    "Spoor: %@" : {
+
+    },
+    "Stations" : {
+
+    },
+    "Stops" : {
+
+    },
+    "Trein opzoeken" : {
+
+    },
+    "Treindetectie" : {
+
+    },
+    "Treinstelnummer" : {
+
+    },
+    "Uit favorieten verwijderen" : {
+
+    },
+    "Uit opgeslagen verwijderen" : {
+
+    },
+    "V: %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "D: %@"
+          }
+        }
+      }
+    },
+    "Vertrek: %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Departure: %@"
+          }
+        }
+      }
+    },
+    "Vertrektijden" : {
+
+    },
+    "Ververs" : {
+
+    },
+    "Verwijder uit opgeslagen reizen" : {
+
+    },
+    "Volgend station: **%@**" : {
+
+    },
+    "Waarschuwingen" : {
+
+    },
+    "Zitplaatsen: %lld" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Seats: %lld"
+          }
+        }
+      }
+    },
+    "Zoek op" : {
+
+    }
+  },
+  "version" : "1.0"
+}
