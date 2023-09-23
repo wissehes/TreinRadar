@@ -67,7 +67,9 @@ final class JourneyViewModel: ObservableObject {
         do {
             let data = try await API.shared.getJourney(journeyId: journeyId)
             await getGeojson(data.stops, journeyId: journeyId)
-            DispatchQueue.main.async { self.journey = data }
+            DispatchQueue.main.async {
+                withAnimation { self.journey = data }
+            }
         } catch { print(error) }
     }
     

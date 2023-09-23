@@ -157,16 +157,25 @@ struct JourneyView: View {
             
             ForEach(vm.showingStops ?? [], id: \.id) { stop in
             stopItem(stop)
-                .contextMenu {
-                    VStack {
-                        Text("Drukte: \(stop.crowdForecast?.rawValue ?? "?")")
-                    }
-                    
-                    NavigationLink(value: stop.stop) {
-                        Label("Vertrektijden", systemImage: "clock")
+                    .contextMenu {
+
+                            Text("Drukte: \(stop.crowdForecast?.rawValue ?? "?")")
+                        
+                        NavigationLink(value: stop.stop) {
+                            Label("Vertrektijden", systemImage: "clock")
+                        }
+                    } preview: {
+                        VStack(alignment:.leading) {
+                            Text(stop.stop.name)
+                                .font(.title)
+                            Text("Aankomst: \(stop.arrivalTime ?? "")")
+                            Text("Vertrek: \(stop.departureTime ?? "")")
+                            Text("Spoor: \(stop.track ?? "")")
+                        }
+                            .frame(width: 400, height: 400)
+                            .padding()
                     }
 
-                }
             }
         }
     }
@@ -198,6 +207,10 @@ struct JourneyView: View {
                 .foregroundStyle(stop.status == .passing ? .secondary : .primary)
                 .multilineTextAlignment(.trailing)
             
+            if let crowdForecast = stop.crowdForecast {
+                RushIcon(crowd: crowdForecast)
+            }
+            
             if let track = stop.track {
                 PlatformIcon(platform: track)
             } else {
@@ -209,23 +222,28 @@ struct JourneyView: View {
     
     func depOrArrTimes(_ item: Stop) -> some View {
         VStack(alignment: .leading) {
-            HStack(alignment: .center, spacing: 2.5) {
-                Text("A: \(item.arrivalTime ?? "--:--")")
-                if item.arrivalDelay != 0 {
-                    Text("+\(item.arrivalDelay)")
-                        .font(.caption)
-                        .foregroundStyle(.red)
+            if let arrivalTime = item.arrivalTime {
+                HStack(alignment: .center, spacing: 2.5) {
+                    Text("A: \(arrivalTime)")
+                    if item.arrivalDelay != 0 {
+                        Text("+\(item.arrivalDelay)")
+                            .font(.caption)
+                            .foregroundStyle(.red)
+                    }
                 }
             }
-            HStack(alignment: .center, spacing: 2.5) {
-                Text("V: \(item.departureTime ?? "--:--")")
-                if item.departureDelay != 0 {
-                    Text("+\(item.departureDelay)")
-                        .font(.caption)
-                        .foregroundStyle(.red)
+            
+            if let departureTime = item.departureTime {
+                HStack(alignment: .center, spacing: 2.5) {
+                    Text("V: \(departureTime)")
+                    if item.departureDelay != 0 {
+                        Text("+\(item.departureDelay)")
+                            .font(.caption)
+                            .foregroundStyle(.red)
+                    }
                 }
             }
-        }.frame(minWidth: 70, alignment: .center).font(.subheadline)
+        }.frame(minWidth: 60, alignment: .center).font(.subheadline)
     }
 }
 
