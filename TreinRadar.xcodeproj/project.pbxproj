@@ -37,6 +37,8 @@
 		895998372A570F7A00847B84 /* String+Capitalization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895998362A570F7A00847B84 /* String+Capitalization.swift */; };
 		895A30FF2A44219500E305D8 /* JourneyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895A30FE2A44219500E305D8 /* JourneyViewModel.swift */; };
 		895A31022A4421FC00E305D8 /* Date+Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895A31012A4421FC00E305D8 /* Date+Formatter.swift */; };
+		896454722ABF4C2E00D4A32D /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 896454712ABF4C2E00D4A32D /* Localizable.xcstrings */; };
+		896454732ABF4C3200D4A32D /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 896454712ABF4C2E00D4A32D /* Localizable.xcstrings */; };
 		896AF0F32A55A582001936AD /* Stop+Computed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896AF0F22A55A582001936AD /* Stop+Computed.swift */; };
 		896EB28F2A76D76D0084980A /* SavedItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896EB28E2A76D76D0084980A /* SavedItemsView.swift */; };
 		896F6A932A49664F00A3CA5B /* TravelInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896F6A922A49664F00A3CA5B /* TravelInfoViewModel.swift */; };
@@ -183,6 +185,7 @@
 		895998362A570F7A00847B84 /* String+Capitalization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Capitalization.swift"; sourceTree = "<group>"; };
 		895A30FE2A44219500E305D8 /* JourneyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyViewModel.swift; sourceTree = "<group>"; };
 		895A31012A4421FC00E305D8 /* Date+Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Formatter.swift"; sourceTree = "<group>"; };
+		896454712ABF4C2E00D4A32D /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		896AF0F22A55A582001936AD /* Stop+Computed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Stop+Computed.swift"; sourceTree = "<group>"; };
 		896EB28E2A76D76D0084980A /* SavedItemsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavedItemsView.swift; sourceTree = "<group>"; };
 		896F6A922A49664F00A3CA5B /* TravelInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelInfoViewModel.swift; sourceTree = "<group>"; };
@@ -280,6 +283,7 @@
 		893AC24F2A3B42AA00D621FE = {
 			isa = PBXGroup;
 			children = (
+				896454712ABF4C2E00D4A32D /* Localizable.xcstrings */,
 				89EDD7072A7FBE140035C238 /* Shared */,
 				893AC25A2A3B42AA00D621FE /* TreinRadar-iOS */,
 				89EDD6F62A7FBDBE0035C238 /* TreinRadar-watchOS */,
@@ -659,6 +663,7 @@
 			knownRegions = (
 				Base,
 				nl,
+				en,
 			);
 			mainGroup = 893AC24F2A3B42AA00D621FE;
 			packageReferences = (
@@ -684,6 +689,7 @@
 			files = (
 				89FA153C2A782D8F00489E5B /* saved-journeys.json in Resources */,
 				89DD612E2AB2437600722EF4 /* station.json in Resources */,
+				896454722ABF4C2E00D4A32D /* Localizable.xcstrings in Resources */,
 				89C3DFC72A895FB5007732FC /* nearby-train.json in Resources */,
 				895998322A570B5300847B84 /* journey.json in Resources */,
 				893AC2632A3B42AB00D621FE /* Preview Assets.xcassets in Resources */,
@@ -698,6 +704,7 @@
 			files = (
 				8973B7E42A921CDC00BBDC9A /* departures.json in Resources */,
 				89DD612F2AB2437600722EF4 /* station.json in Resources */,
+				896454732ABF4C3200D4A32D /* Localizable.xcstrings in Resources */,
 				8973B7E32A921CDC00BBDC9A /* saved-journeys.json in Resources */,
 				89C3DFCD2A896A35007732FC /* journey.json in Resources */,
 				89EDD6FF2A7FBDC20035C238 /* Preview Assets.xcassets in Resources */,
