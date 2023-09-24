@@ -383,13 +383,13 @@
 			path = NS;
 			sourceTree = "<group>";
 		};
-		893C4CCD2A460CB6002E3540 /* JourneyMapView */ = {
+		893C4CCD2A460CB6002E3540 /* JourneyMap */ = {
 			isa = PBXGroup;
 			children = (
 				893C4CCE2A460CC7002E3540 /* JourneyMapView.swift */,
 				893C4CD02A460D68002E3540 /* JourneyMapViewCoordinator.swift */,
 			);
-			path = JourneyMapView;
+			path = JourneyMap;
 			sourceTree = "<group>";
 		};
 		8941D99C2A76B79E00041311 /* SavedItemsView */ = {
@@ -527,7 +527,7 @@
 		89E42B8A2A7300DA0093CEC5 /* Map */ = {
 			isa = PBXGroup;
 			children = (
-				893C4CCD2A460CB6002E3540 /* JourneyMapView */,
+				893C4CCD2A460CB6002E3540 /* JourneyMap */,
 				892F50DB2AA37C2100427D8C /* TrainMap */,
 				89E42B8B2A7300EE0093CEC5 /* StationMap */,
 				898DC9AC2AA38990006C9715 /* TrainTrack.swift */,
