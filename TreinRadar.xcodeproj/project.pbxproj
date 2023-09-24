@@ -334,7 +334,6 @@
 				8992D0702AB102B90071F351 /* Station */,
 				89CEFD8B2A3CF94400383555 /* Departures */,
 				89CEFD9A2A3D061E00383555 /* Journey */,
-				893C4CCD2A460CB6002E3540 /* JourneyMapView */,
 				89DD61322AB24FBE00722EF4 /* PlatformIcon.swift */,
 				89A34A102AB75E460004591D /* LoadingView.swift */,
 				89B0E81E2ABF304900FE6E0B /* RushIcon.swift */,
@@ -528,6 +527,7 @@
 		89E42B8A2A7300DA0093CEC5 /* Map */ = {
 			isa = PBXGroup;
 			children = (
+				893C4CCD2A460CB6002E3540 /* JourneyMapView */,
 				892F50DB2AA37C2100427D8C /* TrainMap */,
 				89E42B8B2A7300EE0093CEC5 /* StationMap */,
 				898DC9AC2AA38990006C9715 /* TrainTrack.swift */,
