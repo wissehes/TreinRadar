@@ -40,9 +40,15 @@ struct JourneyView: View {
             timer.upstream.connect().cancel()
         }
         .navigationDestination(for: StopsAndGeometry.self) { item in
-            LegacyJourneyMapView(geometry: item, inline: false)
-                .navigationTitle("Kaart")
-                .navigationBarTitleDisplayMode(.inline)
+            if #available(iOS 17.0, *) {
+                JourneyMapView(data: item, liveTrain: vm.live)
+                    .navigationTitle("Kaart")
+                    .navigationBarTitleDisplayMode(.inline)
+            } else {
+                LegacyJourneyMapView(geometry: item, inline: false)
+                    .navigationTitle("Kaart")
+                    .navigationBarTitleDisplayMode(.inline)
+            }
         }
         .navigationDestination(for: StopInfo.self) { stop in
             DeparturesView(uicCode: stop.uicCode)
