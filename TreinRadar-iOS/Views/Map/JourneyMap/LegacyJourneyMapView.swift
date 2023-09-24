@@ -1,5 +1,5 @@
 //
-//  JourneyMapView.swift
+//  LegacyJourneyMapView.swift
 //  TreinRadar
 //
 //  Created by Wisse Hes on 23/06/2023.
@@ -8,7 +8,7 @@
 import SwiftUI
 import MapKit
 
-struct JourneyMapView: UIViewRepresentable {
+struct LegacyJourneyMapView: UIViewRepresentable {
     
     var geometry: StopsAndGeometry
     var inline: Bool
@@ -30,7 +30,7 @@ struct JourneyMapView: UIViewRepresentable {
         return mapView
     }
     
-    func updateUIView(_ uiView: MKMapView, context: UIViewRepresentableContext<JourneyMapView>) {
+    func updateUIView(_ uiView: MKMapView, context: UIViewRepresentableContext<LegacyJourneyMapView>) {
         updateOverlays(from: uiView)
     }
     
@@ -62,7 +62,7 @@ struct JourneyMapView_Previews: PreviewProvider {
     
     static var previews: some View {
         NavigationStack {
-            JourneyMapView(geometry: geometry, inline: false)
+            LegacyJourneyMapView(geometry: geometry, inline: false)
         }
     }
 }

@@ -40,7 +40,7 @@ struct JourneyView: View {
             timer.upstream.connect().cancel()
         }
         .navigationDestination(for: StopsAndGeometry.self) { item in
-            JourneyMapView(geometry: item, inline: false)
+            LegacyJourneyMapView(geometry: item, inline: false)
                 .navigationTitle("Kaart")
                 .navigationBarTitleDisplayMode(.inline)
         }
@@ -133,7 +133,7 @@ struct JourneyView: View {
     
     func map(_ stopsAndGeometry: StopsAndGeometry) -> some View {
         Section("Kaart") {
-            JourneyMapView(geometry: stopsAndGeometry, inline: true)
+            LegacyJourneyMapView(geometry: stopsAndGeometry, inline: true)
                 .frame(height: 400)
                 .listRowInsets(EdgeInsets())
                 .overlay {

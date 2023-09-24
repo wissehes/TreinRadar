@@ -10,10 +10,10 @@ import UIKit
 import MapKit
 
 final class JourneyMapViewCoordinator: NSObject, MKMapViewDelegate {
-    private let map: JourneyMapView
+    private let map: LegacyJourneyMapView
     private let stops: [StopInfo]
     
-    init(map: JourneyMapView, stops: [StopInfo]) {
+    init(map: LegacyJourneyMapView, stops: [StopInfo]) {
         self.map = map
         self.stops = stops
     }

@@ -28,7 +28,7 @@
 		893AC27D2A3B505000D621FE /* DeparturesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893AC27C2A3B504F00D621FE /* DeparturesView.swift */; };
 		893AC27F2A3B507300D621FE /* DeparturesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893AC27E2A3B507300D621FE /* DeparturesResponse.swift */; };
 		893C4CCC2A45B29C002E3540 /* JourneyGeojson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893C4CCB2A45B29C002E3540 /* JourneyGeojson.swift */; };
-		893C4CCF2A460CC8002E3540 /* JourneyMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893C4CCE2A460CC7002E3540 /* JourneyMapView.swift */; };
+		893C4CCF2A460CC8002E3540 /* LegacyJourneyMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893C4CCE2A460CC7002E3540 /* LegacyJourneyMapView.swift */; };
 		893C4CD12A460D68002E3540 /* JourneyMapViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893C4CD02A460D68002E3540 /* JourneyMapViewCoordinator.swift */; };
 		89586DEA2AB729E600939839 /* ArrivalsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89586DE92AB729E600939839 /* ArrivalsResponse.swift */; };
 		89586DEB2AB729E600939839 /* ArrivalsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89586DE92AB729E600939839 /* ArrivalsResponse.swift */; };
@@ -177,7 +177,7 @@
 		893AC27C2A3B504F00D621FE /* DeparturesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeparturesView.swift; sourceTree = "<group>"; };
 		893AC27E2A3B507300D621FE /* DeparturesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeparturesResponse.swift; sourceTree = "<group>"; };
 		893C4CCB2A45B29C002E3540 /* JourneyGeojson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyGeojson.swift; sourceTree = "<group>"; };
-		893C4CCE2A460CC7002E3540 /* JourneyMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyMapView.swift; sourceTree = "<group>"; };
+		893C4CCE2A460CC7002E3540 /* LegacyJourneyMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegacyJourneyMapView.swift; sourceTree = "<group>"; };
 		893C4CD02A460D68002E3540 /* JourneyMapViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyMapViewCoordinator.swift; sourceTree = "<group>"; };
 		89586DE92AB729E600939839 /* ArrivalsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrivalsResponse.swift; sourceTree = "<group>"; };
 		895998312A570B5300847B84 /* journey.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = journey.json; sourceTree = "<group>"; };
@@ -386,7 +386,7 @@
 		893C4CCD2A460CB6002E3540 /* JourneyMap */ = {
 			isa = PBXGroup;
 			children = (
-				893C4CCE2A460CC7002E3540 /* JourneyMapView.swift */,
+				893C4CCE2A460CC7002E3540 /* LegacyJourneyMapView.swift */,
 				893C4CD02A460D68002E3540 /* JourneyMapViewCoordinator.swift */,
 			);
 			path = JourneyMap;
@@ -731,7 +731,7 @@
 				89ACF2F92A471CB500A4AC57 /* LocationManager.swift in Sources */,
 				895A30FF2A44219500E305D8 /* JourneyViewModel.swift in Sources */,
 				89CEFD9E2A3D065000383555 /* JourneyResponse.swift in Sources */,
-				893C4CCF2A460CC8002E3540 /* JourneyMapView.swift in Sources */,
+				893C4CCF2A460CC8002E3540 /* LegacyJourneyMapView.swift in Sources */,
 				896EB28F2A76D76D0084980A /* SavedItemsView.swift in Sources */,
 				89CEFD8A2A3CF68300383555 /* Journey.swift in Sources */,
 				89C3DFBB2A893122007732FC /* LiveTrain.swift in Sources */,
