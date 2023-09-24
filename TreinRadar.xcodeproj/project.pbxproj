@@ -46,6 +46,8 @@
 		8973B7E42A921CDC00BBDC9A /* departures.json in Resources */ = {isa = PBXBuildFile; fileRef = 89A48ECA2A557533006F7A4E /* departures.json */; };
 		898DC9AA2AA37F36006C9715 /* TrainAnnotations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898DC9A92AA37F36006C9715 /* TrainAnnotations.swift */; };
 		898DC9AD2AA38990006C9715 /* TrainTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898DC9AC2AA38990006C9715 /* TrainTrack.swift */; };
+		898F78092AC057FB00BA6F6E /* JourneyMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898F78082AC057FB00BA6F6E /* JourneyMapView.swift */; };
+		898F780B2AC059F900BA6F6E /* stops-geometry.json in Resources */ = {isa = PBXBuildFile; fileRef = 898F780A2AC059F800BA6F6E /* stops-geometry.json */; };
 		8992D0722AB102CA0071F351 /* StationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8992D0712AB102CA0071F351 /* StationView.swift */; };
 		89A34A112AB75E460004591D /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A34A102AB75E460004591D /* LoadingView.swift */; };
 		89A48EC62A5573A0006F7A4E /* MessageStyle+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A48EC52A5573A0006F7A4E /* MessageStyle+String.swift */; };
@@ -191,6 +193,8 @@
 		896F6A922A49664F00A3CA5B /* TravelInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelInfoViewModel.swift; sourceTree = "<group>"; };
 		898DC9A92AA37F36006C9715 /* TrainAnnotations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainAnnotations.swift; sourceTree = "<group>"; };
 		898DC9AC2AA38990006C9715 /* TrainTrack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainTrack.swift; sourceTree = "<group>"; };
+		898F78082AC057FB00BA6F6E /* JourneyMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyMapView.swift; sourceTree = "<group>"; };
+		898F780A2AC059F800BA6F6E /* stops-geometry.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "stops-geometry.json"; sourceTree = "<group>"; };
 		8992D0712AB102CA0071F351 /* StationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationView.swift; sourceTree = "<group>"; };
 		89A34A102AB75E460004591D /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		89A48EC52A5573A0006F7A4E /* MessageStyle+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MessageStyle+String.swift"; sourceTree = "<group>"; };
@@ -388,6 +392,7 @@
 			children = (
 				893C4CCE2A460CC7002E3540 /* LegacyJourneyMapView.swift */,
 				893C4CD02A460D68002E3540 /* JourneyMapViewCoordinator.swift */,
+				898F78082AC057FB00BA6F6E /* JourneyMapView.swift */,
 			);
 			path = JourneyMap;
 			sourceTree = "<group>";
@@ -455,6 +460,7 @@
 				895998312A570B5300847B84 /* journey.json */,
 				89C3DFC62A895FB5007732FC /* nearby-train.json */,
 				89DD612D2AB2437600722EF4 /* station.json */,
+				898F780A2AC059F800BA6F6E /* stops-geometry.json */,
 			);
 			path = MockData;
 			sourceTree = "<group>";
@@ -689,6 +695,7 @@
 			files = (
 				89FA153C2A782D8F00489E5B /* saved-journeys.json in Resources */,
 				89DD612E2AB2437600722EF4 /* station.json in Resources */,
+				898F780B2AC059F900BA6F6E /* stops-geometry.json in Resources */,
 				896454722ABF4C2E00D4A32D /* Localizable.xcstrings in Resources */,
 				89C3DFC72A895FB5007732FC /* nearby-train.json in Resources */,
 				895998322A570B5300847B84 /* journey.json in Resources */,
@@ -748,6 +755,7 @@
 				89ACF2FE2A48608600A4AC57 /* Location+Equatable.swift in Sources */,
 				89BAA7A12A76D8D300CDA640 /* SavedJourney.swift in Sources */,
 				893AC2792A3B4A9E00D621FE /* StationsSearchView.swift in Sources */,
+				898F78092AC057FB00BA6F6E /* JourneyMapView.swift in Sources */,
 				893AC27D2A3B505000D621FE /* DeparturesView.swift in Sources */,
 				893AC26D2A3B42E300D621FE /* API.swift in Sources */,
 				891DC9D62A7FD3CF00B68579 /* NearbyTrain.swift in Sources */,
