@@ -14,16 +14,13 @@ import MapKit
 @available(iOS 17.0, *)
 struct TrainTrack: MapContent {
     
-    var trackLines: [MKPolyline]
+    var railwayTracks: [MKPolyline]
     
     var body: some MapContent {
-        ForEach(trackLines, id: \.title) { polyline in
-            MapPolyline(polyline)
-                .foregroundStyle(.blue)
-                .stroke(lineWidth: 2)
+        ForEach(railwayTracks, id: \.hashValue) { track in
+            MapPolyline(track)
+                .stroke(.blue, lineWidth: 2)
         }
-        
-//        MapPolyline
     }
 }
 
