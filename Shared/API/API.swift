@@ -52,6 +52,16 @@ final class API {
         return Session(configuration: configuration, eventMonitors: [networkLogger]);
     }()
     
+    /// Client that caches everything
+    let cachedClient: Session = {
+        let configuration = URLSessionConfiguration.af.default
+        configuration.httpAdditionalHeaders = [ "Ocp-Apim-Subscription-Key": API_KEY ];
+        configuration.requestCachePolicy = .returnCacheDataElseLoad
+        let networkLogger = APINetworkLogger()
+        
+        return Session(configuration: configuration, eventMonitors: [networkLogger]);
+    }()
+    
     /// Get all live trains
     func getLiveTrains() async throws -> [Train] {
         let data = try await client.request(Endpoints.currentVehicles).serializingDecodable(CurrentVehicles.self).value
@@ -70,7 +80,7 @@ final class API {
     }
     
     func getStations() async throws -> [FullStation] {
-        let data = try await client.request(Endpoints.stations).serializingDecodable(StationsResponse.self).value
+        let data = try await cachedClient.request(Endpoints.stations).serializingDecodable(StationsResponse.self).value
         return data.payload
     }
     
@@ -159,7 +169,7 @@ final class API {
      Get the GeoJSON for the rail map.
      */
     func getMapGeoJson() async throws -> Data {
-        let data = try await client
+        let data = try await cachedClient
             .request(Endpoints.railMapGeoJson)
             .serializingData()
             .value
