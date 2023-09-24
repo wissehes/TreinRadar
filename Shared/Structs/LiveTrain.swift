@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreLocation
 
 struct LiveTrain: Codable {
     let latitude: Double
@@ -19,4 +20,12 @@ struct LiveTrain: Codable {
     
     /// Current track
     let track: String?
+    
+    /// Train image URL
+    let image: String?
+    
+    /// Current train location
+    var location: CLLocationCoordinate2D {
+        CLLocationCoordinate2D(latitude: self.latitude, longitude: self.longitude)
+    }
 }
