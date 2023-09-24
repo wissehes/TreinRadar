@@ -56,7 +56,6 @@ struct MapView: View {
     @State private var selectedMap: ChosenMapType = .empty
     @State private var railwayTracks: [MKPolyline] = []
     
-    //    @State private var selectedTrain: Train?
     @State private var selectedItem: SelectedMapItem?
     
     @State private var position: MapCameraPosition = .region(initialPosition)
@@ -89,30 +88,13 @@ struct MapView: View {
                 MapUserLocationButton()
                 MapCompass()
             }
-            .sheet(item: $selectedItem, content: { item in
-                NavigationStack {
-                    Group {
-                        switch item {
-                        case .train(let train):
-                            JourneyView(journeyId: train.ritID)
-                        case .station(let station):
-                            StationView(station: station)
-                        }
-                    }.navigationBarTitleDisplayMode(.inline)
-                        .toolbar {
-                            ToolbarItem(placement: .cancellationAction) {
-                                Button("Sluiten") { selectedItem = nil }
-                            }
-                        }
-                }
-                .presentationDetents([.fraction(0.3), .medium, .large])
-                .presentationBackgroundInteraction(.enabled(upThrough: .fraction(0.3)))
-            })
-            .navigationTitle("Map")
+            .sheet(item: $selectedItem) { item in
+                sheetContent
+                    .presentationDetents([.fraction(0.3), .medium, .large])
+                    .presentationBackgroundInteraction(.enabled(upThrough: .fraction(0.3)))
+            }
+            .navigationTitle("Radar")
             .navigationBarTitleDisplayMode(.inline)
-            .navigationDestination(for: FullStation.self, destination: { item in
-                DeparturesView(station: item)
-            })
             .toolbar {
                 ToolbarItem(placement: .bottomBar) {
                     Picker("Kaarttype", selection: $selectedMap) {
@@ -135,6 +117,35 @@ struct MapView: View {
             .task {
                 await loadTrainTrackData()
             }
+        }
+    }
+    
+    var sheetContent: some View {
+        NavigationStack {
+            Group {
+                switch selectedItem {
+                case .train(let train):
+                    JourneyView(journeyId: train.ritID)
+                case .station(let station):
+                    StationView(station: station)
+                case .none:
+                    EmptyView()
+                }
+            }.navigationBarTitleDisplayMode(.inline)
+                .navigationDestination(for: FullStation.self) { station in StationView(station: station) }
+                .navigationDestination(for: StationViewType.self) { type in
+                    switch type {
+                    case .arrivals(_):
+                        ContentUnavailableView("Aankomsttijden zijn nog niet beschikbaar", systemImage: "exclamationmark.bubble")
+                    case .departures(let station):
+                        DeparturesView(station: station)
+                    }
+                }
+                .toolbar {
+                    ToolbarItem(placement: .cancellationAction) {
+                        Button("Sluiten") { selectedItem = nil }
+                    }
+                }
         }
     }
     
