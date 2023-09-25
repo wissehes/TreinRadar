@@ -321,6 +321,7 @@
       }
     },
     "Look up train" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -381,6 +382,7 @@
       }
     },
     "Nearby trains" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -570,6 +572,12 @@
         }
       }
     },
+    "Treinen dichtbij" : {
+
+    },
+    "Treinradar" : {
+
+    },
     "Treinstelnummer" : {
       "localizations" : {
         "en" : {
@@ -689,6 +697,9 @@
           }
         }
       }
+    },
+    "Zoek treinstel op" : {
+
     }
   },
   "version" : "1.0"
