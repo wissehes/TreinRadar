@@ -12,9 +12,9 @@ struct ContentView: View {
         NavigationStack {
             List {
                 NavigationLink("Vertrektijden", destination: StationsView())
-                NavigationLink("Nearby trains", destination: NearbyTrainsView())
-                NavigationLink("Look up train", destination: LookupTrainView())
-            }
+                NavigationLink("Treinen dichtbij", destination: NearbyTrainsView())
+                NavigationLink("Zoek treinstel op", destination: LookupTrainView())
+            }.navigationTitle("Treinradar")
         }
     }
 }
