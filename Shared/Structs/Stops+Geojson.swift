@@ -8,7 +8,7 @@
 import Foundation
 import MapKit
 
-struct StopsAndGeometry: Hashable {
+struct StopsAndGeometry: Hashable, Codable {
     static func == (lhs: StopsAndGeometry, rhs: StopsAndGeometry) -> Bool {
         lhs.id == rhs.id
     }
