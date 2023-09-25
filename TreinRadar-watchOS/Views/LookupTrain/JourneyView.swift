@@ -7,9 +7,31 @@
 
 import SwiftUI
 
+enum JourneyIdentifier {
+    case journeyId(String)
+    case stockNumber(String)
+    
+    var id: String {
+        switch self {
+        case .journeyId(let string):
+            return string
+        case .stockNumber(let string):
+            return string
+        }
+    }
+}
+
 struct JourneyView: View {
     
-    var stockNumber: String
+    var identifier: JourneyIdentifier
+    
+    init(stockNumber: String) {
+        self.identifier = .stockNumber(stockNumber)
+    }
+    
+    init(journeyId: String) {
+        self.identifier = .journeyId(journeyId)
+    }
     
     @StateObject var vm = JourneyViewModel()
     
@@ -22,8 +44,8 @@ struct JourneyView: View {
             } else {
                 Text(vm.error ?? "Unknown error occurred.")
             }
-        }.task { await vm.load(stock: stockNumber) }
-            .navigationTitle(vm.journey?.category ?? "Rit \(stockNumber)")
+        }.task { await vm.load(identifier: self.identifier) }
+            .navigationTitle(vm.journey?.category ?? "Rit \(identifier.id)")
     }
     
     var arrowImg: Image {

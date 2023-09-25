@@ -15,38 +15,43 @@ final class JourneyViewModel: ObservableObject {
     
     @Published var showingPreviousStops = false
     
-    func setData(data: JourneyPayload) async {
-        DispatchQueue.main.async {
-            withAnimation {
-                self.journey = data
-            }
+    /// Helper function for setting the data with an animation
+    @MainActor
+    func setData(data: JourneyPayload) {
+        withAnimation {
+            self.journey = data
         }
     }
     
-    func load(stock: String) async {
+    @MainActor
+    func load(identifier: JourneyIdentifier) async {
         defer {
-            DispatchQueue.main.async {
-                withAnimation {
-                    self.isLoading = false
-                }
+            withAnimation {
+                self.isLoading = false
             }
         }
         
         do {
-            let journeyId = try await API.shared.getJourneyFromStock(stock)
-            let journey = try await API.shared.getJourney(journeyId: journeyId)
-            await self.setData(data: journey)
-        } catch {
-            DispatchQueue.main.async {
-                self.error = error.localizedDescription
+            switch identifier {
+            case .journeyId(let journeyId):
+                let journey = try await API.shared.getJourney(journeyId: journeyId)
+                self.setData(data: journey)
+            case .stockNumber(let stock):
+                let journeyId = try await API.shared.getJourneyFromStock(stock)
+                let journey = try await API.shared.getJourney(journeyId: journeyId)
+                self.setData(data: journey)
             }
+        } catch {
+            self.error = error.localizedDescription
         }
     }
     
+    /// Amount of parts this train has
     var trainLength: Int? {
         journey?.firstRealStop?.actualStock?.numberOfParts
     }
     
+    /// The amount of seats this train has
     var numberOfSeats: Int? {
         journey?.firstRealStop?.actualStock?.numberOfSeats
     }
@@ -54,7 +59,7 @@ final class JourneyViewModel: ObservableObject {
     /// All stops except the stations the train has already passed
     var nextStops: [Stop] {
         guard let stops = self.journey?.actualStops else { return [] }
-
+        
         let nextStopIndex = stops.firstIndex(where: {
             if let date = $0.departure?.actualTime ?? $0.arrival?.actualTime {
                 return date > Date.now
