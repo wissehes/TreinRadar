@@ -97,6 +97,7 @@
 		89CEFD9E2A3D065000383555 /* JourneyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CEFD9D2A3D064F00383555 /* JourneyResponse.swift */; };
 		89CEFDA02A3D07ED00383555 /* Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CEFD9F2A3D07ED00383555 /* Shared.swift */; };
 		89CEFDA22A3D0BBB00383555 /* TravelInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CEFDA12A3D0BBB00383555 /* TravelInfoView.swift */; };
+		89CFC65A2AC1CFF800C565C2 /* DeparturesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CFC6592AC1CFF800C565C2 /* DeparturesView.swift */; };
 		89D6948B2A7FCB6400579D30 /* NearbyTrainsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D6948A2A7FCB6400579D30 /* NearbyTrainsView.swift */; };
 		89DD612E2AB2437600722EF4 /* station.json in Resources */ = {isa = PBXBuildFile; fileRef = 89DD612D2AB2437600722EF4 /* station.json */; };
 		89DD612F2AB2437600722EF4 /* station.json in Resources */ = {isa = PBXBuildFile; fileRef = 89DD612D2AB2437600722EF4 /* station.json */; };
@@ -234,6 +235,7 @@
 		89CEFD9D2A3D064F00383555 /* JourneyResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyResponse.swift; sourceTree = "<group>"; };
 		89CEFD9F2A3D07ED00383555 /* Shared.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shared.swift; sourceTree = "<group>"; };
 		89CEFDA12A3D0BBB00383555 /* TravelInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelInfoView.swift; sourceTree = "<group>"; };
+		89CFC6592AC1CFF800C565C2 /* DeparturesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeparturesView.swift; sourceTree = "<group>"; };
 		89D6948A2A7FCB6400579D30 /* NearbyTrainsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearbyTrainsView.swift; sourceTree = "<group>"; };
 		89DD612D2AB2437600722EF4 /* station.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = station.json; sourceTree = "<group>"; };
 		89DD61302AB2489D00722EF4 /* StationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationViewModel.swift; sourceTree = "<group>"; };
@@ -492,12 +494,13 @@
 			path = StationsSearchView;
 			sourceTree = "<group>";
 		};
-		89C783AE2ABCC47C001EBB70 /* Stations */ = {
+		89C783AE2ABCC47C001EBB70 /* Departures */ = {
 			isa = PBXGroup;
 			children = (
 				89C783AF2ABCC48D001EBB70 /* StationsView.swift */,
+				89CFC6592AC1CFF800C565C2 /* DeparturesView.swift */,
 			);
-			path = Stations;
+			path = Departures;
 			sourceTree = "<group>";
 		};
 		89CEFD8B2A3CF94400383555 /* Departures */ = {
@@ -587,7 +590,7 @@
 		89EDD71E2A7FCB0B0035C238 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				89C783AE2ABCC47C001EBB70 /* Stations */,
+				89C783AE2ABCC47C001EBB70 /* Departures */,
 				8990DAE62A80161A000286BB /* LookupTrain */,
 				89A8A7D32A7FCE580085D127 /* NearbyTrains */,
 			);
@@ -796,6 +799,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89CFC65A2AC1CFF800C565C2 /* DeparturesView.swift in Sources */,
 				89EDD7132A7FCAF40035C238 /* Shared.swift in Sources */,
 				89EDD70F2A7FCAE60035C238 /* Date+Formatter.swift in Sources */,
 				89EDD7152A7FCAF40035C238 /* SavedStation.swift in Sources */,
