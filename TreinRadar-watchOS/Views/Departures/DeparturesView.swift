@@ -8,11 +8,63 @@
 import SwiftUI
 
 struct DeparturesView: View {
+    
+    var station: any Station
+    
+    @State private var departures: [Departure]?
+    @State private var error: String?
+    // TODO: implement error showing
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            if departures == nil {
+                ProgressView()
+            } else {
+                departuresList
+            }
+        }.navigationTitle(station.name)
+            .task { await self.load() }
+    }
+    
+    var departuresList: some View {
+        List(departures ?? [], id: \.name, rowContent: departureItem(departure:))
+    }
+    
+    func departureItem(departure item: Departure) -> some View {
+        NavigationLink {
+            JourneyView(journeyId: item.product.number)
+        } label: {
+            VStack(alignment: .leading) {
+                HStack(alignment: .center) {
+                    Text(item.plannedDateTime, style: .time)
+                        .bold()
+                    
+                    Text(item.product.longCategoryName)
+                        .font(.callout)
+                        .lineLimit(1)
+                }
+                
+                Text(item.direction)
+            }
+        }
+    }
+    
+    @MainActor
+    func load() async {
+        do {
+            let departures = try await API.shared.getDepartures(stationCode: self.station.code)
+            withAnimation { self.departures = departures }
+        } catch { print(error) }
     }
 }
 
 #Preview {
-    DeparturesView()
+    NavigationStack {
+        DeparturesView(station: SavedStation(
+            name: "Utrecht Centraal",
+            code: "UT",
+            land: .nl, lat: 0, lng: 0,
+            sporen: [.init(spoorNummer: "21")]
+        ))
+    }
 }
