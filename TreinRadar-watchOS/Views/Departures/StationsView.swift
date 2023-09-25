@@ -17,7 +17,9 @@ struct StationsView: View {
     
     var body: some View {
         List(stations, id: \.code) { station in
-            Text(station.name)
+            NavigationLink(station.name) {
+                DeparturesView(station: station)
+            }
         }.navigationTitle("Stations")
     }
 }
