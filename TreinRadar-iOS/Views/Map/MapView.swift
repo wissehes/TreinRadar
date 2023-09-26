@@ -89,7 +89,7 @@ struct MapView: View {
                 MapCompass()
             }
             .sheet(item: $selectedItem) { item in
-                sheetContent
+                sheetContent(selectedItem: item)
                     .presentationDetents([.fraction(0.3), .medium, .large])
                     .presentationBackgroundInteraction(.enabled(upThrough: .fraction(0.3)))
             }
@@ -120,7 +120,7 @@ struct MapView: View {
         }
     }
     
-    var sheetContent: some View {
+    func sheetContent(selectedItem: SelectedMapItem) -> some View {
         NavigationStack {
             Group {
                 switch selectedItem {
@@ -128,8 +128,6 @@ struct MapView: View {
                     JourneyView(journeyId: train.ritID)
                 case .station(let station):
                     StationView(station: station)
-                case .none:
-                    EmptyView()
                 }
             }.navigationBarTitleDisplayMode(.inline)
                 .navigationDestination(for: FullStation.self) { station in StationView(station: station) }
@@ -143,7 +141,7 @@ struct MapView: View {
                 }
                 .toolbar {
                     ToolbarItem(placement: .cancellationAction) {
-                        Button("Sluiten") { selectedItem = nil }
+                        Button("Sluiten") { self.selectedItem = nil }
                     }
                 }
         }
