@@ -19,7 +19,11 @@ final class WatchConnectManager: ObservableObject {
     
     init(session: WCSession = .default) {
         self.session = session
+        #if os(iOS)
         self.delegate = WCSessionDelegator(stationsSubject: subject, updateSubject: updateSubject)
+        #elseif os(watchOS)
+        self.delegate = WCSessionDelegator(stationsSubject: subject)
+        #endif
         self.session.delegate = self.delegate
         self.session.activate()
     }
