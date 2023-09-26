@@ -46,12 +46,14 @@ final class WCSessionDelegator: NSObject, ObservableObject, WCSessionDelegate {
             sendStationsToSubject(data: stationsData)
         }
         
+        #if os(iOS)
         // TODO: Use an enum for `requesteedEnum` instead of string.
         if let requestedUpdate = message["requestUpdate"] as? String, requestedUpdate == "stations", #available(iOS 16, *)  {
             DispatchQueue.main.async {
                 self.updateSubject.send(requestedUpdate)
             }
         }
+        #endif
         
     }
     
