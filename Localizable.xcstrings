@@ -100,16 +100,6 @@
         }
       }
     },
-    "⬆️" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : ""
-          }
-        }
-      }
-    },
     "A: %@" : {
       "localizations" : {
         "en" : {
@@ -176,16 +166,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "All"
-          }
-        }
-      }
-    },
-    "Bekijk kaart" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "View map"
           }
         }
       }
@@ -480,12 +460,12 @@
         }
       }
     },
-    "Snelheid: %lf km/h" : {
+    "Snelheid: %@" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Speed: %lf km/h"
+            "value" : "Speed: %@"
           }
         }
       }
