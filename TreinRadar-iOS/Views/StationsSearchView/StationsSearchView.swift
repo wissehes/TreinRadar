@@ -23,13 +23,31 @@ struct StationsSearchView: View {
     var filtered: [FullStation]? {
         guard let stations = stationsManager.stations else { return nil };
         
-        if searchQuery.isEmpty {
+        if searchQuery.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
             return stations.filter { $0.land == .nl }
         } else {
-            return stations.filter {
+            /// Filter the stations by search query
+            var filtered = stations.filter {
                 $0.land == .nl && $0.namen.lang.lowercased()
                     .contains(searchQuery.lowercased())
             }
+            
+            /// Reverse the array, so that it can be used by `Array.partition()`.
+            filtered.reverse()
+            
+            /// Partition the array in 2. The first being all "centraal" stations
+            /// and the second one being the 'normal' stations
+            let pivot = filtered.partition(by: { !$0.namen.lang.hasSuffix("Centraal") })
+            
+            /// Filter the regular stations by name
+            if pivot != filtered.endIndex {
+                filtered[...pivot].sort(by: { $0.name.lowercased() < $1.name.lowercased() })
+                filtered[pivot...].sort(by: { $0.name.lowercased() < $1.name.lowercased() })
+            } else {
+                filtered.sort(by: { $0.name.lowercased() < $1.name.lowercased() })
+            }
+            
+            return filtered
         }
     }
     
