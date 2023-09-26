@@ -26,7 +26,7 @@ struct TrainAnnotations: MapContent {
     }
     
     func trainAnnotation(_ train: Train) -> some MapContent {
-        Annotation("\(Int(train.snelheid)) km/u", coordinate: train.coordinate, anchor: .center) {
+        Annotation(formattedSpeed(speed: train.snelheid), coordinate: train.coordinate, anchor: .center) {
             Circle()
                 .fill(train.annotationColor)
                 .overlay(train.annotationIcon.foregroundStyle(.white))
@@ -44,6 +44,11 @@ struct TrainAnnotations: MapContent {
                     }
                 }
         }.annotationTitles(currentTrainId == train.ritID ? .visible : .hidden)
+    }
+    
+    func formattedSpeed(speed: Double) -> String {
+        let measurement = Measurement(value: speed, unit: UnitSpeed.kilometersPerHour)
+        return MeasurementFormatter.kmhFormatter.string(from: measurement)
     }
 }
 

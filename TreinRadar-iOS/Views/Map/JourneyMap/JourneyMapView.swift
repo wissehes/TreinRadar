@@ -33,10 +33,18 @@ struct JourneyMapView: View {
         }.mapStyle(.standard(pointsOfInterest: [.publicTransport]))
     }
     
+    var formattedSpeed: String? {
+        if let live = liveTrain {
+            return MeasurementFormatter.kmhFormatter.string(from: live.speedAsMeasurement)
+        } else {
+            return nil
+        }
+    }
+    
     @MapContentBuilder
     var trainMarker: some MapContent {
         if let live = liveTrain, let image = live.image {
-            Annotation("\(live.speed) km/h", coordinate: live.location) {
+            Annotation(formattedSpeed ?? "", coordinate: live.location) {
                 AsyncImage(url: URL(string: image)) { image in
                     image
                         .resizable()

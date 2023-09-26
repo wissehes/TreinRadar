@@ -76,12 +76,12 @@ struct JourneyView: View {
             
             if let live = vm.live {
                 Section {
-                    Text("Snelheid: \(live.speed) km/h")
+                    Text("Snelheid: \(live.speedAsMeasurement, formatter: MeasurementFormatter.kmhFormatter)")
                     HStack(alignment: .center) {
                         Text("Richting:")
                         Spacer()
                         
-                        Text("⬆️")
+                        Text(verbatim: "⬆️")
                             .rotationEffect(Angle(degrees: live.direction), anchor: .center)
                     }
                 } header: {
