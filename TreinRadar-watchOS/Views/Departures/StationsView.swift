@@ -14,6 +14,7 @@ import Defaults
 struct StationsView: View {
     
     @Default(.favouriteStations) var stations
+    @EnvironmentObject var watchManager: WatchConnectManager
     
     var body: some View {
         List(stations, id: \.code) { station in
@@ -21,6 +22,9 @@ struct StationsView: View {
                 DeparturesView(station: station)
             }
         }.navigationTitle("Stations")
+            .onAppear {
+                watchManager.requestUpdateStations()
+            }
     }
 }
 

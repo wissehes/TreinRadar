@@ -16,6 +16,7 @@ struct TreinRadar_watchOS_Watch_AppApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(watchManager)
                 .onReceive(watchManager.subject) { stations in
                     // Update favouriteStations when the iOS app sends a new array
                     favouriteStations = stations
