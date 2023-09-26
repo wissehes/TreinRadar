@@ -15,4 +15,12 @@ extension MeasurementFormatter {
         formatter.numberFormatter.maximumFractionDigits = 0
         return formatter
     }
+    
+    /// Formatter for km/h formats
+    static var kmhFormatter: MeasurementFormatter {
+        let formatter = self.init()
+        formatter.unitOptions = [.providedUnit]
+        formatter.numberFormatter.maximumFractionDigits = 2
+        return formatter
+    }
 }
