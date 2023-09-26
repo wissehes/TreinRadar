@@ -11,11 +11,15 @@ import MapKit
 @available(iOS 17.0, *)
 struct JourneyMapView: View {
     
+    /// The stops and geometry data
     var data: StopsAndGeometry
+    /// Live train data for showing the icon on the map
     var liveTrain: LiveTrain?
+    /// Whether this map is inline or a regular interactive map
+    var inline = false
     
     var body: some View {
-        Map {
+        Map(interactionModes: inline ? [] : .all) {
             MapPolyline(coordinates: data.actualCoordinates)
                 .stroke(.blue, lineWidth: 3)
             
