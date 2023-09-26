@@ -180,6 +180,16 @@
         }
       }
     },
+    "Bekijk kaart" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "View map"
+          }
+        }
+      }
+    },
     "Drukte: %@" : {
       "localizations" : {
         "en" : {
@@ -320,17 +330,6 @@
         }
       }
     },
-    "Look up train" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Look up train"
-          }
-        }
-      }
-    },
     "Materieel: %@" : {
       "localizations" : {
         "en" : {
@@ -377,17 +376,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Towards"
-          }
-        }
-      }
-    },
-    "Nearby trains" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Nearby Trains"
           }
         }
       }
@@ -573,10 +561,24 @@
       }
     },
     "Treinen dichtbij" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nearby trains"
+          }
+        }
+      }
     },
     "Treinradar" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Train radar"
+          }
+        }
+      }
     },
     "Treinstelnummer" : {
       "localizations" : {
@@ -699,7 +701,14 @@
       }
     },
     "Zoek treinstel op" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Look up train"
+          }
+        }
+      }
     }
   },
   "version" : "1.0"
