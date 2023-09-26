@@ -23,6 +23,10 @@ struct TreinRadarApp: App {
                 .environmentObject(trainManager)
                 .environmentObject(watchManager)
                 .onAppear { locationManager.requestLocation() }
+                .onReceive(watchManager.updateSubject, perform: { _ in
+                    // Send update when update is requested
+                    watchManager.updateStations(Defaults[.favouriteStations])
+                })
                 .task {
                     // Watch for changes of the favourite stations and send
                     // them to the watchOS app
