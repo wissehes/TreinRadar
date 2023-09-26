@@ -28,4 +28,9 @@ struct LiveTrain: Codable {
     var location: CLLocationCoordinate2D {
         CLLocationCoordinate2D(latitude: self.latitude, longitude: self.longitude)
     }
+    
+    /// Speed as `Measurement`
+    var speedAsMeasurement: Measurement<UnitSpeed> {
+        Measurement(value: self.speed, unit: UnitSpeed.kilometersPerHour)
+    }
 }
