@@ -12,13 +12,15 @@ struct DeparturesView: View {
     var station: any Station
     
     @State private var departures: [Departure]?
-    @State private var error: String?
-    // TODO: implement error showing
+    @State private var error: (any Error)?
     
     var body: some View {
         ZStack {
             if departures == nil {
                 ProgressView()
+            } else if let error = error {
+                Text(error.localizedDescription)
+                    .lineLimit(5)
             } else {
                 departuresList
             }
@@ -54,7 +56,10 @@ struct DeparturesView: View {
         do {
             let departures = try await API.shared.getDepartures(stationCode: self.station.code)
             withAnimation { self.departures = departures }
-        } catch { print(error) }
+        } catch {
+            withAnimation { self.error = error }
+            print(error)
+        }
     }
 }
 
