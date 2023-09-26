@@ -139,33 +139,23 @@ struct JourneyView: View {
     
     func map(_ stopsAndGeometry: StopsAndGeometry) -> some View {
         Section("Kaart") {
-            if #available(iOS 17.0, *) {
-                JourneyMapView(data: stopsAndGeometry, liveTrain: vm.live, inline: true)
-                    .frame(height: 400)
-                    .listRowInsets(EdgeInsets())
-                    .overlay {
-                        NavigationLink(value: stopsAndGeometry) {
-                            EmptyView()
-                        }.opacity(0)
-                    }
-                NavigationLink("Bekijk kaart", value: stopsAndGeometry)
-            } else {
-                LegacyJourneyMapView(geometry: stopsAndGeometry, inline: true)
-                    .frame(height: 400)
-                    .listRowInsets(EdgeInsets())
-                    .overlay {
-                        NavigationLink(value: stopsAndGeometry) {
-                            EmptyView()
-                        }.opacity(0)
-                    }
-            }
+            LegacyJourneyMapView(geometry: stopsAndGeometry, inline: true)
+                .frame(height: 400)
+                .listRowInsets(EdgeInsets())
+                .overlay {
+                    NavigationLink(value: stopsAndGeometry) {
+                        EmptyView()
+                    }.opacity(0)
+                }
         }
     }
     
     var stops: some View {
         Section("Stops") {
             
-            if !vm.showingPreviousStops && vm.currentStops != nil  {
+            if !vm.showingPreviousStops &&
+                vm.currentStops != nil &&
+                (vm.stops ?? []).count > (vm.currentStops ?? []).count {
                 Button("Laat vorige stations zien") {
                     withAnimation {
                         vm.showingPreviousStops = true
