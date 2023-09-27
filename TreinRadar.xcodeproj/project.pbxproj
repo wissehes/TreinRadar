@@ -192,6 +192,13 @@
 		896AF0F22A55A582001936AD /* Stop+Computed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Stop+Computed.swift"; sourceTree = "<group>"; };
 		896EB28E2A76D76D0084980A /* SavedItemsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavedItemsView.swift; sourceTree = "<group>"; };
 		896F6A922A49664F00A3CA5B /* TravelInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelInfoViewModel.swift; sourceTree = "<group>"; };
+		897BC7DA2AC46DD800B35F67 /* 1 - Home.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1 - Home.PNG"; sourceTree = "<group>"; };
+		897BC7DB2AC46DD800B35F67 /* 3 - Map - Trains.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "3 - Map - Trains.PNG"; sourceTree = "<group>"; };
+		897BC7DC2AC46DD800B35F67 /* 5 - Journey.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "5 - Journey.PNG"; sourceTree = "<group>"; };
+		897BC7DD2AC46DD800B35F67 /* 4 - Station.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "4 - Station.PNG"; sourceTree = "<group>"; };
+		897BC7DE2AC46DD800B35F67 /* 2 - Map - Stations.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "2 - Map - Stations.PNG"; sourceTree = "<group>"; };
+		897BC7E32AC46DD800B35F67 /* AppIcon.afdesign */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppIcon.afdesign; sourceTree = "<group>"; };
+		897BC7E42AC46DF000B35F67 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		898DC9A92AA37F36006C9715 /* TrainAnnotations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainAnnotations.swift; sourceTree = "<group>"; };
 		898DC9AC2AA38990006C9715 /* TrainTrack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainTrack.swift; sourceTree = "<group>"; };
 		898F78082AC057FB00BA6F6E /* JourneyMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyMapView.swift; sourceTree = "<group>"; };
@@ -290,6 +297,7 @@
 			isa = PBXGroup;
 			children = (
 				896454712ABF4C2E00D4A32D /* Localizable.xcstrings */,
+				897BC7D72AC46DD800B35F67 /* Assets */,
 				89EDD7072A7FBE140035C238 /* Shared */,
 				893AC25A2A3B42AA00D621FE /* TreinRadar-iOS */,
 				89EDD6F62A7FBDBE0035C238 /* TreinRadar-watchOS */,
@@ -430,6 +438,68 @@
 				895998332A570B7F00847B84 /* CurrentTrainView.swift */,
 			);
 			path = TravelInfoView;
+			sourceTree = "<group>";
+		};
+		897BC7D72AC46DD800B35F67 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				897BC7D82AC46DD800B35F67 /* Screenshots */,
+				897BC7E32AC46DD800B35F67 /* AppIcon.afdesign */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		897BC7D82AC46DD800B35F67 /* Screenshots */ = {
+			isa = PBXGroup;
+			children = (
+				897BC7D92AC46DD800B35F67 /* iPhone 13 */,
+				897BC7DF2AC46DD800B35F67 /* iPad Pro 6th+ gen */,
+				897BC7E02AC46DD800B35F67 /* iPad Pro 2nd gen */,
+				897BC7E12AC46DD800B35F67 /* iPhone 5.5 inch */,
+				897BC7E22AC46DD800B35F67 /* iPhone 6.7 inch */,
+				897BC7E42AC46DF000B35F67 /* README.md */,
+			);
+			path = Screenshots;
+			sourceTree = "<group>";
+		};
+		897BC7D92AC46DD800B35F67 /* iPhone 13 */ = {
+			isa = PBXGroup;
+			children = (
+				897BC7DA2AC46DD800B35F67 /* 1 - Home.PNG */,
+				897BC7DE2AC46DD800B35F67 /* 2 - Map - Stations.PNG */,
+				897BC7DB2AC46DD800B35F67 /* 3 - Map - Trains.PNG */,
+				897BC7DD2AC46DD800B35F67 /* 4 - Station.PNG */,
+				897BC7DC2AC46DD800B35F67 /* 5 - Journey.PNG */,
+			);
+			path = "iPhone 13";
+			sourceTree = "<group>";
+		};
+		897BC7DF2AC46DD800B35F67 /* iPad Pro 6th+ gen */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "iPad Pro 6th+ gen";
+			sourceTree = "<group>";
+		};
+		897BC7E02AC46DD800B35F67 /* iPad Pro 2nd gen */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "iPad Pro 2nd gen";
+			sourceTree = "<group>";
+		};
+		897BC7E12AC46DD800B35F67 /* iPhone 5.5 inch */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "iPhone 5.5 inch";
+			sourceTree = "<group>";
+		};
+		897BC7E22AC46DD800B35F67 /* iPhone 6.7 inch */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "iPhone 6.7 inch";
 			sourceTree = "<group>";
 		};
 		8990DAE62A80161A000286BB /* LookupTrain */ = {
@@ -992,7 +1062,8 @@
 				INFOPLIST_KEY_CFBundleDisplayName = TreinRadar;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Nodig om dingen in jouw buurt te kunnen bepalen";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "TreinRadar heeft jouw locatie nodig om treinen en stations dichtbij jou te kunnen bepalen.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "TreinRadar heeft jouw locatie nodig om treinen en stations dichtbij jou te kunnen bepalen.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -1029,7 +1100,8 @@
 				INFOPLIST_KEY_CFBundleDisplayName = TreinRadar;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Nodig om dingen in jouw buurt te kunnen bepalen";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "TreinRadar heeft jouw locatie nodig om treinen en stations dichtbij jou te kunnen bepalen.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "TreinRadar heeft jouw locatie nodig om treinen en stations dichtbij jou te kunnen bepalen.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
