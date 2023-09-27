@@ -6,11 +6,12 @@
 //
 
 import SwiftUI
+import Defaults
 
 /**
  Station overview
  - Station details (tracks, station type, etc)
- - Calamity's/disruptions list
+ - TODO: Calamity's/disruptions list
  - Most recent departures
  - Most recent arrivals
  */
@@ -18,6 +19,7 @@ struct StationView: View {
     
     var station: any Station
     @StateObject var vm: StationViewModel
+    @Default(.favouriteStations) var favouriteStations
     
     init(station: any Station) {
         self.station = station
@@ -28,6 +30,8 @@ struct StationView: View {
         self.station = station
         _vm = StateObject(wrappedValue: .init(station: station))
     }
+    
+    var isSaved: Bool { favouriteStations.contains(where: { $0.code == self.station.code }) }
     
     var body: some View {
         ZStack {
@@ -102,6 +106,18 @@ struct StationView: View {
                 }
             }
         }.navigationTitle(station.namen.lang)
+            .toolbar {
+                ToolbarItem(placement: .primaryAction) {
+                    Button(isSaved ? "Verwijder uit favorieten" : "Voeg toe aan favorieten", systemImage: "star") {
+                        if isSaved {
+                            favouriteStations.removeAll { $0.code == station.code }
+                        } else {
+                            favouriteStations.append(.init(station))
+                        }
+                    }.symbolVariant(isSaved ? .fill : .none)
+                        .labelStyle(.iconOnly)
+                }
+            }
     }
     
     func departureItem(item: Departure) -> some View {

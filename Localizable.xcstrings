@@ -630,12 +630,32 @@
         }
       }
     },
+    "Verwijder uit favorieten" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Remove from favourites"
+          }
+        }
+      }
+    },
     "Verwijder uit opgeslagen reizen" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Remove from saved journeys"
+          }
+        }
+      }
+    },
+    "Voeg toe aan favorieten" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add to favourites"
           }
         }
       }
