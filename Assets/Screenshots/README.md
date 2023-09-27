@@ -4,7 +4,7 @@ This directory contains the screenshots used for the App Store page.
 
 - iPhone 5.5 inch: iPhone 8 Plus
 - iPhone 6.7 inch: iPhone 15 Pro Max 
-- Watch: iPhone 15 Pro max + Apple Watch series 8
+- Watch: iPhone 15 Pro max + Apple Watch series 8 44mm
 
 ## Screenshots
 
