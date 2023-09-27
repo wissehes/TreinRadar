@@ -180,6 +180,16 @@
         }
       }
     },
+    "Favoriete stations" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Favourite stations"
+          }
+        }
+      }
+    },
     "Favorieten" : {
       "localizations" : {
         "en" : {
@@ -360,6 +370,26 @@
         }
       }
     },
+    "Nog geen favoriete stations" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No favourite stations yet"
+          }
+        }
+      }
+    },
+    "Nog geen reizen opgeslagen" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No saved journeys yet"
+          }
+        }
+      }
+    },
     "OK" : {
       "localizations" : {
         "en" : {
@@ -390,6 +420,16 @@
         }
       }
     },
+    "Opgeslagen reizen" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Saved journeys"
+          }
+        }
+      }
+    },
     "Planner" : {
       "localizations" : {
         "en" : {
@@ -416,16 +456,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Travel info"
-          }
-        }
-      }
-    },
-    "Reizen" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Journeys"
           }
         }
       }
@@ -630,6 +660,16 @@
         }
       }
     },
+    "Verwijder" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Remove"
+          }
+        }
+      }
+    },
     "Verwijder uit favorieten" : {
       "localizations" : {
         "en" : {
@@ -646,6 +686,26 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Remove from saved journeys"
+          }
+        }
+      }
+    },
+    "Voeg reizen toe door op %@ te drukken." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add journeys by tapping the %@ button."
+          }
+        }
+      }
+    },
+    "Voeg stations toe door op %@ te drukken." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add stations by tapping the %@ button."
           }
         }
       }

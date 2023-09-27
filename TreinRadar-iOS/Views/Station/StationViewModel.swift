@@ -26,6 +26,8 @@ final class StationViewModel: ObservableObject {
     
     @MainActor
     func initialise(station: any Station) async {
+        await StationsManager.shared.getData()
+        
         if self.station == nil {
             guard let foundStation = StationsManager.shared.getStation(code: .code(station.code)) else { return }
             withAnimation {
