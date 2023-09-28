@@ -7,6 +7,7 @@
 
 import SwiftUI
 import MapKit
+import Defaults
 
 fileprivate let initialPosition = MKCoordinateRegion(
     center: CLLocationCoordinate2D(
@@ -36,7 +37,11 @@ fileprivate enum ChosenMapType: CaseIterable {
     }
 }
 
-enum SelectedMapItem: Identifiable {
+enum SelectedMapItem: Identifiable, Equatable {
+    static func == (lhs: SelectedMapItem, rhs: SelectedMapItem) -> Bool {
+        lhs.id == rhs.id
+    }
+    
     case station(FullStation)
     case train(Train)
     
@@ -105,17 +110,37 @@ struct MapView: View {
                     }.pickerStyle(.segmented)
                 }
                 
-                ToolbarItem(placement: .primaryAction) {
-                    Button {
-                        Task { await trainManager.getData() }
-                    } label: {
-                        Label("Ververs", systemImage: "arrow.clockwise")
-                            .labelStyle(.iconOnly)
-                    }.disabled(selectedMap != .trains)
+                if selectedMap == .trains {
+                    
+                    ToolbarItem(placement: .primaryAction) {
+                        Button {
+                            Task { await trainManager.getData() }
+                        } label: {
+                            Label("Ververs", systemImage: "arrow.clockwise")
+                                .labelStyle(.iconOnly)
+                        }
+                    }
+                    
+                    ToolbarItem(placement: .primaryAction) {
+                        trainsMenu
+                    }
                 }
             }
             .task {
                 await loadTrainTrackData()
+            }
+            .onAppear {
+                trainManager.restartTimer()
+            }
+            .onDisappear {
+                trainManager.stopTimer()
+            }
+            .onReceive(trainManager.updateTrains) { _ in
+                guard Defaults[.trainsShouldRefetch] == true else { return }
+                guard case .trains = selectedMap else { return }
+                guard selectedItem == nil else { return }
+                
+                Task { await trainManager.getData() }
             }
         }
     }
@@ -167,6 +192,17 @@ struct MapView: View {
             
             self.railwayTracks = lines
         } catch { print(error) }
+    }
+    
+    var trainsMenu: some View {
+        Menu {
+            Defaults.Toggle(key: .trainsShouldRefetch) {
+                Label("Automatisch verversen", systemImage: "clock.arrow.circlepath")
+            }
+        } label: {
+            Label("Menu", systemImage: "ellipsis")
+                .labelStyle(.iconOnly)
+        }
     }
 }
 
