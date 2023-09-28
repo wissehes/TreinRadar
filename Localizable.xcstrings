@@ -170,6 +170,16 @@
         }
       }
     },
+    "Automatisch verversen" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Refresh automatically"
+          }
+        }
+      }
+    },
     "Drukte: %@" : {
       "localizations" : {
         "en" : {
@@ -356,6 +366,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Alerts"
+          }
+        }
+      }
+    },
+    "Menu" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Menu"
           }
         }
       }
