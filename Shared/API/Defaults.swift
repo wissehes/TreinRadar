@@ -13,4 +13,5 @@ extension Defaults.Keys {
     
     static let favouriteStations = Key<[SavedStation]>("favourite-stations", default: [], suite: suite)
     static let savedJourneys = Key<[SavedJourney]>("saved-journeys", default: [], suite: suite)
+    static let trainsShouldRefetch = Key<Bool>("trains-should-refetch", default: true, suite: suite)
 }
