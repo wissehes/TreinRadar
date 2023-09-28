@@ -18,8 +18,21 @@ final class TrainManager: ObservableObject {
     @Published var currentTrain: TrainWithDistance?
     @Published var currentJourney: JourneyPayload?
     
+    @Published var updateTrains = Timer.publish(every: 10, on: .main, in: .common).autoconnect()
+    
+    /// Stops the `updateTrains` timer
+    func stopTimer() {
+        updateTrains.upstream.connect().cancel()
+    }
+    
+    /// Restarts the `updateTrains` timer.
+    func restartTimer() {
+        self.updateTrains = Timer.publish(every: 5, on: .main, in: .common).autoconnect()
+    }
+    
     // TODO: Rename this to `updateData` as that would be more clear
     func getData() async {
+        print("Getting trains...")
         do {
             let data = try await API.shared.getLiveTrains()
             DispatchQueue.main.async { withAnimation { self.trains = data } }
