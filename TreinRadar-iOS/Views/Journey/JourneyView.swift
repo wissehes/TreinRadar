@@ -18,7 +18,7 @@ struct JourneyView: View {
     let timer = Timer.publish(every: 5, on: .main, in: .common).autoconnect()
     
     /// Whether this journey is already saved
-    var isSaved: Bool { savedJourneys.first(where: { $0.code == journeyId }) != nil }
+    var isSaved: Bool { savedJourneys.contains(where: { $0.code == journeyId }) }
     
     var body: some View {
         ZStack {
