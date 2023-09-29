@@ -16,7 +16,7 @@ struct NearbyTrainItem: View {
         if let category = train.journey.category {
             return "\(journeyOperator) \(category) \(train.journeyID)"
         } else {
-            return "Trein?"
+            return String(localized: "Trein") + "?"
         }
     }
     

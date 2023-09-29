@@ -63,7 +63,7 @@ struct DepartureItemView: View {
                     Text(departureTime)
                     
                     if delayTime != 0 {
-                        Text("(+\(delayTime))")
+                        Text(verbatim: "(+\(delayTime))")
                             .foregroundStyle(.red)
                     }
                 }

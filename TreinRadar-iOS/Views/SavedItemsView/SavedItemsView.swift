@@ -88,7 +88,7 @@ struct SavedItemsView: View {
     func journeyItem(_ item: SavedJourney) -> some View {
         VStack(alignment: .leading) {
             if let product = item.product {
-                Text("\(product.operatorName) \(product.longCategoryName)")
+                Text(verbatim: "\(product.operatorName) \(product.longCategoryName)")
                     .bold()
             }
             HStack(alignment: .center) {

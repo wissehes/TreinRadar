@@ -234,7 +234,7 @@ struct JourneyView: View {
                 HStack(alignment: .center, spacing: 2.5) {
                     Text("A: \(arrivalTime)")
                     if item.arrivalDelay != 0 {
-                        Text("+\(item.arrivalDelay)")
+                        Text(verbatim: "+\(item.arrivalDelay)")
                             .font(.caption)
                             .foregroundStyle(.red)
                     }
@@ -245,7 +245,7 @@ struct JourneyView: View {
                 HStack(alignment: .center, spacing: 2.5) {
                     Text("V: \(departureTime)")
                     if item.departureDelay != 0 {
-                        Text("+\(item.departureDelay)")
+                        Text(verbatim: "+\(item.departureDelay)")
                             .font(.caption)
                             .foregroundStyle(.red)
                     }

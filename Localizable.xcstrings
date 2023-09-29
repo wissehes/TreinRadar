@@ -28,22 +28,6 @@
         }
       }
     },
-    "%@ %@" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : ""
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "%1$@ %2$@"
-          }
-        }
-      }
-    },
     "%@ opgeslagen" : {
       "localizations" : {
         "en" : {
@@ -86,16 +70,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%lld seats"
-          }
-        }
-      }
-    },
-    "+%lld" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : ""
           }
         }
       }
@@ -566,6 +540,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Stops"
+          }
+        }
+      }
+    },
+    "Trein" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Train"
           }
         }
       }
