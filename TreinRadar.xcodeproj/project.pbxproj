@@ -106,6 +106,8 @@
 		89DD61352AB2560D00722EF4 /* StationHeaderImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DD61342AB2560D00722EF4 /* StationHeaderImage.swift */; };
 		89DD61372AB3263E00722EF4 /* NoteType+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DD61362AB3263E00722EF4 /* NoteType+Localized.swift */; };
 		89E095542A7FCE90006A2407 /* NearbyTrainsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E095532A7FCE90006A2407 /* NearbyTrainsViewModel.swift */; };
+		89E24B712AC6DFB1006FC316 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 89E24B702AC6DFB1006FC316 /* InfoPlist.xcstrings */; };
+		89E24B722AC6DFB1006FC316 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 89E24B702AC6DFB1006FC316 /* InfoPlist.xcstrings */; };
 		89E42B8D2A7301010093CEC5 /* StationAnnotations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E42B8C2A7301010093CEC5 /* StationAnnotations.swift */; };
 		89EDD6F82A7FBDBE0035C238 /* TreinRadar_watchOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EDD6F72A7FBDBE0035C238 /* TreinRadar_watchOSApp.swift */; };
 		89EDD6FA2A7FBDBE0035C238 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EDD6F92A7FBDBE0035C238 /* ContentView.swift */; };
@@ -250,6 +252,7 @@
 		89DD61342AB2560D00722EF4 /* StationHeaderImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationHeaderImage.swift; sourceTree = "<group>"; };
 		89DD61362AB3263E00722EF4 /* NoteType+Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NoteType+Localized.swift"; sourceTree = "<group>"; };
 		89E095532A7FCE90006A2407 /* NearbyTrainsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearbyTrainsViewModel.swift; sourceTree = "<group>"; };
+		89E24B702AC6DFB1006FC316 /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
 		89E42B8C2A7301010093CEC5 /* StationAnnotations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationAnnotations.swift; sourceTree = "<group>"; };
 		89EDD6F52A7FBDBE0035C238 /* TreinRadar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TreinRadar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89EDD6F72A7FBDBE0035C238 /* TreinRadar_watchOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreinRadar_watchOSApp.swift; sourceTree = "<group>"; };
@@ -296,6 +299,7 @@
 		893AC24F2A3B42AA00D621FE = {
 			isa = PBXGroup;
 			children = (
+				89E24B702AC6DFB1006FC316 /* InfoPlist.xcstrings */,
 				896454712ABF4C2E00D4A32D /* Localizable.xcstrings */,
 				897BC7D72AC46DD800B35F67 /* Assets */,
 				89EDD7072A7FBE140035C238 /* Shared */,
@@ -764,6 +768,7 @@
 				896454722ABF4C2E00D4A32D /* Localizable.xcstrings in Resources */,
 				89C3DFC72A895FB5007732FC /* nearby-train.json in Resources */,
 				895998322A570B5300847B84 /* journey.json in Resources */,
+				89E24B712AC6DFB1006FC316 /* InfoPlist.xcstrings in Resources */,
 				893AC2632A3B42AB00D621FE /* Preview Assets.xcassets in Resources */,
 				89A48ECB2A557533006F7A4E /* departures.json in Resources */,
 				893AC2602A3B42AB00D621FE /* Assets.xcassets in Resources */,
@@ -777,6 +782,7 @@
 				8973B7E42A921CDC00BBDC9A /* departures.json in Resources */,
 				89DD612F2AB2437600722EF4 /* station.json in Resources */,
 				896454732ABF4C3200D4A32D /* Localizable.xcstrings in Resources */,
+				89E24B722AC6DFB1006FC316 /* InfoPlist.xcstrings in Resources */,
 				8973B7E32A921CDC00BBDC9A /* saved-journeys.json in Resources */,
 				89C3DFCD2A896A35007732FC /* journey.json in Resources */,
 				89EDD6FF2A7FBDC20035C238 /* Preview Assets.xcassets in Resources */,
@@ -1055,7 +1061,6 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "TreinRadar heeft jouw locatie nodig om treinen en stations dichtbij jou te kunnen bepalen.";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "TreinRadar heeft jouw locatie nodig om treinen en stations dichtbij jou te kunnen bepalen.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -1093,7 +1098,6 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "TreinRadar heeft jouw locatie nodig om treinen en stations dichtbij jou te kunnen bepalen.";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "TreinRadar heeft jouw locatie nodig om treinen en stations dichtbij jou te kunnen bepalen.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -1125,7 +1129,7 @@
 				DEVELOPMENT_TEAM = U3CH3X8GK4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "TreinRadar needs access to your location to calculate the nearby trains.";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "TreinRadar needs access to your location to calculate the nearby trains.";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = nl.wissehes.TreinRadar;
 				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = NO;
@@ -1157,7 +1161,7 @@
 				DEVELOPMENT_TEAM = U3CH3X8GK4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "TreinRadar needs access to your location to calculate the nearby trains.";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "TreinRadar needs access to your location to calculate the nearby trains.";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = nl.wissehes.TreinRadar;
 				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = NO;
