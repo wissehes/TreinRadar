@@ -584,16 +584,6 @@
         }
       }
     },
-    "Treinradar" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Train radar"
-          }
-        }
-      }
-    },
     "Treinstelnummer" : {
       "localizations" : {
         "en" : {

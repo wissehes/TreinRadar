@@ -14,7 +14,7 @@ struct ContentView: View {
                 NavigationLink("Vertrektijden", destination: StationsView())
                 NavigationLink("Treinen dichtbij", destination: NearbyTrainsView())
                 NavigationLink("Zoek treinstel op", destination: LookupTrainView())
-            }.navigationTitle("Treinradar")
+            }.navigationTitle(Text(verbatim: "TreinRadar"))
         }
     }
 }
