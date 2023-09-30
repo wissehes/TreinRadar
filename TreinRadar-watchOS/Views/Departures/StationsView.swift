@@ -36,12 +36,12 @@ struct StationsView: View {
     var contentUnavailableOverlay: some View {
         if #available(watchOS 10, *) {
             ContentUnavailableView(
-                "Nog geen stations",
+                "Nog geen favoriete stations",
                 systemImage: "tram.circle",
                 description: Text("Voeg stations toe aan je favorieten via de app op je iPhone, daarna verschijnen ze hier."))
         } else {
             VStack(alignment: .center) {
-                Text("Nog geen stations")
+                Text("Nog geen favoriete stations")
                     .font(.headline)
                 Text("Voeg stations toe aan je favorieten via de app op je iPhone, daarna verschijnen ze hier.")
                     .multilineTextAlignment(.center)

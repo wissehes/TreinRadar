@@ -694,6 +694,16 @@
         }
       }
     },
+    "Voeg stations toe aan je favorieten via de app op je iPhone, daarna verschijnen ze hier." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add stations to your favourites in the iPhone app, they'll then appear here."
+          }
+        }
+      }
+    },
     "Voeg stations toe door op %@ te drukken." : {
       "localizations" : {
         "en" : {
