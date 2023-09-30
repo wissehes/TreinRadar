@@ -22,14 +22,38 @@ struct StationsView: View {
                 DeparturesView(station: station)
             }
         }.navigationTitle("Stations")
+            .overlay {
+                if stations.isEmpty {
+                    contentUnavailableOverlay
+                }
+            }
             .onAppear {
                 watchManager.requestUpdateStations()
             }
+    }
+    
+    @ViewBuilder
+    var contentUnavailableOverlay: some View {
+        if #available(watchOS 10, *) {
+            ContentUnavailableView(
+                "Nog geen stations",
+                systemImage: "tram.circle",
+                description: Text("Voeg stations toe aan je favorieten via de app op je iPhone, daarna verschijnen ze hier."))
+        } else {
+            VStack(alignment: .center) {
+                Text("Nog geen stations")
+                    .font(.headline)
+                Text("Voeg stations toe aan je favorieten via de app op je iPhone, daarna verschijnen ze hier.")
+                    .multilineTextAlignment(.center)
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
+            }
+        }
     }
 }
 
 #Preview {
     NavigationStack {
         StationsView()
-    }
+    }.environmentObject(WatchConnectManager())
 }
