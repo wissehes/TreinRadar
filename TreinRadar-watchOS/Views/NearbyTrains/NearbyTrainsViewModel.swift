@@ -49,7 +49,7 @@ final class NearbyTrainsViewModel: ObservableObject {
         let authorization = await locationManager.requestPermission(with: .whenInUsage)
         DispatchQueue.main.async { self.authorizationStatus = authorization }
 
-        if authorization != .authorizedWhenInUse {
+        guard authorization == .authorizedAlways || authorization == .authorizedWhenInUse else {
             self.error = "Location not authorized"
             return nil;
         }

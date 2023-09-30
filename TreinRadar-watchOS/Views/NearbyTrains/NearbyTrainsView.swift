@@ -16,7 +16,11 @@ struct NearbyTrainsView: View {
                 ProgressView(vm.loading.localizedText)
             } else if let trains = vm.trains {
                 List(trains) { train in
-                    NearbyTrainItem(train: train)
+                    NavigationLink {
+                        JourneyView(journeyId: train.journeyID)
+                    } label: {
+                        NearbyTrainItem(train: train)
+                    }
                 }
             } else {
                 Text(vm.error ?? "Something went wrong.")

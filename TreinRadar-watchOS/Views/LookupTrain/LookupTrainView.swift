@@ -21,7 +21,6 @@ struct LookupTrainView: View {
             VStack {
                 DigiTextView(placeholder: "Treinstel", text: $train, presentingModal: false, alignment: .leading, style: .numbers)
                 
-//                Button("Look up") { }.disabled(isLoading)
                 NavigationLink("Zoek op") {
                     JourneyView(stockNumber: train)
                 }
