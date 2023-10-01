@@ -11,6 +11,7 @@ struct TravelInfoView: View {
     @StateObject var vm = TravelInfoViewModel()
     @EnvironmentObject var locationManager: LocationManager
     @EnvironmentObject var trainManager: TrainManager
+    @EnvironmentObject var stationsManager: StationsManager
     
     var body: some View {
         NavigationStack(path: $vm.presentedJourneys) {
@@ -19,9 +20,20 @@ struct TravelInfoView: View {
                 if let currentJourney = trainManager.currentJourney {
                     trainDetection(currentJourney)
                 }
+                
+                if let nearbyStations = stationsManager.nearbyStations {
+                    Section("Stations in de buurt") {
+                        ForEach(nearbyStations.prefix(3), id: \.code) { station in
+                            NavigationLink(station.name, value: station)
+                        }
+                    }
+                }
             }.navigationTitle("Reisinformatie")
                 .navigationDestination(for: JourneyId.self) { id in
                     JourneyView(journeyId: id)
+                }
+                .navigationDestination(for: StationWithDistance.self) { station in
+                    StationView(station: station)
                 }
                 .refreshable {
                     await trainManager.getData()
@@ -64,5 +76,6 @@ struct TravelInfoView_Previews: PreviewProvider {
         TravelInfoView()
             .environmentObject(LocationManager.shared)
             .environmentObject(StationsManager.shared)
+            .environmentObject(TrainManager.shared)
     }
 }
