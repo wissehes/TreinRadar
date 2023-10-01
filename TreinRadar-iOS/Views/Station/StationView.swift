@@ -43,12 +43,24 @@ struct StationView: View {
             }
             
         }
-        .navigationDestination(for: Departure.self, destination: { departure in
+        .navigationDestination(for: Departure.self) { departure in
             JourneyView(journeyId: departure.product.number)
-        })
-        .navigationDestination(for: Arrival.self, destination: { arrival in
+        }
+        .navigationDestination(for: Arrival.self) { arrival in
             JourneyView(journeyId: arrival.product.number)
-        })
+        }
+        .navigationDestination(for: StationViewType.self) { type in
+            switch type {
+            case .arrivals(_):
+                if #available(iOS 17.0, *) {
+                    ContentUnavailableView("Aankomsttijden zijn nog niet beschikbaar", systemImage: "exclamationmark.bubble")
+                } else {
+                    Text("Aankomsttijden zijn nog niet beschikbaar")
+                }
+            case .departures(let station):
+                DeparturesView(station: station)
+            }
+        }
         .headerProminence(.increased)
         .task {
             await vm.initialise(station: self.station)

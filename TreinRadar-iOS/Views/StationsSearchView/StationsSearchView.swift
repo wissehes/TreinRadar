@@ -87,18 +87,6 @@ struct StationsSearchView: View {
                         ContentUnavailableView("Geen zoekresultaten", systemImage: "magnifyingglass")
                     }
                 }
-                .navigationDestination(for: StationViewType.self, destination: { type in
-                    switch type {
-                    case .arrivals(_):
-                        if #available(iOS 17.0, *) {
-                            ContentUnavailableView("Aankomsttijden zijn nog niet beschikbaar", systemImage: "exclamationmark.bubble")
-                        } else {
-                            Text("Aankomsttijden zijn nog niet beschikbaar")
-                        }
-                    case .departures(let station):
-                        DeparturesView(station: station)
-                    }
-                })
                 .navigationDestination(for: FullStation.self) { station in
                     StationView(station: station)
                 }

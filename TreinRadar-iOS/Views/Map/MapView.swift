@@ -155,15 +155,6 @@ struct MapView: View {
                     StationView(station: station)
                 }
             }.navigationBarTitleDisplayMode(.inline)
-                .navigationDestination(for: FullStation.self) { station in StationView(station: station) }
-                .navigationDestination(for: StationViewType.self) { type in
-                    switch type {
-                    case .arrivals(_):
-                        ContentUnavailableView("Aankomsttijden zijn nog niet beschikbaar", systemImage: "exclamationmark.bubble")
-                    case .departures(let station):
-                        DeparturesView(station: station)
-                    }
-                }
                 .toolbar {
                     ToolbarItem(placement: .cancellationAction) {
                         Button("Sluiten") { self.selectedItem = nil }
