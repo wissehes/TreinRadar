@@ -534,6 +534,16 @@
         }
       }
     },
+    "Stations in de buurt" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nearby stations"
+          }
+        }
+      }
+    },
     "Stops" : {
       "localizations" : {
         "en" : {
