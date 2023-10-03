@@ -12,9 +12,8 @@ struct NearbyTrainsView: View {
     
     var body: some View {
         ZStack {
-            if vm.loading != .done {
-                ProgressView(vm.loading.localizedText)
-            } else if let trains = vm.trains {
+            
+            if let trains = vm.trains {
                 List(trains) { train in
                     NavigationLink {
                         JourneyView(journeyId: train.journeyID)
@@ -22,8 +21,10 @@ struct NearbyTrainsView: View {
                         NearbyTrainItem(train: train)
                     }
                 }
+            } else if vm.loading != .done {
+                ProgressView(vm.loading.localizedText)
             } else {
-                Text(vm.error ?? "Something went wrong.")
+                Text(vm.error ?? String(localized: "Something went wrong."))
                     .padding()
             }
         }

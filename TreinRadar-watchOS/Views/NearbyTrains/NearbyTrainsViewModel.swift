@@ -19,13 +19,13 @@ enum LoadingState {
     var localizedText: String {
         switch self {
         case .notDetermined:
-            return "Laden..."
+            return String(localized: "Laden...")
         case .location:
-            return "Locatie ophalen..."
+            return String(localized: "Locatie ophalen...")
         case .fetching:
-            return "Treinen ophalen..."
+            return String(localized: "Treinen ophalen...")
         case .done:
-            return "Klaar!"
+            return String(localized: "Klaar!")
         }
     }
 }
@@ -42,13 +42,13 @@ final class NearbyTrainsViewModel: ObservableObject {
     
     func getLocation() async throws -> CLLocation? {
         
-        if let location = self.location, location.timestamp < Date(timeIntervalSinceNow: 10) {
+        if let location = self.location, Date.now.timeIntervalSince(location.timestamp) < 10 {
             return location
         }
         
         let authorization = await locationManager.requestPermission(with: .whenInUsage)
         DispatchQueue.main.async { self.authorizationStatus = authorization }
-
+        
         guard authorization == .authorizedAlways || authorization == .authorizedWhenInUse else {
             self.error = "Location not authorized"
             return nil;
@@ -74,7 +74,7 @@ final class NearbyTrainsViewModel: ObservableObject {
         
         do {
             self.updateLoading(state: .location)
-
+            
             guard let location = try await self.getLocation() else { return }
             
             self.updateLoading(state: .fetching)
