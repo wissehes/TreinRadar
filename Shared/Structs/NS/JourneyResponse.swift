@@ -115,6 +115,7 @@ enum StopStatus: String, Codable {
     case origin = "ORIGIN"
     case passing = "PASSING"
     case stop = "STOP"
+    case unknown = "UNKNOWN"
 }
 
 // MARK: NoteType
