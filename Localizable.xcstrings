@@ -244,6 +244,16 @@
         }
       }
     },
+    "Klaar!" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Done!"
+          }
+        }
+      }
+    },
     "Laat alle stops zien" : {
       "localizations" : {
         "en" : {
@@ -300,6 +310,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Length: %lld parts"
+          }
+        }
+      }
+    },
+    "Locatie ophalen..." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Getting location..."
           }
         }
       }
@@ -494,6 +514,16 @@
         }
       }
     },
+    "Something went wrong." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Something went wrong."
+          }
+        }
+      }
+    },
     "Spoor" : {
       "localizations" : {
         "en" : {
@@ -590,6 +620,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Nearby trains"
+          }
+        }
+      }
+    },
+    "Treinen ophalen..." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fetching trains..."
           }
         }
       }
