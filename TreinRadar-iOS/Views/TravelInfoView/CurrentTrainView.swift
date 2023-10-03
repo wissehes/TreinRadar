@@ -16,7 +16,7 @@ struct CurrentTrainView: View {
     var measurementFormatter = MeasurementFormatter.myFormatter
     
     var nextStop: Stop? {
-        let stops = journey.stops.filter({ $0.status != .passing })
+        let stops = journey.actualStops
         let nextStop = stops.first(where: {
             if let date = $0.arrival?.actualTime {
                 return date > Date.now
