@@ -164,6 +164,16 @@
         }
       }
     },
+    "Facultatief Station" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Temporary station"
+          }
+        }
+      }
+    },
     "Favoriete stations" : {
       "localizations" : {
         "en" : {
@@ -220,6 +230,26 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Info"
+          }
+        }
+      }
+    },
+    "Intercityknooppunt" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Intercity hub"
+          }
+        }
+      }
+    },
+    "Intercitystation" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Intercity station"
           }
         }
       }
@@ -350,6 +380,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "More..."
+          }
+        }
+      }
+    },
+    "Megastation" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mega station"
           }
         }
       }
@@ -514,6 +554,26 @@
         }
       }
     },
+    "Sneltreinenknooppunt" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Express-train hub"
+          }
+        }
+      }
+    },
+    "Sneltreinstation" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Express train station"
+          }
+        }
+      }
+    },
     "Something went wrong." : {
       "localizations" : {
         "en" : {
@@ -580,6 +640,26 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Stops"
+          }
+        }
+      }
+    },
+    "Stoptreinenknooppunt" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Local train hub"
+          }
+        }
+      }
+    },
+    "Stoptreinstation" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Local train station"
           }
         }
       }
