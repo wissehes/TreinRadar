@@ -76,7 +76,7 @@ struct StationView: View {
                 }
                 
                 HStack {
-                    Text(station.stationType.rawValue)
+                    Text(station.stationType.localized)
                 }
                 
                 ScrollView(.horizontal) {
