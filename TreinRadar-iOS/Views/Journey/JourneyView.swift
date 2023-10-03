@@ -107,8 +107,11 @@ struct JourneyView: View {
             
             stops
         }.navigationTitle(journey.category)
+            .refreshable {
+                await vm.getData(journeyId)
+                try? await Task.sleep(for: .seconds(1))
+            }
             .toolbar {
-                
                 Button {
                     vm.toggleSave()
                 } label: {
@@ -122,7 +125,6 @@ struct JourneyView: View {
                 } label: {
                     Label("Meer...", systemImage: "ellipsis.circle")
                 }
-                
             }
     }
     
