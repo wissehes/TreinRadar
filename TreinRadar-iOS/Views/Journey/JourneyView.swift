@@ -59,18 +59,24 @@ struct JourneyView: View {
         List {
             Section {
                 Text("\(journey.category) richting **\(journey.destination?.name ?? "?")**")
-                if journey.firstRealStop?.actualStock?.trainParts != nil {
+                if journey.currentOrNextStop?.actualStock?.trainParts != nil {
                     trainParts
                 }
                 
-                if let length = journey.firstRealStop?.actualStock?.numberOfParts {
+                if let length = journey.currentOrNextStop?.actualStock?.numberOfParts {
                     Text("Lengte: \(length) delen")
                 }
-                if let seats = journey.firstRealStop?.actualStock?.numberOfSeats {
+                if let seats = journey.currentOrNextStop?.actualStock?.numberOfSeats {
                     Text("Zitplaatsen: \(seats)")
                 }
                 if journey.stockNumbers != "0" {
                     Text("Materieel: \(journey.stockNumbers)")
+                }
+                
+                if let currentStop = journey.currentStop {
+                    Text("Huidig station: **\(currentStop.stop.name)**")
+                } else if let nextStop = journey.nextStop {
+                    Text("Volgend station: **\(nextStop.stop.name)**")
                 }
             }
             
@@ -168,7 +174,6 @@ struct JourneyView: View {
             ForEach(vm.showingStops ?? [], id: \.id) { stop in
             stopItem(stop)
                     .contextMenu {
-
                             Text("Drukte: \(stop.crowdForecast?.rawValue ?? "?")")
                         
                         NavigationLink(value: stop.stop) {
@@ -181,6 +186,7 @@ struct JourneyView: View {
                             Text("Aankomst: \(stop.arrivalTime ?? "")")
                             Text("Vertrek: \(stop.departureTime ?? "")")
                             Text("Spoor: \(stop.track ?? "")")
+                            Text("Stop status: \(stop.status.rawValue)")
                         }
                             .frame(width: 400, height: 400)
                             .padding()
@@ -194,7 +200,7 @@ struct JourneyView: View {
         VStack(alignment: .leading) {
             ScrollView(.horizontal) {
                 HStack(alignment: .center, spacing: 2.5) {
-                    ForEach(vm.journey?.firstRealStop?.actualStock?.trainParts ?? [], id: \.stockIdentifier) { part in
+                    ForEach(vm.journey?.currentOrNextStop?.actualStock?.trainParts ?? [], id: \.stockIdentifier) { part in
                         AsyncImage(url: URL(string: part.image?.uri ?? "")) { image in
                             image.resizable().scaledToFit()
                         } placeholder: {
@@ -213,8 +219,8 @@ struct JourneyView: View {
             Spacer()
             
             Text(stop.stop.name)
-                .italic(stop.status == .passing)
-                .foregroundStyle(stop.status == .passing ? .secondary : .primary)
+                .italic(stop.shouldDisplayAsSkipped)
+                .foregroundStyle(stop.shouldDisplayAsSkipped ? .secondary : .primary)
                 .multilineTextAlignment(.trailing)
             
             if let crowdForecast = stop.crowdForecast {
@@ -260,9 +266,10 @@ struct JourneyView: View {
 struct JourneyView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            JourneyView(journeyId: "6983")
+            JourneyView(journeyId: "6948")
         }
         
-        ContentView()
+        StationsSearchView()
+            .environmentObject(StationsManager.shared)
     }
 }
