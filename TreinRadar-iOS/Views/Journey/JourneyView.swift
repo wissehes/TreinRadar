@@ -186,7 +186,6 @@ struct JourneyView: View {
                             Text("Aankomst: \(stop.arrivalTime ?? "")")
                             Text("Vertrek: \(stop.departureTime ?? "")")
                             Text("Spoor: \(stop.track ?? "")")
-                            Text("Stop status: \(stop.status.rawValue)")
                         }
                             .frame(width: 400, height: 400)
                             .padding()
