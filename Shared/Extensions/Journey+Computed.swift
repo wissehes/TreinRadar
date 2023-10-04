@@ -12,12 +12,44 @@ extension JourneyPayload {
     
     /// Stops where the train actually stops.
     var actualStops: [Stop] {
-        self.stops.filter({ $0.status != .passing })
+        self.stops.filter({ $0.status != .passing && $0.status != .unknown })
     }
     
     /// First stop that includes an actual departure date.
     var firstRealStop: Stop? {
         return self.stops.first(where: { $0.departure != nil })
+    }
+    
+    /// Either the current stop, or the next stop.
+    var currentOrNextStop: Stop? {
+        let currentStop = actualStops.first { stop in
+            guard let arrivalTime = stop.arrival?.actualTime else { return false }
+            
+            // If there's a departure time present, compare whether
+            // this item is the current stop.
+            if let departureTime = stop.departure?.actualTime {
+                return Date.now > arrivalTime && Date.now < departureTime
+            } else {
+                // If there's no departure time, check whether this item is the last one.
+                // And that the arrival time is in the past
+                return actualStops.last?.id == stop.id && Date.now > arrivalTime
+            }
+        }
+        
+        // If the current stop was found, return it
+        if let currentStop = currentStop { return currentStop }
+        // Otherwise, let's search for the next stop
+        
+        let nextStop = actualStops.first { stop in
+            // Make sure the arrival time is present
+            guard let arrivalTime = stop.arrival?.actualTime else { return false }
+            
+            // Check whether the arrival time is in the future.
+            // The next station is always the first one in the future.
+            return arrivalTime > Date.now
+        }
+        
+        return nextStop
     }
     
     /// The product of the journey
