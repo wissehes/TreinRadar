@@ -23,6 +23,23 @@ extension Stop {
         return arrival?.actualTrack ?? departure?.actualTrack
     }
     
+    /// Whether this stop should be displayed as skipped
+    var shouldDisplayAsSkipped: Bool {
+        let base = self.status == .passing || self.status == .unknown
+        
+        if base == true {
+            return base
+        } else if let arrival = self.arrival {
+            // Returns `true` if the actual time is nil.
+            return base || arrival.actualTime == nil
+        } else if let departure = self.departure {
+            // Returns `true` if the actual time is nil.
+            return base || departure.actualTime == nil
+        }
+        
+        return base
+    }
+    
     /// Formatted arrival time
     var arrivalTime: String? {
         if self.arrival?.actualTime == nil {
