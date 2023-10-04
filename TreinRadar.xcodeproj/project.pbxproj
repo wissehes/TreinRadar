@@ -51,6 +51,8 @@
 		898F78092AC057FB00BA6F6E /* JourneyMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898F78082AC057FB00BA6F6E /* JourneyMapView.swift */; };
 		898F780B2AC059F900BA6F6E /* stops-geometry.json in Resources */ = {isa = PBXBuildFile; fileRef = 898F780A2AC059F800BA6F6E /* stops-geometry.json */; };
 		8992D0722AB102CA0071F351 /* StationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8992D0712AB102CA0071F351 /* StationView.swift */; };
+		8993A1532ACDAD02002AC4A0 /* Facility+Symbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8993A1522ACDAD02002AC4A0 /* Facility+Symbol.swift */; };
+		8993A1552ACDB008002AC4A0 /* Array+Duplicates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8993A1542ACDB008002AC4A0 /* Array+Duplicates.swift */; };
 		89A34A112AB75E460004591D /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A34A102AB75E460004591D /* LoadingView.swift */; };
 		89A48EC62A5573A0006F7A4E /* MessageStyle+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A48EC52A5573A0006F7A4E /* MessageStyle+String.swift */; };
 		89A48EC82A557497006F7A4E /* DepartureItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A48EC72A557497006F7A4E /* DepartureItemView.swift */; };
@@ -209,6 +211,8 @@
 		898F78082AC057FB00BA6F6E /* JourneyMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyMapView.swift; sourceTree = "<group>"; };
 		898F780A2AC059F800BA6F6E /* stops-geometry.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "stops-geometry.json"; sourceTree = "<group>"; };
 		8992D0712AB102CA0071F351 /* StationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationView.swift; sourceTree = "<group>"; };
+		8993A1522ACDAD02002AC4A0 /* Facility+Symbol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Facility+Symbol.swift"; sourceTree = "<group>"; };
+		8993A1542ACDB008002AC4A0 /* Array+Duplicates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Duplicates.swift"; sourceTree = "<group>"; };
 		89A34A102AB75E460004591D /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		89A48EC52A5573A0006F7A4E /* MessageStyle+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MessageStyle+String.swift"; sourceTree = "<group>"; };
 		89A48EC72A557497006F7A4E /* DepartureItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureItemView.swift; sourceTree = "<group>"; };
@@ -425,6 +429,7 @@
 		895A31002A4421EF00E305D8 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				8993A1542ACDB008002AC4A0 /* Array+Duplicates.swift */,
 				89A8A7C62A7FCBC80085D127 /* Formatters.swift */,
 				895A31012A4421FC00E305D8 /* Date+Formatter.swift */,
 				89ACF2FD2A48608600A4AC57 /* Location+Equatable.swift */,
@@ -434,6 +439,7 @@
 				895998362A570F7A00847B84 /* String+Capitalization.swift */,
 				89DD61362AB3263E00722EF4 /* NoteType+Localized.swift */,
 				895BF5A62ACC473B0015F3A3 /* StationType+Localized.swift */,
+				8993A1522ACDAD02002AC4A0 /* Facility+Symbol.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -808,6 +814,7 @@
 				896F6A932A49664F00A3CA5B /* TravelInfoViewModel.swift in Sources */,
 				89DD61372AB3263E00722EF4 /* NoteType+Localized.swift in Sources */,
 				89A8A7C72A7FCBC80085D127 /* Formatters.swift in Sources */,
+				8993A1532ACDAD02002AC4A0 /* Facility+Symbol.swift in Sources */,
 				89A34A112AB75E460004591D /* LoadingView.swift in Sources */,
 				893AC25E2A3B42AA00D621FE /* ContentView.swift in Sources */,
 				89ACF2F92A471CB500A4AC57 /* LocationManager.swift in Sources */,
@@ -840,6 +847,7 @@
 				89ACF2F52A47161700A4AC57 /* TrainManager.swift in Sources */,
 				893C4CD12A460D68002E3540 /* JourneyMapViewCoordinator.swift in Sources */,
 				89A48EC62A5573A0006F7A4E /* MessageStyle+String.swift in Sources */,
+				8993A1552ACDB008002AC4A0 /* Array+Duplicates.swift in Sources */,
 				895A31022A4421FC00E305D8 /* Date+Formatter.swift in Sources */,
 				89CEFDA22A3D0BBB00383555 /* TravelInfoView.swift in Sources */,
 				893AC25C2A3B42AA00D621FE /* TreinRadarApp.swift in Sources */,
