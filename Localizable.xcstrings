@@ -214,6 +214,16 @@
         }
       }
     },
+    "Huidig station: **%@**" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Current station: **%@**"
+          }
+        }
+      }
+    },
     "In de buurt" : {
       "localizations" : {
         "en" : {
