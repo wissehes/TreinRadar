@@ -14,7 +14,11 @@ struct JourneyResponse: Codable {
 }
 
 // MARK: - Payload
-struct JourneyPayload: Codable {
+struct JourneyPayload: Codable, Equatable {
+    static func == (lhs: JourneyPayload, rhs: JourneyPayload) -> Bool {
+        lhs.productNumbers == rhs.productNumbers
+    }
+    
     let notes: [JourneyNote]
     let productNumbers: [String]
     let stops: [Stop]
