@@ -57,10 +57,18 @@ struct JourneyView: View {
     
     func listView(_ journey: JourneyPayload) -> some View {
         List {
+            
             Section {
                 Text("\(journey.category) richting **\(journey.destination?.name ?? "?")**")
                 if journey.currentOrNextStop?.actualStock?.trainParts != nil {
                     trainParts
+                }
+            }
+            
+            Section("Deze trein") {
+                
+                if journey.currentOrNextStop?.actualStock?.trainParts != nil {
+                    facilities
                 }
                 
                 if let length = journey.currentOrNextStop?.actualStock?.numberOfParts {
@@ -205,10 +213,11 @@ struct JourneyView: View {
                         } placeholder: {
                             ProgressView()
                         }.frame(height: 60)
+                            .padding([.leading, .trailing])
                     }
                 }
             }
-        }
+        }.listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
     }
     
     func stopItem(_ stop: Stop) -> some View {
@@ -259,6 +268,23 @@ struct JourneyView: View {
                 }
             }
         }.frame(minWidth: 60, alignment: .center).font(.subheadline)
+    }
+    
+    var facilities: some View {
+        let allFacilities: [Facility]? = vm.journey?.currentOrNextStop?.actualStock?.trainParts.flatMap({ part in
+            part.facilities
+        }).removingDuplicates()
+        
+        return ScrollView(.horizontal) {
+            HStack(alignment: .center, spacing: 10) {
+                ForEach(allFacilities ?? [], id: \.rawValue) { facility in
+                    Image(systemName: facility.symbolName)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 30, height: 30)
+                }
+            }.frame(height: 40)
+        }
     }
 }
 
