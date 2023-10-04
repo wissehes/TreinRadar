@@ -46,6 +46,7 @@ final class LocationManager: NSObject, ObservableObject, CLLocationManagerDelega
 
         guard let location = locations.first else { return }
         Task {
+            try? await Task.sleep(for: .milliseconds(500))
             await StationsManager.shared.getNearbyStations(location: location)
             await TrainManager.shared.getCurrentJourney(location: location)
         }
