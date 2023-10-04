@@ -154,6 +154,16 @@
         }
       }
     },
+    "Deze trein" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This train"
+          }
+        }
+      }
+    },
     "Drukte: %@" : {
       "localizations" : {
         "en" : {
