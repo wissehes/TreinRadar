@@ -654,6 +654,16 @@
         }
       }
     },
+    "Stations ophalen..." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fetching stations..."
+          }
+        }
+      }
+    },
     "Stops" : {
       "localizations" : {
         "en" : {
@@ -690,6 +700,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Train"
+          }
+        }
+      }
+    },
+    "Trein detecteren..." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Detecting train..."
           }
         }
       }
