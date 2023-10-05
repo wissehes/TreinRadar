@@ -18,7 +18,6 @@ final class LocationManager: NSObject, ObservableObject, CLLocationManagerDelega
     
     override init() {
         super.init()
-        manager.startMonitoringSignificantLocationChanges()
         manager.delegate = self
     }
     
@@ -48,7 +47,7 @@ final class LocationManager: NSObject, ObservableObject, CLLocationManagerDelega
         Task {
             try? await Task.sleep(for: .milliseconds(500))
             await StationsManager.shared.getNearbyStations(location: location)
-            await TrainManager.shared.getCurrentJourney(location: location)
+            await TrainManager.shared.detectTrain(location: location)
         }
     }
     
