@@ -30,6 +30,7 @@ struct TravelInfoView: View {
                     StationView(station: station)
                 }
                 .animation(.easeInOut, value: trainManager.trainDetection)
+                .animation(.easeInOut, value: stationsManager.nearbyStations)
                 .refreshable {
                     await trainManager.getData()
                     locationManager.requestLocation()
