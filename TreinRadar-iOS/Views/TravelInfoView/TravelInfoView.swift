@@ -29,8 +29,7 @@ struct TravelInfoView: View {
                 .navigationDestination(for: StationWithDistance.self) { station in
                     StationView(station: station)
                 }
-                .animation(.easeInOut, value: trainManager.currentJourney)
-                .animation(.easeInOut, value: stationsManager.nearbyStations)
+                .animation(.easeInOut, value: trainManager.trainDetection)
                 .refreshable {
                     await trainManager.getData()
                     locationManager.requestLocation()
@@ -61,16 +60,31 @@ struct TravelInfoView: View {
     
     var trainDetection: some View {
         Section("Treindetectie") {
-            if let journey = trainManager.currentJourney {
-                NavigationLink(value: journey.productNumbers.first) {
-                    CurrentTrainView(journey: journey, distance: trainManager.currentTrain?.distance)
-                }
-            } else {
+            
+            switch trainManager.trainDetection {
+            case .detecting:
                 HStack(alignment: .center) {
                     Text("Trein detecteren...")
                         .foregroundStyle(.secondary)
                     Spacer()
                     ProgressView()
+                }
+                
+            case .noTrainDetected:
+                Text("Geen trein gedetecteerd.")
+                    .foregroundStyle(.secondary)
+                
+            case .error(let error):
+                Group {
+                    Text("Er ging iets mis...")
+                    if let error = error {
+                        Text(error.localizedDescription)
+                    }
+                }
+                
+            case .train(let detectedTrain):
+                NavigationLink(value: detectedTrain.journey.productNumbers.first) {
+                    CurrentTrainView(journey: detectedTrain.journey, distance: detectedTrain.distance)
                 }
             }
         }
