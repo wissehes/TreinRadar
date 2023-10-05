@@ -14,6 +14,7 @@
 		891DC9D72A7FD3CF00B68579 /* NearbyTrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891DC9D52A7FD3CF00B68579 /* NearbyTrain.swift */; };
 		892F50D92AA377EE00427D8C /* APINetworkLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892F50D82AA377EE00427D8C /* APINetworkLogger.swift */; };
 		892F50DA2AA377EE00427D8C /* APINetworkLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892F50D82AA377EE00427D8C /* APINetworkLogger.swift */; };
+		893831C22ACF0D09008FA4BC /* DetectedTrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893831C12ACF0D08008FA4BC /* DetectedTrain.swift */; };
 		893AC25C2A3B42AA00D621FE /* TreinRadarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893AC25B2A3B42AA00D621FE /* TreinRadarApp.swift */; };
 		893AC25E2A3B42AA00D621FE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893AC25D2A3B42AA00D621FE /* ContentView.swift */; };
 		893AC2602A3B42AB00D621FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 893AC25F2A3B42AB00D621FE /* Assets.xcassets */; };
@@ -172,6 +173,7 @@
 		891AEE9B2A534A6D005A49F5 /* Journey+Computed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Journey+Computed.swift"; sourceTree = "<group>"; };
 		891DC9D52A7FD3CF00B68579 /* NearbyTrain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearbyTrain.swift; sourceTree = "<group>"; };
 		892F50D82AA377EE00427D8C /* APINetworkLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APINetworkLogger.swift; sourceTree = "<group>"; };
+		893831C12ACF0D08008FA4BC /* DetectedTrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetectedTrain.swift; sourceTree = "<group>"; };
 		893AC2582A3B42AA00D621FE /* TreinRadar-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TreinRadar-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		893AC25B2A3B42AA00D621FE /* TreinRadarApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreinRadarApp.swift; sourceTree = "<group>"; };
 		893AC25D2A3B42AA00D621FE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -379,6 +381,7 @@
 				89ACF2F02A470F4A00A4AC57 /* Stops+Geojson.swift */,
 				89ACF2F22A4714FA00A4AC57 /* StationAnnotation.swift */,
 				89BE5F822A55B0A000E395CC /* StationWithDistance.swift */,
+				893831C12ACF0D08008FA4BC /* DetectedTrain.swift */,
 			);
 			path = Structs;
 			sourceTree = "<group>";
@@ -872,6 +875,7 @@
 				89586DEA2AB729E600939839 /* ArrivalsResponse.swift in Sources */,
 				89ACF2F32A4714FA00A4AC57 /* StationAnnotation.swift in Sources */,
 				895998342A570B7F00847B84 /* CurrentTrainView.swift in Sources */,
+				893831C22ACF0D09008FA4BC /* DetectedTrain.swift in Sources */,
 				89CEFD902A3CFEBE00383555 /* FavouritesController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
