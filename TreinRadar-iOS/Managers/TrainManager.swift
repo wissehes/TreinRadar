@@ -8,6 +8,41 @@
 import Foundation
 import CoreLocation
 import SwiftUI
+import Alamofire
+
+/// Train detection state
+enum TrainDetectionState: Equatable {
+    static func == (lhs: TrainDetectionState, rhs: TrainDetectionState) -> Bool {
+        lhs.value == rhs.value
+    }
+    
+    /// We're detecting a train...
+    case detecting
+    /// A train was found
+    case train(DetectedTrain)
+    /// No train was detected
+    case noTrainDetected
+    /// An error occurred
+    case error(AFError?)
+    
+    var value: String {
+        switch self {
+        case .detecting:
+            return "Detecting..."
+        case .train(let detectedTrain):
+            return "Found train: \(detectedTrain.journey.productNumbers.first ?? "?")"
+        case .noTrainDetected:
+            return "No train detected"
+        case .error(let error):
+            if let error = error {
+                return "An error ocurred: \(error.localizedDescription)"
+            } else {
+                return "An error ocurred."
+            }
+        }
+    }
+    
+}
 
 final class TrainManager: ObservableObject {
     
@@ -15,8 +50,7 @@ final class TrainManager: ObservableObject {
 
     @Published var trains: [Train] = []
     
-    @Published var currentTrain: TrainWithDistance?
-    @Published var currentJourney: JourneyPayload?
+    @Published var trainDetection: TrainDetectionState = .detecting
     
     @Published var updateTrains = Timer.publish(every: 10, on: .main, in: .common).autoconnect()
     
@@ -44,25 +78,42 @@ final class TrainManager: ObservableObject {
         return trains.first { $0.ritID == journeyId }
     }
     
-    func getCurrentJourney(location myLocation: CLLocation) async {
+    @MainActor
+    private func setDetectionState(_ state: TrainDetectionState) {
+        self.trainDetection = state
+    }
+    
+    func detectTrain(location myLocation: CLLocation) async {
         await self.getData()
         guard !self.trains.isEmpty else { return }
-        let trains = self.trains
         
-        let mapped: [TrainWithDistance] = trains.map { train in
+        // Calculate distance to each train and then sort by distance.
+        let nearbyTrains: [TrainWithDistance] = trains.map { train in
             let location = CLLocation(latitude: train.lat, longitude: train.lng)
             let distance = myLocation.distance(from: location)
             return .init(train, location: location, distance: distance)
+        }.sorted { $0.distance < $1.distance }
+        
+        /// Get the first train, the one closest by the user
+        guard let currentTrain = nearbyTrains.first else {
+            await setDetectionState(.noTrainDetected)
+            return
         }
         
-        let sorted = mapped.sorted { $0.distance < $1.distance }
-        
-        guard let currentTrain = sorted.first else { return }
-        guard let currentJourney = try? await API.shared.getJourney(journeyId: currentTrain.train.ritID) else { return }
-        
-        DispatchQueue.main.async {
-            self.currentTrain = currentTrain
-            self.currentJourney = currentJourney
+        /// Make sure that the current train is less than 500 meters away.
+        guard currentTrain.distance < 500 else {
+            await setDetectionState(.noTrainDetected)
+            return
         }
+        
+        // Fetch the current journey and set the state.
+        do {
+            let currentJourney = try await API.shared.getJourney(journeyId: currentTrain.train.ritID)
+            let detectedTrain = DetectedTrain(train: currentTrain, journey: currentJourney)
+            
+            await setDetectionState(.train(detectedTrain))
+        } catch let error as AFError {
+            await setDetectionState(.error(error))
+        } catch { print(error) }
     }
 }
