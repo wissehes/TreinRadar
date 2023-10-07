@@ -49,9 +49,7 @@ final class TrainManager: ObservableObject {
     static let shared = TrainManager()
 
     @Published var trains: [Train] = []
-    
     @Published var trainDetection: TrainDetectionState = .detecting
-    
     @Published var updateTrains = Timer.publish(every: 10, on: .main, in: .common).autoconnect()
     
     /// Stops the `updateTrains` timer
