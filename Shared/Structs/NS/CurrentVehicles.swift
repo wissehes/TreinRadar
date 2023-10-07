@@ -19,7 +19,7 @@ struct CurrentVehiclesPayload: Codable {
 /**
     Train without extra `info`.
  */
-struct Train: Codable, Identifiable {
+struct Train: Codable, Identifiable, Hashable {
     let treinNummer: Int
     let ritID: String
     let lat, lng, richting: Double
