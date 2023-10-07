@@ -1,30 +1,35 @@
-
 {
-    "notes": [],
+    "notes": [
+        {
+            "text": "Vandaag afkomstig uit Eindhoven C.",
+            "noteType": "INFOTEXT",
+            "type": "INFOTEXT"
+        }
+    ],
     "productNumbers": [
-        "3056"
+        "300860"
     ],
     "stops": [
         {
-            "id": "NM_0",
+            "id": "MT_0",
             "stop": {
-                "name": "Nijmegen",
-                "lng": 5.85222244262695,
-                "lat": 51.8436126708984,
+                "name": "Maastricht",
+                "lng": 5.70555543899536,
+                "lat": 50.8502769470215,
                 "countryCode": "NL",
-                "uicCode": "8400470"
+                "uicCode": "8400424"
             },
             "previousStopId": [],
             "nextStopId": [
-                "NML_0"
+                "BDE_0"
             ],
-            "destination": "Den Helder",
+            "destination": "Amsterdam Centraal",
             "status": "ORIGIN",
             "arrivals": [],
             "departures": [
                 {
                     "product": {
-                        "number": "3056",
+                        "number": "300860",
                         "categoryCode": "IC",
                         "shortCategoryName": "Intercity",
                         "longCategoryName": "Intercity",
@@ -33,152 +38,97 @@
                         "type": "TRAIN"
                     },
                     "origin": {
-                        "name": "Nijmegen",
-                        "lng": 5.85222244262695,
-                        "lat": 51.8436126708984,
+                        "name": "Maastricht",
+                        "lng": 5.70555543899536,
+                        "lat": 50.8502769470215,
                         "countryCode": "NL",
-                        "uicCode": "8400470"
+                        "uicCode": "8400424"
                     },
-                    "destination": {
-                        "name": "Den Helder",
-                        "lng": 4.76111125946045,
-                        "lat": 52.9552764892578,
-                        "countryCode": "NL",
-                        "uicCode": "8400311"
-                    },
-                    "plannedTime": "2023-07-06T16:13:00+0200",
-                    "actualTime": "2023-07-06T16:14:04+0200",
-                    "delayInSeconds": 64,
-                    "plannedTrack": "3",
-                    "actualTrack": "3",
+                    "plannedTime": "2023-10-07T16:01:00+0200",
+                    "plannedTrack": "2",
                     "cancelled": false,
-                    "crowdForecast": "LOW",
-                    "stockIdentifiers": [
-                        "9583"
-                    ]
+                    "crowdForecast": "UNKNOWN"
                 }
-            ],
-            "actualStock": {
-                "trainType": "VIRM",
-                "numberOfSeats": 405,
-                "numberOfParts": 4,
-                "trainParts": [
-                    {
-                        "stockIdentifier": "9583",
-                        "facilities": [
-                            "WIFI",
-                            "TOILET",
-                            "STILTE",
-                            "FIETS"
-                        ],
-                        "image": {
-                            "uri": "https://vt.ns-mlab.nl/v1/images/virm_4.png"
-                        }
-                    }
-                ],
-                "hasSignificantChange": false
-            },
-            "plannedStock": {
-                "trainType": "VIRM",
-                "numberOfSeats": 405,
-                "numberOfParts": 4,
-                "trainParts": [
-                    {
-                        "stockIdentifier": "9583",
-                        "facilities": [
-                            "WIFI",
-                            "TOILET",
-                            "STILTE",
-                            "FIETS"
-                        ],
-                        "image": {
-                            "uri": "https://vt.ns-mlab.nl/v1/images/virm_4.png"
-                        }
-                    }
-                ],
-                "hasSignificantChange": false
-            },
-            "platformFeatures": [],
-            "coachCrowdForecast": []
+            ]
         },
         {
-            "id": "NML_0",
+            "id": "BDE_0",
             "stop": {
-                "name": "Nijmegen Lent",
-                "lng": 5.859625,
-                "lat": 51.863154,
+                "name": "Bunde",
+                "lng": 5.73666667938232,
+                "lat": 50.8969459533691,
                 "countryCode": "NL",
-                "uicCode": "8400451"
+                "uicCode": "8400140"
             },
             "previousStopId": [
-                "NM_0"
+                "MT_0"
             ],
             "nextStopId": [
-                "EST_0"
+                "BK_0"
             ],
             "status": "PASSING",
             "arrivals": [],
             "departures": []
         },
         {
-            "id": "EST_0",
+            "id": "BK_0",
             "stop": {
-                "name": "Elst",
-                "lng": 5.85500001907349,
-                "lat": 51.9169425964355,
+                "name": "Beek-Elsloo",
+                "lng": 5.78666687011719,
+                "lat": 50.9474983215332,
                 "countryCode": "NL",
-                "uicCode": "8400207"
+                "uicCode": "8400096"
             },
             "previousStopId": [
-                "NML_0"
+                "BDE_0"
             ],
             "nextStopId": [
-                "AHZ_0"
+                "LUT_0"
             ],
             "status": "PASSING",
             "arrivals": [],
             "departures": []
         },
         {
-            "id": "AHZ_0",
+            "id": "LUT_0",
             "stop": {
-                "name": "Arnhem Zuid",
-                "lng": 5.85194444656372,
-                "lat": 51.9550018310547,
+                "name": "Geleen-Lutterade",
+                "lng": 5.82472229003906,
+                "lat": 50.9755554199219,
                 "countryCode": "NL",
-                "uicCode": "8400227"
+                "uicCode": "8400248"
             },
             "previousStopId": [
-                "EST_0"
+                "BK_0"
             ],
             "nextStopId": [
-                "AH_0"
+                "STD_0"
             ],
             "status": "PASSING",
             "arrivals": [],
             "departures": []
         },
         {
-            "id": "AH_0",
+            "id": "STD_0",
             "stop": {
-                "name": "Arnhem Centraal",
-                "lng": 5.89916658401489,
-                "lat": 51.9850006103516,
+                "name": "Sittard",
+                "lng": 5.85861110687256,
+                "lat": 51.0016670227051,
                 "countryCode": "NL",
-                "uicCode": "8400071"
+                "uicCode": "8400564"
             },
             "previousStopId": [
-                "AHZ_0"
+                "LUT_0"
             ],
             "nextStopId": [
-                "OTB_0"
+                "SRN_0"
             ],
-            "destination": "Den Helder",
+            "destination": "Amsterdam Centraal",
             "status": "STOP",
             "arrivals": [
                 {
                     "product": {
-                        "number": "3056",
+                        "number": "300860",
                         "categoryCode": "IC",
                         "shortCategoryName": "Intercity",
                         "longCategoryName": "Intercity",
@@ -187,36 +137,22 @@
                         "type": "TRAIN"
                     },
                     "origin": {
-                        "name": "Nijmegen",
-                        "lng": 5.85222244262695,
-                        "lat": 51.8436126708984,
+                        "name": "Maastricht",
+                        "lng": 5.70555543899536,
+                        "lat": 50.8502769470215,
                         "countryCode": "NL",
-                        "uicCode": "8400470"
+                        "uicCode": "8400424"
                     },
-                    "destination": {
-                        "name": "Den Helder",
-                        "lng": 4.76111125946045,
-                        "lat": 52.9552764892578,
-                        "countryCode": "NL",
-                        "uicCode": "8400311"
-                    },
-                    "plannedTime": "2023-07-06T16:26:00+0200",
-                    "actualTime": "2023-07-06T16:26:44+0200",
-                    "delayInSeconds": 44,
-                    "plannedTrack": "11",
-                    "actualTrack": "11",
+                    "plannedTime": "2023-10-07T16:16:00+0200",
+                    "plannedTrack": "2b",
                     "cancelled": false,
-                    "punctuality": 100,
-                    "crowdForecast": "HIGH",
-                    "stockIdentifiers": [
-                        "9583"
-                    ]
+                    "crowdForecast": "UNKNOWN"
                 }
             ],
             "departures": [
                 {
                     "product": {
-                        "number": "3056",
+                        "number": "300860",
                         "categoryCode": "IC",
                         "shortCategoryName": "Intercity",
                         "longCategoryName": "Intercity",
@@ -225,133 +161,78 @@
                         "type": "TRAIN"
                     },
                     "origin": {
-                        "name": "Nijmegen",
-                        "lng": 5.85222244262695,
-                        "lat": 51.8436126708984,
+                        "name": "Maastricht",
+                        "lng": 5.70555543899536,
+                        "lat": 50.8502769470215,
                         "countryCode": "NL",
-                        "uicCode": "8400470"
+                        "uicCode": "8400424"
                     },
-                    "destination": {
-                        "name": "Den Helder",
-                        "lng": 4.76111125946045,
-                        "lat": 52.9552764892578,
-                        "countryCode": "NL",
-                        "uicCode": "8400311"
-                    },
-                    "plannedTime": "2023-07-06T16:32:00+0200",
-                    "actualTime": "2023-07-06T16:32:49+0200",
-                    "delayInSeconds": 49,
-                    "plannedTrack": "11",
-                    "actualTrack": "11",
+                    "plannedTime": "2023-10-07T16:17:00+0200",
+                    "plannedTrack": "2b",
                     "cancelled": false,
-                    "crowdForecast": "HIGH",
-                    "stockIdentifiers": [
-                        "9583"
-                    ]
+                    "crowdForecast": "UNKNOWN"
                 }
-            ],
-            "actualStock": {
-                "trainType": "VIRM",
-                "numberOfSeats": 405,
-                "numberOfParts": 4,
-                "trainParts": [
-                    {
-                        "stockIdentifier": "9583",
-                        "facilities": [
-                            "WIFI",
-                            "TOILET",
-                            "STILTE",
-                            "FIETS"
-                        ],
-                        "image": {
-                            "uri": "https://vt.ns-mlab.nl/v1/images/virm_4.png"
-                        }
-                    }
-                ],
-                "hasSignificantChange": false
-            },
-            "plannedStock": {
-                "trainType": "VIRM",
-                "numberOfSeats": 405,
-                "numberOfParts": 4,
-                "trainParts": [
-                    {
-                        "stockIdentifier": "9583",
-                        "facilities": [
-                            "WIFI",
-                            "TOILET",
-                            "STILTE",
-                            "FIETS"
-                        ],
-                        "image": {
-                            "uri": "https://vt.ns-mlab.nl/v1/images/virm_4.png"
-                        }
-                    }
-                ],
-                "hasSignificantChange": false
-            },
-            "platformFeatures": [],
-            "coachCrowdForecast": []
+            ]
         },
         {
-            "id": "OTB_0",
+            "id": "SRN_0",
             "stop": {
-                "name": "Oosterbeek",
-                "lng": 5.84000015258789,
-                "lat": 51.9949989318848,
+                "name": "Susteren",
+                "lng": 5.86305570602417,
+                "lat": 51.0613899230957,
                 "countryCode": "NL",
-                "uicCode": "8400489"
+                "uicCode": "8400582"
             },
             "previousStopId": [
-                "AH_0"
+                "STD_0"
             ],
             "nextStopId": [
-                "WF_0"
+                "EC_0"
             ],
             "status": "PASSING",
             "arrivals": [],
             "departures": []
         },
         {
-            "id": "WF_0",
+            "id": "EC_0",
             "stop": {
-                "name": "Wolfheze",
-                "lng": 5.7936110496521,
-                "lat": 52.0055541992188,
+                "name": "Echt",
+                "lng": 5.87888908386231,
+                "lat": 51.1005554199219,
                 "countryCode": "NL",
-                "uicCode": "8400704"
+                "uicCode": "8400195"
             },
             "previousStopId": [
-                "OTB_0"
+                "SRN_0"
             ],
             "nextStopId": [
-                "ED_0"
+                "RM_0"
             ],
             "status": "PASSING",
             "arrivals": [],
             "departures": []
         },
         {
-            "id": "ED_0",
+            "id": "RM_0",
             "stop": {
-                "name": "Ede-Wageningen",
-                "lng": 5.67305564880371,
-                "lat": 52.0277786254883,
+                "name": "Roermond",
+                "lng": 5.9941668510437,
+                "lat": 51.1930541992188,
                 "countryCode": "NL",
-                "uicCode": "8400200"
+                "uicCode": "8400523"
             },
             "previousStopId": [
-                "WF_0"
+                "EC_0"
             ],
             "nextStopId": [
-                "KLP_0"
+                "WT_0"
             ],
-            "destination": "Den Helder",
+            "destination": "Amsterdam Centraal",
             "status": "STOP",
             "arrivals": [
                 {
                     "product": {
-                        "number": "3056",
+                        "number": "300860",
                         "categoryCode": "IC",
                         "shortCategoryName": "Intercity",
                         "longCategoryName": "Intercity",
@@ -360,35 +241,22 @@
                         "type": "TRAIN"
                     },
                     "origin": {
-                        "name": "Nijmegen",
-                        "lng": 5.85222244262695,
-                        "lat": 51.8436126708984,
+                        "name": "Maastricht",
+                        "lng": 5.70555543899536,
+                        "lat": 50.8502769470215,
                         "countryCode": "NL",
-                        "uicCode": "8400470"
+                        "uicCode": "8400424"
                     },
-                    "destination": {
-                        "name": "Den Helder",
-                        "lng": 4.76111125946045,
-                        "lat": 52.9552764892578,
-                        "countryCode": "NL",
-                        "uicCode": "8400311"
-                    },
-                    "plannedTime": "2023-07-06T16:42:00+0200",
-                    "actualTime": "2023-07-06T16:43:03+0200",
-                    "delayInSeconds": 63,
-                    "plannedTrack": "3",
-                    "actualTrack": "3",
+                    "plannedTime": "2023-10-07T16:31:00+0200",
+                    "plannedTrack": "2",
                     "cancelled": false,
-                    "crowdForecast": "HIGH",
-                    "stockIdentifiers": [
-                        "9583"
-                    ]
+                    "crowdForecast": "UNKNOWN"
                 }
             ],
             "departures": [
                 {
                     "product": {
-                        "number": "3056",
+                        "number": "300860",
                         "categoryCode": "IC",
                         "shortCategoryName": "Intercity",
                         "longCategoryName": "Intercity",
@@ -397,133 +265,40 @@
                         "type": "TRAIN"
                     },
                     "origin": {
-                        "name": "Nijmegen",
-                        "lng": 5.85222244262695,
-                        "lat": 51.8436126708984,
+                        "name": "Maastricht",
+                        "lng": 5.70555543899536,
+                        "lat": 50.8502769470215,
                         "countryCode": "NL",
-                        "uicCode": "8400470"
+                        "uicCode": "8400424"
                     },
-                    "destination": {
-                        "name": "Den Helder",
-                        "lng": 4.76111125946045,
-                        "lat": 52.9552764892578,
-                        "countryCode": "NL",
-                        "uicCode": "8400311"
-                    },
-                    "plannedTime": "2023-07-06T16:42:00+0200",
-                    "actualTime": "2023-07-06T16:43:03+0200",
-                    "delayInSeconds": 63,
-                    "plannedTrack": "3",
-                    "actualTrack": "3",
+                    "plannedTime": "2023-10-07T16:32:00+0200",
+                    "plannedTrack": "2",
                     "cancelled": false,
-                    "crowdForecast": "HIGH",
-                    "stockIdentifiers": [
-                        "9583"
-                    ]
+                    "crowdForecast": "UNKNOWN"
                 }
-            ],
-            "actualStock": {
-                "trainType": "VIRM",
-                "numberOfSeats": 405,
-                "numberOfParts": 4,
-                "trainParts": [
-                    {
-                        "stockIdentifier": "9583",
-                        "facilities": [
-                            "WIFI",
-                            "TOILET",
-                            "STILTE",
-                            "FIETS"
-                        ],
-                        "image": {
-                            "uri": "https://vt.ns-mlab.nl/v1/images/virm_4.png"
-                        }
-                    }
-                ],
-                "hasSignificantChange": false
-            },
-            "plannedStock": {
-                "trainType": "VIRM",
-                "numberOfSeats": 405,
-                "numberOfParts": 4,
-                "trainParts": [
-                    {
-                        "stockIdentifier": "9583",
-                        "facilities": [
-                            "WIFI",
-                            "TOILET",
-                            "STILTE",
-                            "FIETS"
-                        ],
-                        "image": {
-                            "uri": "https://vt.ns-mlab.nl/v1/images/virm_4.png"
-                        }
-                    }
-                ],
-                "hasSignificantChange": false
-            },
-            "platformFeatures": [],
-            "coachCrowdForecast": []
+            ]
         },
         {
-            "id": "KLP_0",
+            "id": "WT_0",
             "stop": {
-                "name": "Veenendaal-De Klomp",
-                "lng": 5.57388877868652,
-                "lat": 52.0458335876465,
+                "name": "Weert",
+                "lng": 5.70361089706421,
+                "lat": 51.2486114501953,
                 "countryCode": "NL",
-                "uicCode": "8400637"
+                "uicCode": "8400684"
             },
             "previousStopId": [
-                "ED_0"
+                "RM_0"
             ],
             "nextStopId": [
-                "MRN_0"
+                "MZ_0"
             ],
-            "status": "PASSING",
-            "arrivals": [],
-            "departures": []
-        },
-        {
-            "id": "MRN_0",
-            "stop": {
-                "name": "Maarn",
-                "lng": 5.36999988555908,
-                "lat": 52.0641670227051,
-                "countryCode": "NL",
-                "uicCode": "8400417"
-            },
-            "previousStopId": [
-                "KLP_0"
-            ],
-            "nextStopId": [
-                "DB_0"
-            ],
-            "status": "PASSING",
-            "arrivals": [],
-            "departures": []
-        },
-        {
-            "id": "DB_0",
-            "stop": {
-                "name": "Driebergen-Zeist",
-                "lng": 5.25861120223999,
-                "lat": 52.0652770996094,
-                "countryCode": "NL",
-                "uicCode": "8400182"
-            },
-            "previousStopId": [
-                "MRN_0"
-            ],
-            "nextStopId": [
-                "BNK_0"
-            ],
-            "destination": "Den Helder",
+            "destination": "Amsterdam Centraal",
             "status": "STOP",
             "arrivals": [
                 {
                     "product": {
-                        "number": "3056",
+                        "number": "300860",
                         "categoryCode": "IC",
                         "shortCategoryName": "Intercity",
                         "longCategoryName": "Intercity",
@@ -532,35 +307,314 @@
                         "type": "TRAIN"
                     },
                     "origin": {
-                        "name": "Nijmegen",
-                        "lng": 5.85222244262695,
-                        "lat": 51.8436126708984,
+                        "name": "Maastricht",
+                        "lng": 5.70555543899536,
+                        "lat": 50.8502769470215,
                         "countryCode": "NL",
-                        "uicCode": "8400470"
+                        "uicCode": "8400424"
+                    },
+                    "plannedTime": "2023-10-07T16:46:00+0200",
+                    "plannedTrack": "2",
+                    "cancelled": false,
+                    "crowdForecast": "UNKNOWN"
+                }
+            ],
+            "departures": [
+                {
+                    "product": {
+                        "number": "300860",
+                        "categoryCode": "IC",
+                        "shortCategoryName": "Intercity",
+                        "longCategoryName": "Intercity",
+                        "operatorCode": "ns",
+                        "operatorName": "NS",
+                        "type": "TRAIN"
+                    },
+                    "origin": {
+                        "name": "Maastricht",
+                        "lng": 5.70555543899536,
+                        "lat": 50.8502769470215,
+                        "countryCode": "NL",
+                        "uicCode": "8400424"
+                    },
+                    "plannedTime": "2023-10-07T16:46:00+0200",
+                    "plannedTrack": "2",
+                    "cancelled": false,
+                    "crowdForecast": "UNKNOWN"
+                }
+            ]
+        },
+        {
+            "id": "MZ_0",
+            "stop": {
+                "name": "Maarheeze",
+                "lng": 5.629796,
+                "lat": 51.304986,
+                "countryCode": "NL",
+                "uicCode": "8400432"
+            },
+            "previousStopId": [
+                "WT_0"
+            ],
+            "nextStopId": [
+                "HZE_0"
+            ],
+            "status": "PASSING",
+            "arrivals": [],
+            "departures": []
+        },
+        {
+            "id": "HZE_0",
+            "stop": {
+                "name": "Heeze",
+                "lng": 5.56944465637207,
+                "lat": 51.3849983215332,
+                "countryCode": "NL",
+                "uicCode": "8400308"
+            },
+            "previousStopId": [
+                "MZ_0"
+            ],
+            "nextStopId": [
+                "GP_0"
+            ],
+            "status": "PASSING",
+            "arrivals": [],
+            "departures": []
+        },
+        {
+            "id": "GP_0",
+            "stop": {
+                "name": "Geldrop",
+                "lng": 5.55055570602417,
+                "lat": 51.4197235107422,
+                "countryCode": "NL",
+                "uicCode": "8400245"
+            },
+            "previousStopId": [
+                "HZE_0"
+            ],
+            "nextStopId": [
+                "EHV_0"
+            ],
+            "status": "PASSING",
+            "arrivals": [],
+            "departures": []
+        },
+        {
+            "id": "EHV_0",
+            "stop": {
+                "name": "Eindhoven Centraal",
+                "lng": 5.48138904571533,
+                "lat": 51.4433326721191,
+                "countryCode": "NL",
+                "uicCode": "8400206"
+            },
+            "previousStopId": [
+                "GP_0"
+            ],
+            "nextStopId": [
+                "EHS_0"
+            ],
+            "destination": "Amsterdam Centraal",
+            "status": "STOP",
+            "arrivals": [
+                {
+                    "product": {
+                        "number": "300860",
+                        "categoryCode": "IC",
+                        "shortCategoryName": "Intercity",
+                        "longCategoryName": "Intercity",
+                        "operatorCode": "ns",
+                        "operatorName": "NS",
+                        "type": "TRAIN"
+                    },
+                    "origin": {
+                        "name": "Maastricht",
+                        "lng": 5.70555543899536,
+                        "lat": 50.8502769470215,
+                        "countryCode": "NL",
+                        "uicCode": "8400424"
                     },
                     "destination": {
-                        "name": "Den Helder",
-                        "lng": 4.76111125946045,
-                        "lat": 52.9552764892578,
+                        "name": "Amsterdam Centraal",
+                        "lng": 4.90027761459351,
+                        "lat": 52.3788871765137,
                         "countryCode": "NL",
-                        "uicCode": "8400311"
+                        "uicCode": "8400058"
                     },
-                    "plannedTime": "2023-07-06T16:59:00+0200",
-                    "actualTime": "2023-07-06T16:59:00+0200",
+                    "plannedTime": "2023-10-07T17:02:00+0200",
+                    "plannedTrack": "4",
+                    "cancelled": false,
+                    "crowdForecast": "UNKNOWN"
+                }
+            ],
+            "departures": [
+                {
+                    "product": {
+                        "number": "300860",
+                        "categoryCode": "IC",
+                        "shortCategoryName": "Intercity",
+                        "longCategoryName": "Intercity",
+                        "operatorCode": "ns",
+                        "operatorName": "NS",
+                        "type": "TRAIN"
+                    },
+                    "origin": {
+                        "name": "Maastricht",
+                        "lng": 5.70555543899536,
+                        "lat": 50.8502769470215,
+                        "countryCode": "NL",
+                        "uicCode": "8400424"
+                    },
+                    "destination": {
+                        "name": "Amsterdam Centraal",
+                        "lng": 4.90027761459351,
+                        "lat": 52.3788871765137,
+                        "countryCode": "NL",
+                        "uicCode": "8400058"
+                    },
+                    "plannedTime": "2023-10-07T17:06:00+0200",
+                    "actualTime": "2023-10-07T17:07:52+0200",
+                    "delayInSeconds": 112,
+                    "plannedTrack": "4",
+                    "actualTrack": "4",
+                    "cancelled": false,
+                    "crowdForecast": "UNKNOWN"
+                }
+            ]
+        },
+        {
+            "id": "EHS_0",
+            "stop": {
+                "name": "Eindhoven Strijp-S",
+                "lng": 5.45583343505859,
+                "lat": 51.4511108398438,
+                "countryCode": "NL",
+                "uicCode": "8400196"
+            },
+            "previousStopId": [
+                "EHV_0"
+            ],
+            "nextStopId": [
+                "BET_0"
+            ],
+            "status": "PASSING",
+            "arrivals": [],
+            "departures": []
+        },
+        {
+            "id": "BET_0",
+            "stop": {
+                "name": "Best",
+                "lng": 5.38916683197022,
+                "lat": 51.5099983215332,
+                "countryCode": "NL",
+                "uicCode": "8400112"
+            },
+            "previousStopId": [
+                "EHS_0"
+            ],
+            "nextStopId": [
+                "BTL_0"
+            ],
+            "status": "PASSING",
+            "arrivals": [],
+            "departures": []
+        },
+        {
+            "id": "BTL_0",
+            "stop": {
+                "name": "Boxtel",
+                "lng": 5.31912,
+                "lat": 51.58433,
+                "countryCode": "NL",
+                "uicCode": "8400129"
+            },
+            "previousStopId": [
+                "BET_0"
+            ],
+            "nextStopId": [
+                "VG_0"
+            ],
+            "status": "PASSING",
+            "arrivals": [],
+            "departures": []
+        },
+        {
+            "id": "VG_0",
+            "stop": {
+                "name": "Vught",
+                "lng": 5.29194450378418,
+                "lat": 51.6555557250977,
+                "countryCode": "NL",
+                "uicCode": "8400667"
+            },
+            "previousStopId": [
+                "BTL_0"
+            ],
+            "nextStopId": [
+                "HT_0"
+            ],
+            "status": "PASSING",
+            "arrivals": [],
+            "departures": []
+        },
+        {
+            "id": "HT_0",
+            "stop": {
+                "name": "'s-Hertogenbosch",
+                "lng": 5.29362,
+                "lat": 51.69048,
+                "countryCode": "NL",
+                "uicCode": "8400319"
+            },
+            "previousStopId": [
+                "VG_0"
+            ],
+            "nextStopId": [
+                "ZBM_0"
+            ],
+            "destination": "Amsterdam Centraal",
+            "status": "STOP",
+            "arrivals": [
+                {
+                    "product": {
+                        "number": "300860",
+                        "categoryCode": "IC",
+                        "shortCategoryName": "Intercity",
+                        "longCategoryName": "Intercity",
+                        "operatorCode": "ns",
+                        "operatorName": "NS",
+                        "type": "TRAIN"
+                    },
+                    "origin": {
+                        "name": "Maastricht",
+                        "lng": 5.70555543899536,
+                        "lat": 50.8502769470215,
+                        "countryCode": "NL",
+                        "uicCode": "8400424"
+                    },
+                    "destination": {
+                        "name": "Amsterdam Centraal",
+                        "lng": 4.90027761459351,
+                        "lat": 52.3788871765137,
+                        "countryCode": "NL",
+                        "uicCode": "8400058"
+                    },
+                    "plannedTime": "2023-10-07T17:25:00+0200",
+                    "actualTime": "2023-10-07T17:25:00+0200",
                     "delayInSeconds": 0,
-                    "plannedTrack": "1",
-                    "actualTrack": "1",
+                    "plannedTrack": "3",
+                    "actualTrack": "3",
                     "cancelled": false,
-                    "crowdForecast": "HIGH",
-                    "stockIdentifiers": [
-                        "9583"
-                    ]
+                    "crowdForecast": "UNKNOWN"
                 }
             ],
             "departures": [
                 {
                     "product": {
-                        "number": "3056",
+                        "number": "300860",
                         "categoryCode": "IC",
                         "shortCategoryName": "Intercity",
                         "longCategoryName": "Intercity",
@@ -569,85 +623,135 @@
                         "type": "TRAIN"
                     },
                     "origin": {
-                        "name": "Nijmegen",
-                        "lng": 5.85222244262695,
-                        "lat": 51.8436126708984,
+                        "name": "Maastricht",
+                        "lng": 5.70555543899536,
+                        "lat": 50.8502769470215,
                         "countryCode": "NL",
-                        "uicCode": "8400470"
+                        "uicCode": "8400424"
                     },
                     "destination": {
-                        "name": "Den Helder",
-                        "lng": 4.76111125946045,
-                        "lat": 52.9552764892578,
+                        "name": "Amsterdam Centraal",
+                        "lng": 4.90027761459351,
+                        "lat": 52.3788871765137,
                         "countryCode": "NL",
-                        "uicCode": "8400311"
+                        "uicCode": "8400058"
                     },
-                    "plannedTime": "2023-07-06T16:59:00+0200",
-                    "actualTime": "2023-07-06T16:59:00+0200",
+                    "plannedTime": "2023-10-07T17:28:00+0200",
+                    "actualTime": "2023-10-07T17:28:00+0200",
                     "delayInSeconds": 0,
-                    "plannedTrack": "1",
-                    "actualTrack": "1",
+                    "plannedTrack": "3",
+                    "actualTrack": "3",
                     "cancelled": false,
-                    "crowdForecast": "HIGH",
-                    "stockIdentifiers": [
-                        "9583"
-                    ]
+                    "crowdForecast": "UNKNOWN"
                 }
-            ],
-            "actualStock": {
-                "trainType": "VIRM",
-                "numberOfSeats": 405,
-                "numberOfParts": 4,
-                "trainParts": [
-                    {
-                        "stockIdentifier": "9583",
-                        "facilities": [
-                            "WIFI",
-                            "TOILET",
-                            "STILTE",
-                            "FIETS"
-                        ],
-                        "image": {
-                            "uri": "https://vt.ns-mlab.nl/v1/images/virm_4.png"
-                        }
-                    }
-                ],
-                "hasSignificantChange": false
-            },
-            "plannedStock": {
-                "trainType": "VIRM",
-                "numberOfSeats": 405,
-                "numberOfParts": 4,
-                "trainParts": [
-                    {
-                        "stockIdentifier": "9583",
-                        "facilities": [
-                            "WIFI",
-                            "TOILET",
-                            "STILTE",
-                            "FIETS"
-                        ],
-                        "image": {
-                            "uri": "https://vt.ns-mlab.nl/v1/images/virm_4.png"
-                        }
-                    }
-                ],
-                "hasSignificantChange": false
-            },
-            "platformFeatures": [],
-            "coachCrowdForecast": []
+            ]
         },
         {
-            "id": "BNK_0",
+            "id": "ZBM_0",
             "stop": {
-                "name": "Bunnik",
-                "lng": 5.19444465637207,
-                "lat": 52.0630569458008,
+                "name": "Zaltbommel",
+                "lng": 5.26333332061768,
+                "lat": 51.8088874816895,
                 "countryCode": "NL",
-                "uicCode": "8400141"
+                "uicCode": "8400732"
             },
             "previousStopId": [
-                "DB_0"
+                "HT_0"
+            ],
+            "nextStopId": [
+                "GDM_0"
+            ],
+            "status": "PASSING",
+            "arrivals": [],
+            "departures": []
+        },
+        {
+            "id": "GDM_0",
+            "stop": {
+                "name": "Geldermalsen",
+                "lng": 5.27127,
+                "lat": 51.88301,
+                "countryCode": "NL",
+                "uicCode": "8400244"
+            },
+            "previousStopId": [
+                "ZBM_0"
+            ],
+            "nextStopId": [
+                "CL_0"
+            ],
+            "status": "PASSING",
+            "arrivals": [],
+            "departures": []
+        },
+        {
+            "id": "CL_0",
+            "stop": {
+                "name": "Culemborg",
+                "lng": 5.22694444656372,
+                "lat": 51.9466667175293,
+                "countryCode": "NL",
+                "uicCode": "8400154"
+            },
+            "previousStopId": [
+                "GDM_0"
+            ],
+            "nextStopId": [
+                "HTNC_0"
+            ],
+            "status": "PASSING",
+            "arrivals": [],
+            "departures": []
+        },
+        {
+            "id": "HTNC_0",
+            "stop": {
+                "name": "Houten Castellum",
+                "lng": 5.17949,
+                "lat": 52.01701,
+                "countryCode": "NL",
+                "uicCode": "8400335"
+            },
+            "previousStopId": [
+                "CL_0"
+            ],
+            "nextStopId": [
+                "HTN_0"
+            ],
+            "status": "PASSING",
+            "arrivals": [],
+            "departures": []
+        },
+        {
+            "id": "HTN_0",
+            "stop": {
+                "name": "Houten",
+                "lng": 5.16821,
+                "lat": 52.03402,
+                "countryCode": "NL",
+                "uicCode": "8400340"
+            },
+            "previousStopId": [
+                "HTNC_0"
+            ],
+            "nextStopId": [
+                "UTLN_0"
+            ],
+            "status": "PASSING",
+            "arrivals": [],
+            "departures": []
+        },
+        {
+            "id": "UTLN_0",
+            "stop": {
+                "name": "Utrecht Lunetten",
+                "lng": 5.14416646957397,
+                "lat": 52.0655555725098,
+                "countryCode": "NL",
+                "uicCode": "8400623"
+            },
+            "previousStopId": [
+                "HTN_0"
             ],
             "nextStopId": [
                 "UTVR_0"
@@ -666,7 +770,7 @@
                 "uicCode": "8400606"
             },
             "previousStopId": [
-                "BNK_0"
+                "UTLN_0"
             ],
             "nextStopId": [
                 "UT_0"
@@ -690,12 +794,12 @@
             "nextStopId": [
                 "UTZL_0"
             ],
-            "destination": "Den Helder",
+            "destination": "Amsterdam Centraal",
             "status": "STOP",
             "arrivals": [
                 {
                     "product": {
-                        "number": "3056",
+                        "number": "300860",
                         "categoryCode": "IC",
                         "shortCategoryName": "Intercity",
                         "longCategoryName": "Intercity",
@@ -704,36 +808,35 @@
                         "type": "TRAIN"
                     },
                     "origin": {
-                        "name": "Nijmegen",
-                        "lng": 5.85222244262695,
-                        "lat": 51.8436126708984,
+                        "name": "Maastricht",
+                        "lng": 5.70555543899536,
+                        "lat": 50.8502769470215,
                         "countryCode": "NL",
-                        "uicCode": "8400470"
+                        "uicCode": "8400424"
                     },
                     "destination": {
-                        "name": "Den Helder",
-                        "lng": 4.76111125946045,
-                        "lat": 52.9552764892578,
+                        "name": "Amsterdam Centraal",
+                        "lng": 4.90027761459351,
+                        "lat": 52.3788871765137,
                         "countryCode": "NL",
-                        "uicCode": "8400311"
+                        "uicCode": "8400058"
                     },
-                    "plannedTime": "2023-07-06T17:07:00+0200",
-                    "actualTime": "2023-07-06T17:07:00+0200",
+                    "plannedTime": "2023-10-07T17:57:00+0200",
+                    "actualTime": "2023-10-07T17:57:00+0200",
                     "delayInSeconds": 0,
-                    "plannedTrack": "5",
-                    "actualTrack": "5",
+                    "plannedTrack": "7",
+                    "actualTrack": "7",
                     "cancelled": false,
-                    "punctuality": 100,
-                    "crowdForecast": "HIGH",
+                    "crowdForecast": "UNKNOWN",
                     "stockIdentifiers": [
-                        "9583"
+                        "8653"
                     ]
                 }
             ],
             "departures": [
                 {
                     "product": {
-                        "number": "3056",
+                        "number": "300860",
                         "categoryCode": "IC",
                         "shortCategoryName": "Intercity",
                         "longCategoryName": "Intercity",
@@ -742,46 +845,47 @@
                         "type": "TRAIN"
                     },
                     "origin": {
-                        "name": "Nijmegen",
-                        "lng": 5.85222244262695,
-                        "lat": 51.8436126708984,
+                        "name": "Maastricht",
+                        "lng": 5.70555543899536,
+                        "lat": 50.8502769470215,
                         "countryCode": "NL",
-                        "uicCode": "8400470"
+                        "uicCode": "8400424"
                     },
                     "destination": {
-                        "name": "Den Helder",
-                        "lng": 4.76111125946045,
-                        "lat": 52.9552764892578,
+                        "name": "Amsterdam Centraal",
+                        "lng": 4.90027761459351,
+                        "lat": 52.3788871765137,
                         "countryCode": "NL",
-                        "uicCode": "8400311"
+                        "uicCode": "8400058"
                     },
-                    "plannedTime": "2023-07-06T17:09:00+0200",
-                    "actualTime": "2023-07-06T17:09:00+0200",
+                    "plannedTime": "2023-10-07T17:59:00+0200",
+                    "actualTime": "2023-10-07T17:59:00+0200",
                     "delayInSeconds": 0,
-                    "plannedTrack": "5",
-                    "actualTrack": "5",
+                    "plannedTrack": "7",
+                    "actualTrack": "7",
                     "cancelled": false,
-                    "crowdForecast": "HIGH",
+                    "crowdForecast": "UNKNOWN",
                     "stockIdentifiers": [
-                        "9583"
+                        "8653"
                     ]
                 }
             ],
             "actualStock": {
                 "trainType": "VIRM",
-                "numberOfSeats": 405,
-                "numberOfParts": 4,
+                "numberOfSeats": 621,
+                "numberOfParts": 6,
                 "trainParts": [
                     {
-                        "stockIdentifier": "9583",
+                        "stockIdentifier": "8653",
                         "facilities": [
                             "WIFI",
                             "TOILET",
                             "STILTE",
-                            "FIETS"
+                            "FIETS",
+                            "STROOM"
                         ],
                         "image": {
-                            "uri": "https://vt.ns-mlab.nl/v1/images/virm_4.png"
+                            "uri": "https://vt.ns-mlab.nl/v1/images/virmm1_6.png"
                         }
                     }
                 ],
@@ -789,19 +893,20 @@
             },
             "plannedStock": {
                 "trainType": "VIRM",
-                "numberOfSeats": 405,
-                "numberOfParts": 4,
+                "numberOfSeats": 621,
+                "numberOfParts": 6,
                 "trainParts": [
                     {
-                        "stockIdentifier": "9583",
+                        "stockIdentifier": "8653",
                         "facilities": [
                             "WIFI",
                             "TOILET",
                             "STILTE",
-                            "FIETS"
+                            "FIETS",
+                            "STROOM"
                         ],
                         "image": {
-                            "uri": "https://vt.ns-mlab.nl/v1/images/virm_4.png"
+                            "uri": "https://vt.ns-mlab.nl/v1/images/virmm1_6.png"
                         }
                     }
                 ],
@@ -958,12 +1063,12 @@
             "nextStopId": [
                 "ASDM_0"
             ],
-            "destination": "Den Helder",
+            "destination": "Amsterdam Centraal",
             "status": "STOP",
             "arrivals": [
                 {
                     "product": {
-                        "number": "3056",
+                        "number": "300860",
                         "categoryCode": "IC",
                         "shortCategoryName": "Intercity",
                         "longCategoryName": "Intercity",
@@ -972,35 +1077,31 @@
                         "type": "TRAIN"
                     },
                     "origin": {
-                        "name": "Nijmegen",
-                        "lng": 5.85222244262695,
-                        "lat": 51.8436126708984,
+                        "name": "Maastricht",
+                        "lng": 5.70555543899536,
+                        "lat": 50.8502769470215,
                         "countryCode": "NL",
-                        "uicCode": "8400470"
+                        "uicCode": "8400424"
                     },
                     "destination": {
-                        "name": "Den Helder",
-                        "lng": 4.76111125946045,
-                        "lat": 52.9552764892578,
+                        "name": "Amsterdam Centraal",
+                        "lng": 4.90027761459351,
+                        "lat": 52.3788871765137,
                         "countryCode": "NL",
-                        "uicCode": "8400311"
+                        "uicCode": "8400058"
                     },
-                    "plannedTime": "2023-07-06T17:27:00+0200",
-                    "actualTime": "2023-07-06T17:27:00+0200",
+                    "plannedTime": "2023-10-07T18:17:00+0200",
+                    "actualTime": "2023-10-07T18:17:00+0200",
                     "delayInSeconds": 0,
                     "plannedTrack": "1",
-                    "actualTrack": "1",
                     "cancelled": false,
-                    "crowdForecast": "HIGH",
-                    "stockIdentifiers": [
-                        "9583"
-                    ]
+                    "crowdForecast": "UNKNOWN"
                 }
             ],
             "departures": [
                 {
                     "product": {
-                        "number": "3056",
+                        "number": "300860",
                         "categoryCode": "IC",
                         "shortCategoryName": "Intercity",
                         "longCategoryName": "Intercity",
@@ -1009,73 +1110,27 @@
                         "type": "TRAIN"
                     },
                     "origin": {
-                        "name": "Nijmegen",
-                        "lng": 5.85222244262695,
-                        "lat": 51.8436126708984,
+                        "name": "Maastricht",
+                        "lng": 5.70555543899536,
+                        "lat": 50.8502769470215,
                         "countryCode": "NL",
-                        "uicCode": "8400470"
+                        "uicCode": "8400424"
                     },
                     "destination": {
-                        "name": "Den Helder",
-                        "lng": 4.76111125946045,
-                        "lat": 52.9552764892578,
+                        "name": "Amsterdam Centraal",
+                        "lng": 4.90027761459351,
+                        "lat": 52.3788871765137,
                         "countryCode": "NL",
-                        "uicCode": "8400311"
+                        "uicCode": "8400058"
                     },
-                    "plannedTime": "2023-07-06T17:27:00+0200",
-                    "actualTime": "2023-07-06T17:27:00+0200",
+                    "plannedTime": "2023-10-07T18:17:00+0200",
+                    "actualTime": "2023-10-07T18:17:00+0200",
                     "delayInSeconds": 0,
                     "plannedTrack": "1",
-                    "actualTrack": "1",
                     "cancelled": false,
-                    "crowdForecast": "HIGH",
-                    "stockIdentifiers": [
-                        "9583"
-                    ]
+                    "crowdForecast": "UNKNOWN"
                 }
-            ],
-            "actualStock": {
-                "trainType": "VIRM",
-                "numberOfSeats": 405,
-                "numberOfParts": 4,
-                "trainParts": [
-                    {
-                        "stockIdentifier": "9583",
-                        "facilities": [
-                            "WIFI",
-                            "TOILET",
-                            "STILTE",
-                            "FIETS"
-                        ],
-                        "image": {
-                            "uri": "https://vt.ns-mlab.nl/v1/images/virm_4.png"
-                        }
-                    }
-                ],
-                "hasSignificantChange": false
-            },
-            "plannedStock": {
-                "trainType": "VIRM",
-                "numberOfSeats": 405,
-                "numberOfParts": 4,
-                "trainParts": [
-                    {
-                        "stockIdentifier": "9583",
-                        "facilities": [
-                            "WIFI",
-                            "TOILET",
-                            "STILTE",
-                            "FIETS"
-                        ],
-                        "image": {
-                            "uri": "https://vt.ns-mlab.nl/v1/images/virm_4.png"
-                        }
-                    }
-                ],
-                "hasSignificantChange": false
-            },
-            "platformFeatures": [],
-            "coachCrowdForecast": []
+            ]
         },
         {
             "id": "ASDM_0",
@@ -1108,1585 +1163,13 @@
             "previousStopId": [
                 "ASDM_0"
             ],
-            "nextStopId": [
-                "ASS_0"
-            ],
-            "destination": "Den Helder",
-            "status": "STOP",
-            "arrivals": [
-                {
-                    "product": {
-                        "number": "3056",
-                        "categoryCode": "IC",
-                        "shortCategoryName": "Intercity",
-                        "longCategoryName": "Intercity",
-                        "operatorCode": "ns",
-                        "operatorName": "NS",
-                        "type": "TRAIN"
-                    },
-                    "origin": {
-                        "name": "Nijmegen",
-                        "lng": 5.85222244262695,
-                        "lat": 51.8436126708984,
-                        "countryCode": "NL",
-                        "uicCode": "8400470"
-                    },
-                    "destination": {
-                        "name": "Den Helder",
-                        "lng": 4.76111125946045,
-                        "lat": 52.9552764892578,
-                        "countryCode": "NL",
-                        "uicCode": "8400311"
-                    },
-                    "plannedTime": "2023-07-06T17:35:00+0200",
-                    "actualTime": "2023-07-06T17:35:00+0200",
-                    "delayInSeconds": 0,
-                    "plannedTrack": "8a",
-                    "actualTrack": "8a",
-                    "cancelled": false,
-                    "punctuality": 100,
-                    "crowdForecast": "HIGH",
-                    "stockIdentifiers": [
-                        "9583"
-                    ]
-                }
-            ],
-            "departures": [
-                {
-                    "product": {
-                        "number": "3056",
-                        "categoryCode": "IC",
-                        "shortCategoryName": "Intercity",
-                        "longCategoryName": "Intercity",
-                        "operatorCode": "ns",
-                        "operatorName": "NS",
-                        "type": "TRAIN"
-                    },
-                    "origin": {
-                        "name": "Nijmegen",
-                        "lng": 5.85222244262695,
-                        "lat": 51.8436126708984,
-                        "countryCode": "NL",
-                        "uicCode": "8400470"
-                    },
-                    "destination": {
-                        "name": "Den Helder",
-                        "lng": 4.76111125946045,
-                        "lat": 52.9552764892578,
-                        "countryCode": "NL",
-                        "uicCode": "8400311"
-                    },
-                    "plannedTime": "2023-07-06T17:39:00+0200",
-                    "actualTime": "2023-07-06T17:39:00+0200",
-                    "delayInSeconds": 0,
-                    "plannedTrack": "8a",
-                    "actualTrack": "8a",
-                    "cancelled": false,
-                    "crowdForecast": "HIGH",
-                    "stockIdentifiers": [
-                        "9583"
-                    ]
-                }
-            ],
-            "actualStock": {
-                "trainType": "VIRM",
-                "numberOfSeats": 405,
-                "numberOfParts": 4,
-                "trainParts": [
-                    {
-                        "stockIdentifier": "9583",
-                        "facilities": [
-                            "WIFI",
-                            "TOILET",
-                            "STILTE",
-                            "FIETS"
-                        ],
-                        "image": {
-                            "uri": "https://vt.ns-mlab.nl/v1/images/virm_4.png"
-                        }
-                    }
-                ],
-                "hasSignificantChange": false
-            },
-            "plannedStock": {
-                "trainType": "VIRM",
-                "numberOfSeats": 405,
-                "numberOfParts": 4,
-                "trainParts": [
-                    {
-                        "stockIdentifier": "9583",
-                        "facilities": [
-                            "WIFI",
-                            "TOILET",
-                            "STILTE",
-                            "FIETS"
-                        ],
-                        "image": {
-                            "uri": "https://vt.ns-mlab.nl/v1/images/virm_4.png"
-                        }
-                    }
-                ],
-                "hasSignificantChange": false
-            },
-            "platformFeatures": [],
-            "coachCrowdForecast": []
-        },
-        {
-            "id": "ASS_0",
-            "stop": {
-                "name": "Amsterdam Sloterdijk",
-                "lng": 4.83777761459351,
-                "lat": 52.3888893127441,
-                "countryCode": "NL",
-                "uicCode": "8400059"
-            },
-            "previousStopId": [
-                "ASD_0"
-            ],
-            "nextStopId": [
-                "ZD_0"
-            ],
-            "destination": "Den Helder",
-            "status": "STOP",
-            "arrivals": [
-                {
-                    "product": {
-                        "number": "3056",
-                        "categoryCode": "IC",
-                        "shortCategoryName": "Intercity",
-                        "longCategoryName": "Intercity",
-                        "operatorCode": "ns",
-                        "operatorName": "NS",
-                        "type": "TRAIN"
-                    },
-                    "origin": {
-                        "name": "Nijmegen",
-                        "lng": 5.85222244262695,
-                        "lat": 51.8436126708984,
-                        "countryCode": "NL",
-                        "uicCode": "8400470"
-                    },
-                    "destination": {
-                        "name": "Den Helder",
-                        "lng": 4.76111125946045,
-                        "lat": 52.9552764892578,
-                        "countryCode": "NL",
-                        "uicCode": "8400311"
-                    },
-                    "plannedTime": "2023-07-06T17:45:00+0200",
-                    "actualTime": "2023-07-06T17:45:00+0200",
-                    "delayInSeconds": 0,
-                    "plannedTrack": "4",
-                    "actualTrack": "4",
-                    "cancelled": false,
-                    "crowdForecast": "HIGH",
-                    "stockIdentifiers": [
-                        "9583"
-                    ]
-                }
-            ],
-            "departures": [
-                {
-                    "product": {
-                        "number": "3056",
-                        "categoryCode": "IC",
-                        "shortCategoryName": "Intercity",
-                        "longCategoryName": "Intercity",
-                        "operatorCode": "ns",
-                        "operatorName": "NS",
-                        "type": "TRAIN"
-                    },
-                    "origin": {
-                        "name": "Nijmegen",
-                        "lng": 5.85222244262695,
-                        "lat": 51.8436126708984,
-                        "countryCode": "NL",
-                        "uicCode": "8400470"
-                    },
-                    "destination": {
-                        "name": "Den Helder",
-                        "lng": 4.76111125946045,
-                        "lat": 52.9552764892578,
-                        "countryCode": "NL",
-                        "uicCode": "8400311"
-                    },
-                    "plannedTime": "2023-07-06T17:45:00+0200",
-                    "actualTime": "2023-07-06T17:45:00+0200",
-                    "delayInSeconds": 0,
-                    "plannedTrack": "4",
-                    "actualTrack": "4",
-                    "cancelled": false,
-                    "crowdForecast": "HIGH",
-                    "stockIdentifiers": [
-                        "9583"
-                    ]
-                }
-            ],
-            "actualStock": {
-                "trainType": "VIRM",
-                "numberOfSeats": 405,
-                "numberOfParts": 4,
-                "trainParts": [
-                    {
-                        "stockIdentifier": "9583",
-                        "facilities": [
-                            "WIFI",
-                            "TOILET",
-                            "STILTE",
-                            "FIETS"
-                        ],
-                        "image": {
-                            "uri": "https://vt.ns-mlab.nl/v1/images/virm_4.png"
-                        }
-                    }
-                ],
-                "hasSignificantChange": false
-            },
-            "plannedStock": {
-                "trainType": "VIRM",
-                "numberOfSeats": 405,
-                "numberOfParts": 4,
-                "trainParts": [
-                    {
-                        "stockIdentifier": "9583",
-                        "facilities": [
-                            "WIFI",
-                            "TOILET",
-                            "STILTE",
-                            "FIETS"
-                        ],
-                        "image": {
-                            "uri": "https://vt.ns-mlab.nl/v1/images/virm_4.png"
-                        }
-                    }
-                ],
-                "hasSignificantChange": false
-            },
-            "platformFeatures": [],
-            "coachCrowdForecast": []
-        },
-        {
-            "id": "ZD_0",
-            "stop": {
-                "name": "Zaandam",
-                "lng": 4.81361103057861,
-                "lat": 52.4388885498047,
-                "countryCode": "NL",
-                "uicCode": "8400731"
-            },
-            "previousStopId": [
-                "ASS_0"
-            ],
-            "nextStopId": [
-                "KZ_0"
-            ],
-            "destination": "Den Helder",
-            "status": "STOP",
-            "arrivals": [
-                {
-                    "product": {
-                        "number": "3056",
-                        "categoryCode": "IC",
-                        "shortCategoryName": "Intercity",
-                        "longCategoryName": "Intercity",
-                        "operatorCode": "ns",
-                        "operatorName": "NS",
-                        "type": "TRAIN"
-                    },
-                    "origin": {
-                        "name": "Nijmegen",
-                        "lng": 5.85222244262695,
-                        "lat": 51.8436126708984,
-                        "countryCode": "NL",
-                        "uicCode": "8400470"
-                    },
-                    "destination": {
-                        "name": "Den Helder",
-                        "lng": 4.76111125946045,
-                        "lat": 52.9552764892578,
-                        "countryCode": "NL",
-                        "uicCode": "8400311"
-                    },
-                    "plannedTime": "2023-07-06T17:52:00+0200",
-                    "actualTime": "2023-07-06T17:52:00+0200",
-                    "delayInSeconds": 0,
-                    "plannedTrack": "2",
-                    "actualTrack": "2",
-                    "cancelled": false,
-                    "crowdForecast": "HIGH",
-                    "stockIdentifiers": [
-                        "9583"
-                    ]
-                }
-            ],
-            "departures": [
-                {
-                    "product": {
-                        "number": "3056",
-                        "categoryCode": "IC",
-                        "shortCategoryName": "Intercity",
-                        "longCategoryName": "Intercity",
-                        "operatorCode": "ns",
-                        "operatorName": "NS",
-                        "type": "TRAIN"
-                    },
-                    "origin": {
-                        "name": "Nijmegen",
-                        "lng": 5.85222244262695,
-                        "lat": 51.8436126708984,
-                        "countryCode": "NL",
-                        "uicCode": "8400470"
-                    },
-                    "destination": {
-                        "name": "Den Helder",
-                        "lng": 4.76111125946045,
-                        "lat": 52.9552764892578,
-                        "countryCode": "NL",
-                        "uicCode": "8400311"
-                    },
-                    "plannedTime": "2023-07-06T17:52:00+0200",
-                    "actualTime": "2023-07-06T17:52:00+0200",
-                    "delayInSeconds": 0,
-                    "plannedTrack": "2",
-                    "actualTrack": "2",
-                    "cancelled": false,
-                    "crowdForecast": "HIGH",
-                    "stockIdentifiers": [
-                        "9583"
-                    ]
-                }
-            ],
-            "actualStock": {
-                "trainType": "VIRM",
-                "numberOfSeats": 405,
-                "numberOfParts": 4,
-                "trainParts": [
-                    {
-                        "stockIdentifier": "9583",
-                        "facilities": [
-                            "WIFI",
-                            "TOILET",
-                            "STILTE",
-                            "FIETS"
-                        ],
-                        "image": {
-                            "uri": "https://vt.ns-mlab.nl/v1/images/virm_4.png"
-                        }
-                    }
-                ],
-                "hasSignificantChange": false
-            },
-            "plannedStock": {
-                "trainType": "VIRM",
-                "numberOfSeats": 405,
-                "numberOfParts": 4,
-                "trainParts": [
-                    {
-                        "stockIdentifier": "9583",
-                        "facilities": [
-                            "WIFI",
-                            "TOILET",
-                            "STILTE",
-                            "FIETS"
-                        ],
-                        "image": {
-                            "uri": "https://vt.ns-mlab.nl/v1/images/virm_4.png"
-                        }
-                    }
-                ],
-                "hasSignificantChange": false
-            },
-            "platformFeatures": [],
-            "coachCrowdForecast": []
-        },
-        {
-            "id": "KZ_0",
-            "stop": {
-                "name": "Koog aan de Zaan",
-                "lng": 4.80555534362793,
-                "lat": 52.458610534668,
-                "countryCode": "NL",
-                "uicCode": "8400363"
-            },
-            "previousStopId": [
-                "ZD_0"
-            ],
-            "nextStopId": [
-                "ZZS_0"
-            ],
-            "status": "PASSING",
-            "arrivals": [],
-            "departures": []
-        },
-        {
-            "id": "ZZS_0",
-            "stop": {
-                "name": "Zaandijk Zaanse Schans",
-                "lng": 4.80499982833862,
-                "lat": 52.469165802002,
-                "countryCode": "NL",
-                "uicCode": "8400364"
-            },
-            "previousStopId": [
-                "KZ_0"
-            ],
-            "nextStopId": [
-                "WM_0"
-            ],
-            "status": "PASSING",
-            "arrivals": [],
-            "departures": []
-        },
-        {
-            "id": "WM_0",
-            "stop": {
-                "name": "Wormerveer",
-                "lng": 4.79222202301025,
-                "lat": 52.4891662597656,
-                "countryCode": "NL",
-                "uicCode": "8400707"
-            },
-            "previousStopId": [
-                "ZZS_0"
-            ],
-            "nextStopId": [
-                "KMA_0"
-            ],
-            "status": "PASSING",
-            "arrivals": [],
-            "departures": []
-        },
-        {
-            "id": "KMA_0",
-            "stop": {
-                "name": "Krommenie-Assendelft",
-                "lng": 4.75417,
-                "lat": 52.49511,
-                "countryCode": "NL",
-                "uicCode": "8400368"
-            },
-            "previousStopId": [
-                "WM_0"
-            ],
-            "nextStopId": [
-                "UTG_0"
-            ],
-            "status": "PASSING",
-            "arrivals": [],
-            "departures": []
-        },
-        {
-            "id": "UTG_0",
-            "stop": {
-                "name": "Uitgeest",
-                "lng": 4.70166683197022,
-                "lat": 52.5216674804687,
-                "countryCode": "NL",
-                "uicCode": "8400615"
-            },
-            "previousStopId": [
-                "KMA_0"
-            ],
-            "nextStopId": [
-                "CAS_0"
-            ],
-            "status": "PASSING",
-            "arrivals": [],
-            "departures": []
-        },
-        {
-            "id": "CAS_0",
-            "stop": {
-                "name": "Castricum",
-                "lng": 4.65861129760742,
-                "lat": 52.5458335876465,
-                "countryCode": "NL",
-                "uicCode": "8400151"
-            },
-            "previousStopId": [
-                "UTG_0"
-            ],
-            "nextStopId": [
-                "HLO_0"
-            ],
-            "destination": "Den Helder",
-            "status": "STOP",
-            "arrivals": [
-                {
-                    "product": {
-                        "number": "3056",
-                        "categoryCode": "IC",
-                        "shortCategoryName": "Intercity",
-                        "longCategoryName": "Intercity",
-                        "operatorCode": "ns",
-                        "operatorName": "NS",
-                        "type": "TRAIN"
-                    },
-                    "origin": {
-                        "name": "Nijmegen",
-                        "lng": 5.85222244262695,
-                        "lat": 51.8436126708984,
-                        "countryCode": "NL",
-                        "uicCode": "8400470"
-                    },
-                    "destination": {
-                        "name": "Den Helder",
-                        "lng": 4.76111125946045,
-                        "lat": 52.9552764892578,
-                        "countryCode": "NL",
-                        "uicCode": "8400311"
-                    },
-                    "plannedTime": "2023-07-06T18:04:00+0200",
-                    "actualTime": "2023-07-06T18:04:00+0200",
-                    "delayInSeconds": 0,
-                    "plannedTrack": "1",
-                    "actualTrack": "1",
-                    "cancelled": false,
-                    "crowdForecast": "HIGH",
-                    "stockIdentifiers": [
-                        "9583"
-                    ]
-                }
-            ],
-            "departures": [
-                {
-                    "product": {
-                        "number": "3056",
-                        "categoryCode": "IC",
-                        "shortCategoryName": "Intercity",
-                        "longCategoryName": "Intercity",
-                        "operatorCode": "ns",
-                        "operatorName": "NS",
-                        "type": "TRAIN"
-                    },
-                    "origin": {
-                        "name": "Nijmegen",
-                        "lng": 5.85222244262695,
-                        "lat": 51.8436126708984,
-                        "countryCode": "NL",
-                        "uicCode": "8400470"
-                    },
-                    "destination": {
-                        "name": "Den Helder",
-                        "lng": 4.76111125946045,
-                        "lat": 52.9552764892578,
-                        "countryCode": "NL",
-                        "uicCode": "8400311"
-                    },
-                    "plannedTime": "2023-07-06T18:04:00+0200",
-                    "actualTime": "2023-07-06T18:04:00+0200",
-                    "delayInSeconds": 0,
-                    "plannedTrack": "1",
-                    "actualTrack": "1",
-                    "cancelled": false,
-                    "crowdForecast": "HIGH",
-                    "stockIdentifiers": [
-                        "9583"
-                    ]
-                }
-            ],
-            "actualStock": {
-                "trainType": "VIRM",
-                "numberOfSeats": 405,
-                "numberOfParts": 4,
-                "trainParts": [
-                    {
-                        "stockIdentifier": "9583",
-                        "facilities": [
-                            "WIFI",
-                            "TOILET",
-                            "STILTE",
-                            "FIETS"
-                        ],
-                        "image": {
-                            "uri": "https://vt.ns-mlab.nl/v1/images/virm_4.png"
-                        }
-                    }
-                ],
-                "hasSignificantChange": false
-            },
-            "plannedStock": {
-                "trainType": "VIRM",
-                "numberOfSeats": 405,
-                "numberOfParts": 4,
-                "trainParts": [
-                    {
-                        "stockIdentifier": "9583",
-                        "facilities": [
-                            "WIFI",
-                            "TOILET",
-                            "STILTE",
-                            "FIETS"
-                        ],
-                        "image": {
-                            "uri": "https://vt.ns-mlab.nl/v1/images/virm_4.png"
-                        }
-                    }
-                ],
-                "hasSignificantChange": false
-            },
-            "platformFeatures": [],
-            "coachCrowdForecast": []
-        },
-        {
-            "id": "HLO_0",
-            "stop": {
-                "name": "Heiloo",
-                "lng": 4.70055532455444,
-                "lat": 52.5994453430176,
-                "countryCode": "NL",
-                "uicCode": "8400309"
-            },
-            "previousStopId": [
-                "CAS_0"
-            ],
-            "nextStopId": [
-                "AMR_0"
-            ],
-            "destination": "Den Helder",
-            "status": "STOP",
-            "arrivals": [
-                {
-                    "product": {
-                        "number": "3056",
-                        "categoryCode": "IC",
-                        "shortCategoryName": "Intercity",
-                        "longCategoryName": "Intercity",
-                        "operatorCode": "ns",
-                        "operatorName": "NS",
-                        "type": "TRAIN"
-                    },
-                    "origin": {
-                        "name": "Nijmegen",
-                        "lng": 5.85222244262695,
-                        "lat": 51.8436126708984,
-                        "countryCode": "NL",
-                        "uicCode": "8400470"
-                    },
-                    "destination": {
-                        "name": "Den Helder",
-                        "lng": 4.76111125946045,
-                        "lat": 52.9552764892578,
-                        "countryCode": "NL",
-                        "uicCode": "8400311"
-                    },
-                    "plannedTime": "2023-07-06T18:10:00+0200",
-                    "actualTime": "2023-07-06T18:10:00+0200",
-                    "delayInSeconds": 0,
-                    "plannedTrack": "1",
-                    "actualTrack": "1",
-                    "cancelled": false,
-                    "crowdForecast": "LOW",
-                    "stockIdentifiers": [
-                        "9583"
-                    ]
-                }
-            ],
-            "departures": [
-                {
-                    "product": {
-                        "number": "3056",
-                        "categoryCode": "IC",
-                        "shortCategoryName": "Intercity",
-                        "longCategoryName": "Intercity",
-                        "operatorCode": "ns",
-                        "operatorName": "NS",
-                        "type": "TRAIN"
-                    },
-                    "origin": {
-                        "name": "Nijmegen",
-                        "lng": 5.85222244262695,
-                        "lat": 51.8436126708984,
-                        "countryCode": "NL",
-                        "uicCode": "8400470"
-                    },
-                    "destination": {
-                        "name": "Den Helder",
-                        "lng": 4.76111125946045,
-                        "lat": 52.9552764892578,
-                        "countryCode": "NL",
-                        "uicCode": "8400311"
-                    },
-                    "plannedTime": "2023-07-06T18:10:00+0200",
-                    "actualTime": "2023-07-06T18:10:00+0200",
-                    "delayInSeconds": 0,
-                    "plannedTrack": "1",
-                    "actualTrack": "1",
-                    "cancelled": false,
-                    "crowdForecast": "LOW",
-                    "stockIdentifiers": [
-                        "9583"
-                    ]
-                }
-            ],
-            "actualStock": {
-                "trainType": "VIRM",
-                "numberOfSeats": 405,
-                "numberOfParts": 4,
-                "trainParts": [
-                    {
-                        "stockIdentifier": "9583",
-                        "facilities": [
-                            "WIFI",
-                            "TOILET",
-                            "STILTE",
-                            "FIETS"
-                        ],
-                        "image": {
-                            "uri": "https://vt.ns-mlab.nl/v1/images/virm_4.png"
-                        }
-                    }
-                ],
-                "hasSignificantChange": false
-            },
-            "plannedStock": {
-                "trainType": "VIRM",
-                "numberOfSeats": 405,
-                "numberOfParts": 4,
-                "trainParts": [
-                    {
-                        "stockIdentifier": "9583",
-                        "facilities": [
-                            "WIFI",
-                            "TOILET",
-                            "STILTE",
-                            "FIETS"
-                        ],
-                        "image": {
-                            "uri": "https://vt.ns-mlab.nl/v1/images/virm_4.png"
-                        }
-                    }
-                ],
-                "hasSignificantChange": false
-            },
-            "platformFeatures": [],
-            "coachCrowdForecast": []
-        },
-        {
-            "id": "AMR_0",
-            "stop": {
-                "name": "Alkmaar",
-                "lng": 4.73972225189209,
-                "lat": 52.6377792358398,
-                "countryCode": "NL",
-                "uicCode": "8400050"
-            },
-            "previousStopId": [
-                "HLO_0"
-            ],
-            "nextStopId": [
-                "AMRN_0"
-            ],
-            "destination": "Den Helder",
-            "status": "STOP",
-            "arrivals": [
-                {
-                    "product": {
-                        "number": "3056",
-                        "categoryCode": "IC",
-                        "shortCategoryName": "Intercity",
-                        "longCategoryName": "Intercity",
-                        "operatorCode": "ns",
-                        "operatorName": "NS",
-                        "type": "TRAIN"
-                    },
-                    "origin": {
-                        "name": "Nijmegen",
-                        "lng": 5.85222244262695,
-                        "lat": 51.8436126708984,
-                        "countryCode": "NL",
-                        "uicCode": "8400470"
-                    },
-                    "destination": {
-                        "name": "Den Helder",
-                        "lng": 4.76111125946045,
-                        "lat": 52.9552764892578,
-                        "countryCode": "NL",
-                        "uicCode": "8400311"
-                    },
-                    "plannedTime": "2023-07-06T18:16:00+0200",
-                    "actualTime": "2023-07-06T18:16:00+0200",
-                    "delayInSeconds": 0,
-                    "plannedTrack": "2",
-                    "actualTrack": "2",
-                    "cancelled": false,
-                    "punctuality": 81.8,
-                    "crowdForecast": "LOW",
-                    "stockIdentifiers": [
-                        "0"
-                    ]
-                }
-            ],
-            "departures": [
-                {
-                    "product": {
-                        "number": "3056",
-                        "categoryCode": "IC",
-                        "shortCategoryName": "Intercity",
-                        "longCategoryName": "Intercity",
-                        "operatorCode": "ns",
-                        "operatorName": "NS",
-                        "type": "TRAIN"
-                    },
-                    "origin": {
-                        "name": "Nijmegen",
-                        "lng": 5.85222244262695,
-                        "lat": 51.8436126708984,
-                        "countryCode": "NL",
-                        "uicCode": "8400470"
-                    },
-                    "destination": {
-                        "name": "Den Helder",
-                        "lng": 4.76111125946045,
-                        "lat": 52.9552764892578,
-                        "countryCode": "NL",
-                        "uicCode": "8400311"
-                    },
-                    "plannedTime": "2023-07-06T18:19:00+0200",
-                    "actualTime": "2023-07-06T18:19:00+0200",
-                    "delayInSeconds": 0,
-                    "plannedTrack": "2",
-                    "actualTrack": "2",
-                    "cancelled": false,
-                    "crowdForecast": "LOW",
-                    "stockIdentifiers": [
-                        "0"
-                    ]
-                }
-            ],
-            "actualStock": {
-                "trainType": "VIRM",
-                "numberOfSeats": 405,
-                "numberOfParts": 4,
-                "trainParts": [
-                    {
-                        "stockIdentifier": "0",
-                        "facilities": [
-                            "WIFI",
-                            "TOILET",
-                            "STILTE",
-                            "FIETS"
-                        ],
-                        "image": {
-                            "uri": "https://vt.ns-mlab.nl/v1/images/virm_4.png"
-                        }
-                    }
-                ],
-                "hasSignificantChange": false
-            },
-            "plannedStock": {
-                "trainType": "VIRM",
-                "numberOfSeats": 405,
-                "numberOfParts": 4,
-                "trainParts": [
-                    {
-                        "stockIdentifier": "0",
-                        "facilities": [
-                            "WIFI",
-                            "TOILET",
-                            "STILTE",
-                            "FIETS"
-                        ],
-                        "image": {
-                            "uri": "https://vt.ns-mlab.nl/v1/images/virm_4.png"
-                        }
-                    }
-                ],
-                "hasSignificantChange": false
-            },
-            "platformFeatures": [],
-            "coachCrowdForecast": []
-        },
-        {
-            "id": "AMRN_0",
-            "stop": {
-                "name": "Alkmaar Noord",
-                "lng": 4.76416683197022,
-                "lat": 52.6438903808594,
-                "countryCode": "NL",
-                "uicCode": "8400052"
-            },
-            "previousStopId": [
-                "AMR_0"
-            ],
-            "nextStopId": [
-                "HWD_0"
-            ],
-            "destination": "Den Helder",
-            "status": "STOP",
-            "arrivals": [
-                {
-                    "product": {
-                        "number": "3056",
-                        "categoryCode": "IC",
-                        "shortCategoryName": "Intercity",
-                        "longCategoryName": "Intercity",
-                        "operatorCode": "ns",
-                        "operatorName": "NS",
-                        "type": "TRAIN"
-                    },
-                    "origin": {
-                        "name": "Nijmegen",
-                        "lng": 5.85222244262695,
-                        "lat": 51.8436126708984,
-                        "countryCode": "NL",
-                        "uicCode": "8400470"
-                    },
-                    "destination": {
-                        "name": "Den Helder",
-                        "lng": 4.76111125946045,
-                        "lat": 52.9552764892578,
-                        "countryCode": "NL",
-                        "uicCode": "8400311"
-                    },
-                    "plannedTime": "2023-07-06T18:22:00+0200",
-                    "actualTime": "2023-07-06T18:22:00+0200",
-                    "delayInSeconds": 0,
-                    "plannedTrack": "2",
-                    "actualTrack": "2",
-                    "cancelled": false,
-                    "crowdForecast": "LOW",
-                    "stockIdentifiers": [
-                        "0"
-                    ]
-                }
-            ],
-            "departures": [
-                {
-                    "product": {
-                        "number": "3056",
-                        "categoryCode": "IC",
-                        "shortCategoryName": "Intercity",
-                        "longCategoryName": "Intercity",
-                        "operatorCode": "ns",
-                        "operatorName": "NS",
-                        "type": "TRAIN"
-                    },
-                    "origin": {
-                        "name": "Nijmegen",
-                        "lng": 5.85222244262695,
-                        "lat": 51.8436126708984,
-                        "countryCode": "NL",
-                        "uicCode": "8400470"
-                    },
-                    "destination": {
-                        "name": "Den Helder",
-                        "lng": 4.76111125946045,
-                        "lat": 52.9552764892578,
-                        "countryCode": "NL",
-                        "uicCode": "8400311"
-                    },
-                    "plannedTime": "2023-07-06T18:22:00+0200",
-                    "actualTime": "2023-07-06T18:22:00+0200",
-                    "delayInSeconds": 0,
-                    "plannedTrack": "2",
-                    "actualTrack": "2",
-                    "cancelled": false,
-                    "crowdForecast": "LOW",
-                    "stockIdentifiers": [
-                        "0"
-                    ]
-                }
-            ],
-            "actualStock": {
-                "trainType": "VIRM",
-                "numberOfSeats": 405,
-                "numberOfParts": 4,
-                "trainParts": [
-                    {
-                        "stockIdentifier": "0",
-                        "facilities": [
-                            "WIFI",
-                            "TOILET",
-                            "STILTE",
-                            "FIETS"
-                        ],
-                        "image": {
-                            "uri": "https://vt.ns-mlab.nl/v1/images/virm_4.png"
-                        }
-                    }
-                ],
-                "hasSignificantChange": false
-            },
-            "plannedStock": {
-                "trainType": "VIRM",
-                "numberOfSeats": 405,
-                "numberOfParts": 4,
-                "trainParts": [
-                    {
-                        "stockIdentifier": "0",
-                        "facilities": [
-                            "WIFI",
-                            "TOILET",
-                            "STILTE",
-                            "FIETS"
-                        ],
-                        "image": {
-                            "uri": "https://vt.ns-mlab.nl/v1/images/virm_4.png"
-                        }
-                    }
-                ],
-                "hasSignificantChange": false
-            },
-            "platformFeatures": [],
-            "coachCrowdForecast": []
-        },
-        {
-            "id": "HWD_0",
-            "stop": {
-                "name": "Heerhugowaard",
-                "lng": 4.82277774810791,
-                "lat": 52.6697235107422,
-                "countryCode": "NL",
-                "uicCode": "8400306"
-            },
-            "previousStopId": [
-                "AMRN_0"
-            ],
-            "nextStopId": [
-                "SGN_0"
-            ],
-            "destination": "Den Helder",
-            "status": "STOP",
-            "arrivals": [
-                {
-                    "product": {
-                        "number": "3056",
-                        "categoryCode": "IC",
-                        "shortCategoryName": "Intercity",
-                        "longCategoryName": "Intercity",
-                        "operatorCode": "ns",
-                        "operatorName": "NS",
-                        "type": "TRAIN"
-                    },
-                    "origin": {
-                        "name": "Nijmegen",
-                        "lng": 5.85222244262695,
-                        "lat": 51.8436126708984,
-                        "countryCode": "NL",
-                        "uicCode": "8400470"
-                    },
-                    "destination": {
-                        "name": "Den Helder",
-                        "lng": 4.76111125946045,
-                        "lat": 52.9552764892578,
-                        "countryCode": "NL",
-                        "uicCode": "8400311"
-                    },
-                    "plannedTime": "2023-07-06T18:28:00+0200",
-                    "actualTime": "2023-07-06T18:28:00+0200",
-                    "delayInSeconds": 0,
-                    "plannedTrack": "2",
-                    "actualTrack": "2",
-                    "cancelled": false,
-                    "crowdForecast": "LOW",
-                    "stockIdentifiers": [
-                        "0"
-                    ]
-                }
-            ],
-            "departures": [
-                {
-                    "product": {
-                        "number": "3056",
-                        "categoryCode": "IC",
-                        "shortCategoryName": "Intercity",
-                        "longCategoryName": "Intercity",
-                        "operatorCode": "ns",
-                        "operatorName": "NS",
-                        "type": "TRAIN"
-                    },
-                    "origin": {
-                        "name": "Nijmegen",
-                        "lng": 5.85222244262695,
-                        "lat": 51.8436126708984,
-                        "countryCode": "NL",
-                        "uicCode": "8400470"
-                    },
-                    "destination": {
-                        "name": "Den Helder",
-                        "lng": 4.76111125946045,
-                        "lat": 52.9552764892578,
-                        "countryCode": "NL",
-                        "uicCode": "8400311"
-                    },
-                    "plannedTime": "2023-07-06T18:28:00+0200",
-                    "actualTime": "2023-07-06T18:28:00+0200",
-                    "delayInSeconds": 0,
-                    "plannedTrack": "2",
-                    "actualTrack": "2",
-                    "cancelled": false,
-                    "crowdForecast": "LOW",
-                    "stockIdentifiers": [
-                        "0"
-                    ]
-                }
-            ],
-            "actualStock": {
-                "trainType": "VIRM",
-                "numberOfSeats": 405,
-                "numberOfParts": 4,
-                "trainParts": [
-                    {
-                        "stockIdentifier": "0",
-                        "facilities": [
-                            "WIFI",
-                            "TOILET",
-                            "STILTE",
-                            "FIETS"
-                        ],
-                        "image": {
-                            "uri": "https://vt.ns-mlab.nl/v1/images/virm_4.png"
-                        }
-                    }
-                ],
-                "hasSignificantChange": false
-            },
-            "plannedStock": {
-                "trainType": "VIRM",
-                "numberOfSeats": 405,
-                "numberOfParts": 4,
-                "trainParts": [
-                    {
-                        "stockIdentifier": "0",
-                        "facilities": [
-                            "WIFI",
-                            "TOILET",
-                            "STILTE",
-                            "FIETS"
-                        ],
-                        "image": {
-                            "uri": "https://vt.ns-mlab.nl/v1/images/virm_4.png"
-                        }
-                    }
-                ],
-                "hasSignificantChange": false
-            },
-            "platformFeatures": [],
-            "coachCrowdForecast": []
-        },
-        {
-            "id": "SGN_0",
-            "stop": {
-                "name": "Schagen",
-                "lng": 4.80527782440186,
-                "lat": 52.7844429016113,
-                "countryCode": "NL",
-                "uicCode": "8400549"
-            },
-            "previousStopId": [
-                "HWD_0"
-            ],
-            "nextStopId": [
-                "ANA_0"
-            ],
-            "destination": "Den Helder",
-            "status": "STOP",
-            "arrivals": [
-                {
-                    "product": {
-                        "number": "3056",
-                        "categoryCode": "IC",
-                        "shortCategoryName": "Intercity",
-                        "longCategoryName": "Intercity",
-                        "operatorCode": "ns",
-                        "operatorName": "NS",
-                        "type": "TRAIN"
-                    },
-                    "origin": {
-                        "name": "Nijmegen",
-                        "lng": 5.85222244262695,
-                        "lat": 51.8436126708984,
-                        "countryCode": "NL",
-                        "uicCode": "8400470"
-                    },
-                    "destination": {
-                        "name": "Den Helder",
-                        "lng": 4.76111125946045,
-                        "lat": 52.9552764892578,
-                        "countryCode": "NL",
-                        "uicCode": "8400311"
-                    },
-                    "plannedTime": "2023-07-06T18:36:00+0200",
-                    "actualTime": "2023-07-06T18:36:00+0200",
-                    "delayInSeconds": 0,
-                    "plannedTrack": "2",
-                    "actualTrack": "2",
-                    "cancelled": false,
-                    "crowdForecast": "LOW",
-                    "stockIdentifiers": [
-                        "0"
-                    ]
-                }
-            ],
-            "departures": [
-                {
-                    "product": {
-                        "number": "3056",
-                        "categoryCode": "IC",
-                        "shortCategoryName": "Intercity",
-                        "longCategoryName": "Intercity",
-                        "operatorCode": "ns",
-                        "operatorName": "NS",
-                        "type": "TRAIN"
-                    },
-                    "origin": {
-                        "name": "Nijmegen",
-                        "lng": 5.85222244262695,
-                        "lat": 51.8436126708984,
-                        "countryCode": "NL",
-                        "uicCode": "8400470"
-                    },
-                    "destination": {
-                        "name": "Den Helder",
-                        "lng": 4.76111125946045,
-                        "lat": 52.9552764892578,
-                        "countryCode": "NL",
-                        "uicCode": "8400311"
-                    },
-                    "plannedTime": "2023-07-06T18:36:00+0200",
-                    "actualTime": "2023-07-06T18:36:00+0200",
-                    "delayInSeconds": 0,
-                    "plannedTrack": "2",
-                    "actualTrack": "2",
-                    "cancelled": false,
-                    "crowdForecast": "LOW",
-                    "stockIdentifiers": [
-                        "0"
-                    ]
-                }
-            ],
-            "actualStock": {
-                "trainType": "VIRM",
-                "numberOfSeats": 405,
-                "numberOfParts": 4,
-                "trainParts": [
-                    {
-                        "stockIdentifier": "0",
-                        "facilities": [
-                            "WIFI",
-                            "TOILET",
-                            "STILTE",
-                            "FIETS"
-                        ],
-                        "image": {
-                            "uri": "https://vt.ns-mlab.nl/v1/images/virm_4.png"
-                        }
-                    }
-                ],
-                "hasSignificantChange": false
-            },
-            "plannedStock": {
-                "trainType": "VIRM",
-                "numberOfSeats": 405,
-                "numberOfParts": 4,
-                "trainParts": [
-                    {
-                        "stockIdentifier": "0",
-                        "facilities": [
-                            "WIFI",
-                            "TOILET",
-                            "STILTE",
-                            "FIETS"
-                        ],
-                        "image": {
-                            "uri": "https://vt.ns-mlab.nl/v1/images/virm_4.png"
-                        }
-                    }
-                ],
-                "hasSignificantChange": false
-            },
-            "platformFeatures": [],
-            "coachCrowdForecast": []
-        },
-        {
-            "id": "ANA_0",
-            "stop": {
-                "name": "Anna Paulowna",
-                "lng": 4.81111097335815,
-                "lat": 52.8672218322754,
-                "countryCode": "NL",
-                "uicCode": "8400065"
-            },
-            "previousStopId": [
-                "SGN_0"
-            ],
-            "nextStopId": [
-                "HDRZ_0"
-            ],
-            "destination": "Den Helder",
-            "status": "STOP",
-            "arrivals": [
-                {
-                    "product": {
-                        "number": "3056",
-                        "categoryCode": "IC",
-                        "shortCategoryName": "Intercity",
-                        "longCategoryName": "Intercity",
-                        "operatorCode": "ns",
-                        "operatorName": "NS",
-                        "type": "TRAIN"
-                    },
-                    "origin": {
-                        "name": "Nijmegen",
-                        "lng": 5.85222244262695,
-                        "lat": 51.8436126708984,
-                        "countryCode": "NL",
-                        "uicCode": "8400470"
-                    },
-                    "destination": {
-                        "name": "Den Helder",
-                        "lng": 4.76111125946045,
-                        "lat": 52.9552764892578,
-                        "countryCode": "NL",
-                        "uicCode": "8400311"
-                    },
-                    "plannedTime": "2023-07-06T18:43:00+0200",
-                    "actualTime": "2023-07-06T18:43:00+0200",
-                    "delayInSeconds": 0,
-                    "plannedTrack": "2",
-                    "actualTrack": "2",
-                    "cancelled": false,
-                    "punctuality": 81.8,
-                    "crowdForecast": "LOW",
-                    "stockIdentifiers": [
-                        "0"
-                    ]
-                }
-            ],
-            "departures": [
-                {
-                    "product": {
-                        "number": "3056",
-                        "categoryCode": "IC",
-                        "shortCategoryName": "Intercity",
-                        "longCategoryName": "Intercity",
-                        "operatorCode": "ns",
-                        "operatorName": "NS",
-                        "type": "TRAIN"
-                    },
-                    "origin": {
-                        "name": "Nijmegen",
-                        "lng": 5.85222244262695,
-                        "lat": 51.8436126708984,
-                        "countryCode": "NL",
-                        "uicCode": "8400470"
-                    },
-                    "destination": {
-                        "name": "Den Helder",
-                        "lng": 4.76111125946045,
-                        "lat": 52.9552764892578,
-                        "countryCode": "NL",
-                        "uicCode": "8400311"
-                    },
-                    "plannedTime": "2023-07-06T18:45:00+0200",
-                    "actualTime": "2023-07-06T18:45:00+0200",
-                    "delayInSeconds": 0,
-                    "plannedTrack": "2",
-                    "actualTrack": "2",
-                    "cancelled": false,
-                    "crowdForecast": "LOW",
-                    "stockIdentifiers": [
-                        "0"
-                    ]
-                }
-            ],
-            "actualStock": {
-                "trainType": "VIRM",
-                "numberOfSeats": 405,
-                "numberOfParts": 4,
-                "trainParts": [
-                    {
-                        "stockIdentifier": "0",
-                        "facilities": [
-                            "WIFI",
-                            "TOILET",
-                            "STILTE",
-                            "FIETS"
-                        ],
-                        "image": {
-                            "uri": "https://vt.ns-mlab.nl/v1/images/virm_4.png"
-                        }
-                    }
-                ],
-                "hasSignificantChange": false
-            },
-            "plannedStock": {
-                "trainType": "VIRM",
-                "numberOfSeats": 405,
-                "numberOfParts": 4,
-                "trainParts": [
-                    {
-                        "stockIdentifier": "0",
-                        "facilities": [
-                            "WIFI",
-                            "TOILET",
-                            "STILTE",
-                            "FIETS"
-                        ],
-                        "image": {
-                            "uri": "https://vt.ns-mlab.nl/v1/images/virm_4.png"
-                        }
-                    }
-                ],
-                "hasSignificantChange": false
-            },
-            "platformFeatures": [],
-            "coachCrowdForecast": []
-        },
-        {
-            "id": "HDRZ_0",
-            "stop": {
-                "name": "Den Helder Zuid",
-                "lng": 4.76416683197022,
-                "lat": 52.9324989318848,
-                "countryCode": "NL",
-                "uicCode": "8400303"
-            },
-            "previousStopId": [
-                "ANA_0"
-            ],
-            "nextStopId": [
-                "HDR_0"
-            ],
-            "destination": "Den Helder",
-            "status": "STOP",
-            "arrivals": [
-                {
-                    "product": {
-                        "number": "3056",
-                        "categoryCode": "IC",
-                        "shortCategoryName": "Intercity",
-                        "longCategoryName": "Intercity",
-                        "operatorCode": "ns",
-                        "operatorName": "NS",
-                        "type": "TRAIN"
-                    },
-                    "origin": {
-                        "name": "Nijmegen",
-                        "lng": 5.85222244262695,
-                        "lat": 51.8436126708984,
-                        "countryCode": "NL",
-                        "uicCode": "8400470"
-                    },
-                    "destination": {
-                        "name": "Den Helder",
-                        "lng": 4.76111125946045,
-                        "lat": 52.9552764892578,
-                        "countryCode": "NL",
-                        "uicCode": "8400311"
-                    },
-                    "plannedTime": "2023-07-06T18:52:00+0200",
-                    "actualTime": "2023-07-06T18:52:00+0200",
-                    "delayInSeconds": 0,
-                    "plannedTrack": "2",
-                    "actualTrack": "2",
-                    "cancelled": false,
-                    "crowdForecast": "LOW",
-                    "stockIdentifiers": [
-                        "0"
-                    ]
-                }
-            ],
-            "departures": [
-                {
-                    "product": {
-                        "number": "3056",
-                        "categoryCode": "IC",
-                        "shortCategoryName": "Intercity",
-                        "longCategoryName": "Intercity",
-                        "operatorCode": "ns",
-                        "operatorName": "NS",
-                        "type": "TRAIN"
-                    },
-                    "origin": {
-                        "name": "Nijmegen",
-                        "lng": 5.85222244262695,
-                        "lat": 51.8436126708984,
-                        "countryCode": "NL",
-                        "uicCode": "8400470"
-                    },
-                    "destination": {
-                        "name": "Den Helder",
-                        "lng": 4.76111125946045,
-                        "lat": 52.9552764892578,
-                        "countryCode": "NL",
-                        "uicCode": "8400311"
-                    },
-                    "plannedTime": "2023-07-06T18:52:00+0200",
-                    "actualTime": "2023-07-06T18:52:00+0200",
-                    "delayInSeconds": 0,
-                    "plannedTrack": "2",
-                    "actualTrack": "2",
-                    "cancelled": false,
-                    "crowdForecast": "LOW",
-                    "stockIdentifiers": [
-                        "0"
-                    ]
-                }
-            ],
-            "actualStock": {
-                "trainType": "VIRM",
-                "numberOfSeats": 405,
-                "numberOfParts": 4,
-                "trainParts": [
-                    {
-                        "stockIdentifier": "0",
-                        "facilities": [
-                            "WIFI",
-                            "TOILET",
-                            "STILTE",
-                            "FIETS"
-                        ],
-                        "image": {
-                            "uri": "https://vt.ns-mlab.nl/v1/images/virm_4.png"
-                        }
-                    }
-                ],
-                "hasSignificantChange": false
-            },
-            "plannedStock": {
-                "trainType": "VIRM",
-                "numberOfSeats": 405,
-                "numberOfParts": 4,
-                "trainParts": [
-                    {
-                        "stockIdentifier": "0",
-                        "facilities": [
-                            "WIFI",
-                            "TOILET",
-                            "STILTE",
-                            "FIETS"
-                        ],
-                        "image": {
-                            "uri": "https://vt.ns-mlab.nl/v1/images/virm_4.png"
-                        }
-                    }
-                ],
-                "hasSignificantChange": false
-            },
-            "platformFeatures": [],
-            "coachCrowdForecast": []
-        },
-        {
-            "id": "HDR_0",
-            "stop": {
-                "name": "Den Helder",
-                "lng": 4.76111125946045,
-                "lat": 52.9552764892578,
-                "countryCode": "NL",
-                "uicCode": "8400311"
-            },
-            "previousStopId": [
-                "HDRZ_0"
-            ],
             "nextStopId": [],
-            "destination": "Den Helder",
+            "destination": "Amsterdam Centraal",
             "status": "DESTINATION",
             "arrivals": [
                 {
                     "product": {
-                        "number": "3056",
+                        "number": "300860",
                         "categoryCode": "IC",
                         "shortCategoryName": "Intercity",
                         "longCategoryName": "Intercity",
@@ -2695,78 +1178,31 @@
                         "type": "TRAIN"
                     },
                     "origin": {
-                        "name": "Nijmegen",
-                        "lng": 5.85222244262695,
-                        "lat": 51.8436126708984,
+                        "name": "Maastricht",
+                        "lng": 5.70555543899536,
+                        "lat": 50.8502769470215,
                         "countryCode": "NL",
-                        "uicCode": "8400470"
+                        "uicCode": "8400424"
                     },
                     "destination": {
-                        "name": "Den Helder",
-                        "lng": 4.76111125946045,
-                        "lat": 52.9552764892578,
+                        "name": "Amsterdam Centraal",
+                        "lng": 4.90027761459351,
+                        "lat": 52.3788871765137,
                         "countryCode": "NL",
-                        "uicCode": "8400311"
+                        "uicCode": "8400058"
                     },
-                    "plannedTime": "2023-07-06T18:56:00+0200",
-                    "actualTime": "2023-07-06T18:56:00+0200",
+                    "plannedTime": "2023-10-07T18:25:00+0200",
+                    "actualTime": "2023-10-07T18:25:00+0200",
                     "delayInSeconds": 0,
-                    "plannedTrack": "3",
-                    "actualTrack": "3",
+                    "plannedTrack": "5b",
+                    "actualTrack": "5b",
                     "cancelled": false,
-                    "punctuality": 90.9,
-                    "crowdForecast": "UNKNOWN",
-                    "stockIdentifiers": [
-                        "0"
-                    ]
+                    "crowdForecast": "UNKNOWN"
                 }
             ],
-            "departures": [],
-            "actualStock": {
-                "trainType": "VIRM",
-                "numberOfSeats": 405,
-                "numberOfParts": 4,
-                "trainParts": [
-                    {
-                        "stockIdentifier": "0",
-                        "facilities": [
-                            "WIFI",
-                            "TOILET",
-                            "STILTE",
-                            "FIETS"
-                        ],
-                        "image": {
-                            "uri": "https://vt.ns-mlab.nl/v1/images/virm_4.png"
-                        }
-                    }
-                ],
-                "hasSignificantChange": false
-            },
-            "plannedStock": {
-                "trainType": "VIRM",
-                "numberOfSeats": 405,
-                "numberOfParts": 4,
-                "trainParts": [
-                    {
-                        "stockIdentifier": "0",
-                        "facilities": [
-                            "WIFI",
-                            "TOILET",
-                            "STILTE",
-                            "FIETS"
-                        ],
-                        "image": {
-                            "uri": "https://vt.ns-mlab.nl/v1/images/virm_4.png"
-                        }
-                    }
-                ],
-                "hasSignificantChange": false
-            },
-            "platformFeatures": [],
-            "coachCrowdForecast": []
+            "departures": []
         }
     ],
     "allowCrowdReporting": true,
     "source": "PPV"
 }
-

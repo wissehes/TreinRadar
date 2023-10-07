@@ -1,0 +1,125 @@
+{
+   "latitude": 51.443256,
+   "longitude": 5.481119,
+   "speed": 0,
+   "direction": 257.82,
+   "station": "EHV",
+   "track": "4",
+   "platformFacilities": [
+     {
+       "paddingLeft": 0,
+       "width": 0,
+       "type": "unknown",
+       "description": ""
+     },
+     {
+       "paddingLeft": 431,
+       "width": 581,
+       "type": "PERRONLETTER",
+       "description": "A"
+     },
+     {
+       "paddingLeft": 1012,
+       "width": 667,
+       "type": "PERRONLETTER",
+       "description": "B"
+     },
+     {
+       "paddingLeft": 1102,
+       "width": 0,
+       "type": "LIFT",
+       "description": ""
+     },
+     {
+       "paddingLeft": 1199,
+       "width": 0,
+       "type": "TRAP",
+       "description": ""
+     },
+     {
+       "paddingLeft": 1679,
+       "width": 495,
+       "type": "PERRONLETTER",
+       "description": "C"
+     },
+     {
+       "paddingLeft": 1686,
+       "width": 0,
+       "type": "ROLTRAP",
+       "description": ""
+     },
+     {
+       "paddingLeft": 2175,
+       "width": 538,
+       "type": "PERRONLETTER",
+       "description": "D"
+     },
+     {
+       "paddingLeft": 2713,
+       "width": 538,
+       "type": "PERRONLETTER",
+       "description": "E"
+     },
+     {
+       "paddingLeft": 3251,
+       "width": 538,
+       "type": "PERRONLETTER",
+       "description": "F"
+     },
+     {
+       "paddingLeft": 3790,
+       "width": 646,
+       "type": "PERRONLETTER",
+       "description": "G"
+     },
+     {
+       "paddingLeft": 4435,
+       "width": 624,
+       "type": "PERRONLETTER",
+       "description": "H"
+     },
+     {
+       "paddingLeft": 5060,
+       "width": 603,
+       "type": "PERRONLETTER",
+       "description": "I"
+     },
+     {
+       "paddingLeft": 5663,
+       "width": 581,
+       "type": "PERRONLETTER",
+       "description": "J"
+     },
+     {
+       "paddingLeft": 6244,
+       "width": 581,
+       "type": "PERRONLETTER",
+       "description": "K"
+     },
+     {
+       "paddingLeft": 6825,
+       "width": 846,
+       "type": "PERRONLETTER",
+       "description": "L"
+     },
+     {
+       "paddingLeft": 7672,
+       "width": 0,
+       "type": "unknown",
+       "description": ""
+     }
+   ],
+   "images": [
+     {
+       "url": "https://vt.ns-mlab.nl/v1/images/nsr_flirt_3.png",
+       "width": 1378,
+       "height": 150
+     },
+     {
+       "url": "https://vt.ns-mlab.nl/v1/images/nsr_flirt_3.png",
+       "width": 1378,
+       "height": 150
+     }
+   ],
+   "image": "https://trein.wissehes.nl/api/image/Flirt%203%20FFF"
+ }
