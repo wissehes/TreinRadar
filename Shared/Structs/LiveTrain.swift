@@ -24,11 +24,14 @@ struct LiveTrain: Codable {
     /// Current track
     let track: String?
     
-    /// Train image URL
+    /// Train icon URL
     let image: String?
     
     /// Platform facilities for the current/next station
     let platformFacilities: [PlatformFacility]?
+    
+    /// Train images
+    let images: [LiveTrainImage]?
     
     /// Current train location
     var location: CLLocationCoordinate2D {
@@ -47,7 +50,7 @@ struct PlatformFacility: Codable {
         case platformLetter = "PERRONLETTER"
         case escalator = "ROLTRAP"
         case stairs = "TRAP"
-        case unknown
+        case unknown = "unknown"
     }
     
     /// Amount of pixels before this facility
@@ -58,4 +61,12 @@ struct PlatformFacility: Codable {
     let type: FacilityType
     /// Description of this facility, for example "A" for a platform letter
     let description: String
+}
+
+struct LiveTrainImage: Codable {
+    let url: String
+    /// Width in pixels
+    let width: Double
+    /// Height in pixels
+    let height: Double
 }

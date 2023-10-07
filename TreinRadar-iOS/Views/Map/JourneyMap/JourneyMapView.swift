@@ -66,9 +66,12 @@ struct JourneyMapView: View {
                 latitude: 52.5,
                 longitude: 5,
                 speed: 20,
-                direction: 50,
+                direction: 50, 
+                station: "UT",
                 track: nil,
-                image: "https://trein.wissehes.nl/api/image/DDZ%204"
+                image: "https://trein.wissehes.nl/api/image/DDZ%204",
+                platformFacilities: nil,
+                images: nil
             )
         )
     } else {
