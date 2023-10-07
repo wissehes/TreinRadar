@@ -18,11 +18,17 @@ struct LiveTrain: Codable {
     /// Direction as degrees from north
     let direction: Double
     
+    /// Current or next station id
+    let station: String?
+    
     /// Current track
     let track: String?
     
     /// Train image URL
     let image: String?
+    
+    /// Platform facilities for the current/next station
+    let platformFacilities: [PlatformFacility]?
     
     /// Current train location
     var location: CLLocationCoordinate2D {
@@ -33,4 +39,23 @@ struct LiveTrain: Codable {
     var speedAsMeasurement: Measurement<UnitSpeed> {
         Measurement(value: self.speed, unit: UnitSpeed.kilometersPerHour)
     }
+}
+
+struct PlatformFacility: Codable {
+    enum FacilityType: String, Codable  {
+        case lift = "LIFT"
+        case platformLetter = "PERRONLETTER"
+        case escalator = "ROLTRAP"
+        case stairs = "TRAP"
+        case unknown
+    }
+    
+    /// Amount of pixels before this facility
+    let paddingLeft: Double
+    /// The width of this item in pixels
+    let width: Double
+    /// Facility type
+    let type: FacilityType
+    /// Description of this facility, for example "A" for a platform letter
+    let description: String
 }
