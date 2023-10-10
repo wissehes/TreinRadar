@@ -25,12 +25,9 @@ extension StationType {
 
 @available(iOS 17.0, *)
 struct StationAnnotations: MapContent {
-//    typealias Body = Self.Body÷
-    
+
     @EnvironmentObject var stationManager: StationsManager
-    
-    @Binding var item: SelectedMapItem?
-    
+        
     var body: some MapContent {
         ForEach(stationManager.stations?.filter { $0.land == .nl } ?? [], content: stationAnnotation)
     }
@@ -41,10 +38,7 @@ struct StationAnnotations: MapContent {
                 .fill(station.stationType.annotationColor)
                 .overlay(Image(systemName: "tram.circle").foregroundStyle(.white))
                 .frame(width: 25, height: 25, alignment: .center)
-                .onTapGesture {
-                    item = .station(station)
-                }
-        }
+        }.tag(SelectedMapItem.station(station))
     }
 }
 
