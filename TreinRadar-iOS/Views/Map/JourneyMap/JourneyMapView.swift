@@ -44,7 +44,7 @@ struct JourneyMapView: View {
     @MapContentBuilder
     var trainMarker: some MapContent {
         if let live = liveTrain, let image = live.image {
-            Annotation(formattedSpeed ?? "", coordinate: live.location) {
+            Annotation(formattedSpeed ?? "", coordinate: live.coordinate) {
                 AsyncImage(url: URL(string: image)) { image in
                     image
                         .resizable()
@@ -67,11 +67,13 @@ struct JourneyMapView: View {
                 longitude: 5,
                 speed: 20,
                 direction: 50, 
+                type: .spr,
+                journeyId: "0",
                 station: "UT",
                 track: nil,
-                image: "https://trein.wissehes.nl/api/image/DDZ%204",
                 platformFacilities: nil,
-                images: nil
+                images: nil,
+                image: "https://trein.wissehes.nl/api/image/DDZ%204"
             )
         )
     } else {
