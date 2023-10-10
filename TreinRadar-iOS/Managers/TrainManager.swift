@@ -10,6 +10,8 @@ import CoreLocation
 import SwiftUI
 import Alamofire
 
+typealias TrainWithDistance = (LiveTrain, Double)
+
 /// Train detection state
 enum TrainDetectionState: Equatable {
     static func == (lhs: TrainDetectionState, rhs: TrainDetectionState) -> Bool {
@@ -48,7 +50,7 @@ final class TrainManager: ObservableObject {
     
     static let shared = TrainManager()
 
-    @Published var trains: [Train] = []
+    @Published var trains: [LiveTrain] = []
     @Published var trainDetection: TrainDetectionState = .detecting
     @Published var updateTrains = Timer.publish(every: 10, on: .main, in: .common).autoconnect()
     
@@ -67,13 +69,8 @@ final class TrainManager: ObservableObject {
         print("Getting trains...")
         do {
             let data = try await API.shared.getLiveTrains()
-            DispatchQueue.main.async { withAnimation { self.trains = data } }
+            DispatchQueue.main.async { self.trains = data }
         } catch { print(error) }
-    }
-    
-    /// Get a specific train by journey ID
-    func getTrain(_ journeyId: String) -> Train? {
-        return trains.first { $0.ritID == journeyId }
     }
     
     @MainActor
@@ -87,10 +84,11 @@ final class TrainManager: ObservableObject {
         
         // Calculate distance to each train and then sort by distance.
         let nearbyTrains: [TrainWithDistance] = trains.map { train in
-            let location = CLLocation(latitude: train.lat, longitude: train.lng)
+            let location = train.location
             let distance = myLocation.distance(from: location)
-            return .init(train, location: location, distance: distance)
-        }.sorted { $0.distance < $1.distance }
+//            return .init(train, location: location, distance: distance)
+            return (train, distance)
+        }.sorted { $0.1 < $1.1 }
         
         /// Get the first train, the one closest by the user
         guard let currentTrain = nearbyTrains.first else {
@@ -99,14 +97,14 @@ final class TrainManager: ObservableObject {
         }
         
         /// Make sure that the current train is less than 500 meters away.
-        guard currentTrain.distance < 500 else {
+        guard currentTrain.1 < 500 else {
             await setDetectionState(.noTrainDetected)
             return
         }
         
         // Fetch the current journey and set the state.
         do {
-            let currentJourney = try await API.shared.getJourney(journeyId: currentTrain.train.ritID)
+            let currentJourney = try await API.shared.getJourney(journeyId: currentTrain.0.journeyId)
             let detectedTrain = DetectedTrain(train: currentTrain, journey: currentJourney)
             
             await setDetectionState(.train(detectedTrain))

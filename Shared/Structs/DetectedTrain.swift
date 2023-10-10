@@ -12,7 +12,7 @@ import CoreLocation
  Detected train
  */
 struct DetectedTrain {
-    let train: Train
+    let train: LiveTrain
     let journey: JourneyPayload
     
     /// Distance in meters
@@ -26,7 +26,7 @@ struct DetectedTrain {
         return formatter.string(from: distanceInMeters)
     }
     
-    init(train: Train, journey: JourneyPayload, distance: Double, location: CLLocation) {
+    init(train: LiveTrain, journey: JourneyPayload, distance: Double, location: CLLocation) {
         self.train = train
         self.journey = journey
         self.distance = distance
@@ -34,9 +34,9 @@ struct DetectedTrain {
     }
     
     init(train: TrainWithDistance, journey: JourneyPayload) {
-        self.train = train.train
+        self.train = train.0
         self.journey = journey
-        self.location = train.location
-        self.distance = train.distance
+        self.location = train.0.location
+        self.distance = train.1
     }
 }

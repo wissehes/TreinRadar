@@ -30,6 +30,7 @@ final class Endpoints {
         
     static let nearbyTrains = "\(myBaseURL)/api/watchos/nearby"
     static let liveTrains = "\(myBaseURL)/api/trains/live"
+    static let allLiveTrains = liveTrains + "/all"
 }
 
 final class API {
@@ -63,9 +64,13 @@ final class API {
     }()
     
     /// Get all live trains
-    func getLiveTrains() async throws -> [Train] {
-        let data = try await client.request(Endpoints.currentVehicles).serializingDecodable(CurrentVehicles.self).value
-        return data.payload.treinen
+    func getLiveTrains() async throws -> [LiveTrain] {
+        let data = try await client.request(Endpoints.allLiveTrains)
+            .validate()
+            .serializingDecodable([LiveTrain].self)
+            .value
+        
+        return data
     }
     
     /// Get a single live train
