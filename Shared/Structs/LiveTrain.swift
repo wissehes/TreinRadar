@@ -8,34 +8,46 @@
 import Foundation
 import CoreLocation
 
-struct LiveTrain: Codable {
+struct LiveTrain: Codable, Hashable, Identifiable {
+    var id: String { self.journeyId }
+    
+    static func == (lhs: LiveTrain, rhs: LiveTrain) -> Bool {
+        lhs.id == rhs.id
+    }
+    
     let latitude: Double
     let longitude: Double
     
     /// Speed in km/h
     let speed: Double
-    
     /// Direction as degrees from north
     let direction: Double
     
+    /// Train type (IC, SPR, ARR)
+    let type: TrainType
+    /// Journey id
+    let journeyId: String
+    
     /// Current or next station id
     let station: String?
-    
     /// Current track
     let track: String?
+    /// Platform facilities for the current/next station
+    let platformFacilities: [PlatformFacility]?
+    /// Train images
+    let images: [LiveTrainImage]?
     
     /// Train icon URL
     let image: String?
     
-    /// Platform facilities for the current/next station
-    let platformFacilities: [PlatformFacility]?
+    /// Train location
+    var location: CLLocation {
+        CLLocation(latitude: latitude, longitude: longitude)
+    }
     
-    /// Train images
-    let images: [LiveTrainImage]?
-    
-    /// Current train location
-    var location: CLLocationCoordinate2D {
-        CLLocationCoordinate2D(latitude: self.latitude, longitude: self.longitude)
+    /// Train coordinate
+    var coordinate: CLLocationCoordinate2D {
+        location.coordinate
     }
     
     /// Speed as `Measurement`
@@ -44,8 +56,8 @@ struct LiveTrain: Codable {
     }
 }
 
-struct PlatformFacility: Codable {
-    enum FacilityType: String, Codable  {
+struct PlatformFacility: Codable, Hashable {
+    enum FacilityType: String, Codable, Hashable  {
         case lift = "LIFT"
         case platformLetter = "PERRONLETTER"
         case escalator = "ROLTRAP"
@@ -63,7 +75,7 @@ struct PlatformFacility: Codable {
     let description: String
 }
 
-struct LiveTrainImage: Codable {
+struct LiveTrainImage: Codable, Hashable {
     let url: String
     /// Width in pixels
     let width: Double

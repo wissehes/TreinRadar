@@ -41,12 +41,3 @@ struct Train: Codable, Identifiable, Hashable {
         case lat, lng, snelheid, richting, horizontaleNauwkeurigheid, type, bron, materieel
     }
 }
-
-/**
- The type of a train.
- */
-enum TrainType: String, Codable {
-    case arr = "ARR"
-    case ic = "IC"
-    case spr = "SPR"
-}

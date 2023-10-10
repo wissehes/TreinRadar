@@ -42,3 +42,13 @@ enum MessageStyle: String, Codable, CaseIterable {
     case info = "INFO"
     case warning = "WARNING"
 }
+
+
+/**
+ The type of a train.
+ */
+enum TrainType: String, Codable, Hashable {
+    case arr = "ARR"
+    case ic = "IC"
+    case spr = "SPR"
+}
