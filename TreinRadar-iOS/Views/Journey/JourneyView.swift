@@ -204,20 +204,8 @@ struct JourneyView: View {
     }
     
     var trainParts: some View {
-        VStack(alignment: .leading) {
-            ScrollView(.horizontal) {
-                HStack(alignment: .center, spacing: 2.5) {
-                    ForEach(vm.journey?.currentOrNextStop?.actualStock?.trainParts ?? [], id: \.stockIdentifier) { part in
-                        AsyncImage(url: URL(string: part.image?.uri ?? "")) { image in
-                            image.resizable().scaledToFit()
-                        } placeholder: {
-                            ProgressView()
-                        }.frame(height: 60)
-                            .padding([.leading, .trailing])
-                    }
-                }
-            }
-        }.listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
+        TrainPartsView(journey: vm.journey, live: vm.live)
+            .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
     }
     
     func stopItem(_ stop: Stop) -> some View {
@@ -291,7 +279,7 @@ struct JourneyView: View {
 struct JourneyView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            JourneyView(journeyId: "6948")
+            JourneyView(journeyId: "2968")
         }
         
         StationsSearchView()
