@@ -10,26 +10,6 @@ import SwiftUI
 import CoreLocation
 import Alamofire
 
-struct TrainWithDistance {
-    let train: Train
-    
-    var location: CLLocation
-    var distance: Double
-    
-    var formattedDistance: String {
-        let distanceInMeters = Measurement(value: self.distance, unit: UnitLength.meters)
-        let formatter = MeasurementFormatter.myFormatter
-        
-        return formatter.string(from: distanceInMeters)
-    }
-    
-    init(_ train: Train, location: CLLocation, distance: Double) {
-        self.train = train
-        self.location = location
-        self.distance = distance
-    }
-}
-
 final class TravelInfoViewModel: ObservableObject {
     
     @Published var stockNumber = ""
