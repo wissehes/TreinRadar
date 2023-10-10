@@ -37,20 +37,20 @@ fileprivate enum ChosenMapType: CaseIterable {
     }
 }
 
-enum SelectedMapItem: Identifiable, Equatable {
+enum SelectedMapItem: Identifiable, Equatable, Hashable {
     static func == (lhs: SelectedMapItem, rhs: SelectedMapItem) -> Bool {
         lhs.id == rhs.id
     }
     
     case station(FullStation)
-    case train(Train)
+    case train(LiveTrain)
     
     var id: String {
         switch self {
         case .station(let fullStation):
             fullStation.id
         case .train(let train):
-            train.ritID
+            train.id
         }
     }
 }
@@ -64,18 +64,31 @@ struct MapView: View {
     @State private var selectedItem: SelectedMapItem?
     
     @State private var position: MapCameraPosition = .region(initialPosition)
+    @State private var mapStyle: Int = 0
     
     @EnvironmentObject var trainManager: TrainManager
     
+    var selectedMapStyle: MapStyle {
+        return switch mapStyle {
+        case 0: .standard(pointsOfInterest: [.publicTransport, .airport])
+        case 1: .hybrid
+        case 2: .imagery
+            
+        default: .standard(pointsOfInterest: [.publicTransport, .airport])
+        }
+    }
+    
     var body: some View {
         NavigationStack {
-            Map(position: $position) {
+            Map(position: $position, selection: $selectedItem) {
+                
+                UserAnnotation()
                 
                 switch selectedMap {
                 case .stations:
-                    StationAnnotations(item: $selectedItem)
+                    StationAnnotations()
                 case .trains:
-                    TrainAnnotations(item: $selectedItem)
+                    TrainAnnotations()
                     
                 default:
                     EmptyMapContent()
@@ -88,7 +101,7 @@ struct MapView: View {
                 }
                 
             }
-            .mapStyle(.standard(pointsOfInterest: [.publicTransport, .airport]))
+            .mapStyle(selectedMapStyle)
             .mapControls {
                 MapUserLocationButton()
                 MapCompass()
@@ -100,32 +113,6 @@ struct MapView: View {
             }
             .navigationTitle("Radar")
             .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .bottomBar) {
-                    Picker("Kaarttype", selection: $selectedMap) {
-                        ForEach(ChosenMapType.allCases, id: \.hashValue) { item in
-                            Text(item.localized)
-                                .tag(item)
-                        }
-                    }.pickerStyle(.segmented)
-                }
-                
-                if selectedMap == .trains {
-                    
-                    ToolbarItem(placement: .primaryAction) {
-                        Button {
-                            Task { await trainManager.getData() }
-                        } label: {
-                            Label("Ververs", systemImage: "arrow.clockwise")
-                                .labelStyle(.iconOnly)
-                        }
-                    }
-                    
-                    ToolbarItem(placement: .primaryAction) {
-                        trainsMenu
-                    }
-                }
-            }
             .task {
                 await loadTrainTrackData()
             }
@@ -142,6 +129,31 @@ struct MapView: View {
                 
                 Task { await trainManager.getData() }
             }
+            .toolbar {
+                ToolbarItem(placement: .bottomBar) {
+                    Picker("Kaarttype", selection: $selectedMap) {
+                        ForEach(ChosenMapType.allCases, id: \.hashValue) { item in
+                            Text(item.localized)
+                                .tag(item)
+                        }
+                    }.pickerStyle(.segmented)
+                }
+                
+                if selectedMap == .trains {
+                    ToolbarItem(placement: .primaryAction) {
+                        Button {
+                            Task { await trainManager.getData() }
+                        } label: {
+                            Label("Ververs", systemImage: "arrow.clockwise")
+                                .labelStyle(.iconOnly)
+                        }
+                    }
+                }
+                
+                ToolbarItem(placement: .primaryAction) {
+                    settingsMenu
+                }
+            }
         }
     }
     
@@ -150,7 +162,7 @@ struct MapView: View {
             Group {
                 switch selectedItem {
                 case .train(let train):
-                    JourneyView(journeyId: train.ritID)
+                    JourneyView(journeyId: train.journeyId)
                 case .station(let station):
                     StationView(station: station)
                 }
@@ -185,11 +197,27 @@ struct MapView: View {
         } catch { print(error) }
     }
     
-    var trainsMenu: some View {
+    var settingsMenu: some View {
         Menu {
-            Defaults.Toggle(key: .trainsShouldRefetch) {
-                Label("Automatisch verversen", systemImage: "clock.arrow.circlepath")
+            Picker("Weergave", selection: $mapStyle) {
+                Label("Standaard", systemImage: "map")
+                    .tag(0)
+                Label("Hybride", systemImage: "globe")
+                    .tag(1)
+                Label("Satelliet", systemImage: "globe.europe.africa.fill")
+                    .tag(2)
+            }.pickerStyle(.menu)
+            
+            if selectedMap == .trains {
+                Defaults.Toggle(key: .trainsShouldRefetch) {
+                    Label("Automatisch verversen", systemImage: "clock.arrow.circlepath")
+                }
+                
+                Defaults.Toggle(key: .rotateTrainIcons) {
+                    Label("Draai treinen naar richting", systemImage: "location.north.line")
+                }
             }
+            
         } label: {
             Label("Menu", systemImage: "ellipsis")
                 .labelStyle(.iconOnly)
