@@ -164,6 +164,16 @@
         }
       }
     },
+    "Draai treinen naar richting" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rotate trains"
+          }
+        }
+      }
+    },
     "Drukte: %@" : {
       "localizations" : {
         "en" : {
@@ -250,6 +260,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Current station: **%@**"
+          }
+        }
+      }
+    },
+    "Hybride" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hybrid"
           }
         }
       }
@@ -564,6 +584,16 @@
         }
       }
     },
+    "Satelliet" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Satellite"
+          }
+        }
+      }
+    },
     "Sla op" : {
       "localizations" : {
         "en" : {
@@ -650,6 +680,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Platform: %@"
+          }
+        }
+      }
+    },
+    "Standaard" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Standard"
           }
         }
       }
@@ -930,6 +970,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Warnings"
+          }
+        }
+      }
+    },
+    "Weergave" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Map"
           }
         }
       }
