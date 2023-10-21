@@ -14,7 +14,7 @@ struct JourneyResponse: Codable {
 }
 
 // MARK: - Payload
-struct JourneyPayload: Codable, Equatable {
+struct JourneyPayload: Codable, Equatable, Hashable {
     static func == (lhs: JourneyPayload, rhs: JourneyPayload) -> Bool {
         lhs.productNumbers == rhs.productNumbers
     }
@@ -27,13 +27,17 @@ struct JourneyPayload: Codable, Equatable {
 }
 
 // MARK: - JourneyNote
-struct JourneyNote: Codable {
+struct JourneyNote: Codable, Hashable {
     let text, type: String
     let noteType: NoteType
 }
 
 // MARK: - Stop
-struct Stop: Codable {
+struct Stop: Codable, Hashable {
+    static func == (lhs: Stop, rhs: Stop) -> Bool {
+        lhs.id == rhs.id
+    }
+    
     let id: String
     let stop: StopInfo
     let previousStopID, nextStopID: [String]
@@ -53,7 +57,7 @@ struct Stop: Codable {
 }
 
 // MARK: - Stock
-struct Stock: Codable {
+struct Stock: Codable, Hashable {
     let trainType: String?
     let numberOfSeats, numberOfParts: Int?
     let trainParts: [TrainPart]
@@ -61,13 +65,13 @@ struct Stock: Codable {
 }
 
 // MARK: - TrainPart
-struct TrainPart: Codable {
+struct TrainPart: Codable, Hashable {
     let stockIdentifier: String
     let facilities: [Facility]
     let image: TrainImage?
 }
 
-enum Facility: String, Codable {
+enum Facility: String, Codable, Hashable {
     case fiets = "FIETS"
     case stilte = "STILTE"
     case stroom = "STROOM"
@@ -82,7 +86,7 @@ struct TrainImage: Codable, Hashable {
 }
 
 // MARK: - ArrivalOrDeparture
-struct ArrivalOrDeparture: Codable {
+struct ArrivalOrDeparture: Codable, Hashable {
     let product: Product
     let origin: StopInfo
     let destination: StopInfo?
@@ -95,7 +99,7 @@ struct ArrivalOrDeparture: Codable {
     let punctuality: Double?
 }
 
-enum CrowdForecast: String, Codable {
+enum CrowdForecast: String, Codable, Hashable {
     case low = "LOW"
     case medium = "MEDIUM"
     case HIGH = "HIGH"
@@ -114,7 +118,7 @@ struct StopInfo: Codable, Hashable {
     }
 }
 
-enum StopStatus: String, Codable {
+enum StopStatus: String, Codable, Hashable {
     case destination = "DESTINATION"
     case origin = "ORIGIN"
     case passing = "PASSING"
@@ -123,7 +127,7 @@ enum StopStatus: String, Codable {
 }
 
 // MARK: NoteType
-enum NoteType: String, Codable {
+enum NoteType: String, Codable, Hashable {
     case unknown = "UNKNOWN"
     case attribute = "ATTRIBUTE"
     case infotext = "INFOTEXT"
