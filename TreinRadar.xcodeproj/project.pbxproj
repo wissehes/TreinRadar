@@ -61,6 +61,14 @@
 		89A48ECB2A557533006F7A4E /* departures.json in Resources */ = {isa = PBXBuildFile; fileRef = 89A48ECA2A557533006F7A4E /* departures.json */; };
 		89A48ECD2A557562006F7A4E /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A48ECC2A557562006F7A4E /* MockData.swift */; };
 		89A5FEA32AE407EF0053D1E6 /* JourneyAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A5FEA22AE407EF0053D1E6 /* JourneyAttributes.swift */; };
+		89A5FEAA2AE4081F0053D1E6 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89A5FEA92AE4081F0053D1E6 /* WidgetKit.framework */; };
+		89A5FEAC2AE4081F0053D1E6 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89A5FEAB2AE4081F0053D1E6 /* SwiftUI.framework */; };
+		89A5FEAF2AE4081F0053D1E6 /* TreinRadarWidgetsBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A5FEAE2AE4081F0053D1E6 /* TreinRadarWidgetsBundle.swift */; };
+		89A5FEB12AE4081F0053D1E6 /* TreinRadarWidgetsLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A5FEB02AE4081F0053D1E6 /* TreinRadarWidgetsLiveActivity.swift */; };
+		89A5FEB32AE4081F0053D1E6 /* TreinRadarWidgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A5FEB22AE4081F0053D1E6 /* TreinRadarWidgets.swift */; };
+		89A5FEB52AE4081F0053D1E6 /* AppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A5FEB42AE4081F0053D1E6 /* AppIntent.swift */; };
+		89A5FEB72AE408220053D1E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89A5FEB62AE408220053D1E6 /* Assets.xcassets */; };
+		89A5FEBB2AE408220053D1E6 /* TreinRadarWidgetsExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 89A5FEA82AE4081F0053D1E6 /* TreinRadarWidgetsExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		89A8A7C72A7FCBC80085D127 /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A8A7C62A7FCBC80085D127 /* Formatters.swift */; };
 		89A8A7C82A7FCBC80085D127 /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A8A7C62A7FCBC80085D127 /* Formatters.swift */; };
 		89A8A7CB2A7FCBE60085D127 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 89A8A7CA2A7FCBE60085D127 /* Alamofire */; };
@@ -147,6 +155,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		89A5FEB92AE408220053D1E6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 893AC2502A3B42AA00D621FE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 89A5FEA72AE4081F0053D1E6;
+			remoteInfo = TreinRadarWidgetsExtension;
+		};
 		89EDD7002A7FBDC20035C238 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 893AC2502A3B42AA00D621FE /* Project object */;
@@ -157,6 +172,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		89A5FEBC2AE408220053D1E6 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				89A5FEBB2AE408220053D1E6 /* TreinRadarWidgetsExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		89EDD7062A7FBDC20035C238 /* Embed Watch Content */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -224,6 +250,15 @@
 		89A48ECA2A557533006F7A4E /* departures.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = departures.json; sourceTree = "<group>"; };
 		89A48ECC2A557562006F7A4E /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 		89A5FEA22AE407EF0053D1E6 /* JourneyAttributes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JourneyAttributes.swift; sourceTree = "<group>"; };
+		89A5FEA82AE4081F0053D1E6 /* TreinRadarWidgetsExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TreinRadarWidgetsExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		89A5FEA92AE4081F0053D1E6 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		89A5FEAB2AE4081F0053D1E6 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		89A5FEAE2AE4081F0053D1E6 /* TreinRadarWidgetsBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreinRadarWidgetsBundle.swift; sourceTree = "<group>"; };
+		89A5FEB02AE4081F0053D1E6 /* TreinRadarWidgetsLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreinRadarWidgetsLiveActivity.swift; sourceTree = "<group>"; };
+		89A5FEB22AE4081F0053D1E6 /* TreinRadarWidgets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreinRadarWidgets.swift; sourceTree = "<group>"; };
+		89A5FEB42AE4081F0053D1E6 /* AppIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIntent.swift; sourceTree = "<group>"; };
+		89A5FEB62AE408220053D1E6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		89A5FEB82AE408220053D1E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		89A8A7C62A7FCBC80085D127 /* Formatters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Formatters.swift; sourceTree = "<group>"; };
 		89ACF2F02A470F4A00A4AC57 /* Stops+Geojson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Stops+Geojson.swift"; sourceTree = "<group>"; };
 		89ACF2F22A4714FA00A4AC57 /* StationAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationAnnotation.swift; sourceTree = "<group>"; };
@@ -287,6 +322,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		89A5FEA52AE4081F0053D1E6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				89A5FEAC2AE4081F0053D1E6 /* SwiftUI.framework in Frameworks */,
+				89A5FEAA2AE4081F0053D1E6 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		89EDD6F22A7FBDBE0035C238 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -318,6 +362,7 @@
 				89EDD7072A7FBE140035C238 /* Shared */,
 				893AC25A2A3B42AA00D621FE /* TreinRadar-iOS */,
 				89EDD6F62A7FBDBE0035C238 /* TreinRadar-watchOS */,
+				89A5FEAD2AE4081F0053D1E6 /* TreinRadarWidgets */,
 				893AC2592A3B42AA00D621FE /* Products */,
 				89A8A7C92A7FCBE60085D127 /* Frameworks */,
 			);
@@ -328,6 +373,7 @@
 			children = (
 				893AC2582A3B42AA00D621FE /* TreinRadar-iOS.app */,
 				89EDD6F52A7FBDBE0035C238 /* TreinRadar.app */,
+				89A5FEA82AE4081F0053D1E6 /* TreinRadarWidgetsExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -568,9 +614,24 @@
 			path = LiveActivity;
 			sourceTree = "<group>";
 		};
+		89A5FEAD2AE4081F0053D1E6 /* TreinRadarWidgets */ = {
+			isa = PBXGroup;
+			children = (
+				89A5FEAE2AE4081F0053D1E6 /* TreinRadarWidgetsBundle.swift */,
+				89A5FEB02AE4081F0053D1E6 /* TreinRadarWidgetsLiveActivity.swift */,
+				89A5FEB22AE4081F0053D1E6 /* TreinRadarWidgets.swift */,
+				89A5FEB42AE4081F0053D1E6 /* AppIntent.swift */,
+				89A5FEB62AE408220053D1E6 /* Assets.xcassets */,
+				89A5FEB82AE408220053D1E6 /* Info.plist */,
+			);
+			path = TreinRadarWidgets;
+			sourceTree = "<group>";
+		};
 		89A8A7C92A7FCBE60085D127 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				89A5FEA92AE4081F0053D1E6 /* WidgetKit.framework */,
+				89A5FEAB2AE4081F0053D1E6 /* SwiftUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -709,11 +770,13 @@
 				893AC2552A3B42AA00D621FE /* Frameworks */,
 				893AC2562A3B42AA00D621FE /* Resources */,
 				89EDD7062A7FBDC20035C238 /* Embed Watch Content */,
+				89A5FEBC2AE408220053D1E6 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				89EDD7012A7FBDC20035C238 /* PBXTargetDependency */,
+				89A5FEBA2AE408220053D1E6 /* PBXTargetDependency */,
 			);
 			name = "TreinRadar-iOS";
 			packageProductDependencies = (
@@ -724,6 +787,23 @@
 			productName = TreinRadar;
 			productReference = 893AC2582A3B42AA00D621FE /* TreinRadar-iOS.app */;
 			productType = "com.apple.product-type.application";
+		};
+		89A5FEA72AE4081F0053D1E6 /* TreinRadarWidgetsExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 89A5FEBF2AE408220053D1E6 /* Build configuration list for PBXNativeTarget "TreinRadarWidgetsExtension" */;
+			buildPhases = (
+				89A5FEA42AE4081F0053D1E6 /* Sources */,
+				89A5FEA52AE4081F0053D1E6 /* Frameworks */,
+				89A5FEA62AE4081F0053D1E6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TreinRadarWidgetsExtension;
+			productName = TreinRadarWidgetsExtension;
+			productReference = 89A5FEA82AE4081F0053D1E6 /* TreinRadarWidgetsExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 		89EDD6F42A7FBDBE0035C238 /* TreinRadar-watchOS */ = {
 			isa = PBXNativeTarget;
@@ -761,6 +841,9 @@
 					893AC2572A3B42AA00D621FE = {
 						CreatedOnToolsVersion = 15.0;
 					};
+					89A5FEA72AE4081F0053D1E6 = {
+						CreatedOnToolsVersion = 15.0.1;
+					};
 					89EDD6F42A7FBDBE0035C238 = {
 						CreatedOnToolsVersion = 15.0;
 					};
@@ -788,6 +871,7 @@
 			targets = (
 				893AC2572A3B42AA00D621FE /* TreinRadar-iOS */,
 				89EDD6F42A7FBDBE0035C238 /* TreinRadar-watchOS */,
+				89A5FEA72AE4081F0053D1E6 /* TreinRadarWidgetsExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -807,6 +891,14 @@
 				893AC2632A3B42AB00D621FE /* Preview Assets.xcassets in Resources */,
 				89A48ECB2A557533006F7A4E /* departures.json in Resources */,
 				893AC2602A3B42AB00D621FE /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		89A5FEA62AE4081F0053D1E6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				89A5FEB72AE408220053D1E6 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -904,6 +996,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		89A5FEA42AE4081F0053D1E6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				89A5FEB12AE4081F0053D1E6 /* TreinRadarWidgetsLiveActivity.swift in Sources */,
+				89A5FEB52AE4081F0053D1E6 /* AppIntent.swift in Sources */,
+				89A5FEAF2AE4081F0053D1E6 /* TreinRadarWidgetsBundle.swift in Sources */,
+				89A5FEB32AE4081F0053D1E6 /* TreinRadarWidgets.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		89EDD6F12A7FBDBE0035C238 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -956,6 +1059,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		89A5FEBA2AE408220053D1E6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 89A5FEA72AE4081F0053D1E6 /* TreinRadarWidgetsExtension */;
+			targetProxy = 89A5FEB92AE408220053D1E6 /* PBXContainerItemProxy */;
+		};
 		89EDD7012A7FBDC20035C238 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 89EDD6F42A7FBDBE0035C238 /* TreinRadar-watchOS */;
@@ -1161,6 +1269,62 @@
 			};
 			name = Release;
 		};
+		89A5FEBD2AE408220053D1E6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = U3CH3X8GK4;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TreinRadarWidgets/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = TreinRadarWidgets;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = nl.wissehes.TreinRadar.TreinRadarWidgets;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		89A5FEBE2AE408220053D1E6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = U3CH3X8GK4;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TreinRadarWidgets/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = TreinRadarWidgets;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = nl.wissehes.TreinRadar.TreinRadarWidgets;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		89EDD7042A7FBDC20035C238 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1244,6 +1408,15 @@
 			buildConfigurations = (
 				893AC2672A3B42AB00D621FE /* Debug */,
 				893AC2682A3B42AB00D621FE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		89A5FEBF2AE408220053D1E6 /* Build configuration list for PBXNativeTarget "TreinRadarWidgetsExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				89A5FEBD2AE408220053D1E6 /* Debug */,
+				89A5FEBE2AE408220053D1E6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
