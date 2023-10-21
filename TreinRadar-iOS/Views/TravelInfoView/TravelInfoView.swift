@@ -14,9 +14,11 @@ struct TravelInfoView: View {
     @EnvironmentObject var stationsManager: StationsManager
     
     var body: some View {
-        NavigationStack(path: $vm.presentedJourneys) {
+        NavigationStack(path: $vm.navigationPath) {
             List {
-                searchTrains
+                lookupTrainNumber
+                
+                LookupJourney(path: $vm.navigationPath)
                 
                 if locationManager.permissionStatus == .authorizedWhenInUse {
                     trainDetection
@@ -45,7 +47,7 @@ struct TravelInfoView: View {
         }
     }
     
-    var searchTrains: some View {
+    var lookupTrainNumber: some View {
         Section("Trein opzoeken") {
             TextField("Treinstelnummer", text: $vm.stockNumber)
                 .keyboardType(.numberPad)

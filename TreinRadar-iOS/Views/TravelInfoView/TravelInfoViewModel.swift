@@ -13,8 +13,10 @@ import Alamofire
 final class TravelInfoViewModel: ObservableObject {
     
     @Published var stockNumber = ""
+    @Published var journeyId = ""
+    
     @Published var isLoading = false
-    @Published var presentedJourneys = NavigationPath()
+    @Published var navigationPath = NavigationPath()
     
     @Published var currentTrain: TrainWithDistance?
     @Published var currentJourney: JourneyPayload?
@@ -33,7 +35,7 @@ final class TravelInfoViewModel: ObservableObject {
         do {
             let id = try await API.shared.getJourneyFromStock(stockNumber)
             withAnimation {
-                self.presentedJourneys.append(id)
+                self.navigationPath.append(id)
             }
         } catch let error as AFError {
             self.error = error
