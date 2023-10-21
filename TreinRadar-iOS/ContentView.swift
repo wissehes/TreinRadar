@@ -22,7 +22,7 @@ struct ContentView: View {
     var body: some View {
         TabView(selection: $selectedTab) {
             TravelInfoView()
-                .tabItem { Label("Planner", systemImage: "clock.badge.checkmark") }
+                .tabItem { Label("Home", systemImage: "clock.badge.checkmark") }
                 .tag(SelectedTab.travelInfo)
             
             if #available(iOS 17.0, *) {
