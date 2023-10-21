@@ -254,6 +254,16 @@
         }
       }
     },
+    "Home" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Home"
+          }
+        }
+      }
+    },
     "Huidig station: **%@**" : {
       "localizations" : {
         "en" : {
@@ -544,22 +554,22 @@
         }
       }
     },
-    "Planner" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Planner"
-          }
-        }
-      }
-    },
     "Radar" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Radar"
+          }
+        }
+      }
+    },
+    "Reis opzoeken" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Look up journey"
           }
         }
       }
@@ -580,6 +590,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Orientation:"
+          }
+        }
+      }
+    },
+    "Ritnummer" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Journey number"
           }
         }
       }
