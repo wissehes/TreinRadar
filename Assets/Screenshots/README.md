@@ -13,3 +13,4 @@ This directory contains the screenshots used for the App Store page.
 3. The trains map view
 4. Station view (Den Haag Centraal)
 5. A Journey view
+6. Journey map view (if possible)
