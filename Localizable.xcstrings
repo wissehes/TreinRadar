@@ -154,6 +154,26 @@
         }
       }
     },
+    "Deze rit kon niet gevonden worden" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This journey could not be found"
+          }
+        }
+      }
+    },
+    "Deze rit kon niet gevonden worden, check het ritnummer nog eens en probeer het opnieuw." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This journey could not be found, check the journey code and try again."
+          }
+        }
+      }
+    },
     "Deze trein" : {
       "localizations" : {
         "en" : {
