@@ -11,6 +11,7 @@ import SwiftUI
 final class StationViewModel: ObservableObject {
     
     @Published var station: FullStation?
+    @Published var isLoading = true
     
     @Published var departures: [Departure]?
     @Published var arrivals: [Arrival]?
@@ -26,14 +27,19 @@ final class StationViewModel: ObservableObject {
     
     @MainActor
     func initialise(station: any Station) async {
+        isLoading = true
+        defer {
+            isLoading = false
+        }
+        
         await StationsManager.shared.getData()
         
-        if self.station == nil {
+//        if self.station == nil {
             guard let foundStation = StationsManager.shared.getStation(code: .code(station.code)) else { return }
             withAnimation {
                 self.station = foundStation
             }
-        }
+//        }
         
         await self.fetchHeaderImage(station)        
         await self.fetchDepartures(station)
@@ -67,6 +73,9 @@ final class StationViewModel: ObservableObject {
             withAnimation {
                 self.imageData = data
             }
-        } catch { print(error) }
+        } catch {
+            self.imageData = nil
+            print(error)
+        }
     }
 }
