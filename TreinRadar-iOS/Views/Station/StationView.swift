@@ -36,13 +36,17 @@ struct StationView: View {
     var body: some View {
         ZStack {
             
-            if let station = vm.station {
+            if vm.isLoading {
+                LoadingView()
+            } else if let station = vm.station {
                 listView(station)
             } else {
                 LoadingView()
             }
             
         }
+        .animation(.easeInOut, value: vm.isLoading)
+        .navigationTitle(station.name)
         .navigationDestination(for: Departure.self) { departure in
             JourneyView(journeyId: departure.product.number)
         }
@@ -62,7 +66,7 @@ struct StationView: View {
             }
         }
         .headerProminence(.increased)
-        .task {
+        .task(id: station.code) {
             await vm.initialise(station: self.station)
         }
         
@@ -117,7 +121,8 @@ struct StationView: View {
                     }
                 }
             }
-        }.navigationTitle(station.namen.lang)
+        }
+        .listStyle(.plain)
             .toolbar {
                 ToolbarItem(placement: .primaryAction) {
                     Button(isSaved ? "Verwijder uit favorieten" : "Voeg toe aan favorieten", systemImage: "star") {
