@@ -16,13 +16,11 @@ struct NearbyStationsView: View {
     }
     
     func stationItem(station: StationWithDistance) -> some View {
-        NavigationLink(value: station) {
-            VStack(alignment: .leading) {
-                Text(station.name)
-                Text(station.fDistance())
-                    .font(.subheadline)
-            }
-        }
+        VStack(alignment: .leading) {
+            Text(station.name)
+            Text(station.fDistance())
+                .font(.subheadline)
+        }.tag(SomeStation(station, source: .nearby))
     }
 }
 

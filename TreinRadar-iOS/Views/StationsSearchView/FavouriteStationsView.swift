@@ -17,17 +17,15 @@ struct FavouriteStationsView: View {
     }
     
     func stationItem(station: SavedStation) -> some View {
-        NavigationLink(value: station) {
-            VStack(alignment: .leading) {
-                Text(station.name)
-            }.swipeActions {
-                Button(role: .destructive) {
-                    removeStation(station)
-                } label: {
-                    Label("Uit favorieten verwijderen", systemImage: "star.slash")
-                }
+        VStack(alignment: .leading) {
+            Text(station.name)
+        }.swipeActions {
+            Button(role: .destructive) {
+                removeStation(station)
+            } label: {
+                Label("Uit favorieten verwijderen", systemImage: "star.slash")
             }
-        }
+        }.tag(SomeStation(station, source: .favourites))
     }
     
     func removeStation(_ station: some Station) {
