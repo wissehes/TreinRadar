@@ -9,9 +9,12 @@ import Foundation
 import CoreLocation
 
 struct StationWithDistance: Station {
-    var code: String
-    var name: String
-    var sporen: [Spoor]
+    var fullStation: FullStation
+
+    var code: String { fullStation.code }
+    var name: String { fullStation.name }
+    var sporen: [Spoor] { fullStation.sporen }
+
     var location: CLLocation
     var distance: Double
     
@@ -20,19 +23,11 @@ struct StationWithDistance: Station {
         let formatter = MeasurementFormatter.myFormatter
         
         return formatter.string(from: distanceInMeters)
-//        let formatter = NumberFormatter()
-//        formatter.numberStyle = .decimal
-//        formatter.maximumFractionDigits = 0
-//        let number = NSNumber(value: self.distance)
-//
-//        return formatter.string(from: number) ?? self.distance.formatted()
     }
     
     init(_ station: FullStation, location: CLLocation, distance: Double) {
-        self.code = station.code
-        self.name = station.namen.lang
-        self.sporen = station.sporen
         self.location = location
         self.distance = distance
+        self.fullStation = station
     }
 }
