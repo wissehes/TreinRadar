@@ -9,6 +9,7 @@ import SwiftUI
 import Defaults
 
 struct FavouriteStationsView: View {
+    @EnvironmentObject var stationsManager: StationsManager
     
     @Default(.favouriteStations) var stations
     
@@ -25,7 +26,7 @@ struct FavouriteStationsView: View {
             } label: {
                 Label("Uit favorieten verwijderen", systemImage: "star.slash")
             }
-        }.tag(SomeStation(station, source: .favourites))
+        }.tag(SelectedStation.favourite(station))
     }
     
     func removeStation(_ station: some Station) {
@@ -35,4 +36,6 @@ struct FavouriteStationsView: View {
 
 #Preview {
     FavouriteStationsView()
+        .environmentObject(StationsManager.shared)
+
 }

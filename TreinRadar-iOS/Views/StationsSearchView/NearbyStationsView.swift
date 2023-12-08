@@ -20,7 +20,7 @@ struct NearbyStationsView: View {
             Text(station.name)
             Text(station.fDistance())
                 .font(.subheadline)
-        }.tag(SomeStation(station, source: .nearby))
+        }.tag(SelectedStation.nearby(station.fullStation))
     }
 }
 
