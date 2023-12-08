@@ -26,6 +26,25 @@ struct StationView: View {
         _vm = StateObject(wrappedValue: .init())
     }
     
+    init(station: SelectedStation) {
+        switch station {
+        case .favourite(let savedStation):
+            self.station = savedStation
+            _vm = StateObject(wrappedValue: .init())
+            break;
+            
+        case .full(let fullStation):
+            self.station = fullStation
+            _vm = StateObject(wrappedValue: .init(station: fullStation))
+            break;
+            
+        case .nearby(let fullStation):
+            self.station = fullStation
+            _vm = StateObject(wrappedValue: .init(station: fullStation))
+            break;
+        }
+    }
+    
     init(station: FullStation) {
         self.station = station
         _vm = StateObject(wrappedValue: .init(station: station))
@@ -122,19 +141,19 @@ struct StationView: View {
                 }
             }
         }
-        .listStyle(.plain)
-            .toolbar {
-                ToolbarItem(placement: .primaryAction) {
-                    Button(isSaved ? "Verwijder uit favorieten" : "Voeg toe aan favorieten", systemImage: "star") {
-                        if isSaved {
-                            favouriteStations.removeAll { $0.code == station.code }
-                        } else {
-                            favouriteStations.append(.init(station))
-                        }
-                    }.symbolVariant(isSaved ? .fill : .none)
-                        .labelStyle(.iconOnly)
+        .toolbar {
+            ToolbarItem(placement: .primaryAction) {
+                Button(isSaved ? "Verwijder uit favorieten" : "Voeg toe aan favorieten", systemImage: isSaved ? "star.fill" : "star") {
+                    if isSaved {
+                        favouriteStations.removeAll { $0.code == station.code }
+                    } else {
+                        favouriteStations.append(.init(station))
+                    }
                 }
+                .backport.replaceSymbolEffect()
+                .labelStyle(.iconOnly)
             }
+        }
     }
     
     func departureItem(item: Departure) -> some View {
