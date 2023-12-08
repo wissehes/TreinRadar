@@ -27,25 +27,32 @@ final class StationViewModel: ObservableObject {
     
     @MainActor
     func initialise(station: any Station) async {
+        let stationChanged = station.code != self.station?.code
+        
         // If the new station is not equal to the current station
         // show the loading overlay
-        if station.code != self.station?.code {
+        if stationChanged {
             isLoading = true
         }
         
+        // Set `isLoading` to false once initialization is complete
         defer {
             isLoading = false
         }
         
+        // Make sure the stations are up to date
         await StationsManager.shared.getData()
-        
         
         guard let foundStation = StationsManager.shared.getStation(code: .code(station.code)) else { return }
         withAnimation {
             self.station = foundStation
         }
         
-        await self.fetchHeaderImage(station)        
+        // Only refetch the header image if the station changed
+        if stationChanged {
+            await self.fetchHeaderImage(station)
+        }
+        
         await self.fetchDepartures(station)
         await self.fetchArrivals(station)
     }
