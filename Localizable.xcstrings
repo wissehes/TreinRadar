@@ -364,6 +364,16 @@
         }
       }
     },
+    "Kies een station." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choose a station."
+          }
+        }
+      }
+    },
     "Klaar!" : {
       "localizations" : {
         "en" : {
