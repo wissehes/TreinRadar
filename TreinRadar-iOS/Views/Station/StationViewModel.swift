@@ -27,19 +27,23 @@ final class StationViewModel: ObservableObject {
     
     @MainActor
     func initialise(station: any Station) async {
-        isLoading = true
+        // If the new station is not equal to the current station
+        // show the loading overlay
+        if station.code != self.station?.code {
+            isLoading = true
+        }
+        
         defer {
             isLoading = false
         }
         
         await StationsManager.shared.getData()
         
-//        if self.station == nil {
-            guard let foundStation = StationsManager.shared.getStation(code: .code(station.code)) else { return }
-            withAnimation {
-                self.station = foundStation
-            }
-//        }
+        
+        guard let foundStation = StationsManager.shared.getStation(code: .code(station.code)) else { return }
+        withAnimation {
+            self.station = foundStation
+        }
         
         await self.fetchHeaderImage(station)        
         await self.fetchDepartures(station)
