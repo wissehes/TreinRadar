@@ -61,9 +61,9 @@ struct StationView: View {
                 listView(station)
             } else {
                 if #available(iOS 17.0, *) {
-                    ContentUnavailableView("Er ging iets mis", systemImage: "wifi.exclamationmark")
+                    ContentUnavailableView("Er ging iets mis...", systemImage: "wifi.exclamationmark")
                 } else {
-                    Text("Er ging iets mis")
+                    Text("Er ging iets mis...")
                 }
             }
             
