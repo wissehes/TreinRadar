@@ -67,7 +67,8 @@ struct StationsSearchView: View {
         }
     }
     
-    var stationsSearch: some View {
+    // List sidebar on iPad / List main view on iPhone
+    var sidebar: some View {
         List(selection: $selectedStation) {
             // Favourite stations
             if !favStations.isEmpty && searchQuery.isEmpty {
@@ -102,21 +103,14 @@ struct StationsSearchView: View {
     
     var body: some View {
         NavigationSplitView {
-            stationsSearch
+            sidebar
         } detail: {
-            if let station = selectedStation {
-                StationView(station: station)
-            } else {
-                Text("Kies een station.")
-                    .navigationDestination(for: FullStation.self) { station in
-                        StationView(station: station)
-                    }
-                    .navigationDestination(for: SavedStation.self) { station in
-                        StationView(station: station)
-                    }
-                    .navigationDestination(for: StationWithDistance.self) { station in
-                        StationView(station: station)
-                    }
+            NavigationStack {
+                if let station = selectedStation {
+                    StationView(station: station)
+                } else {
+                    Text("Kies een station.")
+                }
             }
         }
     }
