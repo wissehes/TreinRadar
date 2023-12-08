@@ -58,7 +58,7 @@ enum SelectedMapItem: Identifiable, Equatable, Hashable {
 @available(iOS 17.0, *)
 struct MapView: View {
     
-    @State private var selectedMap: ChosenMapType = .empty
+    @State private var selectedMap: ChosenMapType = .trains
     @State private var railwayTracks: [MKPolyline] = []
     
     @State private var selectedItem: SelectedMapItem?
@@ -130,15 +130,6 @@ struct MapView: View {
                 Task { await trainManager.getData() }
             }
             .toolbar {
-                ToolbarItem(placement: .bottomBar) {
-                    Picker("Kaarttype", selection: $selectedMap) {
-                        ForEach(ChosenMapType.allCases, id: \.hashValue) { item in
-                            Text(item.localized)
-                                .tag(item)
-                        }
-                    }.pickerStyle(.segmented)
-                }
-                
                 if selectedMap == .trains {
                     ToolbarItem(placement: .primaryAction) {
                         Button {
@@ -199,6 +190,16 @@ struct MapView: View {
     
     var settingsMenu: some View {
         Menu {
+            
+            Picker(selection: $selectedMap) {
+                ForEach(ChosenMapType.allCases, id: \.hashValue) { item in
+                    Text(item.localized)
+                        .tag(item)
+                }
+            } label: {
+                Label("Items", systemImage: "map")
+            }.pickerStyle(.menu)
+            
             Picker("Weergave", selection: $mapStyle) {
                 Label("Standaard", systemImage: "map")
                     .tag(0)
