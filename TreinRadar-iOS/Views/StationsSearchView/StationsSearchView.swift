@@ -8,31 +8,14 @@
 import SwiftUI
 import Defaults
 
-struct SomeStation: Station {
-    var code: String
-    var sporen: [Spoor]
-    var name: String
-    var source: Source
-    
-    enum Source: String, Hashable {
-        case favourites
-        case nearby
-        case allStations
-    }
-    
-    init(code: String, sporen: [Spoor], name: String, source: Source) {
-        self.code = code
-        self.sporen = sporen
-        self.name = name
-        self.source = source
-    }
-    
-    init(_ station: some Station, source: Source) {
-        self.code = station.code
-        self.sporen = station.sporen
-        self.name = station.name
-        self.source = source
-    }
+/// Selected Station
+enum SelectedStation: Hashable {
+    /// Favourite station
+    case favourite(SavedStation)
+    /// Full station
+    case full(FullStation)
+    /// Nearby station
+    case nearby(FullStation)
 }
 
 struct StationsSearchView: View {
@@ -40,10 +23,8 @@ struct StationsSearchView: View {
     @EnvironmentObject var stationsManager: StationsManager
     @EnvironmentObject var locationManager: LocationManager
     
-    @State private var stations: [FullStation]?
-    @State private var searchQuery = "";
-    
-    @State private var selectedStation: SomeStation?
+    @State private var searchQuery = ""
+    @State private var selectedStation: SelectedStation?
     
     @Default(.favouriteStations) var favStations
     
@@ -149,17 +130,12 @@ struct StationsSearchView: View {
             } label: {
                 Label("Aan favorieten toevoegen", systemImage: "star")
             }.tint(.yellow)
-        }.tag(SomeStation(station, source: .allStations))
-    }
-}
-
-struct StationsSearchView_Previews: PreviewProvider {
-    static var previews: some View {
-        StationsSearchView()
-            .environmentObject(StationsManager.shared)
+        }.tag(SelectedStation.full(station))
     }
 }
 
 #Preview {
     StationsSearchView()
+        .environmentObject(StationsManager.shared)
+        .environmentObject(LocationManager.shared)
 }
