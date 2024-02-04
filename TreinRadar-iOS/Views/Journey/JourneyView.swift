@@ -7,6 +7,8 @@
 
 import SwiftUI
 import Defaults
+import BottomSheet
+import MapKit
 
 struct JourneyView: View {
     
@@ -14,6 +16,7 @@ struct JourneyView: View {
     
     @StateObject var vm = JourneyViewModel()
     @Default(.savedJourneys) var savedJourneys
+    @State var bottomSheetPosition: BottomSheetPosition = .relative(0.4)
     
     let timer = Timer.publish(every: 5, on: .main, in: .common).autoconnect()
     
@@ -22,12 +25,40 @@ struct JourneyView: View {
     
     var body: some View {
         ZStack {
-            if let journey = vm.journey {
-                listView(journey)
+            if let journey = vm.journey, let geojson = vm.geojson {
+                VStack {
+                    if #available(iOS 17.0, *) {
+                        JourneyMapView(data: geojson, liveTrain: vm.live)
+                    } else {
+                        LegacyJourneyMapView(geometry: geojson, inline: false)
+                    }
+                }
+                    .bottomSheet(
+                        bottomSheetPosition: $bottomSheetPosition, 
+                        switchablePositions: [.relative(0.1), .relative(0.4), .relative(0.975)],
+                        headerContent: {
+                            VStack(alignment: .leading) {
+                                Text("\(journey.category) richting **\(journey.destination?.name ?? "?")**")
+                                    .font(.title).bold()
+                                
+                                Text(journey.product?.operatorName ?? "")
+                                    .font(.subheadline).foregroundColor(.secondary)
+                                
+                                Divider()
+                                    .padding(.trailing, -30)
+                            }
+                            .padding([.top, .leading, .trailing])
+                        }
+                    ) {
+                        ScrollView {
+                            newListView(journey)
+                        }
+                    }
             } else {
                 LoadingView()
             }
         }
+        .navigationBarTitleDisplayMode(.inline)
         .task {
             await vm.getData(journeyId)
             await vm.getLiveData(journeyId)
@@ -52,6 +83,78 @@ struct JourneyView: View {
         }
         .navigationDestination(for: StopInfo.self) { stop in
             DeparturesView(uicCode: stop.uicCode)
+        }
+    }
+    
+    func newListView(_ journey: JourneyPayload) -> some View {
+        VStack(alignment: .leading) {
+            
+            if journey.currentOrNextStop?.actualStock?.trainParts != nil {
+                trainParts
+            }
+            
+            thisTrainInfo(journey)
+            
+            Divider()
+                .padding(.bottom, 5)
+            
+            newStops(journey)
+        }//.frame(maxWidth: .infinity, alignment: .leading)
+            .padding([.horizontal, .top])
+            .padding(.bottom, 10)
+    }
+    
+    func thisTrainInfo(_ journey: JourneyPayload) -> some View {
+        Section {
+            if journey.currentOrNextStop?.actualStock?.trainParts != nil {
+                facilities
+            }
+            Divider()
+            
+            HStack(alignment: .top) {
+                VStack(alignment: .leading) {
+                    if let length = journey.currentOrNextStop?.actualStock?.numberOfParts {
+                        Text("\u{2022} \(length) delen")
+                    }
+                    if let seats = journey.currentOrNextStop?.actualStock?.numberOfSeats {
+                        Text("\u{2022} \(seats) zitplaatsen")
+                    }
+                }
+                
+                Spacer()
+                
+                VStack(alignment: .leading) {
+                    if journey.stockNumbers != "0" {
+                        Text("**\(journey.firstRealStop?.actualStock?.trainType ?? "")** \(journey.stockNumbers)")
+                    }
+                }
+            }
+        } header: {
+            Text("Deze trein")
+                .font(.title2).bold()
+        }
+    }
+    
+    func newStops(_ journey: JourneyPayload) -> some View {
+        Section {
+            Divider()
+            ForEach(vm.showingStops ?? [], id: \.id) { stop in
+                stopItem(stop)
+                Divider()
+            }
+        } header: {
+            HStack(alignment: .center) {
+                Text("Route")
+                    .font(.title2).bold()
+                
+                Spacer()
+                
+                Button("Alles") {
+                    withAnimation {
+                        vm.showingPreviousStops = true
+                    }
+                }.buttonStyle(.borderedProminent)
+            }
         }
     }
     
@@ -291,7 +394,7 @@ struct JourneyView: View {
 struct JourneyView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            JourneyView(journeyId: "6948")
+            JourneyView(journeyId: "8958")
         }
         
         StationsSearchView()
