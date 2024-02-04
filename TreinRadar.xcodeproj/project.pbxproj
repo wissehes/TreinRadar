@@ -76,6 +76,8 @@
 		89B0E81B2ABF299400FE6E0B /* WatchConnectManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B0E81A2ABF299400FE6E0B /* WatchConnectManager.swift */; };
 		89B0E81C2ABF2B5B00FE6E0B /* WatchConnectManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B0E81A2ABF299400FE6E0B /* WatchConnectManager.swift */; };
 		89B0E81F2ABF304900FE6E0B /* RushIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B0E81E2ABF304900FE6E0B /* RushIcon.swift */; };
+		89B7570D2B6FEBF8008C7F01 /* BottomSheet in Frameworks */ = {isa = PBXBuildFile; productRef = 89B7570C2B6FEBF8008C7F01 /* BottomSheet */; };
+		89B7570F2B6FEC0C008C7F01 /* BottomSheetTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B7570E2B6FEC0C008C7F01 /* BottomSheetTestView.swift */; };
 		89B8FCD22A801668001A84E3 /* LookupTrainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B8FCD12A801668001A84E3 /* LookupTrainView.swift */; };
 		89BAA7A12A76D8D300CDA640 /* SavedJourney.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BAA7A02A76D8D300CDA640 /* SavedJourney.swift */; };
 		89BE5F832A55B0A000E395CC /* StationWithDistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BE5F822A55B0A000E395CC /* StationWithDistance.swift */; };
@@ -233,6 +235,7 @@
 		89ACF2FD2A48608600A4AC57 /* Location+Equatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location+Equatable.swift"; sourceTree = "<group>"; };
 		89B0E81A2ABF299400FE6E0B /* WatchConnectManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchConnectManager.swift; sourceTree = "<group>"; };
 		89B0E81E2ABF304900FE6E0B /* RushIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RushIcon.swift; sourceTree = "<group>"; };
+		89B7570E2B6FEC0C008C7F01 /* BottomSheetTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetTestView.swift; sourceTree = "<group>"; };
 		89B8FCD12A801668001A84E3 /* LookupTrainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LookupTrainView.swift; sourceTree = "<group>"; };
 		89BAA7A02A76D8D300CDA640 /* SavedJourney.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavedJourney.swift; sourceTree = "<group>"; };
 		89BE5F822A55B0A000E395CC /* StationWithDistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationWithDistance.swift; sourceTree = "<group>"; };
@@ -282,6 +285,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				89CEFD932A3CFF4000383555 /* Defaults in Frameworks */,
+				89B7570D2B6FEBF8008C7F01 /* BottomSheet in Frameworks */,
 				893AC2702A3B436F00D621FE /* Alamofire in Frameworks */,
 				89A8A7D22A7FCE2E0085D127 /* AsyncLocationKit in Frameworks */,
 			);
@@ -368,6 +372,7 @@
 				89DD61322AB24FBE00722EF4 /* PlatformIcon.swift */,
 				89A34A102AB75E460004591D /* LoadingView.swift */,
 				89B0E81E2ABF304900FE6E0B /* RushIcon.swift */,
+				89B7570E2B6FEC0C008C7F01 /* BottomSheetTestView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -712,6 +717,7 @@
 				893AC26F2A3B436F00D621FE /* Alamofire */,
 				89CEFD922A3CFF4000383555 /* Defaults */,
 				89A8A7D12A7FCE2E0085D127 /* AsyncLocationKit */,
+				89B7570C2B6FEBF8008C7F01 /* BottomSheet */,
 			);
 			productName = TreinRadar;
 			productReference = 893AC2582A3B42AA00D621FE /* TreinRadar-iOS.app */;
@@ -773,6 +779,7 @@
 				89CEFD912A3CFF4000383555 /* XCRemoteSwiftPackageReference "Defaults" */,
 				89A8A7CE2A7FCE210085D127 /* XCRemoteSwiftPackageReference "AsyncLocationKit" */,
 				89C3DFBD2A893526007732FC /* XCRemoteSwiftPackageReference "SwiftUI-Apple-Watch-Decimal-Pad" */,
+				89B7570B2B6FEBF7008C7F01 /* XCRemoteSwiftPackageReference "BottomSheet" */,
 			);
 			productRefGroup = 893AC2592A3B42AA00D621FE /* Products */;
 			projectDirPath = "";
@@ -860,6 +867,7 @@
 				891DC9D62A7FD3CF00B68579 /* NearbyTrain.swift in Sources */,
 				89DD61332AB24FBE00722EF4 /* PlatformIcon.swift in Sources */,
 				89B0E81B2ABF299400FE6E0B /* WatchConnectManager.swift in Sources */,
+				89B7570F2B6FEC0C008C7F01 /* BottomSheetTestView.swift in Sources */,
 				893AC27B2A3B4B1100D621FE /* StationsResponse.swift in Sources */,
 				89ACF2F52A47161700A4AC57 /* TrainManager.swift in Sources */,
 				893C4CD12A460D68002E3540 /* JourneyMapViewCoordinator.swift in Sources */,
@@ -1268,6 +1276,14 @@
 				minimumVersion = 1.6.4;
 			};
 		};
+		89B7570B2B6FEBF7008C7F01 /* XCRemoteSwiftPackageReference "BottomSheet" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/lucaszischka/BottomSheet";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.1.1;
+			};
+		};
 		89C3DFBD2A893526007732FC /* XCRemoteSwiftPackageReference "SwiftUI-Apple-Watch-Decimal-Pad" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ApplebaumIan/SwiftUI-Apple-Watch-Decimal-Pad.git";
@@ -1311,6 +1327,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 89A8A7CE2A7FCE210085D127 /* XCRemoteSwiftPackageReference "AsyncLocationKit" */;
 			productName = AsyncLocationKit;
+		};
+		89B7570C2B6FEBF8008C7F01 /* BottomSheet */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 89B7570B2B6FEBF7008C7F01 /* XCRemoteSwiftPackageReference "BottomSheet" */;
+			productName = BottomSheet;
 		};
 		89C3DFBE2A893526007732FC /* SwiftUI Apple Watch Decimal Pad */ = {
 			isa = XCSwiftPackageProductDependency;
