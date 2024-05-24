@@ -12,6 +12,16 @@
         }
       }
     },
+    "**%@** %@" : {
+      "localizations" : {
+        "nl" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "**%1$@** %2$@"
+          }
+        }
+      }
+    },
     "**%@** naar %@" : {
       "localizations" : {
         "en" : {
@@ -73,6 +83,12 @@
           }
         }
       }
+    },
+    "• %lld delen" : {
+
+    },
+    "• %lld zitplaatsen" : {
+
     },
     "A: %@" : {
       "localizations" : {
@@ -344,6 +360,9 @@
         }
       }
     },
+    "Items" : {
+
+    },
     "Kaart" : {
       "localizations" : {
         "en" : {
@@ -355,6 +374,7 @@
       }
     },
     "Kaarttype" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -634,6 +654,9 @@
         }
       }
     },
+    "Route" : {
+
+    },
     "Satelliet" : {
       "localizations" : {
         "en" : {
@@ -743,6 +766,9 @@
           }
         }
       }
+    },
+    "Station XXX" : {
+
     },
     "Stations" : {
       "localizations" : {
