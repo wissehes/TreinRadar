@@ -18,15 +18,8 @@ struct ArrivalsPayload: Codable {
     let arrivals: [Arrival]
 }
 
-struct Arrival: Codable, Hashable {
-    enum ArrivalStatus: String, Codable {
-        case onStation = "ON_STATION"
-        case incoming = "INCOMING"
-        case departed = "DEPARTED"
-        case unknown = "UNKNOWN"
-    }
-    
-    let origin: String
+struct Arrival: Codable, Hashable, TimeTableItem {
+    let origin: String?
     let name: String
     let plannedDateTime: Date
     let plannedTimeZoneOffset: Int?
@@ -39,5 +32,15 @@ struct Arrival: Codable, Hashable {
     let cancelled: Bool
     let journeyDetailRef: String?
     let messages: [Message]
-    let arrivalStatus: ArrivalStatus
+    let arrivalStatus: TimeTableStatus?
+    
+    var status: TimeTableStatus {
+        self.arrivalStatus ?? .unknown
+    }
+    var type: TimeTableType {
+        .arrival
+    }
+    var direction: String? {
+        nil
+    }
 }

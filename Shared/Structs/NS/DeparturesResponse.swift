@@ -36,19 +36,14 @@ struct DeparturesPayload: Codable {
 }
 
 // MARK: Departure
-struct Departure: Codable, Hashable {
+struct Departure: Codable, Hashable, TimeTableItem {
+    
     static func == (lhs: Departure, rhs: Departure) -> Bool {
         lhs.name == rhs.name
     }
     
-    enum DepartureStatus: String, Codable {
-        case onStation = "ON_STATION"
-        case incoming = "INCOMING"
-        case departed = "DEPARTED"
-        case unknown = "UNKNOWN"
-    }
-    
-    let direction, name: String
+    let direction: String?
+    let name: String
     let plannedDateTime: Date
     let plannedTimeZoneOffset: Int
     let actualDateTime: Date
@@ -59,7 +54,17 @@ struct Departure: Codable, Hashable {
     let cancelled: Bool
     let routeStations: [RouteStation]
     let messages: [Message]
-    let departureStatus: DepartureStatus?
+    let departureStatus: TimeTableStatus?
+    
+    var type: TimeTableType {
+        .departure
+    }
+    var origin: String? {
+        nil
+    }
+    var status: TimeTableStatus {
+        self.departureStatus ?? .unknown
+    }
 }
 
 // MARK: - RouteStation
