@@ -48,6 +48,10 @@
 		896F6A932A49664F00A3CA5B /* TravelInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896F6A922A49664F00A3CA5B /* TravelInfoViewModel.swift */; };
 		8973B7E32A921CDC00BBDC9A /* saved-journeys.json in Resources */ = {isa = PBXBuildFile; fileRef = 89FA153B2A782D8F00489E5B /* saved-journeys.json */; };
 		8973B7E42A921CDC00BBDC9A /* departures.json in Resources */ = {isa = PBXBuildFile; fileRef = 89A48ECA2A557533006F7A4E /* departures.json */; };
+		897909742C00E75E00C755CE /* TimeTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897909732C00E75E00C755CE /* TimeTableView.swift */; };
+		897909762C00E86800C755CE /* TimeTableVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897909752C00E86800C755CE /* TimeTableVM.swift */; };
+		8980D6A42C01F68A0011C529 /* TimeTableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8980D6A32C01F68A0011C529 /* TimeTableItem.swift */; };
+		8980D6A52C01F68A0011C529 /* TimeTableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8980D6A32C01F68A0011C529 /* TimeTableItem.swift */; };
 		898DC9AA2AA37F36006C9715 /* TrainAnnotations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898DC9A92AA37F36006C9715 /* TrainAnnotations.swift */; };
 		898DC9AD2AA38990006C9715 /* TrainTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898DC9AC2AA38990006C9715 /* TrainTrack.swift */; };
 		898F78092AC057FB00BA6F6E /* JourneyMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898F78082AC057FB00BA6F6E /* JourneyMapView.swift */; };
@@ -204,6 +208,9 @@
 		896AF0F22A55A582001936AD /* Stop+Computed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Stop+Computed.swift"; sourceTree = "<group>"; };
 		896EB28E2A76D76D0084980A /* SavedItemsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavedItemsView.swift; sourceTree = "<group>"; };
 		896F6A922A49664F00A3CA5B /* TravelInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelInfoViewModel.swift; sourceTree = "<group>"; };
+		897909722C00E73700C755CE /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		897909732C00E75E00C755CE /* TimeTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableView.swift; sourceTree = "<group>"; };
+		897909752C00E86800C755CE /* TimeTableVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableVM.swift; sourceTree = "<group>"; };
 		897BC7DA2AC46DD800B35F67 /* 1 - Home.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1 - Home.PNG"; sourceTree = "<group>"; };
 		897BC7DB2AC46DD800B35F67 /* 3 - Map - Trains.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "3 - Map - Trains.PNG"; sourceTree = "<group>"; };
 		897BC7DC2AC46DD800B35F67 /* 5 - Journey.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "5 - Journey.PNG"; sourceTree = "<group>"; };
@@ -211,6 +218,7 @@
 		897BC7DE2AC46DD800B35F67 /* 2 - Map - Stations.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "2 - Map - Stations.PNG"; sourceTree = "<group>"; };
 		897BC7E32AC46DD800B35F67 /* AppIcon.afdesign */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppIcon.afdesign; sourceTree = "<group>"; };
 		897BC7E42AC46DF000B35F67 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		8980D6A32C01F68A0011C529 /* TimeTableItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableItem.swift; sourceTree = "<group>"; };
 		898DC9A92AA37F36006C9715 /* TrainAnnotations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainAnnotations.swift; sourceTree = "<group>"; };
 		898DC9AC2AA38990006C9715 /* TrainTrack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainTrack.swift; sourceTree = "<group>"; };
 		898F78082AC057FB00BA6F6E /* JourneyMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyMapView.swift; sourceTree = "<group>"; };
@@ -363,6 +371,7 @@
 				896F6A912A49664200A3CA5B /* TravelInfoView */,
 				89ACF2FA2A485BBB00A4AC57 /* StationsSearchView */,
 				8992D0702AB102B90071F351 /* Station */,
+				897909712C00E72800C755CE /* TimeTable */,
 				89CEFD8B2A3CF94400383555 /* Departures */,
 				89CEFD9A2A3D061E00383555 /* Journey */,
 				89DD61322AB24FBE00722EF4 /* PlatformIcon.swift */,
@@ -376,6 +385,7 @@
 			isa = PBXGroup;
 			children = (
 				893AC2752A3B489800D621FE /* NS */,
+				8980D6A32C01F68A0011C529 /* TimeTableItem.swift */,
 				891DC9D52A7FD3CF00B68579 /* NearbyTrain.swift */,
 				89C3DFBA2A893122007732FC /* LiveTrain.swift */,
 				89BAA7A02A76D8D300CDA640 /* SavedJourney.swift */,
@@ -469,6 +479,16 @@
 				895998332A570B7F00847B84 /* CurrentTrainView.swift */,
 			);
 			path = TravelInfoView;
+			sourceTree = "<group>";
+		};
+		897909712C00E72800C755CE /* TimeTable */ = {
+			isa = PBXGroup;
+			children = (
+				897909722C00E73700C755CE /* README.md */,
+				897909732C00E75E00C755CE /* TimeTableView.swift */,
+				897909752C00E86800C755CE /* TimeTableVM.swift */,
+			);
+			path = TimeTable;
 			sourceTree = "<group>";
 		};
 		897BC7D72AC46DD800B35F67 /* Assets */ = {
@@ -841,8 +861,10 @@
 				896EB28F2A76D76D0084980A /* SavedItemsView.swift in Sources */,
 				89CEFD8A2A3CF68300383555 /* Journey.swift in Sources */,
 				89C3DFBB2A893122007732FC /* LiveTrain.swift in Sources */,
+				897909762C00E86800C755CE /* TimeTableVM.swift in Sources */,
 				89DD61312AB2489D00722EF4 /* StationViewModel.swift in Sources */,
 				893AC2722A3B470F00D621FE /* MapView.swift in Sources */,
+				8980D6A42C01F68A0011C529 /* TimeTableItem.swift in Sources */,
 				891799E92ABDDC150010DC9F /* WCSessionDelegator.swift in Sources */,
 				893AC2742A3B489300D621FE /* CurrentVehicles.swift in Sources */,
 				898DC9AA2AA37F36006C9715 /* TrainAnnotations.swift in Sources */,
@@ -878,6 +900,7 @@
 				89ACF2F72A47172400A4AC57 /* StationsManager.swift in Sources */,
 				895BF5A72ACC473B0015F3A3 /* StationType+Localized.swift in Sources */,
 				893AC2772A3B493500D621FE /* APIError.swift in Sources */,
+				897909742C00E75E00C755CE /* TimeTableView.swift in Sources */,
 				89CEFD9C2A3D062900383555 /* JourneyView.swift in Sources */,
 				89C783AB2ABC928D001EBB70 /* FavouriteStationsView.swift in Sources */,
 				899E73EC2AF7CEA6005EDA54 /* Backport.swift in Sources */,
@@ -940,6 +963,7 @@
 				89EDD70A2A7FCAD20035C238 /* API.swift in Sources */,
 				892F50DA2AA377EE00427D8C /* APINetworkLogger.swift in Sources */,
 				89586DEB2AB729E600939839 /* ArrivalsResponse.swift in Sources */,
+				8980D6A52C01F68A0011C529 /* TimeTableItem.swift in Sources */,
 				89EDD70E2A7FCAE60035C238 /* Stop+Computed.swift in Sources */,
 				89EDD7102A7FCAE60035C238 /* Journey+Computed.swift in Sources */,
 			);
