@@ -42,7 +42,7 @@ struct Departure: Codable, Hashable, TimeTableItem {
         lhs.name == rhs.name
     }
     
-    let direction: String?
+    let direction: String
     let name: String
     let plannedDateTime: Date
     let plannedTimeZoneOffset: Int
@@ -59,11 +59,11 @@ struct Departure: Codable, Hashable, TimeTableItem {
     var type: TimeTableType {
         .departure
     }
-    var origin: String? {
-        nil
-    }
     var status: TimeTableStatus {
         self.departureStatus ?? .unknown
+    }
+    var station: String {
+        self.direction
     }
 }
 

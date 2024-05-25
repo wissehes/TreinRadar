@@ -19,7 +19,7 @@ struct ArrivalsPayload: Codable {
 }
 
 struct Arrival: Codable, Hashable, TimeTableItem {
-    let origin: String?
+    let origin: String
     let name: String
     let plannedDateTime: Date
     let plannedTimeZoneOffset: Int?
@@ -40,7 +40,7 @@ struct Arrival: Codable, Hashable, TimeTableItem {
     var type: TimeTableType {
         .arrival
     }
-    var direction: String? {
-        nil
+    var station: String {
+        self.origin
     }
 }

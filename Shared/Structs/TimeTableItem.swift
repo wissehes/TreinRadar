@@ -19,10 +19,8 @@ protocol TimeTableItem {
     /// Actual arrival or departure track
     var actualTrack: String? { get }
     
-    /// The originating station name of this item
-    var origin: String? { get }
-    /// The direction of this item
-    var direction: String? { get }
+    /// The direction or origin of this train, depending on the type of timetable item.
+    var station: String { get }
     
     /// The planned time of departure or arrival
     var plannedDateTime: Date { get }
