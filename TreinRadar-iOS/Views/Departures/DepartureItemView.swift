@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DepartureItemView: View {
     
-    var departure: Departure
+    var item: any TimeTableItem
     var chosenMessageStyle: ChosenMessageStyle
     
     var relativeFormatter = RelativeDateTimeFormatter()
@@ -17,28 +17,28 @@ struct DepartureItemView: View {
     var filteredMessages: [Message] {
         switch chosenMessageStyle {
         case .all:
-            return departure.messages
+            return item.messages
         case .specific(let messageStyle):
-            return departure.messages.filter {
+            return item.messages.filter {
                 $0.style == messageStyle
             }
         }
     }
     
     var departureTime: String {
-        let date = departure.actualDateTime
+        let date = item.actualDateTime
         let diff = Int(date.timeIntervalSince1970 - Date.now.timeIntervalSince1970)
         
         if diff < 60 {
             return "over < 1 minuut"
         } else {
-            return self.relativeFormatter.localizedString(for: departure.actualDateTime, relativeTo: .now)
+            return self.relativeFormatter.localizedString(for: item.actualDateTime, relativeTo: .now)
         }
     }
     
     var delayTime: Int {
-        let planned = departure.plannedDateTime
-        let actual = departure.actualDateTime
+        let planned = item.plannedDateTime
+        let actual = item.actualDateTime
         let diff = Int(actual.timeIntervalSince1970  - planned.timeIntervalSince1970)
         let components = Calendar.current.dateComponents([.minute], from: planned, to: actual)
         
@@ -50,14 +50,14 @@ struct DepartureItemView: View {
         HStack {
             VStack(alignment: .leading) {
                 HStack(alignment: .center) {
-                    Text(departure.product.longCategoryName)
+                    Text(item.product.longCategoryName)
                         .font(.callout)
-                    Text(departure.product.number)
+                    Text(item.product.number)
                         .font(.caption)
                 }
-                Text(departure.direction)
+                Text(item.station)
                     .bold()
-                    .foregroundStyle(departure.cancelled ? .red : .accentColor)
+                    .foregroundStyle(item.cancelled ? .red : .accentColor)
                 
                 HStack(alignment: .center, spacing: 5) {
                     Text(departureTime)
@@ -75,7 +75,7 @@ struct DepartureItemView: View {
             
             Spacer()
             
-            if let track = departure.actualTrack, !departure.cancelled {
+            if let track = item.actualTrack, !item.cancelled {
                 VStack(alignment: .center) {
                     Text("Spoor")
                         .font(.subheadline)
@@ -85,7 +85,7 @@ struct DepartureItemView: View {
                 
             }
             
-            if departure.cancelled {
+            if item.cancelled {
                 Image(systemName: "exclamationmark.circle.fill")
                     .symbolRenderingMode(.multicolor)
                     .foregroundStyle(.red)
@@ -117,7 +117,7 @@ struct DepartureItemView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
             List(self.data, id: \.name) { dep in
-                DepartureItemView(departure: dep, chosenMessageStyle: .all)
+                DepartureItemView(item: dep, chosenMessageStyle: .all)
             }
         }
     }

@@ -81,7 +81,7 @@ struct DeparturesView: View {
     var listView: some View {
         List(filteredDepartures ?? [], id: \.name) { item in
             NavigationLink(value: item.product.number) {
-                DepartureItemView(departure: item, chosenMessageStyle: vm.chosenMessageStyle)
+                DepartureItemView(item: item, chosenMessageStyle: vm.chosenMessageStyle)
             }
         }
     }
@@ -121,16 +121,8 @@ struct DeparturesView: View {
     }
 }
 
-struct Departures_Previews: PreviewProvider {
-    static var previews: some View {
-        NavigationStack {
-            DeparturesView(stationCode: "UT", sporen: [1, 4], naam: "Utrecht C")
-        }
+#Preview {
+    NavigationStack {
+        DeparturesView(stationCode: "VTN", sporen: [1, 4], naam: "Vleuten")
     }
 }
-
-//#Preview {
-//    NavigationStack {
-//        DeparturesView(stationCode: "VTN", sporen: [1, 4])
-//    }
-//}
