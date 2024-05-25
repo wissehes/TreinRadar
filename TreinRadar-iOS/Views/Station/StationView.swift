@@ -79,11 +79,7 @@ struct StationView: View {
         .navigationDestination(for: StationViewType.self) { type in
             switch type {
             case .arrivals(_):
-                if #available(iOS 17.0, *) {
-                    ContentUnavailableView("Aankomsttijden zijn nog niet beschikbaar", systemImage: "exclamationmark.bubble")
-                } else {
-                    Text("Aankomsttijden zijn nog niet beschikbaar")
-                }
+                TimeTableView(station: station, viewType: .arrivals)
             case .departures(let station):
                 DeparturesView(station: station)
             }
