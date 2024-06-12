@@ -47,17 +47,25 @@ struct TimeTableView: View {
     
     var body: some View {
         List {
-            switch vm.viewType {
-            case .departures:
-                self.departures
-            case .arrivals:
-                self.arrivals
+            
+            Section {
+                TimeTableSwitcher(viewType: $vm.viewType)
+            }
+            
+            Section(vm.viewType.localized) {
+                switch vm.viewType {
+                case .departures:
+                    self.departures
+                case .arrivals:
+                    self.arrivals
+                }
             }
         }
+        .animation(.interactiveSpring, value: vm.viewType)
         .navigationTitle(naam)
-        .navigationBarTitleDisplayMode(.inline)
-        .toolbar { toolbar }
-        .task { await vm.loadData() }
+        .navigationBarTitleDisplayMode(.large)
+//        .toolbar { toolbar }
+        .task(id: vm.viewType) { await vm.loadData() }
         .refreshable { await vm.loadData() }
         .overlay {
             if vm.isLoading {
@@ -66,22 +74,10 @@ struct TimeTableView: View {
         }
     }
     
-    @ToolbarContentBuilder
-    var toolbar: some ToolbarContent {
-        ToolbarItem(placement: .principal) {
-            VStack {
-                Text(naam).font(.headline)
-                Button(vm.viewType.localized) {
-                    if vm.viewType == .arrivals {
-                        vm.viewType = .departures
-                    } else {
-                        vm.viewType = .arrivals
-                    }
-                }.font(.subheadline)
-                    .buttonStyle(PlainButtonStyle())
-            }
-        }
-    }
+//    @ToolbarContentBuilder
+//    var toolbar: some ToolbarContent {
+//        
+//    }
     
     var departures: some View {
         ForEach(vm.departures ?? [], id: \.name) { item in
@@ -102,10 +98,39 @@ struct TimeTableView: View {
     typealias TimeTableType = TimeTableViewModel.TimeTableType
 }
 
+extension TimeTableView {
+    /// Timetable switcher button
+    struct TimeTableSwitcher: View {
+        @Binding var viewType: TimeTableType
+        
+        var body: some View {
+            if #available(iOS 17.0, *) {
+                Button(viewType.localized, systemImage: "arrow.up.arrow.down") {
+                    if viewType == .arrivals {
+                        viewType = .departures
+                    } else {
+                        viewType = .arrivals
+                    }
+                }.symbolEffect(.bounce, value: viewType)
+            } else {
+                Button(viewType.localized, systemImage: "arrow.up.arrow.down") {
+                    if viewType == .arrivals {
+                        viewType = .departures
+                    } else {
+                        viewType = .arrivals
+                    }
+                }
+            }
+        }
+    }
+}
+
 #Preview {
-    TimeTableView(
-        stationCode: "VTN",
-        sporen: [1, 4],
-        naam: "Vleuten"
-    )
+    NavigationStack {
+        TimeTableView(
+            stationCode: "VTN",
+            sporen: [1, 4],
+            naam: "Vleuten"
+        )
+    }
 }

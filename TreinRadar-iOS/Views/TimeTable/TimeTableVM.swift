@@ -44,6 +44,10 @@ final class TimeTableViewModel: ObservableObject {
     }
     
     private func getDepartures() async {
+        if self.departures == nil {
+            setLoading(true)
+        }
+        
         do {
             let data = try await API.shared.getDepartures(stationCode: stationCode)
             DispatchQueue.main.async {
@@ -55,6 +59,10 @@ final class TimeTableViewModel: ObservableObject {
     }
     
     private func getArrivals() async {
+        if self.arrivals == nil {
+            setLoading(true)
+        }
+        
         do {
             let data = try await API.shared.getArrivals(stationCode: stationCode)
             DispatchQueue.main.async {
@@ -66,7 +74,6 @@ final class TimeTableViewModel: ObservableObject {
     }
     
     public func loadData() async {
-        setLoading(true)
         defer {
             setLoading(false)
         }
@@ -88,9 +95,9 @@ extension TimeTableViewModel {
         var localized: String {
             switch self {
             case .departures:
-                String(localized: "Aankomsttijden")
-            case .arrivals:
                 String(localized: "Vertrektijden")
+            case .arrivals:
+                String(localized: "Aankomsttijden")
             }
         }
     }
