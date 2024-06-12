@@ -84,5 +84,14 @@ extension TimeTableViewModel {
     enum TimeTableType {
         case departures
         case arrivals
+        
+        var localized: String {
+            switch self {
+            case .departures:
+                String(localized: "Aankomsttijden")
+            case .arrivals:
+                String(localized: "Vertrektijden")
+            }
+        }
     }
 }

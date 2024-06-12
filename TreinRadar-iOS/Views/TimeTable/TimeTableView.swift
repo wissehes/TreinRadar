@@ -54,6 +54,9 @@ struct TimeTableView: View {
                 self.arrivals
             }
         }
+        .navigationTitle(naam)
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar { toolbar }
         .task { await vm.loadData() }
         .refreshable { await vm.loadData() }
         .overlay {
@@ -63,9 +66,26 @@ struct TimeTableView: View {
         }
     }
     
+    @ToolbarContentBuilder
+    var toolbar: some ToolbarContent {
+        ToolbarItem(placement: .principal) {
+            VStack {
+                Text(naam).font(.headline)
+                Button(vm.viewType.localized) {
+                    if vm.viewType == .arrivals {
+                        vm.viewType = .departures
+                    } else {
+                        vm.viewType = .arrivals
+                    }
+                }.font(.subheadline)
+                    .buttonStyle(PlainButtonStyle())
+            }
+        }
+    }
+    
     var departures: some View {
         ForEach(vm.departures ?? [], id: \.name) { item in
-            NavigationLink(value: item.product.number) {
+            NavigationLink(value: item) {
                 DepartureItemView(item: item, chosenMessageStyle: vm.chosenMessageStyle)
             }
         }
@@ -73,7 +93,7 @@ struct TimeTableView: View {
     
     var arrivals: some View {
         ForEach(vm.arrivals ?? [], id: \.name) { item in
-            NavigationLink(value: item.product.number) {
+            NavigationLink(value: item) {
                 DepartureItemView(item: item, chosenMessageStyle: vm.chosenMessageStyle)
             }
         }
