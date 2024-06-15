@@ -48,10 +48,12 @@ struct TimeTableView: View {
     var body: some View {
         List {
             
+            // Switcher
             Section {
                 TimeTableSwitcher(viewType: $vm.viewType)
             }
             
+            // Items
             Section(vm.viewType.localized) {
                 switch vm.viewType {
                 case .departures:
@@ -64,7 +66,7 @@ struct TimeTableView: View {
         .animation(.interactiveSpring, value: vm.viewType)
         .navigationTitle(naam)
         .navigationBarTitleDisplayMode(.large)
-//        .toolbar { toolbar }
+        .toolbar { toolbar }
         .task(id: vm.viewType) { await vm.loadData() }
         .refreshable {
             await vm.loadData()
@@ -77,10 +79,18 @@ struct TimeTableView: View {
         }
     }
     
-//    @ToolbarContentBuilder
-//    var toolbar: some ToolbarContent {
-//        
-//    }
+    @ToolbarContentBuilder
+    var toolbar: some ToolbarContent {
+        ToolbarItem(placement: .primaryAction) {
+            Menu {
+                spoorPicker
+                meldingenPicker
+                cancelledTrainsPicker
+            } label: {
+                Label("Filters", systemImage: "line.3.horizontal.decrease.circle")
+            }
+        }
+    }
     
     var departures: some View {
         ForEach(vm.departures ?? [], id: \.name) { item in
@@ -98,6 +108,40 @@ struct TimeTableView: View {
         }
     }
     
+    var spoorPicker: some View {
+        Picker(selection: $vm.chosenSpoor) {
+            Text("Alles")
+                .tag(ChosenSpoor.all)
+            
+            ForEach(self.sporen, id: \.spoorNummer) { spoor in
+                Text("Spoor \(spoor.spoorNummer)")
+                    .tag(ChosenSpoor.specific(spoor))
+            }
+        } label: {
+            Label("Spoor", systemImage: "road.lanes")
+        }.pickerStyle(.menu)
+    }
+    
+    var meldingenPicker: some View {
+        Picker(selection: $vm.chosenMessageStyle) {
+            Text("Alles")
+                .tag(ChosenMessageStyle.all)
+            
+            ForEach(MessageStyle.allCases, id: \.rawValue) { style in
+                Text(style.readable)
+                    .tag(ChosenMessageStyle.specific(style))
+            }
+        } label: {
+            Label("Meldingen", systemImage: "exclamationmark.bubble")
+        }.pickerStyle(.menu)
+    }
+    
+    var cancelledTrainsPicker: some View {
+        Toggle(isOn: $vm.showCancelledTrains) {
+            Label("Laat geannuleerde treinen zien", systemImage: "exclamationmark.triangle")
+        }
+    }
+    
     typealias TimeTableType = TimeTableViewModel.TimeTableType
 }
 
@@ -108,6 +152,7 @@ extension TimeTableView {
         
         var body: some View {
             if #available(iOS 17.0, *) {
+                // Button with bounce effect
                 Button(viewType.localized, systemImage: "arrow.up.arrow.down") {
                     if viewType == .arrivals {
                         viewType = .departures
@@ -116,6 +161,7 @@ extension TimeTableView {
                     }
                 }.symbolEffect(.bounce, value: viewType)
             } else {
+                // Without bounce effect for < ios 17
                 Button(viewType.localized, systemImage: "arrow.up.arrow.down") {
                     if viewType == .arrivals {
                         viewType = .departures

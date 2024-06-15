@@ -83,7 +83,7 @@ final class TimeTableViewModel: ObservableObject {
             await self.getDepartures()
         case .arrivals:
             await self.getArrivals()
-        }
+        }        
     }
 }
 
