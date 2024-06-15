@@ -66,7 +66,10 @@ struct TimeTableView: View {
         .navigationBarTitleDisplayMode(.large)
 //        .toolbar { toolbar }
         .task(id: vm.viewType) { await vm.loadData() }
-        .refreshable { await vm.loadData() }
+        .refreshable {
+            await vm.loadData()
+            try? await Task.sleep(for: .seconds(0.5))
+        }
         .overlay {
             if vm.isLoading {
                 LoadingView()
