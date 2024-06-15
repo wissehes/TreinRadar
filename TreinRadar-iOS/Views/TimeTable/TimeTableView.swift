@@ -93,7 +93,7 @@ struct TimeTableView: View {
     }
     
     var departures: some View {
-        ForEach(vm.departures ?? [], id: \.name) { item in
+        ForEach(vm.filteredDepartures ?? [], id: \.name) { item in
             NavigationLink(value: item) {
                 DepartureItemView(item: item, chosenMessageStyle: vm.chosenMessageStyle)
             }
@@ -101,7 +101,7 @@ struct TimeTableView: View {
     }
     
     var arrivals: some View {
-        ForEach(vm.arrivals ?? [], id: \.name) { item in
+        ForEach(vm.filteredArrivals ?? [], id: \.name) { item in
             NavigationLink(value: item) {
                 DepartureItemView(item: item, chosenMessageStyle: vm.chosenMessageStyle)
             }

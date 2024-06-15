@@ -25,6 +25,34 @@ final class TimeTableViewModel: ObservableObject {
     
     private var formatter = RelativeDateTimeFormatter()
     
+    public var filteredDepartures: [Departure]? {
+        guard var departures else { return nil }
+        
+        if case .specific(let track) = self.chosenSpoor {
+            departures = departures.filter { $0.actualTrack == track.spoorNummer }
+        }
+        
+        if !self.showCancelledTrains {
+            departures = departures.filter { !$0.cancelled }
+        }
+        
+        return departures
+    }
+    
+    public var filteredArrivals: [Arrival]? {
+        guard var arrivals else { return nil }
+        
+        if case .specific(let track) = self.chosenSpoor {
+            arrivals = arrivals.filter { $0.actualTrack == track.spoorNummer }
+        }
+        
+        if !self.showCancelledTrains {
+            arrivals = arrivals.filter { !$0.cancelled }
+        }
+        
+        return arrivals
+    }
+    
     init(stationCode: String, viewType: TimeTableType) {
         self.stationCode = stationCode
         self._viewType = .init(initialValue: viewType)
