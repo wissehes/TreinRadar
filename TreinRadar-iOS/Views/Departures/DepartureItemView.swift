@@ -36,37 +36,18 @@ struct DepartureItemView: View {
         }
     }
     
-    var delayTime: Int {
-        let planned = item.plannedDateTime
-        let actual = item.actualDateTime
-        let diff = Int(actual.timeIntervalSince1970  - planned.timeIntervalSince1970)
-        let components = Calendar.current.dateComponents([.minute], from: planned, to: actual)
-        
-        guard let minutes = components.minute, diff > 30 else { return 0 }
-        return minutes
-    }
-    
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
                 HStack(alignment: .center) {
+                    time
                     Text(item.product.longCategoryName)
-                        .font(.callout)
-                    Text(item.product.number)
-                        .font(.caption)
                 }
                 Text(item.station)
                     .bold()
                     .foregroundStyle(item.cancelled ? .red : .accentColor)
                 
-                HStack(alignment: .center, spacing: 5) {
-                    Text(departureTime)
-                    
-                    if delayTime != 0 {
-                        Text(verbatim: "(+\(delayTime))")
-                            .foregroundStyle(.red)
-                    }
-                }
+                Text(departureTime)
                 
                 if !filteredMessages.isEmpty {
                     messages
@@ -91,6 +72,20 @@ struct DepartureItemView: View {
                     .foregroundStyle(.red)
                     .font(.system(size: 25))
                     .frame(width: 40, height: 40)
+            }
+        }
+    }
+    
+    var time: some View {
+        HStack(alignment: .center, spacing: 2.5) {
+            Text(item.plannedDateTime, format: .dateTime.hour().minute())
+                .bold()
+                .strikethrough(item.cancelled)
+            
+            if item.delay != 0 {
+                Text("+\(item.delay)")
+                    .foregroundStyle(.red)
+                    .bold()
             }
         }
     }
@@ -122,6 +117,17 @@ struct DepartureItemView_Previews: PreviewProvider {
         }
     }
 }
+
+#Preview {
+    NavigationStack {
+        TimeTableView(
+            stationCode: "VTN",
+            sporen: [1, 4],
+            naam: "Vleuten"
+        )
+    }
+}
+
 
 //#Preview {
 //    DepartureItemView()
