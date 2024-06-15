@@ -78,10 +78,10 @@ struct StationView: View {
         }
         .navigationDestination(for: StationViewType.self) { type in
             switch type {
-            case .arrivals(_):
+            case .arrivals(let station):
                 TimeTableView(station: station, viewType: .arrivals)
             case .departures(let station):
-                DeparturesView(station: station)
+                TimeTableView(station: station, viewType: .departures)
             }
         }
         .headerProminence(.increased)
