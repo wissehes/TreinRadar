@@ -36,6 +36,16 @@ protocol TimeTableItem {
     var status: TimeTableStatus { get }
 }
 
+extension TimeTableItem {
+    var delay: Int {
+        let diff = Int(actualDateTime.timeIntervalSince1970  - plannedDateTime.timeIntervalSince1970)
+        let components = Calendar.current.dateComponents([.minute], from: plannedDateTime, to: actualDateTime)
+        
+        guard let minutes = components.minute, diff > 30 else { return 0 }
+        return minutes
+    }
+}
+
 /// The type of time table item
 enum TimeTableType: Codable {
     /// A departure
