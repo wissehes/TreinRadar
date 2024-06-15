@@ -26,13 +26,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : ""
+            "value" : "TreinRadar"
           }
         },
         "nl" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "TreinRadar-iOS"
+            "value" : "TreinRadar"
           }
         }
       }

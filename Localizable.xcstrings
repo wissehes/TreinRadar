@@ -74,6 +74,9 @@
         }
       }
     },
+    "+%lld" : {
+
+    },
     "A: %@" : {
       "localizations" : {
         "en" : {
@@ -110,16 +113,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Arrivals"
-          }
-        }
-      }
-    },
-    "Aankomsttijden zijn nog niet beschikbaar" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Arrivals are not yet available"
           }
         }
       }
@@ -344,22 +337,22 @@
         }
       }
     },
+    "Items" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Items"
+          }
+        }
+      }
+    },
     "Kaart" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Map"
-          }
-        }
-      }
-    },
-    "Kaarttype" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Map type"
           }
         }
       }
@@ -743,6 +736,9 @@
           }
         }
       }
+    },
+    "Station XXX" : {
+
     },
     "Stations" : {
       "localizations" : {
