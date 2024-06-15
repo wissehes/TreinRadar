@@ -111,7 +111,7 @@ struct StationView: View {
                 }
             }
             
-            Section("Vertrektijden") {
+            Section {
                 if let departures = vm.departures {
                     ForEach(departures, id: \.name, content: departureItem(item:))
                     
@@ -124,9 +124,18 @@ struct StationView: View {
                         Spacer()
                     }
                 }
+            } header: {
+                HStack {
+                    Text("Vertrektijden")
+                    Spacer()
+                    NavigationLink(value: StationViewType.departures(station)) {
+                        Label("Meer", systemImage: "chevron.right")
+                    }.labelStyle(.iconOnly)
+                        .bold()
+                }
             }
             
-            Section("Aankomsttijden") {
+            Section {
                 if let arrivals = vm.arrivals {
                     ForEach(arrivals, id: \.name, content: arrivalItem(item:))
                     
@@ -138,6 +147,15 @@ struct StationView: View {
                         ProgressView()
                         Spacer()
                     }
+                }
+            } header: {
+                HStack {
+                    Text("Aankomsttijden")
+                    Spacer()
+                    NavigationLink(value: StationViewType.departures(station)) {
+                        Label("Meer", systemImage: "chevron.right")
+                    }.labelStyle(.iconOnly)
+                        .bold()
                 }
             }
         }
