@@ -20,6 +20,20 @@ extension Station {
     var imageUrl: URL? {
         URL(string: "https://assets.travelsupport-p.cla.ns.nl/stations/hero-images/\(self.code.lowercased())_small.jpg")
     }
+    
+    /**
+     URL to the wikipedia page
+     */
+    var wikiUrl: URL? {
+        URL(string: "https://nl.wikipedia.org/wiki/Station_\(name.replacingOccurrences(of: " ", with: "_"))")
+    }
+    
+    /**
+     URL to the NS website
+     */
+    var NSUrl: URL? {
+        URL(string: "https://www.ns.nl/stationsinformatie/\(code.lowercased())")
+    }
 }
 
 /**

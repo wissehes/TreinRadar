@@ -109,6 +109,14 @@ struct StationView: View {
                         }
                     }.padding(.bottom, 5)
                 }
+                
+                if let url = station.wikiUrl {
+                    Link("Bekijk op Wikipedia", destination: url)
+                }
+                
+                if let url = station.NSUrl {
+                    Link("Bekijk op ns.nl", destination: url)
+                }
             }
             
             Section {
