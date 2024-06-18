@@ -31,6 +31,8 @@ final class Endpoints {
     static let nearbyTrains = "\(myBaseURL)/api/watchos/nearby"
     static let liveTrains = "\(myBaseURL)/api/trains/live"
     static let allLiveTrains = liveTrains + "/all"
+    
+    static let allDisruptions = "\(API.baseURL)/disruptions/v3"
 }
 
 final class API {
@@ -193,5 +195,18 @@ final class API {
         guard let image = UIImage(data: data) else { throw APIError.imageFailed }
         
         return image
+    }
+    
+    func getAllDisruptions() async throws -> Disruptions {
+        let params: Parameters = [
+            "isActive": true
+        ]
+        
+        let data = try await client
+            .request(Endpoints.allDisruptions, parameters: params)
+            .serializingDecodable(Disruptions.self, decoder: decoder)
+            .value
+        
+        return data
     }
 }
