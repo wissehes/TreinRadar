@@ -16,11 +16,11 @@ struct DeparturesResponse: Codable {
 
 // MARK: - Links
 struct Links: Codable {
-    let disruptions: Disruptions
+    let disruptions: DepartureDisruptions
 }
 
-// MARK: - Disruptions
-struct Disruptions: Codable {
+// MARK: - DepartureDisruptions
+struct DepartureDisruptions: Codable {
     let uri: String
 }
 
