@@ -78,6 +78,7 @@
 
     },
     "A: %@" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -146,6 +147,12 @@
           }
         }
       }
+    },
+    "Bekijk op ns.nl" : {
+
+    },
+    "Bekijk op Wikipedia" : {
+
     },
     "Deze rit kon niet gevonden worden" : {
       "localizations" : {
@@ -800,6 +807,9 @@
         }
       }
     },
+    "Storingen" : {
+
+    },
     "Trein" : {
       "localizations" : {
         "en" : {
@@ -891,6 +901,7 @@
       }
     },
     "V: %@" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
