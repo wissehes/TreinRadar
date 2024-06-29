@@ -57,7 +57,11 @@ struct Stop: Codable, Hashable {
 }
 
 // MARK: - Stock
-struct Stock: Codable, Hashable {
+struct Stock: Codable, Hashable, Equatable {
+    static func == (lhs: Stock, rhs: Stock) -> Bool {
+        lhs.trainParts.map({ $0.stockIdentifier }) == rhs.trainParts.map({ $0.stockIdentifier })
+    }
+    
     let trainType: String?
     let numberOfSeats, numberOfParts: Int?
     let trainParts: [TrainPart]

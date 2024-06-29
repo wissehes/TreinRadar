@@ -60,6 +60,7 @@
 		8993A1532ACDAD02002AC4A0 /* Facility+Symbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8993A1522ACDAD02002AC4A0 /* Facility+Symbol.swift */; };
 		8993A1552ACDB008002AC4A0 /* Array+Duplicates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8993A1542ACDB008002AC4A0 /* Array+Duplicates.swift */; };
 		899E73EC2AF7CEA6005EDA54 /* Backport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899E73EB2AF7CEA6005EDA54 /* Backport.swift */; };
+		899F5F442C27734F00F95C4F /* JourneyThisTrainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899F5F432C27734F00F95C4F /* JourneyThisTrainView.swift */; };
 		89A34A112AB75E460004591D /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A34A102AB75E460004591D /* LoadingView.swift */; };
 		89A48EC62A5573A0006F7A4E /* MessageStyle+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A48EC52A5573A0006F7A4E /* MessageStyle+String.swift */; };
 		89A48EC82A557497006F7A4E /* DepartureItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A48EC72A557497006F7A4E /* DepartureItemView.swift */; };
@@ -227,6 +228,7 @@
 		8993A1522ACDAD02002AC4A0 /* Facility+Symbol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Facility+Symbol.swift"; sourceTree = "<group>"; };
 		8993A1542ACDB008002AC4A0 /* Array+Duplicates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Duplicates.swift"; sourceTree = "<group>"; };
 		899E73EB2AF7CEA6005EDA54 /* Backport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Backport.swift; sourceTree = "<group>"; };
+		899F5F432C27734F00F95C4F /* JourneyThisTrainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyThisTrainView.swift; sourceTree = "<group>"; };
 		89A34A102AB75E460004591D /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		89A48EC52A5573A0006F7A4E /* MessageStyle+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MessageStyle+String.swift"; sourceTree = "<group>"; };
 		89A48EC72A557497006F7A4E /* DepartureItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureItemView.swift; sourceTree = "<group>"; };
@@ -642,6 +644,7 @@
 			children = (
 				89CEFD9B2A3D062900383555 /* JourneyView.swift */,
 				895A30FE2A44219500E305D8 /* JourneyViewModel.swift */,
+				899F5F432C27734F00F95C4F /* JourneyThisTrainView.swift */,
 			);
 			path = Journey;
 			sourceTree = "<group>";
@@ -911,6 +914,7 @@
 				89CEFD972A3D004B00383555 /* Defaults.swift in Sources */,
 				89CEFD8D2A3CF95600383555 /* DeparturesViewModel.swift in Sources */,
 				89A48ECD2A557562006F7A4E /* MockData.swift in Sources */,
+				899F5F442C27734F00F95C4F /* JourneyThisTrainView.swift in Sources */,
 				89586DEA2AB729E600939839 /* ArrivalsResponse.swift in Sources */,
 				89ACF2F32A4714FA00A4AC57 /* StationAnnotation.swift in Sources */,
 				895998342A570B7F00847B84 /* CurrentTrainView.swift in Sources */,

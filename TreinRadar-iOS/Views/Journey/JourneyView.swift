@@ -65,28 +65,7 @@ struct JourneyView: View {
                 }
             }
             
-            Section("Deze trein") {
-                
-                if journey.currentOrNextStop?.actualStock?.trainParts != nil {
-                    facilities
-                }
-                
-                if let length = journey.currentOrNextStop?.actualStock?.numberOfParts {
-                    Text("Lengte: \(length) delen")
-                }
-                if let seats = journey.currentOrNextStop?.actualStock?.numberOfSeats {
-                    Text("Zitplaatsen: \(seats)")
-                }
-                if journey.stockNumbers != "0" {
-                    Text("Materieel: \(journey.stockNumbers)")
-                }
-                
-                if let currentStop = journey.currentStop {
-                    Text("Huidig station: **\(currentStop.stop.name)**")
-                } else if let nextStop = journey.nextStop {
-                    Text("Volgend station: **\(nextStop.stop.name)**")
-                }
-            }
+            JourneyThisTrainView(journey: journey, nerdMode: vm.nerdMode)
             
             if let live = vm.live {
                 Section {
@@ -121,6 +100,7 @@ struct JourneyView: View {
             
             stops
         }.navigationTitle(journey.category)
+            .animation(.bouncy, value: vm.nerdMode)
             .refreshable {
                 await vm.getData(journeyId)
                 try? await Task.sleep(for: .seconds(1))
@@ -136,6 +116,7 @@ struct JourneyView: View {
                 
                 Menu {
                     Toggle("Laat alle stops zien", isOn: $vm.showAllStops)
+                    Toggle("Nerd modus", isOn: $vm.nerdMode)
                 } label: {
                     Label("Meer...", systemImage: "ellipsis.circle")
                 }
@@ -221,25 +202,27 @@ struct JourneyView: View {
     }
     
     func stopItem(_ stop: Stop) -> some View {
-        HStack(alignment: .center, spacing: 10) {
-            depOrArrTimes(stop)
-            
-            Spacer()
-            
-            Text(stop.stop.name)
-                .italic(stop.shouldDisplayAsSkipped)
-                .foregroundStyle(stop.shouldDisplayAsSkipped ? .secondary : .primary)
-                .multilineTextAlignment(.trailing)
-            
-            if let crowdForecast = stop.crowdForecast {
-                RushIcon(crowd: crowdForecast)
-            }
-            
-            if let track = stop.track {
-                PlatformIcon(platform: track)
-            } else {
-                EmptyView()
-                    .frame(width: 35)
+        VStack(alignment: .leading) {
+            HStack(alignment: .center, spacing: 10) {
+                depOrArrTimes(stop)
+                
+                Spacer()
+                
+                Text(stop.stop.name)
+                    .italic(stop.shouldDisplayAsSkipped)
+                    .foregroundStyle(stop.shouldDisplayAsSkipped ? .secondary : .primary)
+                    .multilineTextAlignment(.trailing)
+                
+                if let crowdForecast = stop.crowdForecast {
+                    RushIcon(crowd: crowdForecast)
+                }
+                
+                if let track = stop.track {
+                    PlatformIcon(platform: track)
+                } else {
+                    EmptyView()
+                        .frame(width: 35)
+                }
             }
         }
     }
@@ -269,29 +252,12 @@ struct JourneyView: View {
             }
         }.frame(minWidth: 60, alignment: .center).font(.subheadline)
     }
-    
-    var facilities: some View {
-        let allFacilities: [Facility]? = vm.journey?.currentOrNextStop?.actualStock?.trainParts.flatMap({ part in
-            part.facilities
-        }).removingDuplicates()
-        
-        return ScrollView(.horizontal) {
-            HStack(alignment: .center, spacing: 10) {
-                ForEach(allFacilities ?? [], id: \.rawValue) { facility in
-                    Image(systemName: facility.symbolName)
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 30, height: 30)
-                }
-            }.frame(height: 40)
-        }
-    }
 }
 
 struct JourneyView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            JourneyView(journeyId: "6948")
+            JourneyView(journeyId: "7383")
         }
         
         StationsSearchView()
