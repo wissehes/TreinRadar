@@ -14,6 +14,7 @@ final class JourneyViewModel: ObservableObject {
     @Published var geojson: StopsAndGeometry?
     @Published var showAllStops: Bool = false
     @Published var showingPreviousStops: Bool = false
+    @Published var nerdMode: Bool = true
     
     @Published var live: LiveTrain?
     @Published var liveIsLoading: Bool = true

@@ -75,7 +75,14 @@
       }
     },
     "+%lld" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ""
+          }
+        }
+      }
     },
     "A: %@" : {
       "extractionState" : "stale",
@@ -149,10 +156,24 @@
       }
     },
     "Bekijk op ns.nl" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "View on NS.nl"
+          }
+        }
+      }
     },
     "Bekijk op Wikipedia" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "View on Wikipedia"
+          }
+        }
+      }
     },
     "Deze rit kon niet gevonden worden" : {
       "localizations" : {
@@ -524,6 +545,16 @@
         }
       }
     },
+    "Nerd modus" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nerd mode"
+          }
+        }
+      }
+    },
     "Nog geen favoriete stations" : {
       "localizations" : {
         "en" : {
@@ -630,6 +661,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Journey number"
+          }
+        }
+      }
+    },
+    "Ritnummer: **%@**" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Journey code: **%@**"
           }
         }
       }
