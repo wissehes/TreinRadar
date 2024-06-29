@@ -176,7 +176,11 @@ struct Disruption: Codable, Identifiable {
     }
 
     // MARK: - TitleSection
-    struct TitleSection: Codable {
+    struct TitleSection: Codable, Hashable, Identifiable {
+        var id: String {
+            type.rawValue + value
+        }
+        
         let type: TitleSectionType
         let value: String
     }
