@@ -28,7 +28,7 @@ struct DisruptionsOverview: View {
     
     private func load() async {
         do {
-            let data = try await API.shared.getAllDisruptions()
+            let data = try await API.shared.getAllDisruptions(for: station ?? nil)
             self.disruptions = data.filter({ $0.start ?? Date() <= Date() })
         } catch {
             debugPrint(error)

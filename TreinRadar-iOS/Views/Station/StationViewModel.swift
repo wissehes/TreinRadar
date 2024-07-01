@@ -15,6 +15,7 @@ final class StationViewModel: ObservableObject {
     
     @Published var departures: [Departure]?
     @Published var arrivals: [Arrival]?
+    @Published var disruptions: [Disruption]?
     
     @Published var imageData: UIImage?
     
@@ -55,6 +56,7 @@ final class StationViewModel: ObservableObject {
         
         await self.fetchDepartures(station)
         await self.fetchArrivals(station)
+        await self.fetchDisruptions(station)
     }
     
     @MainActor
@@ -74,6 +76,14 @@ final class StationViewModel: ObservableObject {
             let slice = Array(arrivals.prefix(3))
             
             withAnimation { self.arrivals = slice }
+        } catch { print(error) }
+    }
+    
+    @MainActor
+    private func fetchDisruptions(_ station: any Station) async {
+        do {
+            let disruptions = try await API.shared.getAllDisruptions(for: station)
+            withAnimation { self.disruptions = disruptions }
         } catch { print(error) }
     }
     

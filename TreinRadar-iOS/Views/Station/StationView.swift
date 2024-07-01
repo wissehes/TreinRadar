@@ -117,6 +117,21 @@ struct StationView: View {
                 if let url = station.NSUrl {
                     Link("Bekijk op ns.nl", destination: url)
                 }
+                
+                if let disruptions = vm.disruptions, disruptions.count > 0 {
+                    NavigationLink {
+                        DisruptionsOverview(station: station)
+                    } label: {
+                        Label(
+                            title: { Text("\(disruptions.count) storingen") },
+                            icon: {
+                                Image(systemName: "exclamationmark.triangle.fill")
+                                    .foregroundColor(.yellow)
+                            }
+                        )
+                    }
+
+                }
             }
             
             Section {
