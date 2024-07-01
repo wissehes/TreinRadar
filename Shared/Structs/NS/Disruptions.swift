@@ -8,7 +8,11 @@
 import Foundation
 
 // MARK: - Disruption
-struct Disruption: Codable, Identifiable {
+struct Disruption: Codable, Identifiable, Equatable {
+    static func == (lhs: Disruption, rhs: Disruption) -> Bool {
+        lhs.id == rhs.id
+    }
+    
     let type: DisruptionType
     let id, title: String
     let isActive: Bool
@@ -30,6 +34,10 @@ struct Disruption: Codable, Identifiable {
     let bodyItems: [BodyItem]?
     let buttons: Buttons?
     let period: String?
+    
+    var currentAlternativeTransportTimespans: AlternativeTransportTimespan? {
+        self.alternativeTransportTimespans?.first(where: { $0.start >= Date.now && $0.end <= Date.now })
+    }
     
     // MARK: - AlternativeTransportTimespan
     struct AlternativeTransportTimespan: Codable {
@@ -123,6 +131,14 @@ struct Disruption: Codable, Identifiable {
         let description: String
     //    let level: Level
         let level: String
+        
+        var normalDescription: String {
+            if description.starts(with: "rijden") {
+                return "Er \(description)"
+            } else {
+                return description.capitalizingFirstLetter()
+            }
+        }
     }
 
     //enum Level: String, Codable {
