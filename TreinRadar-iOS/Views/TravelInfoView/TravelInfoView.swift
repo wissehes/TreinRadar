@@ -24,6 +24,10 @@ struct TravelInfoView: View {
                     trainDetection
                     nearbyStations
                 }
+                
+                Section {
+                    NavigationLink("Storingen", destination: DisruptionsOverview.init)
+                }
             }.navigationTitle("Reisinformatie")
                 .navigationDestination(for: JourneyId.self) { id in
                     JourneyView(journeyId: id)
