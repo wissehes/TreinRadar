@@ -33,6 +33,7 @@ final class Endpoints {
     static let allLiveTrains = liveTrains + "/all"
     
     static let allDisruptions = "\(API.baseURL)/disruptions/v3"
+    static let disruptionsForStation = "\(API.baseURL)/disruptions/v3/station"
 }
 
 final class API {
@@ -197,13 +198,21 @@ final class API {
         return image
     }
     
-    func getAllDisruptions() async throws -> Disruptions {
+    func getAllDisruptions(for station: (any Station)? = nil) async throws -> Disruptions {
         let params: Parameters = [
             "isActive": true
         ]
         
+        let endpoint: String
+        
+        if let station {
+            endpoint = Endpoints.disruptionsForStation + "/\(station.code)"
+        } else {
+            endpoint = Endpoints.allDisruptions
+        }
+        
         let data = try await client
-            .request(Endpoints.allDisruptions, parameters: params)
+            .request(endpoint, parameters: params)
             .serializingDecodable(Disruptions.self, decoder: decoder)
             .value
         
