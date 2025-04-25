@@ -1,6 +1,12 @@
 {
   "sourceLanguage" : "nl",
   "strings" : {
+    "" : {
+
+    },
+    " - " : {
+
+    },
     "(+%lld)" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -64,6 +70,9 @@
         }
       }
     },
+    "%lld storingen" : {
+
+    },
     "%lld zitplaatsen" : {
       "localizations" : {
         "en" : {
@@ -85,7 +94,6 @@
       }
     },
     "A: %@" : {
-      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -204,6 +212,9 @@
           }
         }
       }
+    },
+    "Dit duurt tot %@" : {
+
     },
     "Draai treinen naar richting" : {
       "localizations" : {
@@ -851,6 +862,9 @@
     "Storingen" : {
 
     },
+    "t/m %@" : {
+
+    },
     "Trein" : {
       "localizations" : {
         "en" : {
@@ -942,7 +956,6 @@
       }
     },
     "V: %@" : {
-      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1081,6 +1094,9 @@
           }
         }
       }
+    },
+    "Werkzaamheden" : {
+
     },
     "Zitplaatsen: %lld" : {
       "localizations" : {
